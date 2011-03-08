@@ -1,0 +1,3 @@
+[submodule "src/vbcc"]
+	path = src/vbcc
+	url = git://github.com/kusma/vbcc.git
