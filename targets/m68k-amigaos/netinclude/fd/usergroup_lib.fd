@@ -1,0 +1,65 @@
+**
+**	$Filename: fd/usergroup_lib.fd $
+**	$Release$
+**	$Revision: 4.2 $
+**	$Date: 1994/10/05 20:30:38 $
+**
+**	FD file for usergroup.library
+**
+**	Copyright © 1994 AmiTCP/IP Group, 
+**	                 Network Solutions Development Inc.
+**	                 All rights reserved.
+**
+##base _UserGroupBase
+##bias 30
+##public
+*------ Setup functions ------*
+ug_SetupContextTagList(pname, taglist)(a0/a1)
+ug_GetErr()()
+ug_StrError(code)(d1)
+*------ User identification ------*
+getuid()()
+geteuid()()
+setreuid(real, eff)(d0/d1)
+setuid(id)(d0)
+*------ Group membership ------*
+getgid()()
+getegid()()
+setregid(real, eff)(d0/d1)
+setgid(id)(d0)
+getgroups(ngroups, groups)(d0/a1)
+setgroups(ngroups, groups)(d0/a1)
+initgroups(name, basegroup)(a1/d0)
+*------ User database ------*
+getpwnam(name)(a1)
+getpwuid(uid)(d0)
+setpwent()()
+getpwent()()
+endpwent()()
+*------ Group database ------*
+getgrnam(name)(a1)
+getgrgid(gid)(d0)
+setgrent()()
+getgrent()()
+endgrent()()
+*------ Password handling ------*
+crypt(key, salt)(a0/a1)
+ug_GetSalt(user, buffer, size)(a0/a1/d0)
+getpass(prompt)(a1)
+*------ Default protections ------*
+umask(mask)(d0)
+getumask()()
+*------ Sessions ------*
+setsid()()
+getpgrp()()
+getlogin()()
+setlogin(buffer)(a1)
+*------ Sessions, user login database (utmp) ------*
+setutent()()
+getutent()()
+endutent()()
+getlastlog(uid)(d0)
+setlastlog(uid, name, host)(d0/a0/a1)
+*------ Credentials ------*
+getcredentials(task)(a0)
+##end
