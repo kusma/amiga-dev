@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cd $(dirname $0)
+
 export prefix=../..
 export TARGET=m68k
 export CPU=m68k
