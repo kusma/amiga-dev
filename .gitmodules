@@ -1,9 +1,9 @@
 [submodule "src/vbcc"]
 	path = src/vbcc
-	url = git://github.com/kusma/vbcc.git
+	url = ../vbcc.git
 [submodule "src/vasm"]
 	path = src/vasm
-	url = git://github.com/kusma/vasm.git
+	url = ../vasm.git
 [submodule "src/vlink"]
 	path = src/vlink
-	url = git://github.com/kusma/vlink.git
+	url = ../vlink.git
