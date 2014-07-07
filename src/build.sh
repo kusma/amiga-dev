@@ -2,7 +2,7 @@
 
 cd $(dirname $0)
 
-export prefix=../..
+export DESTDIR=../..
 export TARGET=m68k
 export CPU=m68k
 export SYNTAX=mot
