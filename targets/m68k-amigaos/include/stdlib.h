@@ -24,7 +24,7 @@ typedef char wchar_t;
 
 
 void exit(int);
-#if __STDC_VERSION__ == 199901
+#if __STDC_VERSION__ >= 199901L
 void _Exit(int);
 #endif
 void *malloc(size_t);
@@ -37,16 +37,16 @@ void srand(unsigned int);
 double atof(const char *);
 int atoi(const char *);
 long atol(const char *);
-#if __STDC_VERSION__ == 199901
+#if __STDC_VERSION__ >= 199901L
 long long atoll(const char *);
 #endif
 double strtod(const char *,char **);
 long strtol(const char *,char **,int);
-#if __STDC_VERSION__ == 199901
+#if __STDC_VERSION__ >= 199901L
 signed long long strtoll(const char *,char **,int);
 #endif
 unsigned long strtoul(const char *,char **,int);
-#if __STDC_VERSION__ == 199901
+#if __STDC_VERSION__ >= 199901L
 unsigned long long strtoull(const char *,char **,int);
 #endif
 void abort(void);
@@ -63,7 +63,7 @@ typedef struct {
     long quot,rem;
 } ldiv_t;
 
-#if __STDC_VERSION__ == 199901
+#if __STDC_VERSION__ >= 199901L
 typedef struct {
     long long quot,rem;
 } lldiv_t;
@@ -71,13 +71,13 @@ typedef struct {
 
 div_t div(int,int);
 ldiv_t ldiv(long,long);
-#if __STDC_VERSION__ == 199901
+#if __STDC_VERSION__ >= 199901L
 lldiv_t lldiv(long long,long long);
 #endif
 
 int abs(int);
 long labs(long);
-#if __STDC_VERSION__ == 199901
+#if __STDC_VERSION__ >= 199901L
 long long llabs(long long);
 #endif
 
@@ -92,7 +92,7 @@ long __asm_labs(__reg("d0") long) =
                 "\tbpl.b\t*+2\n"
                 "\tneg.l\td0\n"
                 ";=barrier";
-#if __STDC_VERSION__ == 199901
+#if __STDC_VERSION__ >= 199901L
 long long __asm_llabs(__reg("d0/d1") long long) =
                 "\ttst.l\td0\n"
                 "\tbpl.b\t*+4\n"
