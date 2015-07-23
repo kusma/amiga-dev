@@ -1,0 +1,52 @@
+==id $Id: layers_lib.sfd 40.1 1996/05/17 19:13:47 olsen Exp olsen $
+==base _LayersBase
+==basetype struct Library *
+==libname layers.library
+==bias 30
+==public
+==include <exec/types.h>
+==include <graphics/layers.h>
+==include <graphics/clip.h>
+==include <graphics/rastport.h>
+==include <graphics/regions.h>
+VOID InitLayers(struct Layer_Info * li) (a0)
+struct Layer * CreateUpfrontLayer(struct Layer_Info * li, struct BitMap * bm, LONG x0, LONG y0,
+	LONG x1, LONG y1, LONG flags, struct BitMap * bm2) (a0,a1,d0,d1,d2,d3,d4,a2)
+struct Layer * CreateBehindLayer(struct Layer_Info * li, struct BitMap * bm, LONG x0, LONG y0,
+	LONG x1, LONG y1, LONG flags, struct BitMap * bm2) (a0,a1,d0,d1,d2,d3,d4,a2)
+LONG UpfrontLayer(LONG dummy, struct Layer * layer) (a0,a1)
+LONG BehindLayer(LONG dummy, struct Layer * layer) (a0,a1)
+LONG MoveLayer(LONG dummy, struct Layer * layer, LONG dx, LONG dy) (a0,a1,d0,d1)
+LONG SizeLayer(LONG dummy, struct Layer * layer, LONG dx, LONG dy) (a0,a1,d0,d1)
+VOID ScrollLayer(LONG dummy, struct Layer * layer, LONG dx, LONG dy) (a0,a1,d0,d1)
+LONG BeginUpdate(struct Layer * l) (a0)
+VOID EndUpdate(struct Layer * layer, UWORD flag) (a0,d0)
+LONG DeleteLayer(LONG dummy, struct Layer * layer) (a0,a1)
+VOID LockLayer(LONG dummy, struct Layer * layer) (a0,a1)
+VOID UnlockLayer(struct Layer * layer) (a0)
+VOID LockLayers(struct Layer_Info * li) (a0)
+VOID UnlockLayers(struct Layer_Info * li) (a0)
+VOID LockLayerInfo(struct Layer_Info * li) (a0)
+VOID SwapBitsRastPortClipRect(struct RastPort * rp, struct ClipRect * cr) (a0,a1)
+struct Layer * WhichLayer(struct Layer_Info * li, WORD x, WORD y) (a0,d0,d1)
+VOID UnlockLayerInfo(struct Layer_Info * li) (a0)
+struct Layer_Info * NewLayerInfo() ()
+VOID DisposeLayerInfo(struct Layer_Info * li) (a0)
+LONG FattenLayerInfo(struct Layer_Info * li) (a0)
+VOID ThinLayerInfo(struct Layer_Info * li) (a0)
+LONG MoveLayerInFrontOf(struct Layer * layer_to_move, struct Layer * other_layer) (a0,a1)
+struct Region * InstallClipRegion(struct Layer * layer, const struct Region * region) (a0,a1)
+LONG MoveSizeLayer(struct Layer * layer, LONG dx, LONG dy, LONG dw, LONG dh) (a0,d0,d1,d2,d3)
+struct Layer * CreateUpfrontHookLayer(struct Layer_Info * li, struct BitMap * bm, LONG x0, LONG y0,
+	LONG x1, LONG y1, LONG flags, struct Hook * hook,
+	struct BitMap * bm2) (a0,a1,d0,d1,d2,d3,d4,a3,a2)
+struct Layer * CreateBehindHookLayer(struct Layer_Info * li, struct BitMap * bm, LONG x0, LONG y0,
+	LONG x1, LONG y1, LONG flags, struct Hook * hook,
+	struct BitMap * bm2) (a0,a1,d0,d1,d2,d3,d4,a3,a2)
+struct Hook * InstallLayerHook(struct Layer * layer, struct Hook * hook) (a0,a1)
+==version 39
+struct Hook * InstallLayerInfoHook(struct Layer_Info * li, const struct Hook * hook) (a0,a1)
+VOID SortLayerCR(struct Layer * layer, WORD dx, WORD dy) (a0,d0,d1)
+VOID DoHookClipRects(struct Hook * hook, struct RastPort * rport,
+	const struct Rectangle * rect) (a0,a1,a2)
+==end

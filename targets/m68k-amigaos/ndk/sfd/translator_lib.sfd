@@ -1,0 +1,10 @@
+==id $Id: translator_lib.sfd 40.1 1996/05/17 19:13:47 olsen Exp olsen $
+==base _TranslatorBase
+==basetype struct Library *
+==libname translator.library
+==bias 30
+==public
+==include <exec/types.h>
+LONG Translate(CONST_STRPTR inputString, LONG inputLength, STRPTR outputBuffer,
+	LONG bufferSize) (a0,d0,a1,d1)
+==end

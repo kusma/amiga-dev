@@ -1,0 +1,13 @@
+==id $Id: timer_lib.sfd 40.1 1996/05/17 19:13:47 olsen Exp olsen $
+==base _TimerBase
+==basetype struct Device *
+==libname timer.device
+==bias 42
+==public
+==include <devices/timer.h>
+VOID AddTime(struct timeval * dest, const struct timeval * src) (a0,a1)
+VOID SubTime(struct timeval * dest, const struct timeval * src) (a0,a1)
+LONG CmpTime(const struct timeval * dest, const struct timeval * src) (a0,a1)
+ULONG ReadEClock(struct EClockVal * dest) (a0)
+VOID GetSysTime(struct timeval * dest) (a0)
+==end

@@ -1,0 +1,20 @@
+==id $Id: speedbar_lib.sfd 1.1 1999/10/06 10:13:25 olsen Exp olsen $
+==base _SpeedBarBase
+==basetype struct Library *
+==libname speedbar.library
+==bias 30
+==public
+==include <intuition/intuition.h>
+==include <intuition/classes.h>
+Class * SPEEDBAR_GetClass() ()
+struct Node * AllocSpeedButtonNodeA(UWORD number, struct TagItem * tags) (d0,a0)
+==varargs
+struct Node * AllocSpeedButtonNode(UWORD number, Tag tags, ...) (d0,a0)
+VOID FreeSpeedButtonNode(struct Node * node) (a0)
+VOID SetSpeedButtonNodeAttrsA(struct Node * node, struct TagItem * tags) (a0,a1)
+==varargs
+VOID SetSpeedButtonNodeAttrs(struct Node * node, ...) (a0,a1)
+VOID GetSpeedButtonNodeAttrsA(struct Node * node, struct TagItem * tags) (a0,a1)
+==varargs
+VOID GetSpeedButtonNodeAttrs(struct Node * node, ...) (a0,a1)
+==end

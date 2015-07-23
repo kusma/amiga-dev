@@ -1,0 +1,14 @@
+==id $Id: console_lib.sfd 40.1 1996/05/17 19:13:47 olsen Exp olsen $
+==base _ConsoleDevice
+==basetype struct Device *
+==libname console.device
+==bias 42
+==public
+==include <exec/libraries.h>
+==include <devices/inputevent.h>
+==include <devices/keymap.h>
+struct InputEvent * CDInputHandler(const struct InputEvent * events,
+	struct Library * consoleDevice) (a0,a1)
+LONG RawKeyConvert(const struct InputEvent * events, STRPTR buffer, LONG length,
+	const struct KeyMap * keyMap) (a0,a1,d1,a2)
+==end

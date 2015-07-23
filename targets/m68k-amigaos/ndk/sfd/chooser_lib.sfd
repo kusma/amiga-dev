@@ -1,0 +1,20 @@
+==id $Id: chooser_lib.sfd 1.1 1999/10/06 10:13:25 olsen Exp olsen $
+==base _ChooserBase
+==basetype struct Library *
+==libname chooser.library
+==bias 30
+==public
+==include <intuition/intuition.h>
+==include <intuition/classes.h>
+Class * CHOOSER_GetClass() ()
+struct Node * AllocChooserNodeA(struct TagItem * tags) (a0)
+==varargs
+struct Node * AllocChooserNode(Tag tags, ...) (a0)
+VOID FreeChooserNode(struct Node * node) (a0)
+VOID SetChooserNodeAttrsA(struct Node * node, struct TagItem * tags) (a0,a1)
+==varargs
+VOID SetChooserNodeAttrs(struct Node * node, ...) (a0,a1)
+VOID GetChooserNodeAttrsA(struct Node * node, struct TagItem * tags) (a0,a1)
+==varargs
+VOID GetChooserNodeAttrs(struct Node * node, ...) (a0,a1)
+==end

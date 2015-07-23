@@ -1,0 +1,25 @@
+==id $Id: mathieeedoubtrans_lib.sfd 40.1 1996/05/17 19:13:47 olsen Exp olsen $
+==base _MathIeeeDoubTransBase
+==basetype struct MathIEEEBase *
+==libname mathieeedoubtrans.library
+==bias 30
+==public
+==include <exec/types.h>
+DOUBLE IEEEDPAtan(DOUBLE parm) (d0-d1)
+DOUBLE IEEEDPSin(DOUBLE parm) (d0-d1)
+DOUBLE IEEEDPCos(DOUBLE parm) (d0-d1)
+DOUBLE IEEEDPTan(DOUBLE parm) (d0-d1)
+DOUBLE IEEEDPSincos(DOUBLE * pf2, DOUBLE parm) (a0,d0-d1)
+DOUBLE IEEEDPSinh(DOUBLE parm) (d0-d1)
+DOUBLE IEEEDPCosh(DOUBLE parm) (d0-d1)
+DOUBLE IEEEDPTanh(DOUBLE parm) (d0-d1)
+DOUBLE IEEEDPExp(DOUBLE parm) (d0-d1)
+DOUBLE IEEEDPLog(DOUBLE parm) (d0-d1)
+DOUBLE IEEEDPPow(DOUBLE exp, DOUBLE arg) (d2-d3,d0-d1)
+DOUBLE IEEEDPSqrt(DOUBLE parm) (d0-d1)
+FLOAT IEEEDPTieee(DOUBLE parm) (d0-d1)
+DOUBLE IEEEDPFieee(FLOAT single) (d0)
+DOUBLE IEEEDPAsin(DOUBLE parm) (d0-d1)
+DOUBLE IEEEDPAcos(DOUBLE parm) (d0-d1)
+DOUBLE IEEEDPLog10(DOUBLE parm) (d0-d1)
+==end

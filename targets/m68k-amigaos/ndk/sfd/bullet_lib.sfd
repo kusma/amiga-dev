@@ -1,0 +1,20 @@
+==id $Id: bullet_lib.sfd,v 7.1 1992/05/22 11:17:46 davidj Exp $
+==base _BulletBase
+==basetype struct Library *
+==libname bullet.library
+==bias 30
+==public
+==include <utility/tagitem.h>
+==include <diskfont/glyph.h>
+struct GlyphEngine * OpenEngine() ()
+VOID CloseEngine(struct GlyphEngine * glyphEngine) (a0)
+ULONG SetInfoA(struct GlyphEngine * glyphEngine, struct TagItem * tagList) (a0,a1)
+==varargs
+ULONG SetInfo(struct GlyphEngine * glyphEngine, Tag tagList, ...) (a0,a1)
+ULONG ObtainInfoA(struct GlyphEngine * glyphEngine, struct TagItem * tagList) (a0,a1)
+==varargs
+ULONG ObtainInfo(struct GlyphEngine * glyphEngine, Tag tagList, ...) (a0,a1)
+ULONG ReleaseInfoA(struct GlyphEngine * glyphEngine, struct TagItem * tagList) (a0,a1)
+==varargs
+ULONG ReleaseInfo(struct GlyphEngine * glyphEngine, Tag tagList, ...) (a0,a1)
+==end

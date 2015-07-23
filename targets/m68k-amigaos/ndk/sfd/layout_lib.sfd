@@ -1,0 +1,26 @@
+==id $Id: layout_lib.sfd 1.1 1999/10/06 10:13:25 olsen Exp olsen $
+==base _LayoutBase
+==basetype struct Library *
+==libname layout.library
+==bias 30
+==public
+==include <intuition/intuition.h>
+==include <intuition/classes.h>
+==include <gadgets/layout.h>
+Class * LAYOUT_GetClass() ()
+BOOL ActivateLayoutGadget(struct Gadget * gadget, struct Window * window,
+	struct Requester * requester, ULONG object) (a0,a1,a2,d0)
+VOID FlushLayoutDomainCache(struct Gadget * gadget) (a0)
+BOOL RethinkLayout(struct Gadget * gadget, struct Window * window,
+	struct Requester * requester, BOOL refresh) (a0,a1,a2,d0)
+VOID LayoutLimits(struct Gadget * gadget, struct LayoutLimits * limits,
+	struct TextFont * font, struct Screen * screen) (a0,a1,a2,a3)
+Class * PAGE_GetClass() ()
+ULONG SetPageGadgetAttrsA(struct Gadget * gadget, Object * object, struct Window * window,
+	struct Requester * requester, struct TagItem * tags) (a0,a1,a2,a3,a4)
+==varargs
+ULONG SetPageGadgetAttrs(struct Gadget * gadget, Object * object, struct Window * window,
+	struct Requester * requester, ...) (a0,a1,a2,a3,a4)
+VOID RefreshPageGadget(struct Gadget * gadget, Object * object, struct Window * window,
+	struct Requester * requester) (a0,a1,a2,a3)
+==end

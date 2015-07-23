@@ -1,0 +1,53 @@
+==id $Id: amigaguide_lib.sfd,v 39.4 1993/06/17 14:19:17 davidj Exp $
+==base _AmigaGuideBase
+==basetype struct Library *
+==libname amigaguide.library
+==bias 30
+==public
+==include <exec/types.h>
+==include <exec/ports.h>
+==include <dos/dos.h>
+==include <libraries/amigaguide.h>
+==include <utility/tagitem.h>
+==include <utility/hooks.h>
+==include <rexx/storage.h>
+==version 40
+==reserve 1
+LONG LockAmigaGuideBase(APTR handle) (a0)
+VOID UnlockAmigaGuideBase(LONG key) (d0)
+==reserve 1
+APTR OpenAmigaGuideA(struct NewAmigaGuide * nag, struct TagItem * tags) (a0,a1)
+==varargs
+APTR OpenAmigaGuide(struct NewAmigaGuide * nag, Tag tags, ...) (a0,a1)
+APTR OpenAmigaGuideAsyncA(struct NewAmigaGuide * nag, struct TagItem * attrs) (a0,d0)
+==varargs
+APTR OpenAmigaGuideAsync(struct NewAmigaGuide * nag, Tag attrs, ...) (a0,d0)
+VOID CloseAmigaGuide(APTR cl) (a0)
+ULONG AmigaGuideSignal(APTR cl) (a0)
+struct AmigaGuideMsg * GetAmigaGuideMsg(APTR cl) (a0)
+VOID ReplyAmigaGuideMsg(struct AmigaGuideMsg * amsg) (a0)
+LONG SetAmigaGuideContextA(APTR cl, ULONG id, struct TagItem * attrs) (a0,d0,d1)
+==varargs
+LONG SetAmigaGuideContext(APTR cl, ULONG id, Tag attrs, ...) (a0,d0,d1)
+LONG SendAmigaGuideContextA(APTR cl, struct TagItem * attrs) (a0,d0)
+==varargs
+LONG SendAmigaGuideContext(APTR cl, Tag attrs, ...) (a0,d0)
+LONG SendAmigaGuideCmdA(APTR cl, STRPTR cmd, struct TagItem * attrs) (a0,d0,d1)
+==varargs
+LONG SendAmigaGuideCmd(APTR cl, STRPTR cmd, Tag attrs, ...) (a0,d0,d1)
+LONG SetAmigaGuideAttrsA(APTR cl, struct TagItem * attrs) (a0,a1)
+==varargs
+LONG SetAmigaGuideAttrs(APTR cl, Tag attrs, ...) (a0,a1)
+LONG GetAmigaGuideAttr(Tag tag, APTR cl, ULONG * storage) (d0,a0,a1)
+==reserve 1
+LONG LoadXRef(BPTR lock, STRPTR name) (a0,a1)
+VOID ExpungeXRef() ()
+APTR AddAmigaGuideHostA(struct Hook * h, STRPTR name, struct TagItem * attrs) (a0,d0,a1)
+==varargs
+APTR AddAmigaGuideHost(struct Hook * h, STRPTR name, Tag attrs, ...) (a0,d0,a1)
+LONG RemoveAmigaGuideHostA(APTR hh, struct TagItem * attrs) (a0,a1)
+==varargs
+LONG RemoveAmigaGuideHost(APTR hh, Tag attrs, ...) (a0,a1)
+==reserve 10
+STRPTR GetAmigaGuideString(LONG id) (d0)
+==end

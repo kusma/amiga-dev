@@ -1,0 +1,60 @@
+==id $Id: icon_lib.sfd 44.17 1999/07/15 09:22:35 olsen Exp olsen $
+==base _IconBase
+==basetype struct Library *
+==libname icon.library
+==bias 30
+==public
+==include <workbench/workbench.h>
+==include <datatypes/pictureclass.h>
+==reserve 4
+VOID FreeFreeList(struct FreeList * freelist) (a0)
+==reserve 2
+BOOL AddFreeList(struct FreeList * freelist, const APTR mem, ULONG size) (a0,a1,a2)
+struct DiskObject * GetDiskObject(const STRPTR name) (a0)
+BOOL PutDiskObject(const STRPTR name, const struct DiskObject * diskobj) (a0,a1)
+VOID FreeDiskObject(struct DiskObject * diskobj) (a0)
+UBYTE * FindToolType(const STRPTR * toolTypeArray, const STRPTR typeName) (a0,a1)
+BOOL MatchToolValue(const STRPTR typeString, const STRPTR value) (a0,a1)
+STRPTR BumpRevision(STRPTR newname, const STRPTR oldname) (a0,a1)
+==version 36
+==reserve 1
+struct DiskObject * GetDefDiskObject(LONG type) (d0)
+BOOL PutDefDiskObject(const struct DiskObject * diskObject) (a0)
+struct DiskObject * GetDiskObjectNew(const STRPTR name) (a0)
+==version 37
+BOOL DeleteDiskObject(const STRPTR name) (a0)
+==version 44
+==reserve 1
+struct DiskObject * DupDiskObjectA(const struct DiskObject * diskObject,
+	const struct TagItem * tags) (a0,a1)
+==varargs
+struct DiskObject * DupDiskObject(const struct DiskObject * diskObject, ...) (a0,a1)
+ULONG IconControlA(struct DiskObject * icon, const struct TagItem * tags) (a0,a1)
+==varargs
+ULONG IconControl(struct DiskObject * icon, ...) (a0,a1)
+VOID DrawIconStateA(struct RastPort * rp, const struct DiskObject * icon,
+	const STRPTR label, LONG leftOffset, LONG topOffset, ULONG state,
+	const struct TagItem * tags) (a0,a1,a2,d0,d1,d2,a3)
+==varargs
+VOID DrawIconState(struct RastPort * rp, const struct DiskObject * icon,
+	const STRPTR label, LONG leftOffset, LONG topOffset, ULONG state,
+	...) (a0,a1,a2,d0,d1,d2,a3)
+BOOL GetIconRectangleA(struct RastPort * rp, const struct DiskObject * icon,
+	const STRPTR label, struct Rectangle * rect,
+	const struct TagItem * tags) (a0,a1,a2,a3,a4)
+==varargs
+BOOL GetIconRectangle(struct RastPort * rp, const struct DiskObject * icon,
+	const STRPTR label, struct Rectangle * rect, ...) (a0,a1,a2,a3,a4)
+struct DiskObject * NewDiskObject(LONG type) (d0)
+struct DiskObject * GetIconTagList(const STRPTR name, const struct TagItem * tags) (a0,a1)
+==varargs
+struct DiskObject * GetIconTags(const STRPTR name, ...) (a0,a1)
+BOOL PutIconTagList(const STRPTR name, const struct DiskObject * icon,
+	const struct TagItem * tags) (a0,a1,a2)
+==varargs
+BOOL PutIconTags(const STRPTR name, const struct DiskObject * icon, ...) (a0,a1,a2)
+BOOL LayoutIconA(struct DiskObject * icon, struct Screen * screen, struct TagItem * tags) (a0,a1,a2)
+==varargs
+BOOL LayoutIcon(struct DiskObject * icon, struct Screen * screen, ...) (a0,a1,a2)
+VOID ChangeToSelectedIconColor(struct ColorRegister * cr) (a0)
+==end

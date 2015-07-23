@@ -1,0 +1,36 @@
+==id $Id: expansion_lib.sfd 40.2 1998/06/06 12:43:53 olsen Exp olsen $
+==base _ExpansionBase
+==basetype struct ExpansionBase *
+==libname expansion.library
+==bias 30
+==public
+==include <exec/types.h>
+==include <libraries/configvars.h>
+==include <dos/filehandler.h>
+==version 33
+VOID AddConfigDev(struct ConfigDev * configDev) (a0)
+==version 36
+BOOL AddBootNode(LONG bootPri, ULONG flags, struct DeviceNode * deviceNode,
+	struct ConfigDev * configDev) (d0,d1,a0,a1)
+==version 33
+VOID AllocBoardMem(ULONG slotSpec) (d0)
+struct ConfigDev * AllocConfigDev() ()
+APTR AllocExpansionMem(ULONG numSlots, ULONG slotAlign) (d0,d1)
+VOID ConfigBoard(APTR board, struct ConfigDev * configDev) (a0,a1)
+VOID ConfigChain(APTR baseAddr) (a0)
+struct ConfigDev * FindConfigDev(const struct ConfigDev * oldConfigDev, LONG manufacturer,
+	LONG product) (a0,d0,d1)
+VOID FreeBoardMem(ULONG startSlot, ULONG slotSpec) (d0,d1)
+VOID FreeConfigDev(struct ConfigDev * configDev) (a0)
+VOID FreeExpansionMem(ULONG startSlot, ULONG numSlots) (d0,d1)
+UBYTE ReadExpansionByte(const APTR board, ULONG offset) (a0,d0)
+VOID ReadExpansionRom(const APTR board, struct ConfigDev * configDev) (a0,a1)
+VOID RemConfigDev(struct ConfigDev * configDev) (a0)
+VOID WriteExpansionByte(APTR board, ULONG offset, UBYTE byte) (a0,d0,d1)
+VOID ObtainConfigBinding() ()
+VOID ReleaseConfigBinding() ()
+VOID SetCurrentBinding(struct CurrentBinding * currentBinding, ULONG bindingSize) (a0,d0)
+ULONG GetCurrentBinding(const struct CurrentBinding * currentBinding, ULONG bindingSize) (a0,d0)
+struct DeviceNode * MakeDosNode(const APTR parmPacket) (a0)
+BOOL AddDosNode(LONG bootPri, ULONG flags, struct DeviceNode * deviceNode) (d0,d1,a0)
+==end

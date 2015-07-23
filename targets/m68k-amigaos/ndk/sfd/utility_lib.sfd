@@ -1,0 +1,62 @@
+==id $Id: utility_lib.sfd 40.1 1996/05/17 19:13:47 olsen Exp olsen $
+==base _UtilityBase
+==basetype struct UtilityBase *
+==libname utility.library
+==bias 30
+==public
+==include <exec/types.h>
+==include <exec/ports.h>
+==include <utility/tagitem.h>
+==include <utility/date.h>
+==include <utility/hooks.h>
+==include <utility/name.h>
+==version 36
+struct TagItem * FindTagItem(Tag tagVal, const struct TagItem * tagList) (d0,a0)
+ULONG GetTagData(Tag tagValue, ULONG defaultVal, const struct TagItem * tagList) (d0,d1,a0)
+ULONG PackBoolTags(ULONG initialFlags, const struct TagItem * tagList,
+	const struct TagItem * boolMap) (d0,a0,a1)
+struct TagItem * NextTagItem(struct TagItem ** tagListPtr) (a0)
+VOID FilterTagChanges(struct TagItem * changeList, struct TagItem * originalList, ULONG apply) (a0,a1,d0)
+VOID MapTags(struct TagItem * tagList, const struct TagItem * mapList, ULONG mapType) (a0,a1,d0)
+struct TagItem * AllocateTagItems(ULONG numTags) (d0)
+struct TagItem * CloneTagItems(const struct TagItem * tagList) (a0)
+VOID FreeTagItems(struct TagItem * tagList) (a0)
+VOID RefreshTagItemClones(struct TagItem * clone, const struct TagItem * original) (a0,a1)
+BOOL TagInArray(Tag tagValue, const Tag * tagArray) (d0,a0)
+ULONG FilterTagItems(struct TagItem * tagList, const Tag * filterArray, ULONG logic) (a0,a1,d0)
+ULONG CallHookPkt(struct Hook * hook, APTR object, APTR paramPacket) (a0,a2,a1)
+==reserve 1
+==reserve 1
+VOID Amiga2Date(ULONG seconds, struct ClockData * result) (d0,a0)
+ULONG Date2Amiga(const struct ClockData * date) (a0)
+ULONG CheckDate(const struct ClockData * date) (a0)
+LONG SMult32(LONG arg1, LONG arg2) (d0,d1)
+ULONG UMult32(ULONG arg1, ULONG arg2) (d0,d1)
+LONG SDivMod32(LONG dividend, LONG divisor) (d0,d1)
+ULONG UDivMod32(ULONG dividend, ULONG divisor) (d0,d1)
+==version 37
+LONG Stricmp(CONST_STRPTR string1, CONST_STRPTR string2) (a0,a1)
+LONG Strnicmp(CONST_STRPTR string1, CONST_STRPTR string2, LONG length) (a0,a1,d0)
+UBYTE ToUpper(UBYTE character) (d0)
+UBYTE ToLower(UBYTE character) (d0)
+==version 39
+VOID ApplyTagChanges(struct TagItem * list, const struct TagItem * changeList) (a0,a1)
+==reserve 1
+LONG SMult64(LONG arg1, LONG arg2) (d0,d1)
+ULONG UMult64(ULONG arg1, ULONG arg2) (d0,d1)
+ULONG PackStructureTags(APTR pack, const ULONG * packTable, const struct TagItem * tagList) (a0,a1,a2)
+ULONG UnpackStructureTags(const APTR pack, const ULONG * packTable, struct TagItem * tagList) (a0,a1,a2)
+BOOL AddNamedObject(struct NamedObject * nameSpace, struct NamedObject * object) (a0,a1)
+struct NamedObject * AllocNamedObjectA(CONST_STRPTR name, const struct TagItem * tagList) (a0,a1)
+==varargs
+struct NamedObject * AllocNamedObject(CONST_STRPTR name, Tag tagList, ...) (a0,a1)
+LONG AttemptRemNamedObject(struct NamedObject * object) (a0)
+struct NamedObject * FindNamedObject(struct NamedObject * nameSpace, CONST_STRPTR name,
+	struct NamedObject * lastObject) (a0,a1,a2)
+VOID FreeNamedObject(struct NamedObject * object) (a0)
+STRPTR NamedObjectName(struct NamedObject * object) (a0)
+VOID ReleaseNamedObject(struct NamedObject * object) (a0)
+VOID RemNamedObject(struct NamedObject * object, struct Message * message) (a0,a1)
+ULONG GetUniqueID() ()
+==reserve 4
+==end

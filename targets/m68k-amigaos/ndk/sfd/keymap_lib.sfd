@@ -1,0 +1,16 @@
+==id $Id: keymap_lib.sfd 40.1 1996/05/17 19:13:47 olsen Exp olsen $
+==base _KeymapBase
+==basetype struct Library *
+==libname keymap.library
+==bias 30
+==public
+==include <devices/inputevent.h>
+==include <devices/keymap.h>
+==version 36
+VOID SetKeyMapDefault(const struct KeyMap * keyMap) (a0)
+struct KeyMap * AskKeyMapDefault() ()
+WORD MapRawKey(const struct InputEvent * event, STRPTR buffer, WORD length,
+	const struct KeyMap * keyMap) (a0,a1,d1,a2)
+LONG MapANSI(CONST_STRPTR string, LONG count, STRPTR buffer, LONG length,
+	const struct KeyMap * keyMap) (a0,d0,a1,d1,a2)
+==end

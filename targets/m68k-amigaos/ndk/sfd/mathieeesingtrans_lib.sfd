@@ -1,0 +1,25 @@
+==id $Id: mathieeesingtrans_lib.sfd 40.1 1996/05/17 19:13:47 olsen Exp olsen $
+==base _MathIeeeSingTransBase
+==basetype struct MathIEEEBase *
+==libname mathieeesingtrans.library
+==bias 30
+==public
+==include <exec/types.h>
+FLOAT IEEESPAtan(FLOAT parm) (d0)
+FLOAT IEEESPSin(FLOAT parm) (d0)
+FLOAT IEEESPCos(FLOAT parm) (d0)
+FLOAT IEEESPTan(FLOAT parm) (d0)
+FLOAT IEEESPSincos(FLOAT * cosptr, FLOAT parm) (a0,d0)
+FLOAT IEEESPSinh(FLOAT parm) (d0)
+FLOAT IEEESPCosh(FLOAT parm) (d0)
+FLOAT IEEESPTanh(FLOAT parm) (d0)
+FLOAT IEEESPExp(FLOAT parm) (d0)
+FLOAT IEEESPLog(FLOAT parm) (d0)
+FLOAT IEEESPPow(FLOAT exp, FLOAT arg) (d1,d0)
+FLOAT IEEESPSqrt(FLOAT parm) (d0)
+FLOAT IEEESPTieee(FLOAT parm) (d0)
+FLOAT IEEESPFieee(FLOAT parm) (d0)
+FLOAT IEEESPAsin(FLOAT parm) (d0)
+FLOAT IEEESPAcos(FLOAT parm) (d0)
+FLOAT IEEESPLog10(FLOAT parm) (d0)
+==end

@@ -1,0 +1,24 @@
+==id $Id: asl_lib.sfd,v 38.3 92/03/19 10:00:41 vertex Exp $
+==base _AslBase
+==basetype struct Library *
+==libname asl.library
+==bias 30
+==public
+==include <exec/types.h>
+==include <utility/tagitem.h>
+==include <libraries/asl.h>
+==version 36
+struct FileRequester * AllocFileRequest() ()
+VOID FreeFileRequest(struct FileRequester * fileReq) (a0)
+BOOL RequestFile(struct FileRequester * fileReq) (a0)
+APTR AllocAslRequest(ULONG reqType, struct TagItem * tagList) (d0,a0)
+==varargs
+APTR AllocAslRequestTags(ULONG reqType, Tag tagList, ...) (d0,a0)
+VOID FreeAslRequest(APTR requester) (a0)
+BOOL AslRequest(APTR requester, struct TagItem * tagList) (a0,a1)
+==varargs
+BOOL AslRequestTags(APTR requester, Tag tagList, ...) (a0,a1)
+==reserve 2
+VOID AbortAslRequest(APTR requester) (a0)
+VOID ActivateAslRequest(APTR requester) (a0)
+==end

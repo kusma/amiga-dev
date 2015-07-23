@@ -1,0 +1,10 @@
+==id $Id: bevel_lib.sfd 1.1 1999/10/06 10:13:25 olsen Exp olsen $
+==base _BevelBase
+==basetype struct Library *
+==libname bevel.library
+==bias 30
+==public
+==include <intuition/intuition.h>
+==include <intuition/classes.h>
+Class * BEVEL_GetClass() ()
+==end

@@ -1,0 +1,57 @@
+==id $Id: gadtools_lib.sfd 40.1 1996/05/17 19:13:47 olsen Exp olsen $
+==base _GadToolsBase
+==basetype struct Library *
+==libname gadtools.library
+==bias 30
+==public
+==include <exec/types.h>
+==include <intuition/intuition.h>
+==include <utility/tagitem.h>
+==include <libraries/gadtools.h>
+==version 36
+struct Gadget * CreateGadgetA(ULONG kind, struct Gadget * gad, const struct NewGadget * ng,
+	const struct TagItem * taglist) (d0,a0,a1,a2)
+==varargs
+struct Gadget * CreateGadget(ULONG kind, struct Gadget * gad, const struct NewGadget * ng,
+	Tag taglist, ...) (d0,a0,a1,a2)
+VOID FreeGadgets(struct Gadget * gad) (a0)
+VOID GT_SetGadgetAttrsA(struct Gadget * gad, struct Window * win, struct Requester * req,
+	const struct TagItem * taglist) (a0,a1,a2,a3)
+==varargs
+VOID GT_SetGadgetAttrs(struct Gadget * gad, struct Window * win, struct Requester * req,
+	Tag taglist, ...) (a0,a1,a2,a3)
+struct Menu * CreateMenusA(const struct NewMenu * newmenu, const struct TagItem * taglist) (a0,a1)
+==varargs
+struct Menu * CreateMenus(const struct NewMenu * newmenu, Tag taglist, ...) (a0,a1)
+VOID FreeMenus(struct Menu * menu) (a0)
+BOOL LayoutMenuItemsA(struct MenuItem * firstitem, APTR vi, const struct TagItem * taglist) (a0,a1,a2)
+==varargs
+BOOL LayoutMenuItems(struct MenuItem * firstitem, APTR vi, Tag taglist, ...) (a0,a1,a2)
+BOOL LayoutMenusA(struct Menu * firstmenu, APTR vi, const struct TagItem * taglist) (a0,a1,a2)
+==varargs
+BOOL LayoutMenus(struct Menu * firstmenu, APTR vi, Tag taglist, ...) (a0,a1,a2)
+struct IntuiMessage * GT_GetIMsg(struct MsgPort * iport) (a0)
+VOID GT_ReplyIMsg(struct IntuiMessage * imsg) (a1)
+VOID GT_RefreshWindow(struct Window * win, struct Requester * req) (a0,a1)
+VOID GT_BeginRefresh(struct Window * win) (a0)
+VOID GT_EndRefresh(struct Window * win, BOOL complete) (a0,d0)
+struct IntuiMessage * GT_FilterIMsg(const struct IntuiMessage * imsg) (a1)
+struct IntuiMessage * GT_PostFilterIMsg(struct IntuiMessage * imsg) (a1)
+struct Gadget * CreateContext(struct Gadget ** glistptr) (a0)
+VOID DrawBevelBoxA(struct RastPort * rport, WORD left, WORD top, WORD width, WORD height,
+	const struct TagItem * taglist) (a0,d0,d1,d2,d3,a1)
+==varargs
+VOID DrawBevelBox(struct RastPort * rport, WORD left, WORD top, WORD width, WORD height,
+	Tag taglist, ...) (a0,d0,d1,d2,d3,a1)
+APTR GetVisualInfoA(struct Screen * screen, const struct TagItem * taglist) (a0,a1)
+==varargs
+APTR GetVisualInfo(struct Screen * screen, Tag taglist, ...) (a0,a1)
+VOID FreeVisualInfo(APTR vi) (a0)
+==version 39
+==reserve 6
+LONG GT_GetGadgetAttrsA(struct Gadget * gad, struct Window * win, struct Requester * req,
+	const struct TagItem * taglist) (a0,a1,a2,a3)
+==varargs
+LONG GT_GetGadgetAttrs(struct Gadget * gad, struct Window * win, struct Requester * req,
+	Tag taglist, ...) (a0,a1,a2,a3)
+==end

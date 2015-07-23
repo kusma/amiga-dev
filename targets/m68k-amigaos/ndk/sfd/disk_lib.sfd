@@ -1,0 +1,14 @@
+==id $Id: disk_lib.sfd 40.1 1996/05/17 19:13:47 olsen Exp olsen $
+==base _DiskBase
+==basetype struct DiskResource *
+==libname disk.resource
+==bias 6
+==public
+==include <resources/disk.h>
+BOOL AllocUnit(LONG unitNum) (d0)
+VOID FreeUnit(LONG unitNum) (d0)
+struct DiscResourceUnit * GetUnit(struct DiscResourceUnit * unitPointer) (a1)
+VOID GiveUnit() ()
+LONG GetUnitID(LONG unitNum) (d0)
+LONG ReadUnitID(LONG unitNum) (d0)
+==end

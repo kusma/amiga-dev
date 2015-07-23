@@ -1,0 +1,42 @@
+==id $Id: commodities_lib.sfd 40.1 1996/05/17 19:13:47 olsen Exp olsen $
+==base _CxBase
+==basetype struct Library *
+==libname commodities.library
+==bias 30
+==public
+==include <exec/types.h>
+==include <exec/nodes.h>
+==include <libraries/commodities.h>
+==include <devices/inputevent.h>
+==include <devices/keymap.h>
+==version 36
+CxObj * CreateCxObj(ULONG type, LONG arg1, LONG arg2) (d0,a0,a1)
+CxObj * CxBroker(const struct NewBroker * nb, LONG * error) (a0,d0)
+LONG ActivateCxObj(CxObj * co, LONG doIt) (a0,d0)
+VOID DeleteCxObj(CxObj * co) (a0)
+VOID DeleteCxObjAll(CxObj * co) (a0)
+ULONG CxObjType(const CxObj * co) (a0)
+LONG CxObjError(const CxObj * co) (a0)
+VOID ClearCxObjError(CxObj * co) (a0)
+LONG SetCxObjPri(CxObj * co, LONG pri) (a0,d0)
+VOID AttachCxObj(CxObj * headObj, CxObj * co) (a0,a1)
+VOID EnqueueCxObj(CxObj * headObj, CxObj * co) (a0,a1)
+VOID InsertCxObj(CxObj * headObj, CxObj * co, CxObj * pred) (a0,a1,a2)
+VOID RemoveCxObj(CxObj * co) (a0)
+==reserve 1
+VOID SetTranslate(CxObj * translator, struct InputEvent * events) (a0,a1)
+VOID SetFilter(CxObj * filter, CONST_STRPTR text) (a0,a1)
+VOID SetFilterIX(CxObj * filter, const IX * ix) (a0,a1)
+LONG ParseIX(CONST_STRPTR description, IX * ix) (a0,a1)
+ULONG CxMsgType(const CxMsg * cxm) (a0)
+APTR CxMsgData(const CxMsg * cxm) (a0)
+LONG CxMsgID(const CxMsg * cxm) (a0)
+VOID DivertCxMsg(CxMsg * cxm, CxObj * headObj, CxObj * returnObj) (a0,a1,a2)
+VOID RouteCxMsg(CxMsg * cxm, CxObj * co) (a0,a1)
+VOID DisposeCxMsg(CxMsg * cxm) (a0)
+BOOL InvertKeyMap(ULONG ansiCode, struct InputEvent * event, const struct KeyMap * km) (d0,a0,a1)
+VOID AddIEvents(struct InputEvent * events) (a0)
+==version 38
+==reserve 3
+BOOL MatchIX(const struct InputEvent * event, const IX * ix) (a0,a1)
+==end

@@ -1,0 +1,20 @@
+==id $Id: clicktab_lib.sfd 1.1 1999/10/06 10:13:25 olsen Exp olsen $
+==base _ClickTabBase
+==basetype struct Library *
+==libname clicktab.library
+==bias 30
+==public
+==include <intuition/intuition.h>
+==include <intuition/classes.h>
+Class * CLICKTAB_GetClass() ()
+struct Node * AllocClickTabNodeA(struct TagItem * tags) (a0)
+==varargs
+struct Node * AllocClickTabNode(Tag tags, ...) (a0)
+VOID FreeClickTabNode(struct Node * node) (a0)
+VOID SetClickTabNodeAttrsA(struct Node * node, struct TagItem * tags) (a0,a1)
+==varargs
+VOID SetClickTabNodeAttrs(struct Node * node, ...) (a0,a1)
+VOID GetClickTabNodeAttrsA(struct Node * node, struct TagItem * tags) (a0,a1)
+==varargs
+VOID GetClickTabNodeAttrs(struct Node * node, ...) (a0,a1)
+==end

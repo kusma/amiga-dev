@@ -1,0 +1,10 @@
+==id $Id: checkbox_lib.sfd 1.1 1999/10/06 10:13:25 olsen Exp olsen $
+==base _CheckBoxBase
+==basetype struct Library *
+==libname checkbox.library
+==bias 30
+==public
+==include <intuition/intuition.h>
+==include <intuition/classes.h>
+Class * CHECKBOX_GetClass() ()
+==end

@@ -1,0 +1,23 @@
+==id $Id: rexxsyslib_lib.sfd 40.1 1996/05/17 19:13:47 olsen Exp olsen $
+==base _RexxSysBase
+==basetype struct RxsLib *
+==libname rexxsyslib.library
+==bias 126
+==public
+==include <exec/types.h>
+==include <rexx/rxslib.h>
+==include <rexx/rexxio.h>
+==version 33
+UBYTE * CreateArgstring(const STRPTR string, ULONG length) (a0,d0)
+VOID DeleteArgstring(UBYTE * argstring) (a0)
+ULONG LengthArgstring(const UBYTE * argstring) (a0)
+struct RexxMsg * CreateRexxMsg(const struct MsgPort * port, CONST_STRPTR extension,
+	CONST_STRPTR host) (a0,a1,d0)
+VOID DeleteRexxMsg(struct RexxMsg * packet) (a0)
+VOID ClearRexxMsg(struct RexxMsg * msgptr, ULONG count) (a0,d0)
+BOOL FillRexxMsg(struct RexxMsg * msgptr, ULONG count, ULONG mask) (a0,d0,d1)
+BOOL IsRexxMsg(const struct RexxMsg * msgptr) (a0)
+==reserve 46
+VOID LockRexxBase(ULONG resource) (d0)
+VOID UnlockRexxBase(ULONG resource) (d0)
+==end

@@ -1,0 +1,38 @@
+==id $Id: listbrowser_lib.sfd 1.1 1999/10/06 10:13:25 olsen Exp olsen $
+==base _ListBrowserBase
+==basetype struct Library *
+==libname listbrowser.library
+==bias 30
+==public
+==include <intuition/intuition.h>
+==include <intuition/classes.h>
+==include <gadgets/listbrowser.h>
+struct IClass * LISTBROWSER_GetClass() ()
+struct Node * AllocListBrowserNodeA(UWORD columns, struct TagItem * tags) (d0,a0)
+==varargs
+struct Node * AllocListBrowserNode(UWORD columns, ...) (d0,a0)
+VOID FreeListBrowserNode(struct Node * node) (a0)
+VOID SetListBrowserNodeAttrsA(struct Node * node, struct TagItem * tags) (a0,a1)
+==varargs
+VOID SetListBrowserNodeAttrs(struct Node * node, ...) (a0,a1)
+VOID GetListBrowserNodeAttrsA(struct Node * node, struct TagItem * tags) (a0,a1)
+==varargs
+VOID GetListBrowserNodeAttrs(struct Node * node, ...) (a0,a1)
+VOID ListBrowserSelectAll(struct List * list) (a0)
+VOID ShowListBrowserNodeChildren(struct Node * node, WORD depth) (a0,d0)
+VOID HideListBrowserNodeChildren(struct Node * node) (a0)
+VOID ShowAllListBrowserChildren(struct List * list) (a0)
+VOID HideAllListBrowserChildren(struct List * list) (a0)
+VOID FreeListBrowserList(struct List * list) (a0)
+struct ColumnInfo * AllocLBColumnInfoA(UWORD columns, struct TagItem * tags) (d0,a0)
+==varargs
+struct ColumnInfo * AllocLBColumnInfo(UWORD columns, ...) (d0,a0)
+LONG SetLBColumnInfoAttrsA(struct ColumnInfo * columninfo, struct TagItem * tags) (a1,a0)
+==varargs
+LONG SetLBColumnInfoAttrs(struct ColumnInfo * columninfo, ...) (a1,a0)
+LONG GetLBColumnInfoAttrsA(struct ColumnInfo * columninfo, struct TagItem * tags) (a1,a0)
+==varargs
+LONG GetLBColumnInfoAttrs(struct ColumnInfo * columninfo, ...) (a1,a0)
+VOID FreeLBColumnInfo(struct ColumnInfo * columninfo) (a0)
+VOID ListBrowserClearAll(struct List * list) (a0)
+==end

@@ -1,0 +1,10 @@
+==id $Id: scroller_lib.sfd 1.1 1999/10/06 10:13:25 olsen Exp olsen $
+==base _ScrollerBase
+==basetype struct Library *
+==libname scroller.library
+==bias 30
+==public
+==include <intuition/intuition.h>
+==include <intuition/classes.h>
+Class * SCROLLER_GetClass() ()
+==end
