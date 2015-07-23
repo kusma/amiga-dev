@@ -1,0 +1,1663 @@
+; $VER: roadshow.cd 4.46 (18.2.2006)
+;
+; The catalog file is to be stored as
+;    "LOCALE:catalogs/<language>/roadshow.catalog"
+;
+;-----------------------------------------------------------------------------
+;
+#ifdef ADDNETINTERFACE_CATALOG_STRINGS
+;
+MSG_ADDNETINTERFACE_NO_UTILITY_TXT (100//)
+Failed to open \"utility.library\" V37.
+;
+MSG_ADDNETINTERFACE_NO_ICON_TXT (//)
+Failed to open \"icon.library\" V37.
+;
+MSG_ADDNETINTERFACE_TIMEOUT_TOO_SHORT_TXT (//)
+Configuration timeout %ld is too short; increased to %ld seconds.
+;
+MSG_ADDNETINTERFACE_CANNOT_OPEN_FILE_TXT (//)
+Failed to open file \"%s\" (%s).
+;
+MSG_ADDNETINTERFACE_CANNOT_OPEN_BSDSOCKET_TXT (//)
+Failed to open \"bsdsocket.library\" V4.
+;
+MSG_ADDNETINTERFACE_BSDSOCKET_HAS_NO_INTERFACE_API_TXT (//)
+\"%s\" V%ld.%ld does not support the interface configuration method used by this program.
+;
+MSG_ADDNETINTERFACE_BSDSOCKET_HAS_NO_ROUTE_API_TXT (//)
+\"%s\" V%ld.%ld does not support the route configuration method used by this program.
+;
+MSG_ADDNETINTERFACE_UNKNOWN_KEYWORD_TXT (//)
+Unknown keyword \"%s\" in line %ld of \"%s\".
+;
+MSG_ADDNETINTERFACE_PARSE_ERROR_TXT (//)
+Parse error in line %ld of \"%s\" (%s).
+;
+MSG_ADDNETINTERFACE_NOT_ENOUGH_MEMORY_TO_PARSE_TXT (//)
+Not enough memory to parse line %ld of \"%s\".
+;
+MSG_ADDNETINTERFACE_UNKNOWN_PARAMETER_TXT (//)
+Unknown parameter \"%s\" in line %ld of \"%s\".
+;
+MSG_ADDNETINTERFACE_UNKNOWN_LEASE_PARAMETER_TXT (//)
+Unknown lease parameter \"%s\" in line %ld of \"%s\".
+;
+MSG_ADDNETINTERFACE_INVALID_LEASE_PARAMETER_TXT (//)
+Invalid lease parameter \"%s\" in line %ld of \"%s\".
+;
+MSG_ADDNETINTERFACE_NOT_ENOUGH_MEMORY_TO_ADD_INTERFACE_TXT (//)
+Not enough memory to add interface from file \"%s\".
+;
+MSG_ADDNETINTERFACE_NO_DEVICE_NAME_PROVIDED_TXT (//)
+No device name provided in file \"%s\".
+;
+MSG_ADDNETINTERFACE_COULD_NOT_ADD_INTERFACE_ERROR_CODE_TXT (//)
+Could not add interface \"%s\" (%s).
+;
+MSG_ADDNETINTERFACE_COULD_NOT_ADD_INTERFACE_TXT (//)
+Could not add interface \"%s\".
+;
+MSG_ADDNETINTERFACE_INTERFACE_ADDED_TXT (//)
+Interface \"%s\" added.\n
+;
+MSG_ADDNETINTERFACE_NOT_ENOUGH_MEMORY_TO_CONFIGURE_INTERFACE_TXT (//)
+Not enough memory to configure interface \"%s\".
+;
+MSG_ADDNETINTERFACE_CANNOT_MARK_INTERFACE_UP_ERROR_CODE_TXT (//)
+Could not mark interface \"%s\" as \"up\" (%s).
+;
+MSG_ADDNETINTERFACE_CANNOT_MARK_INTERFACE_UP_TXT (//)
+Could not mark interface \"%s\" as \"up\".
+;
+MSG_ADDNETINTERFACE_TRYING_INTERFACE_CONFIGURATION_TXT (//)
+Trying interface \"%s\" configuration... \0
+;
+MSG_ADDNETINTERFACE_INTERFACE_CONFIGURATION_ABORTED_TXT (//)
+Interface \"%s\" configuration aborted.
+;
+MSG_ADDNETINTERFACE_INTERFACE_CONFIGURATION_ATTEMPT_TIMED_OUT_TXT (//)
+Interface \"%s\" configuration attempt timed out.
+;
+MSG_ADDNETINTERFACE_INTERFACE_NOT_CONFIGURED_TXT (//)
+Interface \"%s\" not configured; name is unknown.
+;
+MSG_ADDNETINTERFACE_INTERFACE_WRONG_TYPE_TXT (//)
+Interface \"%s\" not configured; broadcast access not supported.
+;
+MSG_ADDNETINTERFACE_INTERFACE_ALREADY_CONFIGURED_TXT (//)
+Interface \"%s\" not configured; address is already configured.
+;
+MSG_ADDNETINTERFACE_INTERFACE_CONFIGURATION_VERSION_CONFLICT_TXT (//)
+Interface \"%s\" not configured; configuration command not compatible.
+;
+MSG_ADDNETINTERFACE_INTERFACE_NOT_CONFIGURED_NO_MEMORY_TXT (//)
+Interface \"%s\" not configured; not enough memory.
+;
+MSG_ADDNETINTERFACE_INTERFACE_NOT_CONFIGURED_ADDRESS_IN_USE_TXT (//)
+Interface \"%s\" not configured; IP address to be assigned is already in use.
+;
+MSG_ADDNETINTERFACE_INTERFACE_NOT_CONFIGURED_ADDRESS_CHANGE_FAILED_TXT (//)
+Interface \"%s\" not configured; IP address could not be changed.
+;
+MSG_ADDNETINTERFACE_INTERFACE_NOT_CONFIGURED_MASK_CHANGE_FAILED_TXT (//)
+Interface \"%s\" not configured; network mask could not be changed.
+;
+MSG_ADDNETINTERFACE_INTERFACE_NOT_CONFIGURED_UNKNOWN_ERROR_TXT (//)
+Interface \"%s\" not configured; unknown error (%ld).
+;
+MSG_ADDNETINTERFACE_INTERFACE_NOT_CONFIGURED_INVALID_ADDRESS_TXT (//)
+Interface \"%s\" not configured; no valid IP address received.
+;
+MSG_ADDNETINTERFACE_COULD_NOT_CONFIGURE_INTERFACE_ERROR_CODE_TXT (//)
+Could not configure interface \"%s\" (%s).
+;
+MSG_ADDNETINTERFACE_COULD_NOT_CONFIGURE_INTERFACE_TXT (//)
+Could not configure interface \"%s\".
+;
+MSG_ADDNETINTERFACE_INTERFACE_CONFIGURED_TXT (//)
+Interface \"%s\" configured
+;
+MSG_ADDNETINTERFACE_INTERFACE_CONFIGURED_ADDRESS_TXT (//)
+, address = %s
+;
+MSG_ADDNETINTERFACE_INTERFACE_CONFIGURED_MASK_TXT (//)
+, network mask = %s
+;
+MSG_ADDNETINTERFACE_INTERFACE_CONFIGURED_BROADCAST_ADDRESS_TXT (//)
+, broadcast address = %s
+;
+MSG_ADDNETINTERFACE_INTERFACE_CONFIGURED_DESTINATION_ADDRESS_TXT (//)
+, destination address = %s
+;
+MSG_ADDNETINTERFACE_INTERFACE_CONFIGURED_METRIC_TXT (//)
+, metric = %ld
+;
+MSG_ADDNETINTERFACE_DEFAULT_ROUTE_TXT (//)
+Added default route to %s.\n
+;
+MSG_ADDNETINTERFACE_ROUTE_TXT (//)
+Added route to %s.\n
+;
+MSG_ADDNETINTERFACE_COULD_NOT_ADD_ROUTE_ERROR_CODE_TXT (//)
+Could not add route to %s (%s).
+;
+MSG_ADDNETINTERFACE_COULD_NOT_ADD_ROUTE_TXT (//)
+Could not add route to %s.
+;
+MSG_ADDNETINTERFACE_DNS_TXT (//)
+Added domain name server %s.\n
+;
+MSG_ADDNETINTERFACE_COULD_NOT_ADD_DNS_ERROR_CODE_TXT (//)
+Could not add domain name server %s (%s).
+;
+MSG_ADDNETINTERFACE_COULD_NOT_ADD_DNS_TXT (//)
+Could not add domain name server %s.
+;
+MSG_ADDNETINTERFACE_ADDRESS_TXT (//)
+Interface \"%s\" address %s \0
+;
+MSG_ADDNETINTERFACE_LEASED_PERMANENTLY_TXT (//)
+has been leased permanently.\n
+;
+MSG_ADDNETINTERFACE_LEASED_UNTIL_TXT (//)
+has been leased until %s %s and will be renewed before it expires.\n
+;
+MSG_ADDNETINTERFACE_ERROR_MESSAGE_TITLE_TXT (//)
+AddNetInterface Error
+;
+MSG_ADDNETINTERFACE_ERROR_MESSAGE_BUTTON_LABEL_TXT (//)
+Understood
+;
+MSG_ADDNETINTERFACE_UNKNOWN_STATE_PARAMETER_TXT (//)
+Unknown state parameter \"%s\" in line %ld of \"%s\".
+;
+MSG_ADDNETINTERFACE_INVALID_IP_ADDRESS_AT_TXT (//)
+Invalid IP address in \"%s=%s\", line %ld of \"%s\".
+;
+MSG_ADDNETINTERFACE_ID_TOO_LONG_TXT (//)
+Client identifier \"%s\" in line %ld of \"%s\" will be truncated.
+;
+MSG_ADDNETINTERFACE_ID_TOO_SHORT_TXT (//)
+Client identifier \"%s\" in line %ld of \"%s\" is too short (2 characters minimum).
+;
+MSG_ADDNETINTERFACE_HAS_NO_ADDRESS_CONVERSION_API_TXT (//)
+%s: \"%s\" V%ld.%ld does not support the address conversion method used by this program.\n
+;
+MSG_ADDNETINTERFACE_INVALID_HARDWARE_ADDRESS_TXT (//)
+Invalid hardware address \"%s\" in line %ld of \"%s\".
+;
+MSG_ADDNETINTERFACE_MISSING_HARDWARE_ADDRESS_TXT (//)
+No hardware address specified in line %ld of \"%s\".
+;
+MSG_ADDNETINTERFACE_NOT_ENOUGH_MEMORY_FOR_HARDWARE_ADDRESS_TXT (//)
+Not enough memory for hardware address \"%s\".
+;
+MSG_ADDNETINTERFACE_NOT_ENOUGH_MEMORY_TO_CONFIGURE_HARDWARE_ADDRESS_TXT (//)
+Not enough memory to configure hardware address of \"%s\".
+;
+MSG_ADDNETINTERFACE_HARDWARE_ADDRESS_TOO_SHORT_TXT (//)
+The address \"%s\" in line %ld of \"%s\" is too short to be a valid IEEE 802.3 MAC address.
+;
+MSG_ADDNETINTERFACE_HARDWARE_ADDRESS_TOO_LONG_TXT (//)
+The address \"%s\" in line %ld of \"%s\" is too long to be a valid IEEE 802.3 MAC address.
+;
+MSG_ADDNETINTERFACE_HARDWARE_ADDRESS_IS_BROADCAST_TXT (//)
+The address \"%s\" in line %ld of \"%s\" is a broadcast address and should not be used by a single host.
+;
+MSG_ADDNETINTERFACE_HARDWARE_ADDRESS_IS_GROUP_TXT (//)
+The address \"%s\" in line %ld of \"%s\" is a group address and should not be used by a single host.
+;
+MSG_ADDNETINTERFACE_INTERFACE_HARDWARE_ADDRESS_SET_TO_TXT (//)
+The hardware address of \"%s\" was set to %s.\n
+;
+MSG_ADDNETINTERFACE_NO_INTERFACE_NAME_GIVEN_TXT (//)
+You did not provide the names of the interfaces to be added.
+;
+MSG_ADDNETINTERFACE_INVALID_ADDRESS_TXT (//)
+Invalid address \"%s\" in line %ld of \"%s\".
+;
+MSG_ADDNETINTERFACE_DYNAMIC_ADDRESS_SHOULD_NOT_BE_BOUND_TXT (//)
+The address \"%s\" in line %ld of \"%s\" is for dynamic allocation only and should not be bound statically.
+;
+MSG_ADDNETINTERFACE_ALIAS_TXT (//)
+Added alias address %s.\n
+;
+MSG_ADDNETINTERFACE_COULD_NOT_ADD_ALIAS_ERROR_CODE_TXT (//)
+Could not add interface \"%s\" alias address %s (%s).
+;
+MSG_ADDNETINTERFACE_COULD_NOT_ADD_ALIAS_TXT (//)
+Could not add interface \"%s\" alias address %s.
+;
+MSG_ADDNETINTERFACE_DEFAULT_DOMAIN_NAME_TXT (//)
+Default domain name is \"%s\".\n
+;
+MSG_ADDNETINTERFACE_INTERFACE_IS_BUSY_TXT (//)
+Configuration for interface \"%s\" is still in progress.
+;
+#endif ADDNETINTERFACE_CATALOG_STRINGS
+;
+;-----------------------------------------------------------------------------
+;
+#ifdef ADDNETROUTE_CATALOG_STRINGS
+;
+MSG_ADDNETROUTE_NO_UTILITY_TXT (200//)
+%s: Failed to open \"utility.library\" V37.\n
+;
+MSG_ADDNETROUTE_CANNOT_OPEN_BSDSOCKET_TXT (//)
+%s: Failed to open \"bsdsocket.library\" V4.\n
+;
+MSG_ADDNETROUTE_BSDSOCKET_HAS_NO_ROUTE_API_TXT (//)
+%s: \"%s\" V%ld.%ld does not support the route configuration method used by this program.\n
+;
+MSG_ADDNETROUTE_NO_MEMORY_FOR_DEFAULT_GATEWAY_TXT (//)
+%s: Not enough memory to add route to default gateway \"%s\".\n
+;
+MSG_ADDNETROUTE_DESTINATION_IGNORED_TXT (//)
+%s: \"DESTINATION=%s\" parameter ignored.\n
+;
+MSG_ADDNETROUTE_HOSTDESTINATION_IGNORED_TXT (//)
+%s: \"HOSTDESTINATION=%s\" parameter ignored.\n
+;
+MSG_ADDNETROUTE_NETDESTINATION_IGNORED_TXT (//)
+%s: \"NETDESTINATION=%s\" parameter ignored.\n
+;
+MSG_ADDNETROUTE_GATEWAY_IGNORED_TXT (//)
+%s: \"GATEWAY=%s\" parameter ignored.\n
+;
+MSG_ADDNETROUTE_GATEWAY_NEEDS_DESTINATION_TXT (//)
+%s: The \"GATEWAY=%s\" parameter needs a destination address.\n
+;
+MSG_ADDNETROUTE_NOT_ENOUGH_MEMORY_FOR_GATEWAY_TXT (//)
+%s: Not enough memory to add route to gateway \"%s\".\n
+;
+MSG_ADDNETROUTE_NOT_ENOUGH_MEMORY_FOR_ROUTE_TXT (//)
+%s: Not enough memory to add route to destination \"%s\".\n
+;
+MSG_ADDNETROUTE_NOT_ENOUGH_MEMORY_FOR_ROUTE_TO_HOST_TXT (//)
+%s: Not enough memory to add route to destination host \"%s\".\n
+;
+MSG_ADDNETROUTE_NOT_ENOUGH_MEMORY_FOR_ROUTE_TO_NET_TXT (//)
+%s: Not enough memory to add route to destination network \"%s\".\n
+;
+MSG_ADDNETROUTE_NOT_ENOUGH_MEMORY_TO_ADD_ROUTE_TXT (//)
+%s: Not enough memory to add route.\n
+;
+MSG_ADDNETROUTE_COULD_NOT_ADD_ROUTE_TXT (//)
+%s: Could not add route
+;
+MSG_ADDNETROUTE_ROUTE_ADDED_TXT (//)
+%s: Route added (
+;
+MSG_ADDNETROUTE_DEFAULT_GATEWAY_TXT (//)
+%sdefault gateway = %s
+;
+MSG_ADDNETROUTE_DESTINATION_TXT (//)
+%sdestination = %s
+;
+MSG_ADDNETROUTE_DESTINATION_HOST_TXT (//)
+%sdestination [host] = %s
+;
+MSG_ADDNETROUTE_DESTINATION_NET_TXT (//)
+%sdestination [network] = %s
+;
+MSG_ADDNETROUTE_VIA_GATEWAY_TXT (//)
+%svia gateway %s
+;
+#endif ADDNETROUTE_CATALOG_STRINGS
+;
+;-----------------------------------------------------------------------------
+;
+#ifdef CONFIGURENETINTERFACE_CATALOG_STRINGS
+;
+MSG_CONFIGURENETINTERFACE_NO_UTILITY_TXT (300//)
+%s: Failed to open \"utility.library\" V37.\n
+;
+MSG_CONFIGURENETINTERFACE_CANNOT_OPEN_BSDSOCKET_TXT (//)
+%s: Failed to open \"bsdsocket.library\" V4.\n
+;
+MSG_CONFIGURENETINTERFACE_BSDSOCKET_HAS_NO_INTERFACE_API_TXT (//)
+%s: \"%s\" V%ld.%ld does not support the interface configuration method used by this program.\n
+;
+MSG_CONFIGURENETINTERFACE_BSDSOCKET_HAS_NO_ROUTE_API_TXT (//)
+%s: \"%s\" V%ld.%ld does not support the route configuration method used by this program.\n
+;
+MSG_CONFIGURENETINTERFACE_NOT_ENOUGH_MEMORY_TO_CONFIGURE_INTERFACE_ADDRESS_TXT (//)
+%s: Not enough memory to configure interface \"%s\" address.\n
+;
+MSG_CONFIGURENETINTERFACE_NOT_ENOUGH_MEMORY_TO_CONFIGURE_INTERFACE_MASK_TXT (//)
+%s: Not enough memory to configure interface \"%s\" sub network mask.\n
+;
+MSG_CONFIGURENETINTERFACE_NOT_ENOUGH_MEMORY_TO_CONFIGURE_INTERFACE_DESTINATION_ADDRESS_TXT (//)
+%s: Not enough memory to configure interface \"%s\" destination address \"%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_NOT_ENOUGH_MEMORY_TO_CONFIGURE_INTERFACE_BROADCAST_ADDRESS_TXT (//)
+%s: Not enough memory to configure interface \"%s\" broadcast address \"%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_NOT_ENOUGH_MEMORY_TO_CONFIGURE_INTERFACE_METRIC_TXT (//)
+%s: Not enough memory to configure interface \"%s\" metric %ld.\n
+;
+MSG_CONFIGURENETINTERFACE_TIMEOUT_TOO_SHORT_TXT (//)
+%s: Configuration timeout %ld is too short; increased to %ld seconds.\n
+;
+MSG_CONFIGURENETINTERFACE_NOT_ENOUGH_MEMORY_TO_ADD_ALIAS_ADDRESS_TXT (//)
+%s: Not enough memory to add interface \"%s\" alias address \"%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_NOT_ENOUGH_MEMORY_TO_DELETE_ALIAS_ADDRESS_TXT (//)
+%s: Not enough memory to delete interface \"%s\" alias address \"%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_UNKNOWN_CONFIGURE_PARAMETER_TXT (//)
+%s: Unknown parameter \"CONFIGURE=%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_PICK_ONLY_ONE_STATE_TXT (//)
+%s: Please specify exactly one interface state and not
+;
+MSG_CONFIGURENETINTERFACE_UNKNOWN_LEASE_PARAMETER_TXT (//)
+%s: Unknown lease parameter \"%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_INVALID_LEASE_PARAMETER_TXT (//)
+%s: Invalid lease parameter \"%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_NOT_ENOUGH_MEMORY_TO_CONFIGURE_TXT (//)
+%s: Not enough memory to configure interface \"%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_COULD_NOT_MARK_INTERFACE_UP_TXT (//)
+%s: Could not mark interface \"%s\" as \"UP\".
+;
+MSG_CONFIGURENETINTERFACE_TRYING_INTERFACE_CONFIGURATION_TXT (//)
+%s: Trying interface \"%s\" configuration... \0
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_CONFIGURATION_ABORTED_TXT (//)
+%s: Interface \"%s\" configuration aborted.\n
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_CONFIGURATION_TIMED_OUT_TXT (//)
+%s: Interface \"%s\" configuration attempt timed out.\n
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_CONFIGURATION_NAME_UNKNOWN_TXT (//)
+%s: Interface \"%s\" not configured; name is unknown.\n
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_CONFIGURATION_WRONG_TYPE_TXT (//)
+%s: Interface \"%s\" not configured; broadcast access not supported.\n
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_CONFIGURATION_ALREADY_CONFIGURED_TXT (//)
+%s: Interface \"%s\" not configured; address is already configured.\n
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_CONFIGURATION_NOT_COMPATIBLE_TXT (//)
+%s: Interface \"%s\" not configured; configuration command not compatible.\n
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_CONFIGURATION_NOT_ENOUGH_MEMORY_TXT (//)
+%s: Interface \"%s\" not configured; not enough memory.\n
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_CONFIGURATION_ADDRESS_IN_USE_TXT (//)
+%s: Interface \"%s\" not configured; IP address to be assigned is already in use.\n
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_CONFIGURATION_ADDRESS_NOT_CHANGED_TXT (//)
+%s: Interface \"%s\" not configured; IP address could not be changed.\n
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_CONFIGURATION_MASK_NOT_CHANGED_TXT (//)
+%s: Interface \"%s\" not configured; network mask could not be changed.\n
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_CONFIGURATION_UNKNOWN_ERROR_TXT (//)
+%s: Interface \"%s\" not configured; unknown error (%ld).\n
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_NOT_CONFIGURED_ADDRESS_INVALID_TXT (//)
+%s: Interface \"%s\" not configured; no valid IP address received.\n
+;
+MSG_CONFIGURENETINTERFACE_NOT_ENOUGH_MEMORY_TO_CONFIGURE_ADDRESS_TXT (//)
+%s: Not enough memory to configure interface \"%s\" address \"%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_NOT_ENOUGH_MEMORY_TO_CONFIGURE_NETMASK_TXT (//)
+%s: Not enough memory to configure interface \"%s\" sub network mask \"%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_NOT_ENOUGH_MEMORY_TO_CONFIGURE_STATE_TXT (//)
+%s: Not enough memory to change interface \"%s\" state.\n
+;
+MSG_CONFIGURENETINTERFACE_NOT_ENOUGH_MEMORY_TO_CONFIGURE_INTERFACE_TXT (//)
+%s: Not enough memory to configure interface \"%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_COULD_NOT_CONFIGURE_INTERFACE_TXT (//)
+%s: Could not configure interface \"%s\"
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_CONFIGURED_TXT (//)
+%s: Interface \"%s\" configured (
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_ADDRESS_IS_TXT (//)
+%saddress = %s
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_MASK_TXT (//)
+%snetwork mask = %s
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_DESTINATION_ADDRESS_TXT (//)
+%sdestination address = %s
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_BROADCAST_ADDRESS_TXT (//)
+%sbroadcast address = %s
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_METRIC_TXT (//)
+%smetric = %ld
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_ADD_ADDRESS_TXT (//)
+%sadded alias address \"%s\"
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_DELETE_ADDRESS_TXT (//)
+%sdeleted alias address \"%s\"
+;
+MSG_CONFIGURENETINTERFACE_ADDED_DEFAULT_ROUTE_TXT (//)
+%s: Added default route to %s.\n
+;
+MSG_CONFIGURENETINTERFACE_ADDED_ROUTE_TXT (//)
+%s: Added route to %s.\n
+;
+MSG_CONFIGURENETINTERFACE_COULD_NOT_ADD_ROUTE_TO_TXT (//)
+%s: Could not add route to %s
+;
+MSG_CONFIGURENETINTERFACE_ADDED_DNS_TXT (//)
+%s: Added domain name server %s.\n
+;
+MSG_CONFIGURENETINTERFACE_COULD_NOT_ADD_DNS_TXT (//)
+%s: Could not add domain name server %s
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_ADDRESS_TXT (//)
+%s: Interface \"%s\" address %s \0
+;
+MSG_CONFIGURENETINTERFACE_LEASED_PERMANENTLY_TXT (//)
+has been leased permanently.\n
+;
+MSG_CONFIGURENETINTERFACE_LEASED_UNTIL_TXT (//)
+has been leased until %s %s and will be renewed before it expires.\n
+;
+MSG_CONFIGURENETINTERFACE_COULD_NOT_SET_STATE_TXT (//)
+%s: Could not set interface \"%s\" state to \"%s\"
+;
+MSG_CONFIGURENETINTERFACE_STATE_CHANGED_TXT (//)
+%s: Interface \"%s\" state changed to \"%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_INVALID_IP_ADDRESS_AT_TXT (//)
+%s: Invalid IP address in \"%s=%s\".
+;
+MSG_CONFIGURENETINTERFACE_ID_TOO_LONG_TXT (//)
+Client identifier \"%s\" will be truncated.
+;
+MSG_CONFIGURENETINTERFACE_ID_TOO_SHORT_TXT (//)
+Client identifier \"%s\" is too short (2 characters minimum).
+;
+MSG_CONFIGURENETINTERFACE_HAS_NO_ADDRESS_CONVERSION_API_TXT (//)
+%s: \"%s\" V%ld.%ld does not support the address conversion method used by this program.\n
+;
+MSG_CONFIGURENETINTERFACE_COULD_NOT_RELEASE_INTERFACE_ADDRESS_TXT (//)
+%s: Could not release interface address \"%s\".
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_ADDRESS_WAS_RELEASED_TXT (//)
+Interface address \"%s\" was released.\n
+;
+MSG_CONFIGURENETINTERFACE_UNKNOWN_DEBUG_PARAMETER_TXT (//)
+%s: Unknown parameter \"DEBUG=%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_INVALID_ADDRESS_TXT (//)
+%s: \"%s\" is not a valid address.\n
+;
+MSG_CONFIGURENETINTERFACE_DYNAMIC_ADDRESS_SHOULD_NOT_BE_BOUND_TXT (//)
+%s: The address \"%s\" is for dynamic allocation only and should not be statically bound.\n
+;
+MSG_CONFIGURENETINTERFACE_UNKNOWN_COMPLETE_PARAMETER_TXT (//)
+%s: Unknown parameter \"COMPLETE=%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_NOT_ENOUGH_MEMORY_TO_CONFIGURE_INTERFACE_MTU_TXT (//)
+%s: Not enough memory to configure interface \"%s\" MTU %ld.\n
+;
+MSG_CONFIGURENETINTERFACE_DEFAULT_DOMAIN_NAME_TXT (//)
+%s: Default domain name is \"%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_IS_BUSY_TXT (//)
+%s: Configuration for interface \"%s\" is still in progress.\n
+;
+#endif CONFIGURENETINTERFACE_CATALOG_STRINGS
+;
+;-----------------------------------------------------------------------------
+;
+#ifdef DELETENETROUTE_CATALOG_STRINGS
+;
+MSG_DELETENETROUTE_NO_UTILITY_TXT (400//)
+%s: Failed to open \"utility.library\" V37.\n
+;
+MSG_DELETENETROUTE_CANNOT_OPEN_BSDSOCKET_TXT (//)
+%s: Failed to open \"bsdsocket.library\" V4.\n
+;
+MSG_DELETENETROUTE_BSDSOCKET_HAS_NO_ROUTE_API_TXT (//)
+%s: \"%s\" V%ld.%ld does not support the route configuration method used by this program.\n
+;
+MSG_DELETENETROUTE_NEED_EITHER_DESTINATION_OR_DEFAULT_TXT (//)
+%s: You must provide either a \"DESTINATION\" or \"DEFAULTGATEWAY\" parameter.\n
+;
+MSG_DELETENETROUTE_DESTINATION_IGNORED_TXT (//)
+%s: \"DESTINATION=%s\" parameter ignored.\n
+;
+MSG_DELETENETROUTE_ROUTE_TO_DEFAULT_GATEWAY_NOT_DELETED_TXT (//)
+%s: Could not delete route to default gateway \"%s\"
+;
+MSG_DELETENETROUTE_ROUTE_NOT_DELETED_TXT (//)
+%s: Could not delete route to \"%s\"
+;
+MSG_DELETENETROUTE_ROUTE_TO_DEFAULT_DELETED_TXT (//)
+%s: Route to default gateway \"%s\" deleted.\n
+;
+MSG_DELETENETROUTE_ROUTE_DELETED_TXT (//)
+%s: Route to \"%s\" deleted.\n
+;
+#endif DELETENETROUTE_CATALOG_STRINGS
+;
+;-----------------------------------------------------------------------------
+;
+#ifdef GETNETSTATUS_CATALOG_STRINGS
+;
+MSG_GETNETSTATUS_NO_UTILITY_TXT (500//)
+%s: Failed to open \"utility.library\" V37.\n
+;
+MSG_GETNETSTATUS_CANNOT_OPEN_BSDSOCKET_TXT (//)
+%s: Failed to open \"bsdsocket.library\" V4.\n
+;
+MSG_GETNETSTATUS_BSDSOCKET_HAS_NO_STATUS_API_TXT (//)
+%s: \"%s\" V%ld.%ld does not support the status query method used by this program.\n
+;
+MSG_GETNETSTATUS_UNKNOWN_CONDITION_TXT (//)
+%s: Warning, unknown condition \"%s\".\n
+;
+MSG_GETNETSTATUS_INTERFACES_AVAILABLE_AND_CONFIGURED_TXT (//)
+Networking interfaces are available and configured.\n
+;
+MSG_GETNETSTATUS_NO_INTERFACES_AVAILABLE_AND_CONFIGURED_TXT (//)
+%sNo%s networking interfaces are available and configured.\n
+;
+MSG_GETNETSTATUS_POINT_TO_POINT_INTERFACES_AVAILABLE_AND_CONFIGURED_TXT (//)
+Point-to-point networking interfaces are available and configured.\n
+;
+MSG_GETNETSTATUS_NO_POINT_TO_POINT_INTERFACES_AVAILABLE_AND_CONFIGURED_TXT (//)
+%sNo%s point-to-point networking interfaces are available and configured.\n
+;
+MSG_GETNETSTATUS_BROADCAST_INTERFACES_AVAILABLE_AND_CONFIGURED_TXT (//)
+Broadcast networking interfaces are available and configured.\n
+;
+MSG_GETNETSTATUS_NO_BROADCAST_INTERFACES_AVAILABLE_AND_CONFIGURED_TXT (//)
+%sNo%s broadcast networking interfaces are available and configured.\n
+;
+MSG_GETNETSTATUS_DNS_CONFIGURED_TXT (//)
+Name resolution servers are configured.\n
+;
+MSG_GETNETSTATUS_NO_DNS_CONFIGURED_TXT (//)
+%sNo%s name resolution servers are configured.\n
+;
+MSG_GETNETSTATUS_ROUTE_CONFIGURED_TXT (//)
+Routing information is configured.\n
+;
+MSG_GETNETSTATUS_NO_ROUTE_CONFIGURED_TXT (//)
+%sNo%s routing information is configured.\n
+;
+MSG_GETNETSTATUS_DEFAULT_ROUTE_CONFIGURED_TXT (//)
+The default route is configured.\n
+;
+MSG_GETNETSTATUS_NO_DEFAULT_ROUTE_CONFIGURED_TXT (//)
+The default route is %snot%s configured.\n
+;
+#endif GETNETSTATUS_CATALOG_STRINGS
+;
+;-----------------------------------------------------------------------------
+;
+#ifdef SHOWNETSTATUS_CATALOG_STRINGS
+;
+MSG_SHOWNETSTATUS_NO_UTILITY_TXT (600//)
+%s: Failed to open \"utility.library\" V37.\n
+;
+MSG_SHOWNETSTATUS_CANNOT_OPEN_BSDSOCKET_TXT (//)
+%s: Failed to open \"bsdsocket.library\" V4.\n
+;
+MSG_SHOWNETSTATUS_BSDSOCKET_HAS_NO_STATUS_API_TXT (//)
+%s: \"%s\" V%ld.%ld does not support the status query method used by this program.\n
+;
+MSG_SHOWNETSTATUS_BSDSOCKET_HAS_NO_ROUTE_API_TXT (//)
+%s: \"%s\" V%ld.%ld does not support the route query method used by this program.\n
+;
+MSG_SHOWNETSTATUS_BSDSOCKET_HAS_NO_INTERFACE_API_TXT (//)
+%s: \"%s\" V%ld.%ld does not support the interface query method used by this program.\n
+;
+MSG_SHOWNETSTATUS_BSDSOCKET_HAS_NO_DNS_API_TXT (//)
+%s: \"%s\" V%ld.%ld does not support the domain name server query method used by this program.\n
+;
+MSG_SHOWNETSTATUS_CANNOT_GET_INFO_ON_INTERFACE_TXT (//)
+%s: Unable to obtain information on interface \"%s\".\n
+;
+MSG_SHOWNETSTATUS_CANNOT_GET_INTERFACE_LIST_TXT (//)
+%s: Unable to obtain interface information.\n
+;
+MSG_SHOWNETSTATUS_CANNOT_GET_DNS_LIST_TXT (//)
+%s: Unable to obtain domain name server information.\n
+;
+MSG_SHOWNETSTATUS_CANNOT_GET_ROUTE_TABLE_TXT (//)
+%s: Unable to obtain routing information.\n
+;
+MSG_SHOWNETSTATUS_NOT_ENOUGH_MEMORY_TO_QUERY_STATUS_TXT (//)
+%s: Not enough memory to obtain status information for \"%s\".\n
+;
+MSG_SHOWNETSTATUS_CANNOT_GET_STATUS_INFORMATION_FOR_TXT (//)
+%s: Status information for \"%s\" could not be obtained.\n
+;
+MSG_SHOWNETSTATUS_DEFAULT_TXT (//)
+(Default)
+;
+MSG_SHOWNETSTATUS_DESTINATION_GATEWAY_ATTRIBUTES_TITLE_TXT (//)
+%s%-16s %-16s %s%s\n
+;
+MSG_SHOWNETSTATUS_DESTINATION_TXT (//)
+Destination
+;
+MSG_SHOWNETSTATUS_GATEWAY_TXT (//)
+Gateway
+;
+MSG_SHOWNETSTATUS_ATTRIBUTES_TXT (//)
+Attributes
+;
+MSG_SHOWNETSTATUS_DESTINATION_GATEWAY_LINE_TXT (//)
+%-16s %-16s
+;
+MSG_SHOWNETSTATUS_UP_TXT (//)
+Up
+;
+MSG_SHOWNETSTATUS_DOWN_TXT (//)
+Down
+;
+MSG_SHOWNETSTATUS_HOST_TXT (//)
+Host
+;
+MSG_SHOWNETSTATUS_NO_ROUTES_ARE_CONFIGURED_TXT (//)
+No routes are currently configured.\n
+;
+MSG_SHOWNETSTATUS_ADDRESS_TYPE_TITLE_TXT (//)
+%s%-20s %-10s%s\n
+;
+MSG_SHOWNETSTATUS_ADDRESS_TXT (//)
+Address
+;
+MSG_SHOWNETSTATUS_TYPE_TXT (//)
+Type
+;
+MSG_SHOWNETSTATUS_ADDRESS_TYPE_LINE_TXT (//)
+%-20s %s\n
+;
+MSG_SHOWNETSTATUS_STATIC_TXT (//)
+Static
+;
+MSG_SHOWNETSTATUS_DYNAMIC_TXT (//)
+Dynamic
+;
+MSG_SHOWNETSTATUS_NO_DNS_CONFIGURED_TXT (//)
+No domain name servers are configured.\n
+;
+MSG_SHOWNETSTATUS_UNKNOWN_HARDWARE_TYPE_TXT (//)
+Unknown (%ld)
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_TITLE_TXT (//)
+%s%-20s %4s %-20s %-20s %8s %8s %8s %8s %8s %s%s\n
+;
+MSG_SHOWNETSTATUS_NAME_TXT (//)
+Name
+;
+MSG_SHOWNETSTATUS_MTU_TXT (//)
+MTU
+;
+MSG_SHOWNETSTATUS_RECEIVED_TXT (//)
+Received
+;
+MSG_SHOWNETSTATUS_SENT_TXT (//)
+Sent
+;
+MSG_SHOWNETSTATUS_DROPPED_TXT (//)
+Dropped
+;
+MSG_SHOWNETSTATUS_OVERRUNS_TXT (//)
+Overruns
+;
+MSG_SHOWNETSTATUS_UNKNOWN_TXT (//)
+Unknown
+;
+MSG_SHOWNETSTATUS_STATUS_TXT (//)
+Status
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_LINE_TXT (//)
+%-20s %4ld %-20s %-20s %8ld %8ld %8ld %8ld %8ld %s\n
+;
+MSG_SHOWNETSTATUS_NO_INTERFACES_AVAILABLE_TXT (//)
+No interfaces are currently available.\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_TITLE_TXT (//)
+%sInterface \"%s\"%s\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_DEVICE_NAME_TXT (//)
+Device name                  = %s\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_DEVICE_UNIT_TXT (//)
+Device unit number           = %ld\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_HARDWARE_ADDRESS_TXT (//)
+Hardware address             = \0
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_MTU_TXT (//)
+Maximum transmission unit    = %ld Bytes\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_TRANSMISSION_SPEED_TXT (//)
+Transmission speed           = %ld Bits/Second\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_HARDWARE_TYPE_TXT (//)
+Hardware type                = %s\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_PACKETS_SENT_TXT (//)
+Packets sent                 = %ld\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_PACKETS_RECEIVED_TXT (//)
+Packets received             = %ld\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_PACKETS_DROPPED_TXT (//)
+Packets dropped              = %ld (in = %ld, out = %ld)\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_BUFFER_OVERRUNS_TXT (//)
+Buffer overruns              = %ld\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_UNKNOWN_PACKETS_TXT (//)
+Unknown packets              = %ld\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_ADDRESS_TXT (//)
+Address                      = %s\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_NETWORK_MASK_TXT (//)
+Network mask                 = %s\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_PEER_ADDRESS_TXT (//)
+Peer address                 = %s\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_STATUS_TXT (//)
+Link status                  = %s\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_ADDRESS_BINDING_TXT (//)
+Address binding              = %s\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_LEASE_EXPIRES_TXT (//)
+Address lease expires        = %s\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_BINDING_STATIC_TXT (//)
+Static
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_BINDING_DYNAMIC_TXT (//)
+Dynamic
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_LEASE_NEVER_EXPIRES_TXT (//)
+Never
+;
+MSG_SHOWNETSTATUS_ICMP_TITLE_TXT (//)
+%sInternet Control Message Protocol statistics%s\n
+;
+MSG_SHOWNETSTATUS_ICMP_ERRORS_GENERATED_TXT (//)
+Errors generated                           = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_IP_PACKETS_TOO_SHORT_TXT (//)
+IP packets too short                       = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_PACKETS_NOT_RESPONDED_TO_TXT (//)
+Packets not responded to                   = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_ECHO_REPLY_PACKETS_SENT_TXT (//)
+'Echo reply' packets sent                  = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_DESTINATION_UNREACHABLE_TXT (//)
+'Destination unreachable' packets sent     = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_SOURCE_QUENCH_TXT (//)
+'Source quench' packets sent               = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_REDIRECT_TXT (//)
+'Redirect' packets sent                    = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_ECHO_TXT (//)
+'Echo' packets sent                        = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_ROUTER_ADVERTIZEMENT_TXT (//)
+'Router advertizement' packets sent        = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_ROUTER_SOLICITATION_TXT (//)
+'Router solicitation' packets sent         = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_TIME_EXCEEDED_TXT (//)
+'Time exceeded' packets sent               = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_BAD_IP_HEADER_TXT (//)
+'Bad IP header' packets sent               = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_TIMESTAMP_REQUEST_TXT (//)
+'Timestamp request' packets sent           = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_TIMESTAMP_REPLY_TXT (//)
+'Timestamp reply' packets sent             = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_INFORMATION_REQUEST_TXT (//)
+'Information request' packets sent         = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_INFORMATION_REPLY_TXT (//)
+'Information reply' packets sent           = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_ADDRESS_MASK_REQUEST_TXT (//)
+'Address mask request' packets sent        = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_ADDRESS_MASK_REPLY_TXT (//)
+'Address mask reply' packets sent          = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_RECEIVED_CODES_OUT_OF_RANGE_TXT (//)
+Received codes out of range                = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_RECEIVED_PACKETS_TOO_SHORT_TXT (//)
+Received packets too short                 = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_RECEIVED_PACKET_CHECKSUM_ERRORS_TXT (//)
+Received packet checksum errors            = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_RECEIVED_CODES_BOUND_MISMATCH_TXT (//)
+Received codes bound mismatch              = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_RESPONSES_SENT_TXT (//)
+Responses sent                             = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_ECHO_REPLIES_RECEIVED_TXT (//)
+'Echo reply' packets received              = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_DESTINATION_UNREACHABLE_RECEIVED_TXT (//)
+'Destination unreachable' packets received = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_SOURCE_QUENCH_RECEIVED_TXT (//)
+'Source quench' packets received           = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_REDIRECT_RECEIVED_TXT (//)
+'Redirect' packets received                = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_ECHO_RECEIVED_TXT (//)
+'Echo' packets received                    = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_ROUTER_ADVERTIZEMENT_RECEIVED_TXT (//)
+'Router advertizement' packets received    = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_ROUTER_SOLICITATION_RECEIVED_TXT (//)
+'Router solicitation' packets received     = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_TIME_EXCEEDED_RECEIVED_TXT (//)
+'Time exceeded' packets received           = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_BAD_IP_HEADER_RECEIVED_TXT (//)
+'Bad IP header' packets received           = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_TIMESTAMP_REQUEST_RECEIVED_TXT (//)
+'Timestamp request' packets received       = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_TIMESTAMP_REPLY_RECEIVED_TXT (//)
+'Timestamp reply' packets received         = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_INFORMATION_REQUEST_RECEIVED_TXT (//)
+'Information request' packets received     = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_INFORMATION_REPLY_RECEIVED_TXT (//)
+'Information reply' packets received       = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_ADDRESS_MASK_REQUEST_RECEIVED_TXT (//)
+'Address mask request' packets received    = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_ADDRESS_MASK_REPLY_RECEIVED_TXT (//)
+'Address mask reply' packets received      = %ld\n
+;
+MSG_SHOWNETSTATUS_IGMP_TITLE_TXT (//)
+%sInternet Group Management Protocol statistics%s\n
+;
+MSG_SHOWNETSTATUS_IGMP_TOTAL_MESSAGES_RECEIVED_TXT (//)
+Total messages received                   = %ld\n
+;
+MSG_SHOWNETSTATUS_IGMP_MESSAGES_RECEIVED_TOO_SHORT_TXT (//)
+Messages received with too few bytes      = %ld\n
+;
+MSG_SHOWNETSTATUS_IGMP_MESSAGES_RECEIVED_BAD_CHECKSUM_TXT (//)
+Messages received with bad checksums      = %ld\n
+;
+MSG_SHOWNETSTATUS_IGMP_MEMBERSHIP_QUERIES_RECEIVED_TXT (//)
+Membership queries received               = %ld\n
+;
+MSG_SHOWNETSTATUS_IGMP_INVALID_QUERIES_RECEIVED_TXT (//)
+Messages received with invalid queries    = %ld\n
+;
+MSG_SHOWNETSTATUS_IGMP_MEMBERSHIP_REPORTS_RECEIVED_TXT (//)
+Membership reports received               = %ld\n
+;
+MSG_SHOWNETSTATUS_IGMP_INVALID_REPORTS_RECEIVED_TXT (//)
+Messages received with invalid reports    = %ld\n
+;
+MSG_SHOWNETSTATUS_IGMP_MEMBERSHIP_REPORTS_RECEIVED_FOR_THIS_GROUP_TXT (//)
+Membership reports received for our group = %ld\n
+;
+MSG_SHOWNETSTATUS_IGMP_MEMBERSHIP_REPORTS_SENT_TXT (//)
+Membership reports sent                   = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_TITLE_TXT (//)
+%sInternet Protocol statistics%s\n
+;
+MSG_SHOWNETSTATUS_IP_TOTAL_PACKETS_RECEIVED_TXT (//)
+Total packets received                       = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_WITH_CHECKSUM_ERRORS_TXT (//)
+Packets with checksum errors                 = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_TOO_SHORT_TXT (//)
+Packets shorter than expected                = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_TOO_SMALL_TXT (//)
+Packets with not enough data                 = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_WITH_BAD_DATA_SIZE_TXT (//)
+Packets with bad data size                   = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_WITH_BAD_HEADER_SIZE_TXT (//)
+Packets with bad header size                 = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_FRAGMENTS_RECEIVED_TXT (//)
+Fragments received                           = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_FRAGMENTS_DROPPED_TXT (//)
+Fragments dropped                            = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_FRAGMENTS_TIMED_OUT_TXT (//)
+Fragments timed out                          = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_FORWARDED_TXT (//)
+Packets forwarded                            = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_CANNOT_FORWARD_TXT (//)
+Packets received for unreachable destination = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_FORWARDED_ON_SAME_NETWORK_TXT (//)
+Packets forwarded on same network            = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_WITH_UNKNOWN_PROTOCOLS_TXT (//)
+Packets with unknown protocols               = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_DATAGRAMS_DELIVERED_TXT (//)
+Datagrams delivered                          = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_GENERATED_TXT (//)
+Packets generated                            = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_LOST_TXT (//)
+Packets lost                                 = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_REASSEMBLED_TXT (//)
+Packets reassembled                          = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_FRAGMENTED_TXT (//)
+Packets fragmented                           = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_OUTPUT_FRAGMENTS_CREATED_TXT (//)
+Output fragments created                     = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_CANNOT_FRAGMENT_TXT (//)
+Packets that could not be fragmented         = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_ERRORS_IN_OPTION_PROCESSING_TXT (//)
+Errors in option processing                  = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_NO_ROUTE_TXT (//)
+Packets discarded due to no route            = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_WITH_BAD_IP_VERSION_TXT (//)
+Packets with IP version other than 4         = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_RAW_PACKETS_SENT_TXT (//)
+Raw IP packets sent                          = %ld\n
+;
+MSG_SHOWNETSTATUS_MBUF_TITLE_TXT (//)
+%sMemory buffer statistics%s\n
+;
+MSG_SHOWNETSTATUS_MBUF_BUFFERS_FROM_PAGE_POOL_TXT (//)
+Buffers obtained from page pool                       = %ld\n
+;
+MSG_SHOWNETSTATUS_MBUF_CLUSTERS_FROM_PAGE_POOL_TXT (//)
+Clusters obtained from page pool                      = %ld\n
+;
+MSG_SHOWNETSTATUS_MBUF_FREE_CLUSTERS_TXT (//)
+Free clusters                                         = %ld\n
+;
+MSG_SHOWNETSTATUS_MBUF_DROPS_TXT (//)
+Number of times no free space was available           = %ld\n
+;
+MSG_SHOWNETSTATUS_MBUF_WAIT_TXT (//)
+Number of times had to wait for free space            = %ld\n
+;
+MSG_SHOWNETSTATUS_MBUF_DRAIN_TXT (//)
+Number of times had to drain protocols for free space = %ld\n
+;
+MSG_SHOWNETSTATUS_MULTICAST_TITLE_TXT (//)
+%sMulticast routing statistics%s\n
+;
+MSG_SHOWNETSTATUS_MULTICAST_ROUTE_LOOKUPS_TXT (//)
+Multicast route lookups                 = %ld\n
+;
+MSG_SHOWNETSTATUS_MULTICAST_ROUTE_CACHE_MISSES_TXT (//)
+Multicast route cache misses            = %ld\n
+;
+MSG_SHOWNETSTATUS_MULTICAST_GROUP_ADDRESS_LOOKUPS_TXT (//)
+Group address lookups                   = %ld\n
+;
+MSG_SHOWNETSTATUS_MULTICAST_GROUP_ADDRESS_CACHE_MISSES_TXT (//)
+Group address cache misses              = %ld\n
+;
+MSG_SHOWNETSTATUS_MULTICAST_NO_ROUTE_TXT (//)
+Packets with no routes to their origins = %ld\n
+;
+MSG_SHOWNETSTATUS_MULTICAST_BAD_TUNNEL_TXT (//)
+Packets with malformed tunnel options   = %ld\n
+;
+MSG_SHOWNETSTATUS_MULTICAST_CANNOT_TUNNEL_TXT (//)
+Packets with no room for tunnel options = %ld\n
+;
+MSG_SHOWNETSTATUS_MULTICAST_CANNOT_WRONG_INTERFACE_TXT (//)
+Packets arrived on the wrong interface  = %ld\n
+;
+MSG_SHOWNETSTATUS_ROUTING_TITLE_TXT (//)
+%sRouting statistics%s\n
+;
+MSG_SHOWNETSTATUS_ROUTING_BAD_REDIRECT_TXT (//)
+Bogus redirect calls              = %ld\n
+;
+MSG_SHOWNETSTATUS_ROUTING_DYNAMIC_TXT (//)
+Routes created by redirect calls  = %ld\n
+;
+MSG_SHOWNETSTATUS_ROUTING_NEW_GATEWAY_TXT (//)
+Routes modified by redirect calls = %ld\n
+;
+MSG_SHOWNETSTATUS_ROUTING_UNREACH_TXT (//)
+Lookups which failed              = %ld\n
+;
+MSG_SHOWNETSTATUS_ROUTING_WILDCARD_TXT (//)
+Lookups satisfied by a wildcard   = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_TITLE_TXT (//)
+%sTransmission Control Protocol statistics%s\n
+;
+MSG_SHOWNETSTATUS_TCP_CONNATTEMPT_TXT (//)
+Connections initiated                           = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_ACCEPTS_TXT (//)
+Connections accepted                            = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_CONNECTS_TXT (//)
+Connections established                         = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_DROPS_TXT (//)
+Connections dropped                             = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_CONNDROPS_TXT (//)
+Embryonic connections dropped                   = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_CLOSED_TXT (//)
+Connections closed                              = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_SEGSTIMED_TXT (//)
+Segments timed                                  = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RTTUPDATED_TXT (//)
+Round trip times updated                        = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_DELACK_TXT (//)
+Delayed acknowledgments sent                    = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_TIMEOUTDROP_TXT (//)
+Connections dropped in timeout state            = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_PERSISTTIMEO_TXT (//)
+Persist timeouts                                = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_KEEPTIMEO_TXT (//)
+Keep-alive timeouts                             = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_KEEPPROBE_TXT (//)
+Keep-alive probes sent                          = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_KEEPDROPS_TXT (//)
+Connections dropped due to keep-alive timeouts  = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_SNDTOTAL_TXT (//)
+Total packets sent                              = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_SNDPACK_TXT (//)
+Data packets sent                               = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_SNDBYTE_TXT (//)
+Data bytes sent                                 = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_SNDREXMITPACK_TXT (//)
+Data packets retransmitted                      = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_SNDREXMITBYTE_TXT (//)
+Data bytes retransmitted                        = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_SNDACKS_TXT (//)
+Acknowledge-only packets sent                   = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_SNDPROBE_TXT (//)
+Window probes sent                              = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_SNDURG_TXT (//)
+Packets sent with 'urgent' attribute            = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_SNDWINUP_TXT (//)
+Window-update-only packets sent                 = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_SNDCTRL_TXT (//)
+Packets sent with control attributes            = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVTOTAL_TXT (//)
+Total packets received                          = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVPACK_TXT (//)
+Packets received in sequence                    = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVBYTE_TXT (//)
+Bytes received in sequence                      = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVBADSUM_TXT (//)
+Packets received with checksum errors           = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVBADOFF_TXT (//)
+Packets received with bad offset                = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVSHORT_TXT (//)
+Packets received that were too short            = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVDUPPACK_TXT (//)
+Duplicate packets received                      = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVDUPBYTE_TXT (//)
+Duplicate bytes received                        = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVOOPACK_TXT (//)
+Out-of-order packets received                   = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVOOBYTE_TXT (//)
+Out-of-order bytes received                     = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVPACKAFTERWIN_TXT (//)
+Packets received with data after window         = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVBYTEAFTERWIN_TXT (//)
+Bytes received after window                     = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVAFTERCLOSE_TXT (//)
+Packets received after 'close'                  = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVWINPROBE_TXT (//)
+Window probe packets received                   = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVDUPACK_TXT (//)
+Duplicate acknowledgements received             = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVACKTOOMUCH_TXT (//)
+Acknowledgements received for unsent data       = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVACKPACK_TXT (//)
+Acknowledgement packets received                = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVACKBYTE_TXT (//)
+Bytes acknowledged                              = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVWINUPD_TXT (//)
+Window update packets received                  = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_PAWSDROP_TXT (//)
+Segments dropped due to PAWS                    = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_PREDACK_TXT (//)
+Correct header predictions for acknowledgements = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_PREDDAT_TXT (//)
+Correct header predictions for data packets     = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_PERSISTDROP_TXT (//)
+Timeouts in persist state                       = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_BADSYN_TXT (//)
+Packets with bogus 'SYN' attribute received     = %ld\n
+;
+MSG_SHOWNETSTATUS_UDP_TITLE_TXT (//)
+%sUser Datagram Protocol statistics%s\n
+;
+MSG_SHOWNETSTATUS_UDP_IPACKETS_TXT (//)
+Total packets received                       = %ld\n
+;
+MSG_SHOWNETSTATUS_UDP_HDROPS_TXT (//)
+Packets received shorter than header         = %ld\n
+;
+MSG_SHOWNETSTATUS_UDP_BADSUM_TXT (//)
+Packets received with checksum errors        = %ld\n
+;
+MSG_SHOWNETSTATUS_UDP_BADLEN_TXT (//)
+Packets received larger than expected        = %ld\n
+;
+MSG_SHOWNETSTATUS_UDP_NOPORT_TXT (//)
+Packets received for unbound ports           = %ld\n
+;
+MSG_SHOWNETSTATUS_UDP_NOPORTBCAST_TXT (//)
+Broadcast packets received for unbound ports = %ld\n
+;
+MSG_SHOWNETSTATUS_UDP_FULLSOCK_TXT (//)
+Packets dropped                              = %ld\n
+;
+MSG_SHOWNETSTATUS_UDP_OPACKETS_TXT (//)
+Total packets sent                           = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_SOCKET_TITLE_TXT (//)
+%s%-30s %-30s %10s %10s %-30s%s\n
+;
+MSG_SHOWNETSTATUS_LOCAL_TXT (//)
+Local
+;
+MSG_SHOWNETSTATUS_REMOTE_TXT (//)
+Remote
+;
+MSG_SHOWNETSTATUS_RECEIVE_LEN_TXT (//)
+Rcv.len
+;
+MSG_SHOWNETSTATUS_SEND_LEN_TXT (//)
+Snd.len
+;
+MSG_SHOWNETSTATUS_TCP_SOCKET_LINE_TXT (//)
+%-30s %-30s %10ld %10ld %s\n
+;
+MSG_SHOWNETSTATUS_NO_TCP_SOCKETS_IN_USE_TXT (//)
+No TCP sockets are currently in use.\n
+;
+MSG_SHOWNETSTATUS_UDP_SOCKET_TITLE_TXT (//)
+%s%-30s %-30s %10s %10s%s\n
+;
+MSG_SHOWNETSTATUS_UDP_SOCKET_LINE_TXT (//)
+%-30s %-30s %10ld %10ld\n
+;
+MSG_SHOWNETSTATUS_NO_UDP_SOCKETS_IN_USE_TXT (//)
+No UDP sockets are currently in use.\n
+;
+MSG_SHOWNETSTATUS_STATUS_NAME1_TXT (//)
+Internet Control Message Protocol
+;
+MSG_SHOWNETSTATUS_STATUS_NAME2_TXT (//)
+Internet Group Management Protocol
+;
+MSG_SHOWNETSTATUS_STATUS_NAME3_TXT (//)
+Internet Protocol
+;
+MSG_SHOWNETSTATUS_STATUS_NAME4_TXT (//)
+memory buffer
+;
+MSG_SHOWNETSTATUS_STATUS_NAME5_TXT (//)
+multicast routing
+;
+MSG_SHOWNETSTATUS_STATUS_NAME6_TXT (//)
+routing
+;
+MSG_SHOWNETSTATUS_STATUS_NAME7_TXT (//)
+Transmission Control Protocol
+;
+MSG_SHOWNETSTATUS_STATUS_NAME8_TXT (//)
+User Datagram Protocol
+;
+MSG_SHOWNETSTATUS_STATUS_NAME9_TXT (//)
+Transmission Control Protocol sockets
+;
+MSG_SHOWNETSTATUS_STATUS_NAME10_TXT (//)
+User Datagram Protocol sockets
+;
+MSG_SHOWNETSTATUS_NOT_CONFIGURED_TXT (//)
+(Not configured)
+;
+MSG_SHOWNETSTATUS_TCP_FSM_STATE1_TXT (//)
+Closed
+;
+MSG_SHOWNETSTATUS_TCP_FSM_STATE2_TXT (//)
+Listening for connection
+;
+MSG_SHOWNETSTATUS_TCP_FSM_STATE3_TXT (//)
+Active; 'SYN' sent
+;
+MSG_SHOWNETSTATUS_TCP_FSM_STATE4_TXT (//)
+Sent and received 'SYN'
+;
+MSG_SHOWNETSTATUS_TCP_FSM_STATE5_TXT (//)
+Established
+;
+MSG_SHOWNETSTATUS_TCP_FSM_STATE6_TXT (//)
+Received 'FIN', waiting for close
+;
+MSG_SHOWNETSTATUS_TCP_FSM_STATE7_TXT (//)
+Closed; 'FIN' sent
+;
+MSG_SHOWNETSTATUS_TCP_FSM_STATE8_TXT (//)
+Closed, 'FIN' exchanged, waiting for 'FIN ACK'
+;
+MSG_SHOWNETSTATUS_TCP_FSM_STATE9_TXT (//)
+Closed; waiting for last 'FIN ACK'
+;
+MSG_SHOWNETSTATUS_TCP_FSM_STATE10_TXT (//)
+Closed, 'FIN' acknowledged
+;
+MSG_SHOWNETSTATUS_TCP_FSM_STATE11_TXT (//)
+Closed; waiting...
+;
+MSG_SHOWNETSTATUS_WILDCARD_TXT (//)
+(Any)
+;
+MSG_SHOWNETSTATUS_SOME_TCP_SOCKETS_IN_USE_TXT (//)
+Currently, %ld local TCP sockets are in use, but not displayed (use the \"ALL\" option to show them).\n
+;
+MSG_SHOWNETSTATUS_SOME_UDP_SOCKETS_IN_USE_TXT (//)
+Currently, %ld local UDP sockets are in use, but not displayed (use the \"ALL\" option to show them).\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_NUM_READ_REQUESTS_TXT (//)
+Number of read I/O requests  = %ld (maximum of %ld used at a time, %ld are still pending)\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_NUM_WRITE_REQUESTS_TXT (//)
+Number of write I/O requests = %ld (maximum of %ld used at a time, %ld are still pending)\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_NUM_BYTES_RECEIVED_TXT (//)
+Number of bytes received     = %s\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_NUM_BYTES_SENT_TXT (//)
+Number of bytes sent         = %s\n
+;
+MSG_SHOWNETSTATUS_UNKNOWN_HOST_TXT (//)
+(Unknown)
+;
+MSG_SHOWNETSTATUS_IP_ADDRESS_TXT (//)
+IP address
+;
+MSG_SHOWNETSTATUS_HARDWARE_ADDRESS_TXT (//)
+Hardware address
+;
+MSG_SHOWNETSTATUS_INCOMPLETE_HARDWARE_ADDRESS_TXT (//)
+(Incomplete)
+;
+MSG_SHOWNETSTATUS_ARP_ENTRY_PERMANENT_TXT (//)
+permanent
+;
+MSG_SHOWNETSTATUS_ARP_ENTRY_PUBLISHED_PROXY_TXT (//)
+published (proxy only)
+;
+MSG_SHOWNETSTATUS_ARP_ENTRY_PUBLISHED_TXT (//)
+published
+;
+MSG_SHOWNETSTATUS_ARP_CACHE_EMPTY_TXT (//)
+The address resolution protocol cache is currently empty.\n
+;
+MSG_SHOWNETSTATUS_ARP_HEADER_TXT (//)
+%s%-16s %-16s %-20s %s%s
+;
+MSG_SHOWNETSTATUS_NO_ARP_INFORMATION_TXT (//)
+%s: Unable to obtain address resolution protocol information.\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_TRANSFER_STATISTICS_TXT (//)
+Transfer statistics (in/out) = DMA:%lu/%lu Byte:%lu/%lu Word:-/%lu\n
+;
+MSG_SHOWNETSTATUS_STATUS_SUMMARY_TXT (//)
+%sNetwork status summary%s\n
+;
+MSG_SHOWNETSTATUS_LOCAL_HOST_ADDRESS_TXT (//)
+Local host address         = \0
+;
+MSG_SHOWNETSTATUS_LOCAL_HOST_ADDRESS_ON_INTERFACE_TXT (//)
+%s (on interface '%s')
+;
+MSG_SHOWNETSTATUS_DEFAULT_GATEWAY_ADDRESS_TXT (//)
+Default gateway address    = \0
+;
+MSG_SHOWNETSTATUS_DOMAIN_NAME_SYSTEM_SERVERS_TXT (//)
+Domain name system servers = \0
+;
+MSG_SHOWNETSTATUS_DEFAULT_DOMAIN_NAME_TXT (//)
+\nThe default domain name is set to \"%s\".\n
+;
+MSG_SHOWNETSTATUS_DEFAULT_DOMAIN_NAME_UNSET_TXT (//)
+\nThe default domain name is not set.\n
+;
+#endif SHOWNETSTATUS_CATALOG_STRINGS
+;
+;-----------------------------------------------------------------------------
+;
+#ifdef LOGVIEWER_CATALOG_STRINGS
+;
+MSG_LOGVIEWER_PROJECT_MENU (900//)
+ \0Project
+;
+MSG_LOGVIEWER_PROJECT_CLEAR_MENU (//)
+C\0Clear
+;
+MSG_LOGVIEWER_PROJECT_SAVE_AS_MENU (//)
+A\0Save message list as...
+;
+MSG_LOGVIEWER_PROJECT_HIDE_MENU (//)
+H\0Hide
+;
+MSG_LOGVIEWER_PROJECT_QUIT_MENU (//)
+Q\0Quit
+;
+MSG_LOGVIEWER_LOG_LEVEL_0_TXT (//)
+Emergency
+;
+MSG_LOGVIEWER_LOG_LEVEL_1_TXT (//)
+Alert
+;
+MSG_LOGVIEWER_LOG_LEVEL_2_TXT (//)
+Critical
+;
+MSG_LOGVIEWER_LOG_LEVEL_3_TXT (//)
+Error
+;
+MSG_LOGVIEWER_LOG_LEVEL_4_TXT (//)
+Warning
+;
+MSG_LOGVIEWER_LOG_LEVEL_5_TXT (//)
+Note
+;
+MSG_LOGVIEWER_LOG_LEVEL_6_TXT (//)
+Information
+;
+MSG_LOGVIEWER_LOG_LEVEL_7_TXT (//)
+Debug
+;
+MSG_LOGVIEWER_LABEL_0_TXT (//)
+Time
+;
+MSG_LOGVIEWER_LABEL_1_TXT (//)
+Origin
+;
+MSG_LOGVIEWER_LABEL_2_TXT (//)
+Severity
+;
+MSG_LOGVIEWER_LABEL_3_TXT (//)
+Message
+;
+MSG_LOGVIEWER_OK_TXT (//)
+OK
+;
+MSG_LOGVIEWER_REALLY_CLEAR_MESSAGE_LIST_TXT (//)
+Do you really want to clear\nthe message list?
+;
+MSG_LOGVIEWER_YES_NO_TXT (//)
+Yes|No
+;
+MSG_LOGVIEWER_OVERWRITE_APPEND_NEWNAME_CANCEL_TXT (//)
+Overwrite|Append|Choose new name...|Cancel
+;
+MSG_LOGVIEWER_FILE_REQUESTER_TITLE_TXT (//)
+Save log messages
+;
+MSG_LOGVIEWER_FILE_REQUESTER_SAVE_TXT (//)
+Save
+;
+MSG_LOGVIEWER_COMMODITIES_TITLE_TXT (//)
+Network log viewer
+;
+MSG_LOGVIEWER_COMMODITIES_DESCRIPTION_TXT (//)
+Shows log messages
+;
+MSG_LOGVIEWER_ORIGIN_UNKNOWN_TXT (//)
+Unknown
+;
+MSG_LOGVIEWER_FILE_ALREADY_EXISTS_TXT (//)
+The file\n%s\nalready exists.
+;
+MSG_LOGVIEWER_FILE_COULD_NOT_BE_OPENED_TXT (//)
+The file\n%s\ncould not be opened\n(%s).
+;
+MSG_LOGVIEWER_ERROR_WRITING_TO_FILE_TXT (//)
+Error writing to file\n%s\n(%s).
+;
+MSG_LOGVIEWER_NO_DEFAULT_PUB_SCREEN_TXT (//)
+Could not lock default public screen.
+;
+MSG_LOGVIEWER_NO_PUBLIC_SCREEN_FONT_TXT (//)
+Could not open public screen font.
+;
+MSG_LOGVIEWER_NO_VISUAL_INFO_TXT (//)
+Could not obtain visual information of public screen.
+;
+MSG_LOGVIEWER_NO_MENU_TXT (//)
+Could not create menu.
+;
+MSG_LOGVIEWER_NO_MENU_LAYOUT_TXT (//)
+Could not perform menu layout.
+;
+MSG_LOGVIEWER_NO_SCREEN_DRAW_INFO_TXT (//)
+Could not obtain screen draw info.
+;
+MSG_LOGVIEWER_NO_SIZING_IMAGE_TXT (//)
+Could not obtain sizing image.
+;
+MSG_LOGVIEWER_NO_VERTICAL_SCROLLER_TXT (//)
+Could not create vertical scroller.
+;
+MSG_LOGVIEWER_NO_HORIZONTAL_SCROLLER_TXT (//)
+Could not create horizontal scroller.
+;
+MSG_LOGVIEWER_NO_WINDOW_TXT (//)
+Could not open window.
+;
+MSG_LOGVIEWER_NO_USER_CLIP_REGION_TXT (//)
+Not enough memory for user clip region.
+;
+MSG_LOGVIEWER_NO_LIBRARY_VERSION_TXT (//)
+Could not open \"%s\" V%ld.
+;
+MSG_LOGVIEWER_NO_LIBRARY_TXT (//)
+Could not open \"%s\".
+;
+MSG_LOGVIEWER_NO_MEMORY_POOL_TXT (//)
+Could not create memory pool.
+;
+MSG_LOGVIEWER_NO_SCROLLER_CLASS_TXT (//)
+Could not set up scroller class.
+;
+MSG_LOGVIEWER_NO_FILE_REQUESTER_TXT (//)
+Could not allocate file requester.
+;
+MSG_LOGVIEWER_NO_COMMODITIES_PORT_TXT (//)
+Could not create commodities message port.
+;
+MSG_LOGVIEWER_NO_COMMODITIES_BROKER_TXT (//)
+Could not create commodities broker.
+;
+MSG_LOGVIEWER_NO_COMMODITIES_HOTKEY_TXT (//)
+Could not create commodities hotkey filter.
+;
+MSG_LOGVIEWER_NO_COMMODITIES_SYSTEM_TXT (//)
+Could not configure commodities system.
+;
+MSG_LOGVIEWER_NO_HOOK_PORT_TXT (//)
+Could not create internal message port.
+;
+MSG_LOGVIEWER_NO_LOG_HOOK_TXT (//)
+Could not register log message hook interface (Roadshow required).
+;
+#endif LOGVIEWER_CATALOG_STRINGS
+;
+;-----------------------------------------------------------------------------
+;
+#ifdef NETSHUTDOWN_CATALOG_STRINGS
+;
+MSG_NETSHUTDOWN_NO_UTILITY_TXT (1000//)
+%s: Failed to open \"utility.library\" V37.\n
+;
+MSG_NETSHUTDOWN_NO_MEMORY_TXT (//)
+%s: Could not allocate memory.\n
+;
+MSG_NETSHUTDOWN_NO_MSGPORT_TXT (//)
+%s: Could not create a message port.\n
+;
+MSG_NETSHUTDOWN_NO_TIMER_REQUEST_TXT (//)
+%s: Could not create timer request.\n
+;
+MSG_NETSHUTDOWN_NO_TIMER_DEVICE_TXT (//)
+%s: Could not open \"%s\".\n
+;
+MSG_NETSHUTDOWN_TRYING_TO_SHUT_DOWN_TXT (//)
+Waiting for network to shut down... \0
+;
+MSG_NETSHUTDOWN_SHUTDOWN_FAILED_TXT (//)
+shutdown failed.\a\n
+;
+MSG_NETSHUTDOWN_SHUTDOWN_DONE_TXT (//)
+shutdown finished.\n
+;
+MSG_NETSHUTDOWN_SHUTDOWN_ABORTED_TXT (//)
+stopped waiting; network may shut down later.\n
+;
+MSG_NETSHUTDOWN_SHUTDOWN_TIMEOUT_TXT (//)
+timeout; network may shut down later.\n
+;
+MSG_NETSHUTDOWN_NETWORK_NOT_IN_USE_TXT (//)
+%s: The network is not currently in use.\n
+;
+#endif NETSHUTDOWN_CATALOG_STRINGS
+;
+;-----------------------------------------------------------------------------
+;
+#ifdef ROADSHOWCONTROL_CATALOG_STRINGS
+;
+MSG_ROADSHOWCONTROL_NO_UTILITY_TXT (1100//)
+%s: Failed to open \"utility.library\" V37.\n
+;
+MSG_ROADSHOWCONTROL_CANNOT_OPEN_BSDSOCKET_TXT (//)
+%s: Failed to open \"bsdsocket.library\" V4.\n
+;
+MSG_ROADSHOWCONTROL_BSDSOCKET_HAS_NO_ROADSHOWDATA_API_TXT (//)
+%s: \"%s\" V%ld.%ld does not support the data set/get method used by this program.\n
+;
+MSG_ROADSHOWCONTROL_NO_ROADSHOW_DATA_TXT (//)
+%s: List of internal options is not available (%ld, %s).\n
+;
+MSG_ROADSHOWCONTROL_COULD_NOT_SET_OPTION_TXT (//)
+%s: Could not set option \"%s\" to %ld (%ld, %s).\n
+;
+MSG_ROADSHOWCONTROL_COULD_NOT_SET_ENV_VARIABLE_TXT (//)
+%s: Could not set environment variable \"%s\" (%ld, %s).\n
+;
+#endif ROADSHOWCONTROL_CATALOG_STRINGS
+;
+;-----------------------------------------------------------------------------
+;
+#ifdef REMOVENETINTERFACE_CATALOG_STRINGS
+;
+MSG_REMOVENETINTERFACE_CANNOT_OPEN_BSDSOCKET_TXT (1200//)
+%s: Failed to open \"bsdsocket.library\" V4.\n
+;
+MSG_REMOVENETINTERFACE_INTERFACE_REMOVED_TXT (//)
+%s: Interface \"%s\" removed.\n
+;
+MSG_REMOVENETINTERFACE_COULD_NOT_REMOVE_INTERFACE_TXT (//)
+%s: Could not remove interface \"%s\" (%ld, %s).\n
+;
+#endif REMOVENETINTERFACE_CATALOG_STRINGS

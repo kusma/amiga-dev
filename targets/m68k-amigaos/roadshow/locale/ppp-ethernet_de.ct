@@ -1,0 +1,1012 @@
+## version $VER: ppp-ethernet.catalog 1.7 (7.6.2005)
+## codeset 0
+## language deutsch
+;
+MSG_LOGIN_PASSWORD_ACKNOWLEDGED_MESSAGE_TXT
+Zugang/Kennwort bestätigt. %s
+; Login/password acknowledged. %s
+;
+MSG_LOGIN_PASSWORD_ACKNOWLEDGED_TXT
+Zugang/Kennwort bestätigt.
+; Login/password acknowledged.
+;
+MSG_LOGIN_PASSWORD_NOT_ACKNOWLEDGED_MESSAGE_TXT
+FEHLER: Zugang/Kennwort nicht bestätigt. %s
+; ERROR: Login/password not acknowledged. %s
+;
+MSG_LOGIN_PASSWORD_NOT_ACKNOWLEDGED_TXT
+FEHLER: Zugang/Kennwort nicht bestätigt.
+; ERROR: Login/password not acknowledged.
+;
+MSG_UNSUPPORTED_PAP_MESSAGE_CODE_TXT
+FEHLER: Unbekannte Kennwortanmeldung Nummer %ld (0x%02lx) empfangen.
+; ERROR: Unknown/unsupported password authentication message code %ld (0x%02lx) received.
+;
+MSG_SENDING_PAP_REQUEST_TXT
+Versende Anfrage zur Anmeldung mit Kennwort für Zugang '%s'.
+; Sending password authentication request for login '%s'.
+;
+MSG_SENDING_CHAP_MESSAGE_TOO_LONG_TXT
+FEHLER: Anmeldenachricht für Protokoll 'CHAP' ist zu lang (%lD > %lD).
+; ERROR: Challenge handshake authentication message is too long (%ld > %ld).
+;
+MSG_CHAP_MESSAGE_RECEIVED_TXT
+Anmeldenachricht für Protokoll 'CHAP' von '%s' empfangen; Nachricht wird beantwortet...
+; Challenge handshake authentication message received from '%s'; responding...
+;
+MSG_SENDING_CHAP_MESSAGE_TOO_SHORT_TXT
+FEHLER: Anmeldenachricht für Protokoll 'CHAP' ist zu kurz.
+; ERROR: Challenge handshake authentication message is too short.
+;
+MSG_CHALLENGE_ACKNOWLEDGED_MESSAGE_TXT
+Anmeldung bestätigt. %s
+; Challenge acknowledged. %s
+;
+MSG_CHALLENGE_ACKNOWLEDGED_TXT
+Anmeldung bestätigt.
+; Challenge acknowledged.
+;
+MSG_CHALLENGE_NOT_ACKNOWLEDGED_MESSAGE_TXT
+FEHLER: Anmeldung wurde nicht bestätigt. %s
+; ERROR: Challenge was not acknowledged. %s
+;
+MSG_CHALLENGE_NOT_ACKNOWLEDGED_TXT
+FEHLER: Anmeldung wurde nicht bestätigt.
+; ERROR: Challenge was not acknowledged.
+;
+MSG_UNKNOWN_CHAP_MESSAGE_CODE_TXT
+FEHLER: Unbekannte Kennwortanmeldung Nummer %ld (0x%02lx) für Protokoll 'CHAP' empfangen.
+; ERROR: Unknown/unsupported challenge handshake authentication code %ld (0x%02lx).
+;
+MSG_SHUTTING_DOWN_LCP_TXT
+Verbindungssteuerungsprotokoll (LCP) wird heruntergefahren.
+; Shutting down Link Control Protocol (LCP).
+;
+MSG_CLOSING_LCP_TXT
+Verbindungssteuerungsprotokoll (LCP) wird deaktiviert.
+; Closing Link Control Protocol (LCP).
+;
+MSG_LCP_CLOSED_TXT
+Verbindungssteuerungsprotokoll (LCP) ist deaktiviert.
+; Link Control Protocol (LCP) closed.
+;
+MSG_FRAME_TO_SEND_BYTES_TXT
+Zu sendender Rahmen = %lD Bytes.
+; Frame to send = %ld bytes.
+;
+MSG_CURRENT_BUFFER_SIZE_BYTES_TXT
+Aktuelle Puffergröße = %lD Bytes (0x%lx).
+; Current buffer size = %ld bytes (0x%lx).
+;
+MSG_RAW_INPUT_FRAME_SIZE_BYTES_TXT
+Ausgangsgröße der empfangenen Rahmendaten = %lD Bytes (0x%lx), beginnend bei Position %ld (0x%lx).
+; Raw input frame size = %ld bytes (0x%lx), starting at position %ld (0x%lx).
+;
+MSG_INPUT_FRAME_SIZE_BYTES_TXT
+Empfangene Rahmengröße = %lD Bytes (0x%lx).
+; Input frame size = %ld bytes (0x%lx).
+;
+MSG_FRAME_CHECKSUM_INVALID_TXT
+Prüfsumme der Rahmendaten ist ungültig.
+; Frame checksum is not valid.
+;
+MSG_REJECTING_IPCP_OPTION_TXT
+Option 0x%02lx des Internetprotokoll-Steuerungsprotokolls (IPCP) wird abgelehnt.
+; Rejecting Internet Protocol Control Protocol (IPCP) option 0x%02lx.
+;
+MSG_HEADER_COMPRESSION_WITH_SLOTS_NOT_ACCEPTABLE_TXT
+Kopfdatenkompression mit %lD Einträgen ist unzulässig.
+; Header compression with %ld slots is not acceptable.
+;
+MSG_PEER_IPCP_CONFIG_ACKNOWLEDGED_TXT
+Konfiguration des Internetprotokoll-Steuerungsprotokolls (IPCP) der Gegenstelle wurde bestätigt.
+; Peer's Internet Protocol Control Protocol (IPCP) configuration acknowledged.
+;
+MSG_PEER_SUPPORTS_HEADER_COMPRESSION_TXT
+Gegenstelle unterstützt Kopfdatenkompression (Max-Slot-ID = %ld, Comp-Slot-ID = %ld).
+; Peer supports header compression (Max-Slot-ID = %ld, Comp-Slot-ID = %ld).
+;
+MSG_PEER_DOES_NOT_SUPPORT_HEADER_COMPRESSION_TXT
+Gegenstelle unterstützt keine Kopfdatenkompression.
+; Peer does not support header compression.
+;
+MSG_REMOTE_IP_ADDRESS_USING_DEFAULTS_TXT
+Netzadresse der Gegenstelle = %ld.%ld.%ld.%ld (statt %ld.%ld.%ld.%ld wird der Vorgabewert benutzt)
+; Remote IP-Address = %ld.%ld.%ld.%ld (using configuration defaults rather than %ld.%ld.%ld.%ld)
+;
+MSG_REMOTE_IP_ADDRESS_TXT
+Netzadresse der Gegenstelle = %ld.%ld.%ld.%ld
+; Remote IP-Address = %ld.%ld.%ld.%ld
+;
+MSG_SENDING_IPCP_CONFIG_REQUEST_TXT
+Versende Anfrage zur Einrichtung des Internetprotokoll-Steuerungsprotokolles (IPCP)...
+; Sending Internet Protocol Control Protocol (IPCP) configuration request...
+;
+MSG_RECEIVED_NEGATIVE_IPCP_CONFIG_ACKNOWLEDGEMENT_TXT
+Negative Bestätigung zur Einrichtung des Internetprotokoll-Steuerungsprotokolles (IPCP) wurde empfangen.
+; Received negative Internet Protocol Control Protocol (IPCP) configuration request acknowledgement.
+;
+MSG_MAXIMUM_VJHC_SLOT_ID_TOO_SMALL_TXT
+Maximale Anzahl von Einträgen %lD für Kopfdatenkompression ist zu klein; Kopfdatenkompression wurde deaktiviert.
+; Maximum slot ID %ld is too small for us; header compression disabled.
+;
+MSG_MAXIMUM_VJHC_SLOT_ID_TOO_LARGE_TXT
+Maximale Anzahl von Einträgen %lD für Kopfdatenkompression ist zu groß; Kopfdatenkompression wurde deaktiviert.
+; Maximum slot ID %ld is too large for us; header compression disabled.
+;
+MSG_VJHC_ENABLED_TXT
+Kopfdatenkompression wurde aktiviert.
+; Header compression enabled.
+;
+MSG_UNKNOWN_IP_HEADER_COMPRESSION_PROTOCOL_TXT
+Kopfdatenkompressionsprotokoll 0x%lx wird nicht unterstützt; Kopfdatenkompression wurde deaktiviert.
+; Unknown IP header compression protocol 0x%lx; header compression disabled.
+;
+MSG_LOCAL_IP_ADDRESS_TXT
+Lokale Netzadresse = %ld.%ld.%ld.%ld
+; Local IP-Address = %ld.%ld.%ld.%ld
+;
+MSG_PRIMARY_DNS_ADDRESS_TXT
+Adresse des primären DNS-Servers = %ld.%ld.%ld.%ld
+; Primary-DNS-Address = %ld.%ld.%ld.%ld
+;
+MSG_SECONDARY_DNS_ADDRESS_TXT
+Adresse des sekundären DNS-Servers = %ld.%ld.%ld.%ld
+; Secondary-DNS-Address = %ld.%ld.%ld.%ld
+;
+MSG_UNSUPPORTED_IPCP_OPTION_TXT
+Option 0x%02lx (%ld) des Internetprotokoll-Steuerungsprotokolls (IPCP) wird nicht unterstützt.
+; Unsupported/unknown Internet Protocol Control Protocol (IPCP) option 0x%02lx (%ld).
+;
+MSG_RECEIVED_IPCP_CONFIG_REQUEST_REJECT_MESSAGE_TXT
+Ablehnung der Einrichtung des Internetprotokoll-Steuerungsprotokolls (IPCP) wurde empfangen.
+; Received Internet Protocol Control Protocol (IPCP) configuration request reject message.
+;
+MSG_VJHC_COMPRESSION_DISABLED_TXT
+Kopfdatenkompression wurde deaktiviert.
+; Header compression disabled.
+;
+MSG_IP_ADDRESS_REJECTED_TXT
+Netzadresse %ld.%ld.%ld.%ld wurde abgelehnt.
+; IP-Address %ld.%ld.%ld.%ld rejected.
+;
+MSG_PRIMARY_DNS_ADDRESS_REJECTED_TXT
+Adresse des primären DNS-Servers %ld.%ld.%ld.%ld wurde abgelehnt.
+; Primary-DNS-Address %ld.%ld.%ld.%ld rejected.
+;
+MSG_SECONDARY_DNS_ADDRESS_REJECTED_TXT
+Adresse des sekundären DNS-Servers %ld.%ld.%ld.%ld wurde abgelehnt.
+; Secondary-DNS-Address %ld.%ld.%ld.%ld rejected.
+;
+MSG_RECEIVED_IPCP_CONFIG_REQUEST_TXT
+Anfrage zur Einrichtung des Internetprotokoll-Steuerungsprotokolles (IPCP) wurde empfangen.
+; Received Internet Protocol Control Protocol (IPCP) configuration request.
+;
+MSG_RECEIVED_IPCP_CODE_REJECT_MESSAGE_TXT
+Ablehnung des Internetprotokoll-Steuerungsprotokolls (IPCP) wurde empfangen.
+; Received Internet Protocol Control Protocol (IPCP) code reject message.
+;
+MSG_REJECTED_PACKET_SIZE_BYTES_TXT
+Datenpaketgröße = %lD Bytes (0x%lx) wurde abgelehnt
+; Rejected packet size = %ld bytes (0x%lx)
+;
+MSG_IPCP_THIS_LAYER_UP_TXT
+Internetprotokoll-Steuerungsprotokolls (IPCP) wird aktiviert
+; Internet Protocol Control Protocol (IPCP) This-Layer-Up
+;
+MSG_DRIVER_NOW_ONLINE_TXT
+Treiber ist jetzt mit dem Netz verbunden.
+; Driver is now online.
+;
+MSG_IPCP_THIS_LAYER_DOWN_TXT
+Internetprotokoll-Steuerungsprotokolls (IPCP) wird deaktiviert
+; Internet Protocol Control Protocol (IPCP) This-Layer-Down
+;
+MSG_IPCP_THIS_LAYER_FINISHED_TXT
+Internetprotokoll-Steuerungsprotokolls (IPCP) ist jetzt deaktiviert
+; Internet Protocol Control Protocol (IPCP) This-Layer-Finished
+;
+MSG_DRIVER_NOW_OFFLINE_TXT
+Treiber ist jetzt vom Netz getrennt.
+; Driver is now offline.
+;
+MSG_RECEIVED_POSITIVE_IPCP_CONFIG_REQUEST_ACKNOWLEDGEMENT_TXT
+Positive Bestätigung zur Einrichtung des Internetprotokoll-Steuerungsprotokolles (IPCP) wurde empfangen.
+; Received positive Internet Protocol Control Protocol (IPCP) configuration request acknowledgement.
+;
+MSG_IPCP_CONFIGURE_ACK_ID_DOES_NOT_MATCH_TXT
+Identifikationsnummer 0x%08lx der positiven Bestätigung zur Einrichtung des Internetprotokoll-Steuerungsprotokolles (IPCP) paßt nicht zu Identifikationsnummer 0x%08lx.
+; Internet Protocol Control Protocol (IPCP) Configure-Ack ID 0x%08lx does not match identifier 0x%08lx.
+;
+MSG_IPCP_CONFIGURE_NAK_ID_DOES_NOT_MATCH_TXT
+Identifikationsnummer 0x%08lx der negativen Bestätigung zur Einrichtung des Internetprotokoll-Steuerungsprotokolles (IPCP) paßt nicht zu Identifikationsnummer 0x%08lx.
+; Internet Protocol Control Protocol (IPCP) Configure-Nak ID 0x%08lx does not match identifier 0x%08lx.
+;
+MSG_IPCP_CONFIGURE_REJECT_ID_DOES_NOT_MATCH_TXT
+Identifikationsnummer 0x%08lx der Ablehnung zur Einrichtung des Internetprotokoll-Steuerungsprotokolles (IPCP) paßt nicht zu Identifikationsnummer 0x%08lx.
+; Internet Protocol Control Protocol (IPCP) Configure-Reject ID 0x%08lx does not match identifier 0x%08lx.
+;
+MSG_IPCP_TERMINATE_ACK_ID_DOES_NOT_MATCH_TXT
+Identifikationsnummer 0x%08lx der Ablehnung zum Herunterfahren des Internetprotokoll-Steuerungsprotokolles (IPCP) paßt nicht zu Identifikationsnummer 0x%08lx.
+; Internet Protocol Control Protocol (IPCP) Terminate-Ack ID 0x%08lx does not match identifier 0x%08lx.
+;
+MSG_REJECTING_AUTHENTICATION_PROTOCOL_DUE_TO_NO_LOGIN_TXT
+Anmeldungsprotokoll wird abgelehnt, da keine Kennung angegeben wurde.
+; Rejecting authentication protocol because no login is provided.
+;
+MSG_REJECTING_LCP_OPTION_TXT
+Option 0x%02lx (%ld) des Verbindungssteuerungsprotokolls (LCP) wird abgelehnt.
+; Rejecting Link Control Protocol (LCP) option 0x%02lx (%ld).
+;
+MSG_MTU_IS_SMALLER_THAN_TXT
+Maximalgröße einer Übertragungseinheit %lD ist kleiner als 64. Dies ist nicht akzeptabel.
+; Maximum transmission unit %ld is smaller than 64, which is not acceptable.
+;
+MSG_LINK_QUALITY_PROTOCOL_NOT_ACCEPTABLE_TXT
+Das Protokoll 0x%04lx zur Prüfung der Verbindungsqualität ist nicht akzeptabel.
+; Link quality protocol 0x%04lx is not acceptable.
+;
+MSG_CHAP_ALGORITHM_NOT_ACCEPTABLE_TXT
+Anmeldungsverfahren des 'CHAP'-Protokolles ist nicht %ld. Dies ist nicht akzeptabel.
+; Challenge Handshake Authentication algorithm is not %ld, which is not acceptable.
+;
+MSG_SUGGESTING_CHAP_TXT
+Das 'CHAP'-Anmeldungsprotokoll wird vorgeschlagen.
+; Suggesting Challenge Handshake Authentication Protocol.
+;
+MSG_AUTHENTICATION_PROTOCOL_NOT_ACCEPTABLE_TXT
+Anmeldungsprotokoll 0x%04lx ist nicht akzeptabel.
+; Authentication protocol 0x%04lx is not acceptable.
+;
+MSG_PEER_LCP_CONFIGURATION_ACKNOWLEDGED_TXT
+Konfiguration des Verbindungssteuerungsprotokolles (LCP) der Gegenstelle wurde bestätigt.
+; Peer's Link Control Protocol (LCP) configuration acknowledged.
+;
+MSG_MTU_SIZE_BYTES_TXT
+Maximalgröße einer Übertragungseinheit (MTU) = %lD Bytes.
+; Maximum transmission unit (MTU) = %ld.
+;
+MSG_PEER_ACCM_TXT
+Steuerzeichenmaske der Gegenstelle = 0x%08lx
+; Peer's Async-Control-Character-Map = 0x%08lx
+;
+MSG_PEER_AUTHENTICATION_PROTOCOL_TXT
+Anmeldungsprotokoll der Gegenstelle = 0x%04lx (%s)
+; Peer's Authentication-Protocol = 0x%04lx (%s)
+;
+MSG_PEER_AUTHENTICATION_ALGORITHM_TXT
+Vom Anmeldungsprotokoll benutztes Verfahren = %lD (%s)
+; Peer's Authentication-Algorithm = %ld (%s)
+;
+MSG_SENDING_LCP_CONFIGURATION_REQUEST_TXT
+Versende Anfrage zur Einrichtung des Verbindungssteuerungsprotokolles (LCP)...
+; Sending Link Control Protocol (LCP) configuration request...
+;
+MSG_RECEIVED_NEGATIVE_LCP_CONFIGURATION_REQUEST_TXT
+Negative Bestätigung zur Einrichtung des Verbindungssteuerungsprotokolles (LCP) wurde empfangen.
+; Received negative Link Control Protocol (LCP) configuration request acknowledgement.
+;
+MSG_MAXIMUM_RECEIVE_UNIT_BYTES_TXT
+Maximale Größe der Dateneinheit, die empfangen werden kann = %lD Bytes
+; Maximum-Receive-Unit = %ld
+;
+MSG_LOCAL_ACCM_TXT
+Lokale Steuerzeichenmaske = 0x%08lx
+; Local Async-Control-Character-Map = 0x%08lx
+;
+MSG_QUALITY_PROTOCOL_TXT
+Qualitätsmeßprotokoll = 0x%04lx
+; Quality-Protocol = 0x%04lx
+;
+MSG_REPORTING_PERIOD_TXT
+Dauer der Meldeperiode = %lD Sekunde(n)
+; Reporting-Period = %ld second(s)
+;
+MSG_UNSUPPORTED_LCP_OPTION_TXT
+Option 0x%02lx (%ld) des Verbindungssteuerungsprotokolls (LCP) wird nicht unterstützt.
+; Unsupported/unknown Link Control Protocol (LCP) option 0x%02lx (%ld).
+;
+MSG_RECEIVED_POSITIVE_LCP_CONFIG_REQUEST_ACKNOWLEDGEMENT_TXT
+Positive Bestätigung zur Einrichtung des Verbindungssteuerungsprotokolles (LCP) wurde empfangen.
+; Received positive Link Control Protocol (LCP) configuration request acknowledgement.
+;
+MSG_RECEIVED_LCP_CONFIG_REQUEST_REJECT_MESSAGE_TXT
+Ablehnung des Verbindungssteuerungsprotokolls (LCP) wurde empfangen.
+; Received Link Control Protocol (LCP) configuration request reject message.
+;
+MSG_REJECTED_MAXIMUM_RECEIVE_UNIT_TXT
+Abgelehnte maximale Größe der Dateneinheit, die empfangen werden kann = %lD Bytes
+; Rejected Maximum-Receive-Unit = %ld
+;
+MSG_REJECTED_LOCAL_ACCM_TXT
+Abgelehnte lokale Steuerzeichenmaske = 0x%08lx
+; Rejected Local Async-Control-Character-Map = 0x%08lx
+;
+MSG_REJECTED_LOCAL_AUTHENTICATION_PROTOCOL_TXT
+Abgelehntes lokales Anmeldeprotokoll = 0x%04lx
+; Rejected Local Authentication-Protocol = 0x%04lx
+;
+MSG_REJECTED_LOCAL_AUTHENTICATION_ALGORITHM_TXT
+Abgelehntes lokales Verfahren des Anmeldeprotokolles = %ld
+; Rejected Local Authentication-Algorithm = %ld
+;
+MSG_REJECTED_QUALITY_PROTOCOL_TXT
+Abgelehntes Qualitätsmeßprotokoll = 0x%04lx
+; Rejected Quality-Protocol = 0x%04lx
+;
+MSG_REJECTED_MAGIC_NUMBER_TXT
+Abgelehnte Kennzahl = 0x%08lx
+; Rejected Magic-Number = 0x%08lx
+;
+MSG_PROTOCOL_FIELD_COMPRESSION_DISABLED_TXT
+Protokollfeldkompression ist abgeschaltet.
+; Protocol-Field-Compression is disabled.
+;
+MSG_ADDRESS_AND_CONTROL_FIELD_COMPRESSION_DISABLED_TXT
+Address- und Protokollfeldkompression ist abgeschaltet.
+; Address-and-Control-Field-Compression is disabled.
+;
+MSG_REJECTED_UNSUPPORTED_LCP_OPTION_TXT
+Option 0x%02lx (%ld) wurde abgelehnt
+; Rejected unsupported/unknown option 0x%02lx (%ld)
+;
+MSG_RECEIVED_LCP_CONFIGURATION_REQUEST_TXT
+Anfrage zur Einrichtung des Verbindungssteuerungsprotokolles (LCP) wurde empfangen.
+; Received Link Control Protocol (LCP) configuration request.
+;
+MSG_RECEIVED_LCP_CODE_REJECT_MESSAGE_TXT
+Ablehnung des Verbindungssteuerungsprotokolles (LCP) wurde empfangen.
+; Received Link Control Protocol (LCP) code reject message.
+;
+MSG_REJECTED_LCP_PROTOCOL_REJECT_MESSAGE_TXT
+Ablehnung des dem Verbindungssteuerungsprotokolle (LCP) angegebenen Übertragungsprotokolles wurde empfangen.
+; Received Link Control Protocol (LCP) protocol reject message.
+;
+MSG_PROTOCOL_PACKET_SIZE_TXT
+Abgelehntes Protokoll = 0x%04lx, Datenpaketgröße = %lD Byte(s) (0x%lx)
+; Rejected protocol = 0x%04lx, packet size = %ld bytes (0x%lx)
+;
+MSG_LCP_CONFIGURE_ACK_ID_DOES_NOT_MATCH_TXT
+Identifikationsnummer 0x%08lx der positiven Bestätigung zur Einrichtung des Verbindungssteuerungsprotokolles (LCP) paßt nicht zu Identifikationsnummer 0x%08lx.
+; Link Control Protocol (LCP) Configure-Ack ID 0x%08lx does not match identifier 0x%08lx.
+;
+MSG_LCP_CONFIGURE_NAK_ID_DOES_NOT_MATCH_TXT
+Identifikationsnummer 0x%08lx der negativen Bestätigung zur Einrichtung des Verbindungssteuerungsprotokolles (LCP) paßt nicht zu Identifikationsnummer 0x%08lx.
+; Link Control Protocol (LCP) Configure-Nak ID 0x%08lx does not match identifier 0x%08lx.
+;
+MSG_LCP_CONFIGURE_REJECT_ID_DOES_NOT_MATCH_TXT
+Identifikationsnummer 0x%08lx der Ablehnung zur Einrichtung des Verbindungssteuerungsprotokolles (LCP) paßt nicht zu Identifikationsnummer 0x%08lx.
+; Link Control Protocol (LCP) Configure-Reject ID 0x%08lx does not match identifier 0x%08lx.
+;
+MSG_LCP_TERMINATE_ACK_ID_DOES_NOT_MATCH_TXT
+Identifikationsnummer 0x%08lx der Ablehnung zum Herunterfahren des Verbindungssteuerungsprotokolles (LCP) paßt nicht zu Identifikationsnummer 0x%08lx.
+; Link Control Protocol (LCP) Terminate-Ack ID 0x%08lx does not match identifier 0x%08lx.
+;
+MSG_LCP_THIS_LAYER_UP_TXT
+Verbindungssteuerungsprotokolls (LCP) wird aktiviert
+; Link Control Protocol (LCP) This-Layer-Up
+;
+MSG_LCP_THIS_LAYER_DOWN_TXT
+Verbindungssteuerungsprotokolls (LCP) wird deaktiviert
+; Link Control Protocol (LCP) This-Layer-Down
+;
+MSG_LCP_THIS_LAYER_FINISHED_TXT
+Verbindungssteuerungsprotokolls (LCP) ist jetzt deaktiviert
+; Link Control Protocol (LCP) This-Layer-Finished
+;
+MSG_RETURNING_UNKNOWN_OR_UNSUPPORTED_PROTOCOL_TXT
+Unbekannte Protokollrahmendaten 0x%4lx werden zurückgeschickt.
+; Returning unknown or unsupported protocol 0x%04lx frame.
+;
+MSG_SENDING_LINK_QUALITY_REPORT_TXT
+Meldung zur Verbindungsqualität wird versandt:
+; Sending link quality report:
+;
+MSG_LINK_QUALITY_REPORT_RECEIVED_TXT
+Meldung zur Verbindungsqualität wurde empfangen versandt:
+; Link quality report received:
+;
+MSG_INTERNET_PROTOCOL_SILENTLY_IGNORED_TXT
+(Internetprotokoll wurde stillschweigend ignoriert)
+; (Internet protocol silently ignored)
+;
+MSG_VJ_COMPRESSED_TCP_IP_SILENTLY_IGNORED_TXT
+(Van Jacobson komprimiertes TCP/IP Protokoll wurde stillschweigend ignoriert)
+; (Van Jacobson compressed TCP/IP silently ignored)
+;
+MSG_VJ_UNCOMPRESSED_TCP_IP_SILENTLY_IGNORED_TXT
+(Van Jacobson unkomprimiertes TCP/IP Protokoll wurde stillschweigend ignoriert)
+; (Van Jacobson uncompressed TCP/IP silently ignored)
+;
+MSG_IP_SILENTLY_IGNORED_TXT
+(Internetprotokoll-Steuerungsprotokoll wurde stillschweigend ignoriert)
+; (Internet Protocol control protocol silently ignored)
+;
+MSG_PAP_SILENTLY_IGNORED_TXT
+(Kennwortanmeldungsprotokoll wurde stillschweigend ignoriert)
+; (Password authentication protocol silently ignored)
+;
+MSG_LQR_SILENTLY_IGNORED_TXT
+(Verbindungsqualitätsmeldung wurde stillschweigend ignoriert)
+; (Link quality report silently ignored)
+;
+MSG_CHAP_SILENTLY_IGNORED_TXT
+(Anmeldungsprotokoll 'CHAP' wurde stillschweigend ignoriert)
+; (Challenge handshake authentication protocol silently ignored)
+;
+MSG_UNKNOWN_PROTOCOL_SILENTLY_IGNORED_TXT
+(Unbekanntes Protokoll 0x%04lx wurde stillschweigend ignoriert)
+; (Unknown or unsupported protocol 0x%04lx silently ignored)
+;
+MSG_CARRIER_SIGNAL_LOST_TXT
+Verbindungssignal ging verloren.
+; Carrier signal lost.
+;
+MSG_SERVER_HAS_CLOSED_SESSION_TXT
+Gegenstelle hat Verbindung getrennt.
+; Server has closed session.
+;
+MSG_NETWORKING_DEVICE_OUT_OF_SERVICE_CLOSING_LINK_AND_SESSION_TXT
+Netzwerkgerätetreiber ist außer Betrieb genommen worden; Verbindung wird getrennt und Sitzung geschlossen.
+; Networking device went out of service; closing link and session.
+;
+MSG_SERVER_NOT_RESPONDING_TO_PAP_REQUESTS_TXT
+Gegenstelle antwortet nicht auf Anfragen mit dem Kennwortanmeldungsprotokoll; die Verbindung wird getrennt.
+; Server is not responding to Password Authentication Protocol requests; closing link.
+;
+MSG_HEADER_COMPRESSION_IS_DISABLED_TXT
+Kopfdatenkompression ist deaktiviert.
+; Header compression is disabled.
+;
+MSG_CONNECTION_WAS_IDLE_AND_HAS_BEEN_CLOSED_TXT
+Für mindestens %lD Sekunden wurden keine Daten über die Verbindung ausgetauscht. Die Verbindung wurde deshalb getrennt.
+; The connection was idle for at least %ld seconds and has been closed.
+;
+MSG_CHAP_CHALLENGE_WRONG_SIZE_TXT
+FEHLER: Anmeldedaten haben die falsche Größe (%lD Byte(s); 8 Bytes waren gefordert).
+; ERROR: Challenge data is the wrong size (%ld bytes; should have been 8).
+;
+MSG_AUTHENTICATION_PROTOCOL_PAP_TXT
+Kennwortanmeldungsprotokoll (PAP)
+; Password Authentication Protocol
+;
+MSG_AUTHENTICATION_PROTOCOL_CHAP_TXT
+'CHAP'-Anmeldungsprotokoll
+; Challenge Handshake Authentication Protocol
+;
+MSG_AUTHENTICATION_PROTOCOL_UNKNOWN_TXT
+Unbekannt
+; Unknown
+;
+MSG_AUTHENTICATION_ALGORITHM_MD5_TXT
+'MD5'-Anmeldeverfahren
+; MD5 Message-Digest Algorithm
+;
+MSG_AUTHENTICATION_ALGORITHM_MS_CHAP_V1_TXT
+Microsoft Erweiterung V1 des 'CHAP'-Anmeldeverfahrens
+; Microsoft CHAP extension V1
+;
+MSG_AUTHENTICATION_ALGORITHM_MS_CHAP_V2_TXT
+Microsoft Erweiterung V2 des 'CHAP'-Anmeldeverfahrens
+; Microsoft CHAP extension V2
+;
+MSG_AUTHENTICATION_ALGORITHM_UNKNOWN_TXT
+Unbekannt
+; Unknown
+;
+MSG_LCP_LINK_LOOPING_TXT
+FEHLER: Verbindung ist mit sich selbst gekoppelt; Protokollaushandlung wird abgebrochen...
+; ERROR: Link is looped back; terminating negotiation...
+;
+MSG_LINK_IS_NOT_RESPONDING_TXT
+FEHLER: Verbindung reagiert nicht; Verbindung wird abgebaut...
+; ERROR: Link is not responding; closing connection...
+;
+MSG_LCP_PEER_IDENTIFICATION_TXT
+Identifikation der Gegenstelle = '%s'
+; Peer identification = '%s'
+;
+MSG_LCP_SESSION_TIME_REMAINING_TXT
+Verbleibende Dauer der Sitzung = %s.
+; Session time remaining = %s.
+;
+MSG_LCP_SESSION_TIME_REMAINING_MESSAGE_TXT
+Verbleibende Dauer der Sitzung = %s. %s
+; Session time remaining = %s. %s
+;
+MSG_LCP_SESSION_TIME_FORMAT_TXT
+%ld:%02ld:%02ldh
+; %ld:%02ld:%02ldh
+;
+MSG_LCP_SESSION_TIME_INFINITE_TXT
+(unendlich)
+; (infinite)
+;
+MSG_LOCAL_ADDRESS_NOT_PROVIDED_TXT
+FEHLER: Adresse des lokalen Rechners wurde nicht angegeben.
+; ERROR: local host IP address was not provided; shutting down.
+;
+MSG_PEER_ADDRESS_NOT_PROVIDED_TXT
+FEHLER: Adresse der Gegenstelle wurde nicht angegeben.
+; ERROR: peer IP address was not provided; shutting down.
+;
+MSG_TOO_MANY_IPCP_RECONFIGURATIONS_TXT
+FEHLER: Es wurde zu oft versucht, das Internetprotokoll-Steuerungsprotokoll (IPCP) einzurichten. Die Protokollaushandlung wird abgebrochen.
+; ERROR: too many reconfiguration attempts in Internet Protocol Control Protocol (IPCP); shutting down.
+;
+MSG_TOO_MANY_LCP_RECONFIGURATIONS_TXT
+FEHLER: Es wurde zu oft versucht, das Verbindungssteuerungsprotokoll (LCP) einzurichten. Die Protokollaushandlung wird abgebrochen.
+; ERROR: too many reconfiguration attempts in Link Control Protocol (LCP); shutting down.
+;
+MSG_PASSWORD_TRUNCATED_TXT
+Warnung: das Kennwort wurde auf %lD Zeichen beschnitten.
+; Warning: Password truncated to %ld characters.
+;
+MSG_OBSOLETE_ADDRESS_CONFIGURATION_REJECTED_TXT
+Veraltete Methode zur Einrichtung der Netzadresse wurde abgelehnt.
+; Obsolete address configuration method rejected.
+;
+MSG_SUGGESTING_PAP_TXT
+Das Kennwortanmeldungsprotokoll (PAP) wird vorgeschlagen.
+; Suggesting Password Authentication Protocol.
+;
+MSG_SUBSTITUTING_DUMMY_PEER_ADDRESS_TXT
+Ersetze fehlende Netzadresse der Gegenstelle durch Vorgabe %ld.%ld.%ld.%ld.
+; Substituting dummy remote IP address %ld.%ld.%ld.%ld in place of missing peer address.
+;
+MSG_LCP_CONFIG_MAXIMUM_RECEIVE_UNIT_TXT
+    Maximalgröße einer Empfangseinheit (MRU) = %lD Bytes.
+;     Maximum receive unit (MRU) = %ld
+;
+MSG_LCP_CONFIG_MAGIC_NUMBER_TXT
+    Kennzahl = 0x%08lx
+;     Magic number = 0x%08lx
+;
+MSG_LCP_CONFIG_QUALITY_PROTOCOL_TXT
+    Qualitätsprotokoll = %s
+;     Quality protocol = %s
+;
+MSG_LCP_CONFIG_ENABLED_TXT
+aktiviert
+; enabled
+;
+MSG_LCP_CONFIG_DISABLED_TXT
+deaktiviert
+; disabled
+;
+MSG_LCP_CONFIG_CHANGES_MADE_TXT
+Die LCP-Konfiguration wurde seit dem Versand der letzten Anfrage geändert.
+; LCP configuration was changed since the last request was sent.
+;
+MSG_IPCP_CONFIG_LOCAL_IP_ADDRESS_TXT
+    Lokale Netzadresse = %ld.%ld.%ld.%ld
+;     Local IP address = %ld.%ld.%ld.%ld
+;
+MSG_IPCP_CONFIG_PRIMARY_DNS_ADDRESS_TXT
+   Adresse des primären DNS-Servers = %ld.%ld.%ld.%ld
+;     Primary DNS address = %ld.%ld.%ld.%ld
+;
+MSG_IPCP_CONFIG_SECONDARY_DNS_ADDRESS_TXT
+   Adresse des sekundären DNS-Servers = %ld.%ld.%ld.%ld
+;     Secondary DNS address = %ld.%ld.%ld.%ld
+;
+MSG_IPCP_CONFIG_SOURCE_IP_ADDRESS_TXT
+    Netzadresse (Quelle) = %ld.%ld.%ld.%ld
+;     Source IP address = %ld.%ld.%ld.%ld
+;
+MSG_IPCP_CONFIG_DESTINATION_IP_ADDRESS_TXT
+    Netzadresse (Ziel) = %ld.%ld.%ld.%ld
+;     Destination IP address = %ld.%ld.%ld.%ld
+;
+MSG_IPCP_CONFIG_CHANGES_MADE_TXT
+Die IPCP-Konfiguration wurde seit dem Versand der letzten Anfrage geändert.
+; IPCP configuration was changed since the last request was sent.
+;
+MSG_REJECTING_INVALID_PEER_ADDRESS_TXT
+Netzadresse der Gegenstelle ist unzulässig und wird abgelehnt.
+; Remote IP address is invalid and will be rejected.
+;
+MSG_REJECTING_INVALID_DNS_ADDRESS_TXT
+Netzadresse des DNS-Servers ist unzulässig und wird abgelehnt.
+; DNS server address is invalid and will be rejected.
+;
+MSG_PPPOE_CLOSING_LINK_LAYER_TXT
+Verbindungsschicht wird geschlossen...
+; Closing link layer...
+;
+MSG_PPPOE_SENDING_ACTIVE_DISCOVERY_TERMINATE_REQUEST_TXT
+Versende Anfrage zur Beendigung des aktiven PPPoE-Erkennungsvorganges.
+; Sending PPPoE active discovery terminate request.
+;
+MSG_PPPOE_LINK_LAYER_IS_CLOSED_TXT
+Verbindungsschicht wurde geschlossen (Gesamtdauer der Verbindung %ld:%02ld:%02ldh).
+; Link layer is closed (total connection time %ld:%02ld:%02ldh).
+;
+MSG_PPPOE_NOT_ENOUGH_MEMORY_FOR_LOCAL_TAG_BUFFER_TXT
+FEHLER: Speichermangel.
+; ERROR: Not enough memory for local tag buffer.
+;
+MSG_PPPOE_BROADCASTING_PPPOE_ACTIVE_DISCOVERY_INIT_PACKET_TXT
+Versende Datenpaket zum Beginn des aktiven PPPoE-Erkennungsprozesses.
+; Broadcasting PPPoE active discovery initiation packet.
+;
+MSG_PPPOE_COULD_NOT_BROADCAST_PPPOE_ACTIVE_DISCOVERY_INIT_PACKET_TXT
+FEHLER: Konnte Datenpaket zum Beginn des aktiven PPPoE-Erkennungsprozesses nicht versenden (%s, %s).
+; ERROR: Could not broadcast PPPoE active discovery initiation packet (%s, %s).
+;
+MSG_PPPOE_CONNECTION_ATTEMPT_TIMED_OUT_TXT
+Zeitüberschreitung beim Versuch des Verbindungsaufbaus.
+; Connection attempt has timed out.
+;
+MSG_PPPOE_SENDING_PPPOE_ACTIVE_DISCOVERY_REQUEST_TO_SERVICE_NAME_TXT
+Versende Datenpaket zur aktiven PPPoE-Erkennung an '%s' (%02lx:%02lx:%02lx:%02lx:%02lx:%02lx), Dienstname = '%s'.
+; Sending PPPoE active discovery request to '%s' (%02lx:%02lx:%02lx:%02lx:%02lx:%02lx), service name = '%s'.
+;
+MSG_PPPOE_SENDING_PPPOE_ACTIVE_DISCOVERY_REQUEST_TO_TXT
+Versende Datenpaket zur aktiven PPPoE-Erkennung an '%s' (%02lx:%02lx:%02lx:%02lx:%02lx:%02lx).
+; Sending PPPoE active discovery request to '%s' (%02lx:%02lx:%02lx:%02lx:%02lx:%02lx).
+;
+MSG_PPPOE_COULD_NOT_SEND_PPPOE_ACTIVE_DISCOVERY_REQUEST_PACKET_TXT
+FEHLER: Konnte Datenpaket zur aktiven PPPoE-Erkennung nicht versenden (%s, %s).
+; ERROR: Could not send PPPoE active discovery request packet (%s, %s).
+;
+MSG_PPPOE_REQUESTED_SERVICE_NAME_NOT_ACCEPTABLE_MESSAGE_TXT
+Geforderter Dienstname wurde nicht akzeptiert. %s
+; Requested service name was not acceptable. %s
+;
+MSG_PPPOE_REQUESTED_SERVICE_NAME_NOT_ACCEPTABLE_TXT
+Geforderter Dienstname wurde nicht akzeptiert.
+; Requested service name was not acceptable.
+;
+MSG_PPPOE_AC_SYSTEM_ERROR_TXT
+FEHLER: Zugriffsverwaltungsystem lieferte Fehler '%s'
+; ERROR: AC-System-Error '%s'
+;
+MSG_PPPOE_GENERIC_ERROR_TXT
+FEHLER: Allgemeiner Fehler '%s'
+; ERROR: Generic-Error '%s'
+;
+MSG_PPPOE_SESSION_OPENED_TXT
+Sitzung wurde geöffnet (Identifikationsnummer 0x%04lx).
+; Session opened (ID 0x%04lx).
+;
+MSG_PPPOE_LINK_IS_ALREADY_OPEN_TXT
+Verbindung wurde bereits geöffnet.
+; Link is already open.
+;
+MSG_PPPOE_UNKNOWN_LOG_OPTION_TXT
+Warnung: Unbekannte Protokollierungsoption '%s'.
+; Warning: unknown log option '%s'.
+;
+MSG_PPPOE_LOG_DEVICE_STARTING_TXT
+%s wird gestartet.
+; %s starting.
+;
+MSG_PPPOE_COULD_NOT_OPEN_LOG_FILE_TXT
+FEHLER: Protokollierungsdatei '%s' konnte nicht geöffnet werden (%s).
+; ERROR: Could not open log file '%s' (%s).
+;
+MSG_PPPOE_NO_DEVICE_NAME_GIVEN_TXT
+FEHLER: Es wurde kein Gerätetreiber angegeben.
+; ERROR: No device name given.
+;
+MSG_PPPOE_SETTING_NUMBER_OF_READ_PACKETS_TXT
+Anzahl der Leseanfragen = %lD
+; Setting number of read packets = %ld
+;
+MSG_PPPOE_SETTING_NUMBER_OF_WRITE_PACKETS_TXT
+Anzahl der Versandanfragen = %lD
+; Setting number of write packets = %ld
+;
+MSG_PPPOE_SETTING_CONNECT_TIMEOUT_TXT
+Setze Connect-Timeout = %ld
+; Setting Connect-Timeout = %ld
+;
+MSG_PPPOE_SETTING_MAX_FAILURE_TXT
+Setze Max-Failure = %ld
+; Setting Max-Failure = %ld
+;
+MSG_PPPOE_SETTING_MAX_TERMINATE_TXT
+Setze Max-Terminate = %ld
+; Setting Max-Terminate = %ld
+;
+MSG_PPPOE_SETTING_MAX_CONFIGURE_TXT
+Setze Max-Configure = %ld
+; Setting Max-Configure = %ld
+;
+MSG_PPPOE_SETTING_TIMEOUT_TXT
+Setze Timeout = %ld
+; Setting Timeout = %ld
+;
+MSG_PPPOE_INVALID_LOCAL_IP_ADDRESS_TXT
+FEHLER: Lokale Netzadresse %s ist unzulässig.
+; ERROR: Invalid local IP address '%s'.
+;
+MSG_PPPOE_INVALID_REMOTE_IP_ADDRESS_TXT
+FEHLER: Netzadresse %s der Gegenstelle ist unzulässig.
+; ERROR: Invalid remote IP address '%s'.
+;
+MSG_PPPOE_INVALID_PRIMARY_DNS_IP_ADDRESS_TXT
+FEHLER: Adresse %s des primären Domain Name System Server ist unzulässig.
+; ERROR: Invalid primary domain name server IP address '%s'.
+;
+MSG_PPPOE_INVALID_SECONDARY_DNS_IP_ADDRESS_TXT
+FEHLER: Adresse %s des sekundären Domain Name System Server ist unzulässig.
+; ERROR: Invalid secondary domain name server IP address '%s'.
+;
+MSG_PPPOE_SETTING_MTU_TXT
+Setzte MTU = %ld
+; Setting MTU = %ld
+;
+MSG_PPPOE_SETTING_PPOE_SERVICE_TXT
+PPPoE-Dienst = '%s'
+; PPPoE service = '%s'
+;
+MSG_PPPOE_SETTING_SANA_RAW_IO_TXT
+Setze SANA2-Raw-IO = %s
+; Setting SANA2-Raw-IO = %s
+;
+MSG_PPPOE_SETTING_BYPASS_TXT
+Setze Bypass = %s
+; Setting Bypass = %s
+;
+MSG_PPPOE_SETTING_REJECT_PAP_TXT
+Setze Reject-PAP = %s
+; Setting Reject-PAP = %s
+;
+MSG_PPPOE_COULD_NOT_CREATE_LINK_IO_REQUEST_TXT
+FEHLER: Eingabe-/Ausgabeanfrage konnte nicht erzeugt werden.
+; ERROR: Could not create link I/O request.
+;
+MSG_PPPOE_OPENING_DEVICE_UNIT_TXT
+Gerät '%s', Einheit %ld, wird geöffnet.
+; Opening '%s', unit %ld.
+;
+MSG_PPPOE_COULD_NOT_OPEN_DEVICE_UNIT_TXT
+FEHLER: Gerät '%s', Einheit %ld, konnte nicht geöffnet werden (%s).
+; ERROR: Could not open '%s', unit %ld (%s).
+;
+MSG_PPPOE_COULD_NOT_QUERY_TXT
+FEHLER: Konnte Eigenschaften von Gerät '%s', Einheit %ld, nicht ermitteln (%s, %s).
+; ERROR: Could not query '%s', unit %ld (%s, %s).
+;
+MSG_PPPOE_DEVICE_UNIT_NOT_AN_ETHERNET_DRIVER_TXT
+FEHLER: Gerät '%s', Einheit %ld, ist kein Treiber für Ethernet-Netze.
+; ERROR: '%s', unit %ld is not an Ethernet driver.
+;
+MSG_PPPOE_COULD_NOT_OBTAIN_STATION_ADDRESS_OF_TXT
+FEHLER: Die Geräteadresse von Gerät '%s', Einheit %ld, ließ sich nicht bestimmen (%s, %s).
+; ERROR: Could not obtain station address of '%s', unit %ld (%s, %s).
+;
+MSG_PPPOE_COULD_NOT_CONFIGURE_DEVICE_UNIT_TXT
+FEHLER: Gerät '%s', Einheit %ld, ließ sich nicht mit Geräteadresse %02lx:%02lx:%02lx:%02lx:%02lx einrichten (%s, %s).
+; ERROR: Could not configure '%s', unit %ld with address %02lx:%02lx:%02lx:%02lx:%02lx (%s, %s).
+;
+MSG_PPPOE_LINK_LAYER_IS_READY_TXT
+Verbindungsschicht ist bereit.
+; Link layer is ready.
+;
+MSG_PPPOE_IOERR_OPENFAIL_TXT
+Gerät/Einheit konnte nicht geöffnet werden
+; Device/unit failed to open
+;
+MSG_PPPOE_IOERR_ABORTED_TXT
+Anfrage wurde verfrüht beendet
+; Request terminated early
+;
+MSG_PPPOE_IOERR_NOCMD_TXT
+Befehl wird vom Gerät nicht unterstützt
+; Command not supported by device
+;
+MSG_PPPOE_IOERR_BADLENGTH_TXT
+Ungültige Länge
+; Not a valid length
+;
+MSG_PPPOE_IOERR_BADADDRESS_TXT
+Ungültige Adresse
+; Invalid address
+;
+MSG_PPPOE_IOERR_UNITBUSY_TXT
+Gerät ließ sich öffnen, aber die gewünschte Einheit ist belegt
+; Device opens OK, but requested unit is busy
+;
+MSG_PPPOE_IOERR_SELFTEST_TXT
+Selbsttest des Gerätes schlug fehl
+; Hardware failed self-test
+;
+MSG_PPPOE_S2ERR_NO_RESOURCES_TXT
+Fehler beim Anfordern von Ressourcen
+; Resource allocation failure
+;
+MSG_PPPOE_S2ERR_BAD_ARGUMENT_TXT
+Unzulässiges Argument
+; Bad argument
+;
+MSG_PPPOE_S2ERR_BAD_STATE_TXT
+Unzulässiger Zustand
+; Inappropriate state
+;
+MSG_PPPOE_S2ERR_BAD_ADDRESS_TXT
+Unzulässige Adresse
+; Bad address
+;
+MSG_PPPOE_S2ERR_MTU_EXCEEDED_TXT
+Maximalgröße der Übertragungsheit überschritten
+; Maximum transmission unit exceeded
+;
+MSG_PPPOE_S2ERR_NOT_SUPPORTED_TXT
+Gerät unterstützt Befehl nicht
+; Command not supported by hardware
+;
+MSG_PPPOE_S2ERR_SOFTWARE_TXT
+Softwarefehler aufgetreten
+; Software error detected
+;
+MSG_PPPOE_S2ERR_OUTOFSERVICE_TXT
+Treiber ist vom Netz getrennt
+; Driver is offline
+;
+MSG_PPPOE_S2ERR_TX_FAILURE_TXT
+Übertragungsversuch schlug fehl
+; Transmission attempt failed
+;
+MSG_PPPOE_UNKNOWN_IO_ERROR_TXT
+Unbekannter Eingabe-/Ausgabefehler %ld
+; Unknown I/O error %ld
+;
+MSG_PPPOE_UNKNOWN_SANA2_IO_ERROR_TXT
+Unbekannter SANA-II-Gerätefehler %ld
+; Unknown SANA-II error %ld
+;
+MSG_PPPOE_S2WERR_GENERIC_ERROR_TXT
+Keine genaueren Informationen verfügbar
+; No specific information available
+;
+MSG_PPPOE_S2WERR_NOT_CONFIGURED_TXT
+Einheit ist nicht eingerichtet
+; Unit is not configured
+;
+MSG_PPPOE_S2WERR_UNIT_ONLINE_TXT
+Einheit ist derzeit mit dem Netz verbunden
+; Unit is currently online
+;
+MSG_PPPOE_S2WERR_UNIT_OFFLINE_TXT
+Einheit ist derzeit vom Netz getrennt
+; Unit is currently offline
+;
+MSG_PPPOE_S2WERR_ALREADY_TRACKED_TXT
+Protokoll wird bereits verfolgt
+; Protocol is already tracked
+;
+MSG_PPPOE_S2WERR_NOT_TRACKED_TXT
+Protokoll wird nicht verfolgt
+; Protocol is not tracked
+;
+MSG_PPPOE_S2WERR_BUFF_ERROR_TXT
+Pufferverwaltung lieferte einen Fehler
+; Buffer management function returned an error
+;
+MSG_PPPOE_S2WERR_SRC_ADDRESS_TXT
+Quelladresse ist unzulässig
+; Source address problem
+;
+MSG_PPPOE_S2WERR_DST_ADDRESS_TXT
+Zieladresse ist unzulässig
+; Destination address problem
+;
+MSG_PPPOE_S2WERR_BAD_BROADCAST_TXT
+Broadcastadresse ist unzulässig
+; Broadcast address problem
+;
+MSG_PPPOE_S2WERR_BAD_MULTICAST_TXT
+Multicastadresse ist unzulässig
+; Multicast address problem
+;
+MSG_PPPOE_S2WERR_MULTICAST_FULL_TXT
+Multicastadressliste ist voll
+; Multicast address list is full
+;
+MSG_PPPOE_S2WERR_BAD_EVENT_TXT
+Art des Ereignisses ist unzulässig
+; Unsupported event class
+;
+MSG_PPPOE_S2WERR_BAD_STATDATA_TXT
+Zustandsdaten sind nicht korrekt
+; StatData failed sanity check
+;
+MSG_PPPOE_S2WERR_IS_CONFIGURED_TXT
+Einrichtung wurde mehrfach durchgeführt
+; Attempted to configure twice
+;
+MSG_PPPOE_S2WERR_NULL_POINTER_TXT
+NULL-Zeiger ist unzulässig
+; NULL pointer detected
+;
+MSG_PPPOE_S2WERR_TOO_MANY_RETRIES_TXT
+Übertragung schlug fehl - die maximale Anzahl von Wiederholungen wurde überschritten
+; Transmission failed - too many retries
+;
+MSG_PPPOE_S2WERR_RCVREL_HDW_ERR_TXT
+Vom Treiber korrigierbarer Gerätefehler
+; Driver fixable hardware error
+;
+MSG_PPPOE_UNKNOWN_WIRE_ERROR_TXT
+Unbekannter SANA-II-Übertragungsfehler %ld
+; Unknown wire error %ld
+;
+MSG_PPPOE_ON_TXT
+ON
+; ON
+;
+MSG_PPPOE_OFF_TXT
+OFF
+; OFF
+;
+MSG_PPPOE_SETTING_PAP_TIMEOUT_TXT
+Setze PAP-Timeout = %ld
+; Setting PAP-Timeout = %ld
+;
+MSG_PPPOE_SETTING_PAP_RETRY_TXT
+Setze PAP-Retry = %ld
+; Setting PAP-Retry = %ld
+;
+MSG_PPPOE_ACCESS_CONCENTRATOR_NAME_TXT
+Access-Concentrator-Name = '%s'
+; Access-Concentrator-Name = '%s'
+;
+MSG_PPPOE_SERVICE_NAME_TXT
+Advertized Service-Name = '%s'
+; Advertized Service-Name = '%s'
+;
+MSG_PPPOE_SETTING_IDLE_TIMEOUT_TXT
+Setze Idle-Timeout = %ld
+; Setting Idle-Timeout = %ld
+;
+MSG_PPPOE_COULD_NOT_SEND_FRAME_PACKET_TXT
+FEHLER: Konnte PPPoE-Rahmendatenpaket nicht versenden (%s, %s).
+; ERROR: Could not send PPPoE frame packet (%s, %s).
+;
+MSG_PPPOE_ASYNC_WRITE_REQUEST_RETURNED_WITH_ERROR_TXT
+FEHLER: Ausgabeanfrage schlug fehl (%s, %s).
+; ERROR: Write I/O request failed (%s, %s).
+;
+MSG_PPPOE_MAXIMUM_NUMBER_OF_WRITE_REQUESTS_QUEUED_TXT
+Maximale Anzahl aktiver Ausgabeanfragen = %lD.
+; Maximum number of write requests queued = %ld.
+;
+MSG_PPPOE_MAXIMUM_NUMBER_OF_READ_REQUESTS_RETURNED_TXT
+Maximale Anzahl aktiver Eingabeanfragen = %lD.
+; Maximum number of read requests in use at a time = %ld.
+;
+MSG_PPPOE_SETTING_SEND_ID_TXT
+Setze Send-ID = %s
+; Setting Send-ID = %s
+;
+MSG_PPPOE_SETTING_PEER_IDLE_TIMEOUT_TXT
+Setze Peer-Idle-Timeout = %ld
+; Setting Peer-Idle-Timeout = %ld
+;
+MSG_PPPOE_SETTING_MAX_RECONFIGURE_TXT
+Setze Max-Reconfigure = %ld
+; Setting Max-Reconfigure = %ld
+;
+MSG_PPPOE_SETTING_PPOE_AC_TXT
+Setze PPPoE access-concentrator = '%s'
+; PPPoE access-concentrator = '%s'
+;
+MSG_PPPOE_ACCESS_CONCENTRATOR_NAME_IGNORED_TXT
+Access-Concentrator-Name = '%s' (wird ignoriert)
+; Access-Concentrator-Name = '%s' (ignored)
+;
+MSG_PPPOE_SERVICE_NAME_IGNORED_TXT
+Advertized Service-Name = '%s' (wird ignoriert)
+; Advertized Service-Name = '%s' (ignored)
+;
+MSG_PPPOE_SETTING_DUMMY_REMOTE_ADDRESS_TXT
+Setze Dummy-Remote-Address = %s
+; Setting Dummy-Remote-Address = %s
+;
+MSG_PPPOE_CONNECTION_ATTEMPT_ABORTED_TXT
+Verbindungsaufbau wurde abgebrochen.
+; Connection attempt was aborted.
+;

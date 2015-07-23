@@ -1,0 +1,2136 @@
+## version $VER: roadshow.catalog 1.19 (18.2.2006)
+## codeset 0
+## language deutsch
+;
+MSG_ADDNETINTERFACE_NO_UTILITY_TXT
+Konnte \"utility.library\" V37 nicht öffnen.
+; Failed to open \"utility.library\" V37.
+;
+MSG_ADDNETINTERFACE_NO_ICON_TXT
+Konnte \"icon.library\" V37 nicht öffnen.
+; Failed to open \"icon.library\" V37.
+;
+MSG_ADDNETINTERFACE_TIMEOUT_TOO_SHORT_TXT
+Zeitintervall von %lD Sekunden bis zum Abbruch der Konfiguration ist zu kurz; Intervall wurde auf %lD Sekunden verlängert.
+; Configuration timeout %ld is too short; increased to %ld seconds.
+;
+MSG_ADDNETINTERFACE_CANNOT_OPEN_FILE_TXT
+Datei \"%s\" konnte nicht geöffnet werden (%s).
+; Failed to open file \"%s\" (%s).
+;
+MSG_ADDNETINTERFACE_CANNOT_OPEN_BSDSOCKET_TXT
+Konnte \"bsdsocket.library\" V4 nicht öffnen.
+; Failed to open \"bsdsocket.library\" V4.
+;
+MSG_ADDNETINTERFACE_BSDSOCKET_HAS_NO_INTERFACE_API_TXT
+\"%s\" V%ld.%ld unterstützt die Schnittstellenkonfigurationsmethode nicht, die dieses Programm verwendet.
+; \"%s\" V%ld.%ld does not support the interface configuration method used by this program.
+;
+MSG_ADDNETINTERFACE_BSDSOCKET_HAS_NO_ROUTE_API_TXT
+\"%s\" V%ld.%ld unterstützt die Routenkonfigurationsmethode nicht, die dieses Programm verwendet.
+; \"%s\" V%ld.%ld does not support the route configuration method used by this program.
+;
+MSG_ADDNETINTERFACE_UNKNOWN_KEYWORD_TXT
+Unbekanntes Schlüsselwort \"%s\" in Zeile %lD der Datei \"%s\".
+; Unknown keyword \"%s\" in line %ld of \"%s\".
+;
+MSG_ADDNETINTERFACE_PARSE_ERROR_TXT
+Auswertungsfehler in Zeile %lD der Datei \"%s\" (%s).
+; Parse error in line %ld of \"%s\" (%s).
+;
+MSG_ADDNETINTERFACE_NOT_ENOUGH_MEMORY_TO_PARSE_TXT
+Nicht genug Speicher, um Zeile %lD der Datei \"%s\" auszuwerten.
+; Not enough memory to parse line %ld of \"%s\".
+;
+MSG_ADDNETINTERFACE_UNKNOWN_PARAMETER_TXT
+Unbekanntes Argument \"%s\" in Zeile %lD von Datei \"%s\".
+; Unknown parameter \"%s\" in line %ld of \"%s\".
+;
+MSG_ADDNETINTERFACE_UNKNOWN_LEASE_PARAMETER_TXT
+Unbekannter Reservierungsparameter \"%s\" in Zeile %lD von Datei \"%s\".
+; Unknown lease parameter \"%s\" in line %ld of \"%s\".
+;
+MSG_ADDNETINTERFACE_INVALID_LEASE_PARAMETER_TXT
+Unzulässiger Reservierungsparameter \"%s\" in Zeile %lD von Datei \"%s\".
+; Invalid lease parameter \"%s\" in line %ld of \"%s\".
+;
+MSG_ADDNETINTERFACE_NOT_ENOUGH_MEMORY_TO_ADD_INTERFACE_TXT
+Nicht genug Speicher, um Schnittstelle mit Datei \"%s\" anzumelden.
+; Not enough memory to add interface from file \"%s\".
+;
+MSG_ADDNETINTERFACE_NO_DEVICE_NAME_PROVIDED_TXT
+In der Datei \"%s\" wurde kein Gerätetreiber angegeben.
+; No device name provided in file \"%s\".
+;
+MSG_ADDNETINTERFACE_COULD_NOT_ADD_INTERFACE_ERROR_CODE_TXT
+Die Schnittstelle \"%s\" konnte nicht eingetragen werden (%s).
+; Could not add interface \"%s\" (%s).
+;
+MSG_ADDNETINTERFACE_COULD_NOT_ADD_INTERFACE_TXT
+Die Schnittstelle \"%s\" konnte nicht eingetragen werden.
+; Could not add interface \"%s\".
+;
+MSG_ADDNETINTERFACE_INTERFACE_ADDED_TXT
+Die Schnittstelle \"%s\" wurde eingetragen.\n
+; Interface \"%s\" added.\n
+;
+MSG_ADDNETINTERFACE_NOT_ENOUGH_MEMORY_TO_CONFIGURE_INTERFACE_TXT
+Nicht genug Speicher, um die Schnittstelle \"%s\" einzurichten.
+; Not enough memory to configure interface \"%s\".
+;
+MSG_ADDNETINTERFACE_CANNOT_MARK_INTERFACE_UP_ERROR_CODE_TXT
+Konnte Schnittstelle \"%s\" nicht als aktiv (\"up\") einrichten (%s).
+; Could not mark interface \"%s\" as \"up\" (%s).
+;
+MSG_ADDNETINTERFACE_CANNOT_MARK_INTERFACE_UP_TXT
+Konnte Schnittstelle \"%s\" nicht als aktiv (\"up\") einrichten.
+; Could not mark interface \"%s\" as \"up\".
+;
+MSG_ADDNETINTERFACE_TRYING_INTERFACE_CONFIGURATION_TXT
+Versuche, Schnittstelle \"%s\" einzurichten... \0
+; Trying interface \"%s\" configuration... \0
+;
+MSG_ADDNETINTERFACE_INTERFACE_CONFIGURATION_ABORTED_TXT
+Einrichtung der Schnittstelle \"%s\" wurde abgebrochen.
+; Interface \"%s\" configuration aborted.
+;
+MSG_ADDNETINTERFACE_INTERFACE_CONFIGURATION_ATTEMPT_TIMED_OUT_TXT
+Bei der Einrichtung der Schnittstelle \"%s\" ist eine Zeitüberschreitung aufgetreten.
+; Interface \"%s\" configuration attempt timed out.
+;
+MSG_ADDNETINTERFACE_INTERFACE_NOT_CONFIGURED_TXT
+Schnittstelle \"%s\" wurde nicht eingerichtet; der Name ist unbekannt.
+; Interface \"%s\" not configured; name is unknown.
+;
+MSG_ADDNETINTERFACE_INTERFACE_WRONG_TYPE_TXT
+Schnittstelle \"%s\" wurde nicht eingerichtet; Broadcastzugriff wird nicht unterstützt.
+; Interface \"%s\" not configured; broadcast access not supported.
+;
+MSG_ADDNETINTERFACE_INTERFACE_ALREADY_CONFIGURED_TXT
+Schnittstelle \"%s\" wurde nicht eingerichtet; die Netzadresse ist bereits eingestellt.
+; Interface \"%s\" not configured; address is already configured.
+;
+MSG_ADDNETINTERFACE_INTERFACE_CONFIGURATION_VERSION_CONFLICT_TXT
+Schnittstelle \"%s\" wurde nicht eingerichtet; die Einrichtungsmethode ist veraltet.
+; Interface \"%s\" not configured; configuration command not compatible.
+;
+MSG_ADDNETINTERFACE_INTERFACE_NOT_CONFIGURED_NO_MEMORY_TXT
+Schnittstelle \"%s\" wurde wegen Speichermangels nicht eingerichtet.
+; Interface \"%s\" not configured; not enough memory.
+;
+MSG_ADDNETINTERFACE_INTERFACE_NOT_CONFIGURED_ADDRESS_IN_USE_TXT
+Schnittstelle \"%s\" wurde nicht eingerichtet; die zuzuweisende Netzadresse wird bereits anderweitig verwendet.
+; Interface \"%s\" not configured; IP address to be assigned is already in use.
+;
+MSG_ADDNETINTERFACE_INTERFACE_NOT_CONFIGURED_ADDRESS_CHANGE_FAILED_TXT
+Schnittstelle \"%s\" wurde nicht eingerichtet; die Netzadresse konnte nicht geändert werden.
+; Interface \"%s\" not configured; IP address could not be changed.
+;
+MSG_ADDNETINTERFACE_INTERFACE_NOT_CONFIGURED_MASK_CHANGE_FAILED_TXT
+Schnittstelle \"%s\" wurde nicht eingerichtet; die Netzmaske konnte nicht geändert werden.
+; Interface \"%s\" not configured; network mask could not be changed.
+;
+MSG_ADDNETINTERFACE_INTERFACE_NOT_CONFIGURED_UNKNOWN_ERROR_TXT
+Schnittstelle \"%s\" wurde nicht eingerichtet; ein unbekannter Fehler (%lD) ist aufgetreten.
+; Interface \"%s\" not configured; unknown error (%ld).
+;
+MSG_ADDNETINTERFACE_INTERFACE_NOT_CONFIGURED_INVALID_ADDRESS_TXT
+Schnittstelle \"%s\" wurde nicht eingerichtet; keine gültige Netzadresse erhalten.
+; Interface \"%s\" not configured; no valid IP address received.
+;
+MSG_ADDNETINTERFACE_COULD_NOT_CONFIGURE_INTERFACE_ERROR_CODE_TXT
+Schnittstelle \"%s\" konnte nicht eingerichtet werden (%s).
+; Could not configure interface \"%s\" (%s).
+;
+MSG_ADDNETINTERFACE_COULD_NOT_CONFIGURE_INTERFACE_TXT
+Schnittstelle \"%s\" konnte nicht eingerichtet werden.
+; Could not configure interface \"%s\".
+;
+MSG_ADDNETINTERFACE_INTERFACE_CONFIGURED_TXT
+Die Schnittstelle \"%s\" wurde eingerichtet
+; Interface \"%s\" configured
+;
+MSG_ADDNETINTERFACE_INTERFACE_CONFIGURED_ADDRESS_TXT
+, Netzadresse = %s
+; , address = %s
+;
+MSG_ADDNETINTERFACE_INTERFACE_CONFIGURED_MASK_TXT
+, Netzmaske = %s
+; , network mask = %s
+;
+MSG_ADDNETINTERFACE_INTERFACE_CONFIGURED_BROADCAST_ADDRESS_TXT
+, Broadcastadresse = %s
+; , broadcast address = %s
+;
+MSG_ADDNETINTERFACE_INTERFACE_CONFIGURED_DESTINATION_ADDRESS_TXT
+, Zieladresse = %s
+; , destination address = %s
+;
+MSG_ADDNETINTERFACE_INTERFACE_CONFIGURED_METRIC_TXT
+, Metrik = %lD
+; , metric = %ld
+;
+MSG_ADDNETINTERFACE_DEFAULT_ROUTE_TXT
+Standardroute zu %s wurde eingetragen.\n
+; Added default route to %s.\n
+;
+MSG_ADDNETINTERFACE_ROUTE_TXT
+Route zu %s wurde eingetragen.\n
+; Added route to %s.\n
+;
+MSG_ADDNETINTERFACE_COULD_NOT_ADD_ROUTE_ERROR_CODE_TXT
+Es konnte keine Route zu %s eingetragen werden (%s).
+; Could not add route to %s (%s).
+;
+MSG_ADDNETINTERFACE_COULD_NOT_ADD_ROUTE_TXT
+Es konnte keine Route zu %s eingetragen werden.
+; Could not add route to %s.
+;
+MSG_ADDNETINTERFACE_DNS_TXT
+Domain Name System Server %s wurde eingetragen.\n
+; Added domain name server %s.\n
+;
+MSG_ADDNETINTERFACE_COULD_NOT_ADD_DNS_ERROR_CODE_TXT
+Domain Name System Server %s konnte nicht eingetragen werden (%s).
+; Could not add domain name server %s (%s).
+;
+MSG_ADDNETINTERFACE_COULD_NOT_ADD_DNS_TXT
+Domain Name System Server %s konnte nicht eingetragen werden.
+; Could not add domain name server %s.
+;
+MSG_ADDNETINTERFACE_ADDRESS_TXT
+Netzwerkadresse %2$s für Schnittstelle \"%1$s\" \0
+; Interface \"%s\" address %s \0
+;
+MSG_ADDNETINTERFACE_LEASED_PERMANENTLY_TXT
+wurde permanent reserviert.\n
+; has been leased permanently.\n
+;
+MSG_ADDNETINTERFACE_LEASED_UNTIL_TXT
+wurde bis %s %s reserviert und wird erneuert, bevor sie verfällt.\n
+; has been leased until %s %s and will be renewed before it expires.\n
+;
+MSG_ADDNETINTERFACE_ERROR_MESSAGE_TITLE_TXT
+AddNetInterface-Fehlermeldung
+; AddNetInterface Error
+;
+MSG_ADDNETINTERFACE_ERROR_MESSAGE_BUTTON_LABEL_TXT
+Verstanden
+; Understood
+;
+MSG_ADDNETINTERFACE_UNKNOWN_STATE_PARAMETER_TXT
+Unbekannter Zustand \"%s\" in Zeile %lD von Datei \"%s\".
+; Unknown state parameter \"%s\" in line %ld of \"%s\".
+;
+MSG_ADDNETINTERFACE_INVALID_IP_ADDRESS_AT_TXT
+Ungültige Netzwerkadresse in \"%s=%s\" in Zeile %lD von Datei \"%s\".
+; Invalid IP address in \"%s=%s\", line %ld of \"%s\".
+;
+MSG_ADDNETINTERFACE_ID_TOO_LONG_TXT
+Identifikationsname \"%s\" in Zeile %lD von Datei \"%s\" ist zu lang und wird abgeschnitten.
+; Client identifier \"%s\" in line %ld of \"%s\" will be truncated.
+;
+MSG_ADDNETINTERFACE_ID_TOO_SHORT_TXT
+Identifikationsname \"%s\" in Zeile %lD von Datei \"%s\" ist zu kurz (mindestens 2 Zeichen sind nötig).
+; Client identifier \"%s\" in line %ld of \"%s\" is too short (2 characters minimum).
+;
+MSG_ADDNETINTERFACE_HAS_NO_ADDRESS_CONVERSION_API_TXT
+%s: \"%s\" V%ld.%ld unterstützt die Adresskonvertierungsmethode nicht, die dieses Programm verwendet.\n
+; %s: \"%s\" V%ld.%ld does not support the address conversion method used by this program.\n
+;
+MSG_ADDNETINTERFACE_INVALID_HARDWARE_ADDRESS_TXT
+Unzulässige Geräteadresse \"%s\" in Zeile %lD von Datei \"%s\".
+; Invalid hardware address \"%s\" in line %ld of \"%s\".
+;
+MSG_ADDNETINTERFACE_MISSING_HARDWARE_ADDRESS_TXT
+Es wurde keine Geräteadresse in Zeile %lD von Datei \"%s\" angegeben.
+; No hardware address specified in line %ld of \"%s\".
+;
+MSG_ADDNETINTERFACE_NOT_ENOUGH_MEMORY_FOR_HARDWARE_ADDRESS_TXT
+Nicht genug Speicher für Geräteadresse \"%s\".
+; Not enough memory for hardware address \"%s\".
+;
+MSG_ADDNETINTERFACE_NOT_ENOUGH_MEMORY_TO_CONFIGURE_HARDWARE_ADDRESS_TXT
+Nicht genug Speicher, um Geräteadresse von \"%s\" einzurichten.
+; Not enough memory to configure hardware address of \"%s\".
+;
+MSG_ADDNETINTERFACE_HARDWARE_ADDRESS_TOO_SHORT_TXT
+Die Adresse \"%s\" in Zeile %lD von Datei \"%s\" ist zu kurz, um eine gültige IEEE 802.3 MAC Adresse darzustellen.
+; The address \"%s\" in line %ld of \"%s\" is too short to be a valid IEEE 802.3 MAC address.
+;
+MSG_ADDNETINTERFACE_HARDWARE_ADDRESS_TOO_LONG_TXT
+Die Adresse \"%s\" in Zeile %lD von Datei \"%s\" ist zu lang, um eine gültige IEEE 802.3 MAC Adresse darzustellen.
+; The address \"%s\" in line %ld of \"%s\" is too long to be a valid IEEE 802.3 MAC address.
+;
+MSG_ADDNETINTERFACE_HARDWARE_ADDRESS_IS_BROADCAST_TXT
+Die Adresse \"%s\" in Zeile %lD von Datei \"%s\" ist eine Broadcastadresse und sollte nicht von einem einzelnen Rechner benutzt werden.
+; The address \"%s\" in line %ld of \"%s\" is a broadcast address and should not be used by a single host.
+;
+MSG_ADDNETINTERFACE_HARDWARE_ADDRESS_IS_GROUP_TXT
+Die Adresse \"%s\" in Zeile %lD von Datei \"%s\" ist eine Gruppenadresse und sollte nicht von einem einzelnen Rechner benutzt werden.
+; The address \"%s\" in line %ld of \"%s\" is a group address and should not be used by a single host.
+;
+MSG_ADDNETINTERFACE_INTERFACE_HARDWARE_ADDRESS_SET_TO_TXT
+Die Geräteadresse von \"%s\" wurde auf %s eingestellt.\n
+; The hardware address of \"%s\" was set to %s.\n
+;
+MSG_ADDNETINTERFACE_NO_INTERFACE_NAME_GIVEN_TXT
+Bitte geben Sie die Namen der einzurichtenden Schnittstellen an.
+; You did not provide the names of the interfaces to be added.
+;
+MSG_ADDNETINTERFACE_INVALID_ADDRESS_TXT
+Ungültige Adresse \"%s\" in Zeile %lD von Datei \"%s\".
+; Invalid address \"%s\" in line %ld of \"%s\".
+;
+MSG_ADDNETINTERFACE_DYNAMIC_ADDRESS_SHOULD_NOT_BE_BOUND_TXT
+Die Netzadresse \"%s\" in Zeile %lD von Datei \"%s\" ist für dynamische Nutzung gedacht und sollte nicht fest vergeben werden.
+; The address \"%s\" in line %ld of \"%s\" is for dynamic allocation only and should not be bound statically.
+;
+MSG_ADDNETINTERFACE_ALIAS_TXT
+Alternative Netzadresse %s wurde eingetragen.
+; Added alias address %s.\n
+;
+MSG_ADDNETINTERFACE_COULD_NOT_ADD_ALIAS_ERROR_CODE_TXT
+Alternative Netzadresse %2$s für Schnittstelle \"%1$s\" konnte nicht eingetragen werden (%3$s).
+; Could not add interface \"%s\" alias address %s (%s).
+;
+MSG_ADDNETINTERFACE_COULD_NOT_ADD_ALIAS_TXT
+Alternative Netzadresse %2$s für Schnittstelle \"%1$s\" konnte nicht eingetragen werden.
+; Could not add interface \"%s\" alias address %s.
+;
+MSG_ADDNETINTERFACE_DEFAULT_DOMAIN_NAME_TXT
+Vorgabe für Domain-Name wurde auf \"%s\" gesetzt.\n
+; Default domain name is \"%s\".\n
+;
+MSG_ADDNETINTERFACE_INTERFACE_IS_BUSY_TXT
+Einrichtung von Schnittstelle \"%s\" läuft noch.
+; Configuration for interface \"%s\" is still in progress.
+;
+MSG_ADDNETROUTE_NO_UTILITY_TXT
+%s: \"utility.library\" V37 konnte nicht geöffnet werden.\n
+; %s: Failed to open \"utility.library\" V37.\n
+;
+MSG_ADDNETROUTE_CANNOT_OPEN_BSDSOCKET_TXT
+%s: \"bsdsocket.library\" V4 konnte nicht geöffnet werden.\n
+; %s: Failed to open \"bsdsocket.library\" V4.\n
+;
+MSG_ADDNETROUTE_BSDSOCKET_HAS_NO_ROUTE_API_TXT
+%s: \"%s\" V%ld.%ld unterstützt die Routenkonfigurationsmethode nicht, die dieses Programm verwendet.\n
+; %s: \"%s\" V%ld.%ld does not support the route configuration method used by this program.\n
+;
+MSG_ADDNETROUTE_NO_MEMORY_FOR_DEFAULT_GATEWAY_TXT
+%s: Nicht genug Speicher, um die Standardroute zu \"%s\" einzurichten.\n
+; %s: Not enough memory to add route to default gateway \"%s\".\n
+;
+MSG_ADDNETROUTE_DESTINATION_IGNORED_TXT
+%s: Das Argument \"DESTINATION=%s\" wurde ignoriert.\n
+; %s: \"DESTINATION=%s\" parameter ignored.\n
+;
+MSG_ADDNETROUTE_HOSTDESTINATION_IGNORED_TXT
+%s: Das Argument \"HOSTDESTINATION=%s\" wurde ignoriert.\n
+; %s: \"HOSTDESTINATION=%s\" parameter ignored.\n
+;
+MSG_ADDNETROUTE_NETDESTINATION_IGNORED_TXT
+%s: Das Argument \"NETDESTINATION=%s\" wurde ignoriert.\n
+; %s: \"NETDESTINATION=%s\" parameter ignored.\n
+;
+MSG_ADDNETROUTE_GATEWAY_IGNORED_TXT
+%s: Das Argument \"GATEWAY=%s\" wurde ignoriert.\n
+; %s: \"GATEWAY=%s\" parameter ignored.\n
+;
+MSG_ADDNETROUTE_GATEWAY_NEEDS_DESTINATION_TXT
+%s: Zum Argument \"GATEWAY=%s\" wird zusätzlich eine Zieladresse benötigt.\n
+; %s: The \"GATEWAY=%s\" parameter needs a destination address.\n
+;
+MSG_ADDNETROUTE_NOT_ENOUGH_MEMORY_FOR_GATEWAY_TXT
+%s: Nicht genug Speicher, um eine Route zu \"%s\" einzurichten.\n
+; %s: Not enough memory to add route to gateway \"%s\".\n
+;
+MSG_ADDNETROUTE_NOT_ENOUGH_MEMORY_FOR_ROUTE_TXT
+%s: Nicht genug Speicher, um eine Route zum Ziel \"%s\" einzurichten.\n
+; %s: Not enough memory to add route to destination \"%s\".\n
+;
+MSG_ADDNETROUTE_NOT_ENOUGH_MEMORY_FOR_ROUTE_TO_HOST_TXT
+%s: Nicht genug Speicher, um eine Route zum Rechner \"%s\" einzurichten.\n
+; %s: Not enough memory to add route to destination host \"%s\".\n
+;
+MSG_ADDNETROUTE_NOT_ENOUGH_MEMORY_FOR_ROUTE_TO_NET_TXT
+%s: Nicht genug Speicher, um eine Route zum Netz \"%s\" einzurichten.\n
+; %s: Not enough memory to add route to destination network \"%s\".\n
+;
+MSG_ADDNETROUTE_NOT_ENOUGH_MEMORY_TO_ADD_ROUTE_TXT
+%s: Nicht genug Speicher, um eine Route einzurichten.\n
+; %s: Not enough memory to add route.\n
+;
+MSG_ADDNETROUTE_COULD_NOT_ADD_ROUTE_TXT
+%s: Route konnte nicht eingerichtet werden
+; %s: Could not add route
+;
+MSG_ADDNETROUTE_ROUTE_ADDED_TXT
+%s: Route wurde eingerichtet (
+; %s: Route added (
+;
+MSG_ADDNETROUTE_DEFAULT_GATEWAY_TXT
+%sStandardroute = %s
+; %sdefault gateway = %s
+;
+MSG_ADDNETROUTE_DESTINATION_TXT
+%sZiel = %s
+; %sdestination = %s
+;
+MSG_ADDNETROUTE_DESTINATION_HOST_TXT
+%sZiel [Rechner] = %s
+; %sdestination [host] = %s
+;
+MSG_ADDNETROUTE_DESTINATION_NET_TXT
+%sZiel [Netz] = %s
+; %sdestination [network] = %s
+;
+MSG_ADDNETROUTE_VIA_GATEWAY_TXT
+%süber Zwischenstation %s
+; %svia gateway %s
+;
+MSG_CONFIGURENETINTERFACE_NO_UTILITY_TXT
+%s: \"utility.library\" V37 konnte nicht geöffnet werden.\n
+; %s: Failed to open \"utility.library\" V37.\n
+;
+MSG_CONFIGURENETINTERFACE_CANNOT_OPEN_BSDSOCKET_TXT
+%s: \"bsdsocket.library\" V4 konnte nicht geöffnet werden.\n
+; %s: Failed to open \"bsdsocket.library\" V4.\n
+;
+MSG_CONFIGURENETINTERFACE_BSDSOCKET_HAS_NO_INTERFACE_API_TXT
+%s: \"%s\" V%ld.%ld unterstützt die Schnittstellenkonfigurationsmethode nicht, die dieses Programm verwendet.\n
+; %s: \"%s\" V%ld.%ld does not support the interface configuration method used by this program.\n
+;
+MSG_CONFIGURENETINTERFACE_BSDSOCKET_HAS_NO_ROUTE_API_TXT
+%s: \"%s\" V%ld.%ld unterstützt die Routenkonfigurationsmethode nicht, die dieses Programm verwendet.\n
+; %s: \"%s\" V%ld.%ld does not support the route configuration method used by this program.\n
+;
+MSG_CONFIGURENETINTERFACE_NOT_ENOUGH_MEMORY_TO_CONFIGURE_INTERFACE_ADDRESS_TXT
+%s: Nicht genug Speicher, um die Netzadresse von Schnittstelle \"%s\" einzurichten.\n
+; %s: Not enough memory to configure interface \"%s\" address.\n
+;
+MSG_CONFIGURENETINTERFACE_NOT_ENOUGH_MEMORY_TO_CONFIGURE_INTERFACE_MASK_TXT
+%s: Nicht genug Speicher, um die Netzmask von Schnittstelle \"%s\" einzurichten.\n
+; %s: Not enough memory to configure interface \"%s\" sub network mask.\n
+;
+MSG_CONFIGURENETINTERFACE_NOT_ENOUGH_MEMORY_TO_CONFIGURE_INTERFACE_DESTINATION_ADDRESS_TXT
+%s: Nicht genug Speicher, um die Zieladresse \"%2$s\" von Schnittstelle \"%1$s\" einzurichten.\n
+; %s: Not enough memory to configure interface \"%s\" destination address \"%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_NOT_ENOUGH_MEMORY_TO_CONFIGURE_INTERFACE_BROADCAST_ADDRESS_TXT
+%s: Nicht genug Speicher, um die Broadcastadresse \"%2$s\" von Schnittstelle \"%1$s\" einzurichten.\n
+; %s: Not enough memory to configure interface \"%s\" broadcast address \"%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_NOT_ENOUGH_MEMORY_TO_CONFIGURE_INTERFACE_METRIC_TXT
+%s: Nicht genug Speicher, um die Metrik %2$ld von Schnittstelle \"%1$s\" einzurichten.\n
+; %s: Not enough memory to configure interface \"%s\" metric %ld.\n
+;
+MSG_CONFIGURENETINTERFACE_TIMEOUT_TOO_SHORT_TXT
+%s: Zeitintervall von %lD Sekunden bis zum Abbruch der Konfiguration ist zu kurz; Intervall wurde auf %lD Sekunden verlängert.\n
+; %s: Configuration timeout %ld is too short; increased to %ld seconds.\n
+;
+MSG_CONFIGURENETINTERFACE_NOT_ENOUGH_MEMORY_TO_ADD_ALIAS_ADDRESS_TXT
+%s: Nicht genug Speicher, um die Alternativadresse \"%2$s\" von Schnittstelle \"%1$s\" einzurichten.\n
+; %s: Not enough memory to add interface \"%s\" alias address \"%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_NOT_ENOUGH_MEMORY_TO_DELETE_ALIAS_ADDRESS_TXT
+%s: Nicht genug Speicher, um die Alternativadresse \"%2$s\" von Schnittstelle \"%1$s\" zu entfernen.\n
+; %s: Not enough memory to delete interface \"%s\" alias address \"%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_UNKNOWN_CONFIGURE_PARAMETER_TXT
+%s: Unbekanntes Argument \"CONFIGURE=%s\".\n
+; %s: Unknown parameter \"CONFIGURE=%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_PICK_ONLY_ONE_STATE_TXT
+%s: Bitte nur einen Schnittstellenzustand angeben und nicht
+; %s: Please specify exactly one interface state and not
+;
+MSG_CONFIGURENETINTERFACE_UNKNOWN_LEASE_PARAMETER_TXT
+%s: Unbekanntes Reservierungsargument \"%s\".\n
+; %s: Unknown lease parameter \"%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_INVALID_LEASE_PARAMETER_TXT
+%s: Unzulässiges Reservierungsargument \"%s\".\n
+; %s: Invalid lease parameter \"%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_NOT_ENOUGH_MEMORY_TO_CONFIGURE_TXT
+%s: Nicht genug Speicher, um Schnittstelle \"%s\" einzurichten.\n
+; %s: Not enough memory to configure interface \"%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_COULD_NOT_MARK_INTERFACE_UP_TXT
+%s: Konnte Schnittstelle \"%s\" nicht als aktiv (\"up\") einrichten.
+; %s: Could not mark interface \"%s\" as \"UP\".
+;
+MSG_CONFIGURENETINTERFACE_TRYING_INTERFACE_CONFIGURATION_TXT
+%s: Versuche, Schnittstelle \"%s\" einzurichten... \0
+; %s: Trying interface \"%s\" configuration... \0
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_CONFIGURATION_ABORTED_TXT
+%s: Einrichtung von Schnittstelle \"%s\" wurde abgebrochen.\n
+; %s: Interface \"%s\" configuration aborted.\n
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_CONFIGURATION_TIMED_OUT_TXT
+%s: Bei der Einrichtung von Schnittstelle \"%s\" ist eine Zeitüberschreitung aufgetreten.\n
+; %s: Interface \"%s\" configuration attempt timed out.\n
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_CONFIGURATION_NAME_UNKNOWN_TXT
+%s: Schnittstelle \"%s\" wurde nicht eingerichtet; der Name ist unbekannt.
+; %s: Interface \"%s\" not configured; name is unknown.\n
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_CONFIGURATION_WRONG_TYPE_TXT
+%s: Schnittstelle \"%s\" wurde nicht eingerichtet; Broadcastzugriff wird nicht unterstützt.\n
+; %s: Interface \"%s\" not configured; broadcast access not supported.\n
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_CONFIGURATION_ALREADY_CONFIGURED_TXT
+%s: Schnittstelle \"%s\" wurde nicht eingerichtet; die Netzadresse ist bereits eingestellt.\n
+; %s: Interface \"%s\" not configured; address is already configured.\n
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_CONFIGURATION_NOT_COMPATIBLE_TXT
+%s: Schnittstelle \"%s\" wurde nicht eingerichtet; die Einrichtungsmethode ist veraltet.\n
+; %s: Interface \"%s\" not configured; configuration command not compatible.\n
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_CONFIGURATION_NOT_ENOUGH_MEMORY_TXT
+%s: Schnittstelle \"%s\" wurde wegen Speichermangels nicht eingerichtet.\n
+; %s: Interface \"%s\" not configured; not enough memory.\n
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_CONFIGURATION_ADDRESS_IN_USE_TXT
+%s: Schnittstelle \"%s\" wurde nicht eingerichtet; die zuzuweisende Netzadresse wird bereits anderweitig verwendet.\n
+; %s: Interface \"%s\" not configured; IP address to be assigned is already in use.\n
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_CONFIGURATION_ADDRESS_NOT_CHANGED_TXT
+%s: Schnittstelle \"%s\" wurde nicht eingerichtet; die Netzadresse konnte nicht geändert werden.\n
+; %s: Interface \"%s\" not configured; IP address could not be changed.\n
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_CONFIGURATION_MASK_NOT_CHANGED_TXT
+%s: Schnittstelle \"%s\" wurde nicht eingerichtet; die Netzmaske konnte nicht geändert werden.\n
+; %s: Interface \"%s\" not configured; network mask could not be changed.\n
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_CONFIGURATION_UNKNOWN_ERROR_TXT
+%s: Schnittstelle \"%s\" wurde nicht eingerichtet; ein unbekannter Fehler (%ld) ist aufgetreten.\n
+; %s: Interface \"%s\" not configured; unknown error (%ld).\n
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_NOT_CONFIGURED_ADDRESS_INVALID_TXT
+%s: Schnittstelle \"%s\" wurde nicht eingerichtet; keine gültige Netzadresse erhalten.\n
+; %s: Interface \"%s\" not configured; no valid IP address received.\n
+;
+MSG_CONFIGURENETINTERFACE_NOT_ENOUGH_MEMORY_TO_CONFIGURE_ADDRESS_TXT
+%s: Nicht genug Speicher, um die Netzadresse \"%2$s\" von Schnittstelle \"%1$s\" einzurichen.\n
+; %s: Not enough memory to configure interface \"%s\" address \"%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_NOT_ENOUGH_MEMORY_TO_CONFIGURE_NETMASK_TXT
+%s: Nicht genug Speicher, um die Netmaske \"%2$s\" von Schnittstelle \"%1$s\" einzurichen.\n
+; %s: Not enough memory to configure interface \"%s\" sub network mask \"%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_NOT_ENOUGH_MEMORY_TO_CONFIGURE_STATE_TXT
+%s: Nicht genug Speicher, um den Zustand von Schnittstelle \"%s\" zu ändern.\n
+; %s: Not enough memory to change interface \"%s\" state.\n
+;
+MSG_CONFIGURENETINTERFACE_NOT_ENOUGH_MEMORY_TO_CONFIGURE_INTERFACE_TXT
+%s: Nicht genug Speicher, um Schnittstelle \"%s\" einzurichten.\n
+; %s: Not enough memory to configure interface \"%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_COULD_NOT_CONFIGURE_INTERFACE_TXT
+%s: Schnittstelle \"%s\" konnte nicht eingerichtet werden
+; %s: Could not configure interface \"%s\"
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_CONFIGURED_TXT
+%s: Schnittstelle \"%s\" wurde eingerichtet (
+; %s: Interface \"%s\" configured (
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_ADDRESS_IS_TXT
+%sNetzadresse = %s
+; %saddress = %s
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_MASK_TXT
+%sNetzmaske = %s
+; %snetwork mask = %s
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_DESTINATION_ADDRESS_TXT
+%sZieladresse = %s
+; %sdestination address = %s
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_BROADCAST_ADDRESS_TXT
+%sBroadcastadresse = %s
+; %sbroadcast address = %s
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_METRIC_TXT
+%sMetrik = %ld
+; %smetric = %ld
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_ADD_ADDRESS_TXT
+%sAlternativadresse \"%s\" wurde hinzugefügt
+; %sadded alias address \"%s\"
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_DELETE_ADDRESS_TXT
+%sAlternativadresse \"%s\" wurde entfernt
+; %sdeleted alias address \"%s\"
+;
+MSG_CONFIGURENETINTERFACE_ADDED_DEFAULT_ROUTE_TXT
+%s: Standardroute zu %s wurde eingetragen.\n
+; %s: Added default route to %s.\n
+;
+MSG_CONFIGURENETINTERFACE_ADDED_ROUTE_TXT
+%s: Route zu %s wurde eingetragen.\n
+; %s: Added route to %s.\n
+;
+MSG_CONFIGURENETINTERFACE_COULD_NOT_ADD_ROUTE_TO_TXT
+%s: Route zu %s konnte nicht eingetragen werden
+; %s: Could not add route to %s
+;
+MSG_CONFIGURENETINTERFACE_ADDED_DNS_TXT
+%s: Domain Name System Server %s wurde eingetragen.\n
+; %s: Added domain name server %s.\n
+;
+MSG_CONFIGURENETINTERFACE_COULD_NOT_ADD_DNS_TXT
+%s: Domain Name System Server %s konnte nicht eingetragen werden
+; %s: Could not add domain name server %s
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_ADDRESS_TXT
+%s: Netzwerkadresse %2$s für Schnittstelle \"%1$s\" \0
+; %s: Interface \"%s\" address %s \0
+;
+MSG_CONFIGURENETINTERFACE_LEASED_PERMANENTLY_TXT
+wurde permanent reserviert.\n
+; has been leased permanently.\n
+;
+MSG_CONFIGURENETINTERFACE_LEASED_UNTIL_TXT
+wurde bis %s %s reserviert und wird erneuert, bevor sie verfällt.\n
+; has been leased until %s %s and will be renewed before it expires.\n
+;
+MSG_CONFIGURENETINTERFACE_COULD_NOT_SET_STATE_TXT
+%s: Zustand von Schnittstelle \"%s\" konnte nicht auf \"%s\" gesetzt werden
+; %s: Could not set interface \"%s\" state to \"%s\"
+;
+MSG_CONFIGURENETINTERFACE_STATE_CHANGED_TXT
+%s: Zustand der Schnittstelle \"%s\" wurde auf \"%s\" gesetzt.\n
+; %s: Interface \"%s\" state changed to \"%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_INVALID_IP_ADDRESS_AT_TXT
+%s: Netzadresse in \"%s=%s\" ist nicht zulässig.
+; %s: Invalid IP address in \"%s=%s\".
+;
+MSG_CONFIGURENETINTERFACE_ID_TOO_LONG_TXT
+Identifikationsname \"%s\" ist zu lang und wird abgeschnitten.
+; Client identifier \"%s\" will be truncated.
+;
+MSG_CONFIGURENETINTERFACE_ID_TOO_SHORT_TXT
+Identifikationsname \"%s\" ist zu kurz (mindestens 2 Zeichen sind nötig).
+; Client identifier \"%s\" is too short (2 characters minimum).
+;
+MSG_CONFIGURENETINTERFACE_HAS_NO_ADDRESS_CONVERSION_API_TXT
+%s: \"%s\" V%ld.%ld unterstützt die Adresskonvertierungsmethode nicht, die dieses Programm verwendet.\n
+; %s: \"%s\" V%ld.%ld does not support the address conversion method used by this program.\n
+;
+MSG_CONFIGURENETINTERFACE_COULD_NOT_RELEASE_INTERFACE_ADDRESS_TXT
+%s: Netzadresse \"%s\" konnte nicht freigegeben werden.
+; %s: Could not release interface address \"%s\".
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_ADDRESS_WAS_RELEASED_TXT
+Netzadresse \"%s\" wurde freigegeben.\n
+; Interface address \"%s\" was released.\n
+;
+MSG_CONFIGURENETINTERFACE_UNKNOWN_DEBUG_PARAMETER_TXT
+%s: Unbekanntes Argument \"DEBUG=%s\".\n
+; %s: Unknown parameter \"DEBUG=%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_INVALID_ADDRESS_TXT
+%s: \"%s\" ist keine gültige Netzadresse.\n
+; %s: \"%s\" is not a valid address.\n
+;
+MSG_CONFIGURENETINTERFACE_DYNAMIC_ADDRESS_SHOULD_NOT_BE_BOUND_TXT
+%s: Die Netzadresse \"%s\" ist für dynamische Nutzung gedacht und sollte nicht fest vergeben werden.\n
+; %s: The address \"%s\" is for dynamic allocation only and should not be statically bound.\n
+;
+MSG_CONFIGURENETINTERFACE_UNKNOWN_COMPLETE_PARAMETER_TXT
+%s: Unbekanntes Argument \"COMPLETE=%s\".\n
+; %s: Unknown parameter \"COMPLETE=%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_NOT_ENOUGH_MEMORY_TO_CONFIGURE_INTERFACE_MTU_TXT
+%s: Nicht genug Speicher, um die maximale Übertragungseinheit (MTU) %2$ld von Schnittstelle \"%1$s\" einzurichten.\n
+; %s: Not enough memory to configure interface \"%s\" MTU %ld.\n
+;
+MSG_CONFIGURENETINTERFACE_DEFAULT_DOMAIN_NAME_TXT
+%s: Vorgabe für Domain-Name wurde auf \"%s\" gesetzt.\n
+; %s: Default domain name is \"%s\".\n
+;
+MSG_CONFIGURENETINTERFACE_INTERFACE_IS_BUSY_TXT
+%s: Einrichtung von Schnittstelle \"%s\" läuft noch.\n
+; %s: Configuration for interface \"%s\" is still in progress.\n
+;
+MSG_DELETENETROUTE_NO_UTILITY_TXT
+%s: \"utility.library\" V37 konnte nicht geöffnet werden.\n
+; %s: Failed to open \"utility.library\" V37.\n
+;
+MSG_DELETENETROUTE_CANNOT_OPEN_BSDSOCKET_TXT
+%s: \"bsdsocket.library\" V4 konnte nicht geöffnet werden.\n
+; %s: Failed to open \"bsdsocket.library\" V4.\n
+;
+MSG_DELETENETROUTE_BSDSOCKET_HAS_NO_ROUTE_API_TXT
+%s: \"%s\" V%ld.%ld unterstützt die Routenkonfigurationsmethode nicht, die dieses Programm verwendet.\n
+; %s: \"%s\" V%ld.%ld does not support the route configuration method used by this program.\n
+;
+MSG_DELETENETROUTE_NEED_EITHER_DESTINATION_OR_DEFAULT_TXT
+%s: Es wird entweder eine Angabe für \"DESTINATION\" oder \"DEFAULTGATEWAY\" benötigt.\n
+; %s: You must provide either a \"DESTINATION\" or \"DEFAULTGATEWAY\" parameter.\n
+;
+MSG_DELETENETROUTE_DESTINATION_IGNORED_TXT
+%s: Das Argument \"DESTINATION=%s\" wurde ignoriert.\n
+; %s: \"DESTINATION=%s\" parameter ignored.\n
+;
+MSG_DELETENETROUTE_ROUTE_TO_DEFAULT_GATEWAY_NOT_DELETED_TXT
+%s: Die Standardroute zu \"%s\" konnte nicht entfernt werden
+; %s: Could not delete route to default gateway \"%s\"
+;
+MSG_DELETENETROUTE_ROUTE_NOT_DELETED_TXT
+%s: Die Route zu \"%s\" konnte nicht entfernt werden
+; %s: Could not delete route to \"%s\"
+;
+MSG_DELETENETROUTE_ROUTE_TO_DEFAULT_DELETED_TXT
+%s: Die Standardroute zu \"%s\" wurde entfernt.\n
+; %s: Route to default gateway \"%s\" deleted.\n
+;
+MSG_DELETENETROUTE_ROUTE_DELETED_TXT
+%s: Die Route zu \"%s\" wurde entfernt.\n
+; %s: Route to \"%s\" deleted.\n
+;
+MSG_GETNETSTATUS_NO_UTILITY_TXT
+%s: \"utility.library\" V37 konnte nicht geöffnet werden.\n
+; %s: Failed to open \"utility.library\" V37.\n
+;
+MSG_GETNETSTATUS_CANNOT_OPEN_BSDSOCKET_TXT
+%s: \"bsdsocket.library\" V4 konnte nicht geöffnet werden.\n
+; %s: Failed to open \"bsdsocket.library\" V4.\n
+;
+MSG_GETNETSTATUS_BSDSOCKET_HAS_NO_STATUS_API_TXT
+%s: \"%s\" V%ld.%ld unterstützt die Statusabfragemethode nicht, die dieses Programm verwendet.\n
+; %s: \"%s\" V%ld.%ld does not support the status query method used by this program.\n
+;
+MSG_GETNETSTATUS_UNKNOWN_CONDITION_TXT
+%s: Warnung -- Bedingung \"%s\" ist nicht bekannt.\n
+; %s: Warning, unknown condition \"%s\".\n
+;
+MSG_GETNETSTATUS_INTERFACES_AVAILABLE_AND_CONFIGURED_TXT
+Netzschnittstellen sind verfügbar und eingerichtet.\n
+; Networking interfaces are available and configured.\n
+;
+MSG_GETNETSTATUS_NO_INTERFACES_AVAILABLE_AND_CONFIGURED_TXT
+Es sind %skeine%s Netzschnittstellen verfügbar oder eingerichtet.\n
+; %sNo%s networking interfaces are available and configured.\n
+;
+MSG_GETNETSTATUS_POINT_TO_POINT_INTERFACES_AVAILABLE_AND_CONFIGURED_TXT
+Punkt-zu-Punkt-Netzschnittstellen sind verfügbar und eingerichtet.\n
+; Point-to-point networking interfaces are available and configured.\n
+;
+MSG_GETNETSTATUS_NO_POINT_TO_POINT_INTERFACES_AVAILABLE_AND_CONFIGURED_TXT
+Es sind %skeine%s Punkt-zu-Punkt-Netzschnittstellen verfügbar oder eingerichtet.\n
+; %sNo%s point-to-point networking interfaces are available and configured.\n
+;
+MSG_GETNETSTATUS_BROADCAST_INTERFACES_AVAILABLE_AND_CONFIGURED_TXT
+Netzschnittstellen, die Broadcastadressierung unterstützen, sind verfügbar und eingerichtet.\n
+; Broadcast networking interfaces are available and configured.\n
+;
+MSG_GETNETSTATUS_NO_BROADCAST_INTERFACES_AVAILABLE_AND_CONFIGURED_TXT
+Es sind %skeine%s Netzschnittstellen verfügbar oder eingerichtet, die Broadcastadressierung unterstützen.\n
+; %sNo%s broadcast networking interfaces are available and configured.\n
+;
+MSG_GETNETSTATUS_DNS_CONFIGURED_TXT
+Domain Name System Server sind eingerichtet.\n
+; Name resolution servers are configured.\n
+;
+MSG_GETNETSTATUS_NO_DNS_CONFIGURED_TXT
+Es sind %skeine%s Domain Name System Server eingerichtet.\n
+; %sNo%s name resolution servers are configured.\n
+;
+MSG_GETNETSTATUS_ROUTE_CONFIGURED_TXT
+Routeninformationen sind eingerichtet.\n
+; Routing information is configured.\n
+;
+MSG_GETNETSTATUS_NO_ROUTE_CONFIGURED_TXT
+Es sind %skeine%s Routeninformationen eingerichtet.\n
+; %sNo%s routing information is configured.\n
+;
+MSG_GETNETSTATUS_DEFAULT_ROUTE_CONFIGURED_TXT
+Die Standardroute ist eingerichtet.\n
+; The default route is configured.\n
+;
+MSG_GETNETSTATUS_NO_DEFAULT_ROUTE_CONFIGURED_TXT
+Die Standardroute ist %snicht%s eingerichtet.\n
+; The default route is %snot%s configured.\n
+;
+MSG_SHOWNETSTATUS_NO_UTILITY_TXT
+%s: \"utility.library\" V37 konnte nicht geöffnet werden.\n
+; %s: Failed to open \"utility.library\" V37.\n
+;
+MSG_SHOWNETSTATUS_CANNOT_OPEN_BSDSOCKET_TXT
+%s: \"bsdsocket.library\" V4 konnte nicht geöffnet werden.\n
+; %s: Failed to open \"bsdsocket.library\" V4.\n
+;
+MSG_SHOWNETSTATUS_BSDSOCKET_HAS_NO_STATUS_API_TXT
+%s: \"%s\" V%ld.%ld unterstützt die Statusabfragemethode nicht, die dieses Programm verwendet.\n
+; %s: \"%s\" V%ld.%ld does not support the status query method used by this program.\n
+;
+MSG_SHOWNETSTATUS_BSDSOCKET_HAS_NO_ROUTE_API_TXT
+%s: \"%s\" V%ld.%ld unterstützt die Routenabfragemethode nicht, die dieses Programm verwendet.\n
+; %s: \"%s\" V%ld.%ld does not support the route query method used by this program.\n
+;
+MSG_SHOWNETSTATUS_BSDSOCKET_HAS_NO_INTERFACE_API_TXT
+%s: \"%s\" V%ld.%ld unterstützt die Schnittstellenabfragemethode nicht, die dieses Programm verwendet.\n
+; %s: \"%s\" V%ld.%ld does not support the interface query method used by this program.\n
+;
+MSG_SHOWNETSTATUS_BSDSOCKET_HAS_NO_DNS_API_TXT
+%s: \"%s\" V%ld.%ld unterstützt die Abfragemethode für Domain Name System Server nicht, die dieses Programm verwendet.\n
+; %s: \"%s\" V%ld.%ld does not support the domain name server query method used by this program.\n
+;
+MSG_SHOWNETSTATUS_CANNOT_GET_INFO_ON_INTERFACE_TXT
+%s: Es konnten keine Informationen über die Schnittstelle \"%s\" abgerufen werden.\n
+; %s: Unable to obtain information on interface \"%s\".\n
+;
+MSG_SHOWNETSTATUS_CANNOT_GET_INTERFACE_LIST_TXT
+%s: Es konnten keine Schnittstelleninformationen abgerufen werden.\n
+; %s: Unable to obtain interface information.\n
+;
+MSG_SHOWNETSTATUS_CANNOT_GET_DNS_LIST_TXT
+%s: Es konnten keine Informationen über die Domain Name System Server abgerufen werden.\n
+; %s: Unable to obtain domain name server information.\n
+;
+MSG_SHOWNETSTATUS_CANNOT_GET_ROUTE_TABLE_TXT
+%s: Es konnten keine Informationen über die Routen abgerufen werden.\n
+; %s: Unable to obtain routing information.\n
+;
+MSG_SHOWNETSTATUS_NOT_ENOUGH_MEMORY_TO_QUERY_STATUS_TXT
+%s: Nicht genug Speicher, um den Zustand von \"%s\" abzurufen.\n
+; %s: Not enough memory to obtain status information for \"%s\".\n
+;
+MSG_SHOWNETSTATUS_CANNOT_GET_STATUS_INFORMATION_FOR_TXT
+%s: Zustandsinformationen über \"%s\" konnten nicht abgerufen werden.\n
+; %s: Status information for \"%s\" could not be obtained.\n
+;
+MSG_SHOWNETSTATUS_DEFAULT_TXT
+(Standard)
+; (Default)
+;
+MSG_SHOWNETSTATUS_DESTINATION_GATEWAY_ATTRIBUTES_TITLE_TXT
+%s%-16s %-16s %s%s\n
+; %s%-16s %-16s %s%s\n
+;
+MSG_SHOWNETSTATUS_DESTINATION_TXT
+Ziel
+; Destination
+;
+MSG_SHOWNETSTATUS_GATEWAY_TXT
+Zwischenstation
+; Gateway
+;
+MSG_SHOWNETSTATUS_ATTRIBUTES_TXT
+Eigenschaften
+; Attributes
+;
+MSG_SHOWNETSTATUS_DESTINATION_GATEWAY_LINE_TXT
+%-16s %-16s
+; %-16s %-16s
+;
+MSG_SHOWNETSTATUS_UP_TXT
+Aktiv
+; Up
+;
+MSG_SHOWNETSTATUS_DOWN_TXT
+Inaktiv
+; Down
+;
+MSG_SHOWNETSTATUS_HOST_TXT
+Rechner
+; Host
+;
+MSG_SHOWNETSTATUS_NO_ROUTES_ARE_CONFIGURED_TXT
+Es sind derzeit keine Routen eingerichtet.\n
+; No routes are currently configured.\n
+;
+MSG_SHOWNETSTATUS_ADDRESS_TYPE_TITLE_TXT
+%s%-20s %-10s%s\n
+; %s%-20s %-10s%s\n
+;
+MSG_SHOWNETSTATUS_ADDRESS_TXT
+Adresse
+; Address
+;
+MSG_SHOWNETSTATUS_TYPE_TXT
+Art
+; Type
+;
+MSG_SHOWNETSTATUS_ADDRESS_TYPE_LINE_TXT
+%-20s %s\n
+; %-20s %s\n
+;
+MSG_SHOWNETSTATUS_STATIC_TXT
+Statisch
+; Static
+;
+MSG_SHOWNETSTATUS_DYNAMIC_TXT
+Dynamisch
+; Dynamic
+;
+MSG_SHOWNETSTATUS_NO_DNS_CONFIGURED_TXT
+Es sind keine Domain Name System Server eingerichtet.\n
+; No domain name servers are configured.\n
+;
+MSG_SHOWNETSTATUS_UNKNOWN_HARDWARE_TYPE_TXT
+Unbekannt (%ld)
+; Unknown (%ld)
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_TITLE_TXT
+%s%-20s %5s %-20s %-20s %10s %10s %10s %10s %10s %s%s\n
+; %s%-20s %4s %-20s %-20s %8s %8s %8s %8s %8s %s%s\n
+;
+MSG_SHOWNETSTATUS_NAME_TXT
+Name
+; Name
+;
+MSG_SHOWNETSTATUS_MTU_TXT
+MTU
+; MTU
+;
+MSG_SHOWNETSTATUS_RECEIVED_TXT
+Empfangen
+; Received
+;
+MSG_SHOWNETSTATUS_SENT_TXT
+Versandt
+; Sent
+;
+MSG_SHOWNETSTATUS_DROPPED_TXT
+Verworfen
+; Dropped
+;
+MSG_SHOWNETSTATUS_OVERRUNS_TXT
+Überläufe
+; Overruns
+;
+MSG_SHOWNETSTATUS_UNKNOWN_TXT
+Unbekannt
+; Unknown
+;
+MSG_SHOWNETSTATUS_STATUS_TXT
+Zustand
+; Status
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_LINE_TXT
+%-20s %5lD %-20s %-20s %10lD %10lD %10lD %10lD %10lD %s\n
+; %-20s %4ld %-20s %-20s %8ld %8ld %8ld %8ld %8ld %s\n
+;
+MSG_SHOWNETSTATUS_NO_INTERFACES_AVAILABLE_TXT
+Es sind keine Schnittstellen eingerichtet.\n
+; No interfaces are currently available.\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_TITLE_TXT
+%sSchnittstelle \"%s\"%s\n
+; %sInterface \"%s\"%s\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_DEVICE_NAME_TXT
+Gerätetreiber                           = %s\n
+; Device name                  = %s\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_DEVICE_UNIT_TXT
+Gerätenummer                            = %ld\n
+; Device unit number           = %ld\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_HARDWARE_ADDRESS_TXT
+Geräteadresse                           = \0
+; Hardware address             = \0
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_MTU_TXT
+Maximale Übertragungseinheit (MTU)      = %lD Bytes\n
+; Maximum transmission unit    = %ld Bytes\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_TRANSMISSION_SPEED_TXT
+Übertragungsgeschwindigkeit             = %lD Bit/Sekunde\n
+; Transmission speed           = %ld Bits/Second\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_HARDWARE_TYPE_TXT
+Gerätetyp                               = %s\n
+; Hardware type                = %s\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_PACKETS_SENT_TXT
+Versandte Datenpakete                   = %lD\n
+; Packets sent                 = %ld\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_PACKETS_RECEIVED_TXT
+Empfangene Datenpakete                  = %lD\n
+; Packets received             = %ld\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_PACKETS_DROPPED_TXT
+Verworfene Datenpakete                  = %lD (ein = %lD, aus = %lD)\n
+; Packets dropped              = %ld\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_BUFFER_OVERRUNS_TXT
+Pufferüberläufe                         = %lD\n
+; Buffer overruns              = %ld\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_UNKNOWN_PACKETS_TXT
+Unbekannte Datenpakete                  = %lD\n
+; Unknown packets              = %ld\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_ADDRESS_TXT
+Adresse                                 = %s\n
+; Address                      = %s\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_NETWORK_MASK_TXT
+Netzmaske                               = %s\n
+; Network mask                 = %s\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_PEER_ADDRESS_TXT
+Adresse der Gegenstelle                 = %s\n
+; Peer address                 = %s\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_STATUS_TXT
+Verbindungszustand                      = %s\n
+; Link status                  = %s\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_ADDRESS_BINDING_TXT
+Art der Adresszuweisung                 = %s\n
+; Address binding              = %s\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_LEASE_EXPIRES_TXT
+Adressreservierung verfällt             = %s\n
+; Address lease expires        = %s\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_BINDING_STATIC_TXT
+Statisch
+; Static
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_BINDING_DYNAMIC_TXT
+Dynamisch
+; Dynamic
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_LEASE_NEVER_EXPIRES_TXT
+Nie
+; Never
+;
+MSG_SHOWNETSTATUS_ICMP_TITLE_TXT
+%sStatistik für 'Internet Control Message Protocol'%s\n
+; %sInternet Control Message Protocol statistics%s\n
+;
+MSG_SHOWNETSTATUS_ICMP_ERRORS_GENERATED_TXT
+Erzeugte Fehler                                         = %lD\n
+; Errors generated                           = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_IP_PACKETS_TOO_SHORT_TXT
+Zu kurze IP-Datenpakete                                 = %lD\n
+; IP packets too short                       = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_PACKETS_NOT_RESPONDED_TO_TXT
+Unbeantwortete Datenpakete                              = %lD\n
+; Packets not responded to                   = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_ECHO_REPLY_PACKETS_SENT_TXT
+Datenpakete vom Typ 'Antwort auf Echo' versandt         = %lD\n
+; 'Echo reply' packets sent                  = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_DESTINATION_UNREACHABLE_TXT
+Datenpakete vom Typ 'Ziel unerreichbar' versandt        = %lD\n
+; 'Destination unreachable' packets sent     = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_SOURCE_QUENCH_TXT
+Datenpakete vom Typ 'Quelle abgestellt' versandt        = %lD\n
+; 'Source quench' packets sent               = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_REDIRECT_TXT
+Datenpakete vom Typ 'Umleitung' versandt                = %lD\n
+; 'Redirect' packets sent                    = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_ECHO_TXT
+Datenpakete vom Typ 'Echo' versandt                     = %lD\n
+; 'Echo' packets sent                        = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_ROUTER_ADVERTIZEMENT_TXT
+Datenpakete vom Typ 'Routerbekanntmachung' versandt     = %lD\n
+; 'Router advertizement' packets sent        = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_ROUTER_SOLICITATION_TXT
+Datenpakete vom Typ 'Routerempfehlung' versandt         = %lD\n
+; 'Router solicitation' packets sent         = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_TIME_EXCEEDED_TXT
+Datenpakete vom Typ 'Zeitüberschreitung' versandt       = %lD\n
+; 'Time exceeded' packets sent               = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_BAD_IP_HEADER_TXT
+Datenpakete vom Typ 'Ungültiger IP-Kopf' versandt       = %lD\n
+; 'Bad IP header' packets sent               = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_TIMESTAMP_REQUEST_TXT
+Datenpakete vom Typ 'Zeitabfrage' versand               = %lD\n
+; 'Timestamp request' packets sent           = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_TIMESTAMP_REPLY_TXT
+Datenpakete vom Typ 'Antwort auf Zeitabfrage' versandt  = %lD\n
+; 'Timestamp reply' packets sent             = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_INFORMATION_REQUEST_TXT
+Datenpakete vom Typ 'Informationsanfrage' versandt      = %lD\n
+; 'Information request' packets sent         = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_INFORMATION_REPLY_TXT
+Datenpakete vom Typ 'Informationsantwort' versandt      = %lD\n
+; 'Information reply' packets sent           = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_ADDRESS_MASK_REQUEST_TXT
+Datenpakete vom Typ 'Adressmaskenanfrage' versandt      = %lD\n
+; 'Address mask request' packets sent        = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_ADDRESS_MASK_REPLY_TXT
+Datenpakete vom Typ 'Adressmaskenantwort' versandt      = %lD\n
+; 'Address mask reply' packets sent          = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_RECEIVED_CODES_OUT_OF_RANGE_TXT
+Unzulässige Anfragen                                    = %lD\n
+; Received codes out of range                = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_RECEIVED_PACKETS_TOO_SHORT_TXT
+Zu kurze Datenpakete empfangen                          = %lD\n
+; Received packets too short                 = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_RECEIVED_PACKET_CHECKSUM_ERRORS_TXT
+Datenpakete mit Prüfsummenfehlern empfangen             = %lD\n
+; Received packet checksum errors            = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_RECEIVED_CODES_BOUND_MISMATCH_TXT
+Anfragen mit falschem Umfang empfangen                  = %lD\n
+; Received codes bound mismatch              = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_RESPONSES_SENT_TXT
+Versandte Antworten                                     = %lD\n
+; Responses sent                             = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_ECHO_REPLIES_RECEIVED_TXT
+Datenpakete vom Typ 'Antwort auf Echo' empfangen        = %lD\n
+; 'Echo reply' packets received              = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_DESTINATION_UNREACHABLE_RECEIVED_TXT
+Datenpakete vom Typ 'Ziel unerreichbar' empfangen       = %lD\n
+; 'Destination unreachable' packets received = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_SOURCE_QUENCH_RECEIVED_TXT
+Datenpakete vom Typ 'Quelle abgestellt' empfangen       = %lD\n
+; 'Source quench' packets received           = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_REDIRECT_RECEIVED_TXT
+Datenpakete vom Typ 'Umleitung' empfangen               = %lD\n
+; 'Redirect' packets received                = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_ECHO_RECEIVED_TXT
+Datenpakete vom Typ 'Echo' empfangen                    = %lD\n
+; 'Echo' packets received                    = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_ROUTER_ADVERTIZEMENT_RECEIVED_TXT
+Datenpakete vom Typ 'Routerbekanntmachung' empfangen    = %lD\n
+; 'Router advertizement' packets received    = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_ROUTER_SOLICITATION_RECEIVED_TXT
+Datenpakete vom Typ 'Routerempfehlung' empfangen        = %lD\n
+; 'Router solicitation' packets received     = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_TIME_EXCEEDED_RECEIVED_TXT
+Datenpakete vom Typ 'Zeitüberschreitung' empfangen      = %lD\n
+; 'Time exceeded' packets received           = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_BAD_IP_HEADER_RECEIVED_TXT
+Datenpakete vom Typ 'Ungültiger IP-Kopf' empfangen      = %lD\n
+; 'Bad IP header' packets received           = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_TIMESTAMP_REQUEST_RECEIVED_TXT
+Datenpakete vom Typ 'Zeitabfrage' empfangen             = %lD\n
+; 'Timestamp request' packets received       = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_TIMESTAMP_REPLY_RECEIVED_TXT
+Datenpakete vom Typ 'Antwort auf Zeitabfrage' empfangen = %lD\n
+; 'Timestamp reply' packets received         = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_INFORMATION_REQUEST_RECEIVED_TXT
+Datenpakete vom Typ 'Informationsanfrage' empfangen     = %lD\n
+; 'Information request' packets received     = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_INFORMATION_REPLY_RECEIVED_TXT
+Datenpakete vom Typ 'Informationsantwort' empfangen     = %lD\n
+; 'Information reply' packets received       = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_ADDRESS_MASK_REQUEST_RECEIVED_TXT
+Datenpakete vom Typ 'Adressmaskenanfrage' empfangen     = %lD\n
+; 'Address mask request' packets received    = %ld\n
+;
+MSG_SHOWNETSTATUS_ICMP_ADDRESS_MASK_REPLY_RECEIVED_TXT
+Datenpakete vom Typ 'Adressmaskenantwort' empfangen     = %lD\n
+; 'Address mask reply' packets received      = %ld\n
+;
+MSG_SHOWNETSTATUS_IGMP_TITLE_TXT
+%sStatistik für 'Internet Group Management Protocol'%s\n
+; %sInternet Group Management Protocol statistics%s\n
+;
+MSG_SHOWNETSTATUS_IGMP_TOTAL_MESSAGES_RECEIVED_TXT
+Gesamtanzahl empfangener Nachrichten              = %lD\n
+; Total messages received                   = %ld\n
+;
+MSG_SHOWNETSTATUS_IGMP_MESSAGES_RECEIVED_TOO_SHORT_TXT
+Zu kurze Nachrichten empfangen                    = %lD\n
+; Messages received with too few bytes      = %ld\n
+;
+MSG_SHOWNETSTATUS_IGMP_MESSAGES_RECEIVED_BAD_CHECKSUM_TXT
+Nachrichten mit ungültigen Prüfsummen empfangen   = %lD\n
+; Messages received with bad checksums      = %ld\n
+;
+MSG_SHOWNETSTATUS_IGMP_MEMBERSHIP_QUERIES_RECEIVED_TXT
+Mitgliedschaftsanfragen empfangen                 = %lD\n
+; Membership queries received               = %ld\n
+;
+MSG_SHOWNETSTATUS_IGMP_INVALID_QUERIES_RECEIVED_TXT
+Nachrichten mit ungültigen Anfragen empfangen     = %lD\n
+; Messages received with invalid queries    = %ld\n
+;
+MSG_SHOWNETSTATUS_IGMP_MEMBERSHIP_REPORTS_RECEIVED_TXT
+Mitgliedschaftsangaben empfangen                  = %lD\n
+; Membership reports received               = %ld\n
+;
+MSG_SHOWNETSTATUS_IGMP_INVALID_REPORTS_RECEIVED_TXT
+Nachrichten mit ungültigen Angaben empfangen      = %lD\n
+; Messages received with invalid reports    = %ld\n
+;
+MSG_SHOWNETSTATUS_IGMP_MEMBERSHIP_REPORTS_RECEIVED_FOR_THIS_GROUP_TXT
+Mitgliedschaftsangaben für diese Gruppe empfangen = %lD\n
+; Membership reports received for our group = %ld\n
+;
+MSG_SHOWNETSTATUS_IGMP_MEMBERSHIP_REPORTS_SENT_TXT
+Mitgliedschaftsanfragen versandt                  = %lD\n
+; Membership reports sent                   = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_TITLE_TXT
+%sStatistik für 'Internet Protocol'%s\n
+; %sInternet Protocol statistics%s\n
+;
+MSG_SHOWNETSTATUS_IP_TOTAL_PACKETS_RECEIVED_TXT
+Gesamtanzahl versandter Datenpakete           = %lD\n
+; Total packets received                       = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_WITH_CHECKSUM_ERRORS_TXT
+Datenpakete mit Prüfsummenfehlern             = %lD\n
+; Packets with checksum errors                 = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_TOO_SHORT_TXT
+Zu kurze Datenpakete                          = %lD\n
+; Packets shorter than expected                = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_TOO_SMALL_TXT
+Datenpakete mit zu wenig Daten                = %lD\n
+; Packets with not enough data                 = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_WITH_BAD_DATA_SIZE_TXT
+Datenpakete mit falscher Länge                = %lD\n
+; Packets with bad data size                   = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_WITH_BAD_HEADER_SIZE_TXT
+Datenpakete mit falscher Kopfgröße            = %lD\n
+; Packets with bad header size                 = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_FRAGMENTS_RECEIVED_TXT
+Empfangene Fragmente                          = %lD\n
+; Fragments received                           = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_FRAGMENTS_DROPPED_TXT
+Verworfene Fragmente                          = %lD\n
+; Fragments dropped                            = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_FRAGMENTS_TIMED_OUT_TXT
+Wegen Zeitüberschreitung verworfene Fragmente = %lD\n
+; Fragments timed out                          = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_FORWARDED_TXT
+Weitergeleitete Datenpakete                   = %lD\n
+; Packets forwarded                            = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_CANNOT_FORWARD_TXT
+Datenpakete mit unerreichbarem Ziel           = %lD\n
+; Packets received for unreachable destination = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_FORWARDED_ON_SAME_NETWORK_TXT
+Datenpakete im gleichen Netz weitergeleitet   = %lD\n
+; Packets forwarded on same network            = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_WITH_UNKNOWN_PROTOCOLS_TXT
+Datenpakete mit unbekannten Protokollen       = %lD\n
+; Packets with unknown protocols               = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_DATAGRAMS_DELIVERED_TXT
+Ausgelieferte Datagramme                      = %lD\n
+; Datagrams delivered                          = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_GENERATED_TXT
+Datenpakete erzeugt                           = %lD\n
+; Packets generated                            = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_LOST_TXT
+Verlorengegangene Datenpakete                 = %lD\n
+; Packets lost                                 = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_REASSEMBLED_TXT
+Datenpakete wieder zusammengesetzt            = %lD\n
+; Packets reassembled                          = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_FRAGMENTED_TXT
+Fragmentierte Datenpakete                     = %lD\n
+; Packets fragmented                           = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_OUTPUT_FRAGMENTS_CREATED_TXT
+Datenpakete vor Versand fragmentiert          = %lD\n
+; Output fragments created                     = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_CANNOT_FRAGMENT_TXT
+Nicht fragmentierbare Datenpakete             = %lD\n
+; Packets that could not be fragmented         = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_ERRORS_IN_OPTION_PROCESSING_TXT
+Fehler beim Verarbeiten von Optionen          = %lD\n
+; Errors in option processing                  = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_NO_ROUTE_TXT
+Datenpakete verworfen wegen fehlender Route   = %lD\n
+; Packets discarded due to no route            = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_PACKETS_WITH_BAD_IP_VERSION_TXT
+Datenpakete mit Protokollversion ungleich 4   = %lD\n
+; Packets with IP version other than 4         = %ld\n
+;
+MSG_SHOWNETSTATUS_IP_RAW_PACKETS_SENT_TXT
+Rohe Datenpakete versandt                     = %lD\n
+; Raw IP packets sent                          = %ld\n
+;
+MSG_SHOWNETSTATUS_MBUF_TITLE_TXT
+%sStatistik über Speicherpuffer%s\n
+; %sMemory buffer statistics%s\n
+;
+MSG_SHOWNETSTATUS_MBUF_BUFFERS_FROM_PAGE_POOL_TXT
+Puffer aus dem gemeinsamen Speicher angefordert = %lD\n
+; Buffers obtained from page pool                       = %ld\n
+;
+MSG_SHOWNETSTATUS_MBUF_CLUSTERS_FROM_PAGE_POOL_TXT
+Blöcke aus dem gemeinsamen Speicher angefordert = %lD\n
+; Clusters obtained from page pool                      = %ld\n
+;
+MSG_SHOWNETSTATUS_MBUF_FREE_CLUSTERS_TXT
+Freie Blöcke                                    = %lD\n
+; Free clusters                                         = %ld\n
+;
+MSG_SHOWNETSTATUS_MBUF_DROPS_TXT
+Wie oft war kein freier Speicher verfügbar      = %lD\n
+; Number of times no free space was available           = %ld\n
+;
+MSG_SHOWNETSTATUS_MBUF_WAIT_TXT
+Wie oft wurde auf freien Speicher gewartet      = %lD\n
+; Number of times had to wait for free space            = %ld\n
+;
+MSG_SHOWNETSTATUS_MBUF_DRAIN_TXT
+Wie oft wurde Speicher freigeräumt              = %lD\n
+; Number of times had to drain protocols for free space = %ld\n
+;
+MSG_SHOWNETSTATUS_MULTICAST_TITLE_TXT
+%sStatistik für 'Multicast Routing'%s\n
+; %sMulticast routing statistics%s\n
+;
+MSG_SHOWNETSTATUS_MULTICAST_ROUTE_LOOKUPS_TXT
+Multicast-Routenvergleiche                 = %lD\n
+; Multicast route lookups                 = %ld\n
+;
+MSG_SHOWNETSTATUS_MULTICAST_ROUTE_CACHE_MISSES_TXT
+Multicast-Route nicht gefunden             = %lD\n
+; Multicast route cache misses            = %ld\n
+;
+MSG_SHOWNETSTATUS_MULTICAST_GROUP_ADDRESS_LOOKUPS_TXT
+Multicast-Gruppenadressvergleiche          = %lD\n
+; Group address lookups                   = %ld\n
+;
+MSG_SHOWNETSTATUS_MULTICAST_GROUP_ADDRESS_CACHE_MISSES_TXT
+Multicast-Gruppenadresse nicht gefunden    = %lD\n
+; Group address cache misses              = %ld\n
+;
+MSG_SHOWNETSTATUS_MULTICAST_NO_ROUTE_TXT
+Datenpakete ohne Route zur Quelle          = %lD\n
+; Packets with no routes to their origins = %ld\n
+;
+MSG_SHOWNETSTATUS_MULTICAST_BAD_TUNNEL_TXT
+Datenpakete mit defekten Tunneloptionen    = %lD\n
+; Packets with malformed tunnel options   = %ld\n
+;
+MSG_SHOWNETSTATUS_MULTICAST_CANNOT_TUNNEL_TXT
+Datenpakete ohne Platz für Tunneloptionen  = %lD\n
+; Packets with no room for tunnel options = %ld\n
+;
+MSG_SHOWNETSTATUS_MULTICAST_CANNOT_WRONG_INTERFACE_TXT
+Datenpakete von der falschen Schnittstelle = %lD\n
+; Packets arrived on the wrong interface  = %ld\n
+;
+MSG_SHOWNETSTATUS_ROUTING_TITLE_TXT
+%sStatistik für Routing%s\n
+; %sRouting statistics%s\n
+;
+MSG_SHOWNETSTATUS_ROUTING_BAD_REDIRECT_TXT
+Falsche Umleitungsaufforderungen   = %lD\n
+; Bogus redirect calls              = %ld\n
+;
+MSG_SHOWNETSTATUS_ROUTING_DYNAMIC_TXT
+Durch Umleitungen erzeugte Routen  = %lD\n
+; Routes created by redirect calls  = %ld\n
+;
+MSG_SHOWNETSTATUS_ROUTING_NEW_GATEWAY_TXT
+Durch Umleitungen geänderte Routen = %lD\n
+; Routes modified by redirect calls = %ld\n
+;
+MSG_SHOWNETSTATUS_ROUTING_UNREACH_TXT
+Fehlgeschlagene Vergleiche         = %lD\n
+; Lookups which failed              = %ld\n
+;
+MSG_SHOWNETSTATUS_ROUTING_WILDCARD_TXT
+Vergleiche mit passendem Muster    = %lD\n
+; Lookups satisfied by a wildcard   = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_TITLE_TXT
+%sStatistik für 'Transmission Control Protocol'%s\n
+; %sTransmission Control Protocol statistics%s\n
+;
+MSG_SHOWNETSTATUS_TCP_CONNATTEMPT_TXT
+Eingeleitete Verbindungen                           = %lD\n
+; Connections initiated                           = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_ACCEPTS_TXT
+Akzeptierte Verbindungen                            = %lD\n
+; Connections accepted                            = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_CONNECTS_TXT
+Verbindungen aufgebaut                              = %lD\n
+; Connections established                         = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_DROPS_TXT
+Abgebrochene Verbindungen                           = %lD\n
+; Connections dropped                             = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_CONNDROPS_TXT
+Unvollständige Verbindungen abgebrochen             = %lD\n
+; Embryonic connections dropped                   = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_CLOSED_TXT
+Geschlossene Verbindungen                           = %lD\n
+; Connections closed                              = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_SEGSTIMED_TXT
+Segmente gemessen                                   = %lD\n
+; Segments timed                                  = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RTTUPDATED_TXT
+Umlaufzeit aktualisiert                             = %lD\n
+; Round trip times updated                        = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_DELACK_TXT
+Verzögerte Bestätigungen versandt                   = %lD\n
+; Delayed acknowledgments sent                    = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_TIMEOUTDROP_TXT
+Verbindungen bei Zeitüberschreitung abgebrochen     = %lD\n
+; Connections dropped in timeout state            = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_PERSISTTIMEO_TXT
+Zeitüberschreitungen im Wartezustand                = %lD\n
+; Persist timeouts                                = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_KEEPTIMEO_TXT
+Zeitüberschreitungen bei Verbindungsprüfung         = %lD\n
+; Keep-alive timeouts                             = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_KEEPPROBE_TXT
+Verbindungsprüfungen                                = %lD\n
+; Keep-alive probes sent                          = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_KEEPDROPS_TXT
+Verbindungen nach Prüfung abgebrochen               = %lD\n
+; Connections dropped due to keep-alive timeouts  = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_SNDTOTAL_TXT
+Gesamte Anzahl versandter Datenpakete               = %lD\n
+; Total packets sent                              = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_SNDPACK_TXT
+Anzahl von Datenpaketen versandt                    = %lD\n
+; Data packets sent                               = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_SNDBYTE_TXT
+Anzahl von Datenbytes versandt                      = %lD\n
+; Data bytes sent                                 = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_SNDREXMITPACK_TXT
+Datenpakete wiederholt versandt                     = %lD\n
+; Data packets retransmitted                      = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_SNDREXMITBYTE_TXT
+Datenbytes wiederholt versandt                      = %lD\n
+; Data bytes retransmitted                        = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_SNDACKS_TXT
+Bestätigungs-Datenpakete versandt                   = %lD\n
+; Acknowledge-only packets sent                   = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_SNDPROBE_TXT
+Größe des Übertragungsfensters geprüft              = %lD\n
+; Window probes sent                              = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_SNDURG_TXT
+Datenpakete als 'dringend' versandt                 = %lD\n
+; Packets sent with 'urgent' attribute            = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_SNDWINUP_TXT
+Datenpakete zur Änderung der Fenstergröße versandt  = %lD\n
+; Window-update-only packets sent                 = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_SNDCTRL_TXT
+Datenpakete mit Steuerungsdaten versandt            = %lD\n
+; Packets sent with control attributes            = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVTOTAL_TXT
+Gesamte Anzahl empfangener Datenpakete              = %lD\n
+; Total packets received                          = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVPACK_TXT
+Datenpakete in richtiger Reihenfolge empfangen      = %lD\n
+; Packets received in sequence                    = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVBYTE_TXT
+Datenbytes in richtiger Reihenfolge empfangen       = %lD\n
+; Bytes received in sequence                      = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVBADSUM_TXT
+Datenpakete mit Prüfsummenfehlern                   = %lD\n
+; Packets received with checksum errors           = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVBADOFF_TXT
+Datenpakete mit falschem Versatz                    = %lD\n
+; Packets received with bad offset                = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVSHORT_TXT
+Zu kurze Datenpakete                                = %lD\n
+; Packets received that were too short            = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVDUPPACK_TXT
+Doppelt empfangene Datenpakete                      = %lD\n
+; Duplicate packets received                      = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVDUPBYTE_TXT
+Doppelt empfangene Datenbytes                       = %lD\n
+; Duplicate bytes received                        = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVOOPACK_TXT
+Datenpakete in falscher Reihenfolge empfangen       = %lD\n
+; Out-of-order packets received                   = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVOOBYTE_TXT
+Datenbytes in falscher Reihenfolge empfangen        = %lD\n
+; Out-of-order bytes received                     = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVPACKAFTERWIN_TXT
+Pakete mit Daten nach dem Übertragungsfenster       = %lD\n
+; Packets received with data after window         = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVBYTEAFTERWIN_TXT
+Bytes nach dem Übertragungsfenster                  = %lD\n
+; Bytes received after window                     = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVAFTERCLOSE_TXT
+Datenpakete nach Abbau der Verbindung empfangen     = %lD\n
+; Packets received after 'close'                  = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVWINPROBE_TXT
+Größe des Übertragungsfensters abgefragt            = %lD\n
+; Window probe packets received                   = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVDUPACK_TXT
+Doppelte Bestätigungen empfangen                    = %lD\n
+; Duplicate acknowledgements received             = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVACKTOOMUCH_TXT
+Bestätigungen für nicht versandte Daten             = %lD\n
+; Acknowledgements received for unsent data       = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVACKPACK_TXT
+Bestätigungspakete empfangen                        = %lD\n
+; Acknowledgement packets received                = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVACKBYTE_TXT
+Datenbytes bestätigt                                = %lD\n
+; Bytes acknowledged                              = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_RCVWINUPD_TXT
+Datenpakete zur Änderung der Fenstergröße empfangen = %lD\n
+; Window update packets received                  = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_PAWSDROP_TXT
+Segmente verworfen wegen PAWS-Überprüfung           = %lD\n
+; Segments dropped due to PAWS                    = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_PREDACK_TXT
+Korrekte Voraussage der Kopfdaten für Bestätigungen = %lD\n
+; Correct header predictions for acknowledgements = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_PREDDAT_TXT
+Korrekte Voraussage der Kopfdaten für Datenpakete   = %lD\n
+; Correct header predictions for data packets     = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_PERSISTDROP_TXT
+Zeitüberschreitungen im Wartezustand                = %lD\n
+; Timeouts in persist state                       = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_BADSYN_TXT
+Datenpaketen mit falscher 'SYN'-Angabe empfangen    = %lD\n
+; Packets with bogus 'SYN' attribute received     = %ld\n
+;
+MSG_SHOWNETSTATUS_UDP_TITLE_TXT
+%sStatistik für 'User Datagram Protocol'%s\n
+; %sUser Datagram Protocol statistics%s\n
+;
+MSG_SHOWNETSTATUS_UDP_IPACKETS_TXT
+Gesamtanzahl empfangener Datenpakete = %lD\n
+; Total packets received                       = %ld\n
+;
+MSG_SHOWNETSTATUS_UDP_HDROPS_TXT
+Zu kurze Datenpakete                 = %lD\n
+; Packets received shorter than header         = %ld\n
+;
+MSG_SHOWNETSTATUS_UDP_BADSUM_TXT
+Datenpakete mit Prüfsummenfehlern    = %lD\n
+; Packets received with checksum errors        = %ld\n
+;
+MSG_SHOWNETSTATUS_UDP_BADLEN_TXT
+Zu große Datenpakete                 = %lD\n
+; Packets received larger than expected        = %ld\n
+;
+MSG_SHOWNETSTATUS_UDP_NOPORT_TXT
+Datenpakete ohne Empfänger           = %lD\n
+; Packets received for unbound ports           = %ld\n
+;
+MSG_SHOWNETSTATUS_UDP_NOPORTBCAST_TXT
+Broadcast-Datenpakete ohne Empfänger = %lD\n
+; Broadcast packets received for unbound ports = %ld\n
+;
+MSG_SHOWNETSTATUS_UDP_FULLSOCK_TXT
+Datenpakete verworfen                = %lD\n
+; Packets dropped                              = %ld\n
+;
+MSG_SHOWNETSTATUS_UDP_OPACKETS_TXT
+Gesamtanzahl Datenpakete versandt    = %lD\n
+; Total packets sent                           = %ld\n
+;
+MSG_SHOWNETSTATUS_TCP_SOCKET_TITLE_TXT
+%s%-30s %-30s %10s %10s %-30s%s\n
+; %s%-30s %-30s %10s %10s %-30s%s\n
+;
+MSG_SHOWNETSTATUS_LOCAL_TXT
+Lokal
+; Local
+;
+MSG_SHOWNETSTATUS_REMOTE_TXT
+Entfernt
+; Remote
+;
+MSG_SHOWNETSTATUS_RECEIVE_LEN_TXT
+Empfang
+; Rcv.len
+;
+MSG_SHOWNETSTATUS_SEND_LEN_TXT
+Versand
+; Snd.len
+;
+MSG_SHOWNETSTATUS_TCP_SOCKET_LINE_TXT
+%-30s %-30s %10ld %10ld %s\n
+; %-30s %-30s %10ld %10ld %s\n
+;
+MSG_SHOWNETSTATUS_NO_TCP_SOCKETS_IN_USE_TXT
+Derzeit sind keine TCP-Verbindungen aktiv.\n
+; No TCP sockets are currently in use.\n
+;
+MSG_SHOWNETSTATUS_UDP_SOCKET_TITLE_TXT
+%s%-30s %-30s %10s %10s%s\n
+; %s%-30s %-30s %10s %10s%s\n
+;
+MSG_SHOWNETSTATUS_UDP_SOCKET_LINE_TXT
+%-30s %-30s %10ld %10ld\n
+; %-30s %-30s %10ld %10ld\n
+;
+MSG_SHOWNETSTATUS_NO_UDP_SOCKETS_IN_USE_TXT
+Derzeit sind keine UDP-Verbindungen aktiv.\n
+; No UDP sockets are currently in use.\n
+;
+MSG_SHOWNETSTATUS_STATUS_NAME1_TXT
+Internet Control Message Protocol
+; Internet Control Message Protocol
+;
+MSG_SHOWNETSTATUS_STATUS_NAME2_TXT
+Internet Group Management Protocol
+; Internet Group Management Protocol
+;
+MSG_SHOWNETSTATUS_STATUS_NAME3_TXT
+Internet Protocol
+; Internet Protocol
+;
+MSG_SHOWNETSTATUS_STATUS_NAME4_TXT
+Speicherpuffer
+; memory buffer
+;
+MSG_SHOWNETSTATUS_STATUS_NAME5_TXT
+Multicast Routing
+; multicast routing
+;
+MSG_SHOWNETSTATUS_STATUS_NAME6_TXT
+Routing
+; routing
+;
+MSG_SHOWNETSTATUS_STATUS_NAME7_TXT
+Transmission Control Protocol
+; Transmission Control Protocol
+;
+MSG_SHOWNETSTATUS_STATUS_NAME8_TXT
+User Datagram Protocol
+; User Datagram Protocol
+;
+MSG_SHOWNETSTATUS_STATUS_NAME9_TXT
+Verbindungen Transmission Control Protocol
+; Transmission Control Protocol sockets
+;
+MSG_SHOWNETSTATUS_STATUS_NAME10_TXT
+Verbindungen User Datagram Protocol
+; User Datagram Protocol sockets
+;
+MSG_SHOWNETSTATUS_NOT_CONFIGURED_TXT
+(Nicht eingestellt)
+; (Not configured)
+;
+MSG_SHOWNETSTATUS_TCP_FSM_STATE1_TXT
+Geschlossen
+; Closed
+;
+MSG_SHOWNETSTATUS_TCP_FSM_STATE2_TXT
+Warte auf Verbindung
+; Listening for connection
+;
+MSG_SHOWNETSTATUS_TCP_FSM_STATE3_TXT
+Aktiv; 'SYN' versandt
+; Active; 'SYN' sent
+;
+MSG_SHOWNETSTATUS_TCP_FSM_STATE4_TXT
+'SYN' versandt und empfangen
+; Sent and received 'SYN'
+;
+MSG_SHOWNETSTATUS_TCP_FSM_STATE5_TXT
+Verbindung aufgebaut
+; Established
+;
+MSG_SHOWNETSTATUS_TCP_FSM_STATE6_TXT
+'FIN' empfangen, warte auf Abbau
+; Received 'FIN', waiting for close
+;
+MSG_SHOWNETSTATUS_TCP_FSM_STATE7_TXT
+Abgebaut; 'FIN' versandt
+; Closed; 'FIN' sent
+;
+MSG_SHOWNETSTATUS_TCP_FSM_STATE8_TXT
+Abgebaut, 'FIN' ausgetauscht, warte auf 'FIN ACK'
+; Closed, 'FIN' exchanged, waiting for 'FIN ACK'
+;
+MSG_SHOWNETSTATUS_TCP_FSM_STATE9_TXT
+Abgebaut, warte auf letztes 'FIN ACK'
+; Closed; waiting for last 'FIN ACK'
+;
+MSG_SHOWNETSTATUS_TCP_FSM_STATE10_TXT
+Abgebaut, 'FIN' bestätigt
+; Closed, 'FIN' acknowledged
+;
+MSG_SHOWNETSTATUS_TCP_FSM_STATE11_TXT
+Abgebaut; warte...
+; Closed; waiting...
+;
+MSG_SHOWNETSTATUS_WILDCARD_TXT
+(Beliebig)
+; (Any)
+;
+MSG_SHOWNETSTATUS_SOME_TCP_SOCKETS_IN_USE_TXT
+Derzeit sind %lD lokale TCP-Verbindungen in Gebrauch, werden aber nicht angezeigt (sie lassen sich mit dem Argument \"ALL\" anzeigen).\n
+; Currently, %ld local TCP sockets are in use, but not displayed (use the \"ALL\" option to show them).\n
+;
+MSG_SHOWNETSTATUS_SOME_UDP_SOCKETS_IN_USE_TXT
+Derzeit sind %lD lokale UDP-Verbindungen in Gebrauch, werden aber nicht angezeigt (sie lassen sich mit dem Argument \"ALL\" anzeigen).\n
+; Currently, %ld local UDP sockets are in use, but not displayed (use the \"ALL\" option to show them).\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_NUM_READ_REQUESTS_TXT
+Anzahl aktiver Leseanfragen             = %lD (davon waren maximal %lD aktiv, %lD sind derzeit aktiv)\n
+; Number of read I/O requests  = %ld (maximum of %ld used at a time)\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_NUM_WRITE_REQUESTS_TXT
+Anzahl aktiver Schreibanfragen          = %lD (davon waren maximal %lD aktiv, %lD sind derzeit aktiv)\n
+; Number of write I/O requests = %ld (maximum of %ld used at a time)\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_NUM_BYTES_RECEIVED_TXT
+Bytes empfangen                         = %s\n
+; Number of bytes received     = %s\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_NUM_BYTES_SENT_TXT
+Bytes versandt                          = %s\n
+; Number of bytes sent         = %s\n
+;
+MSG_SHOWNETSTATUS_UNKNOWN_HOST_TXT
+(Unbekannt)
+; (Unknown)
+;
+MSG_SHOWNETSTATUS_IP_ADDRESS_TXT
+Netzadresse
+; IP address
+;
+MSG_SHOWNETSTATUS_HARDWARE_ADDRESS_TXT
+Geräteadresse
+; Hardware address
+;
+MSG_SHOWNETSTATUS_INCOMPLETE_HARDWARE_ADDRESS_TXT
+(Unvollständig)
+; (Incomplete)
+;
+MSG_SHOWNETSTATUS_ARP_ENTRY_PERMANENT_TXT
+permanent
+; permanent
+;
+MSG_SHOWNETSTATUS_ARP_ENTRY_PUBLISHED_PROXY_TXT
+veröffentlicht (durch Dritte)
+; published (proxy only)
+;
+MSG_SHOWNETSTATUS_ARP_ENTRY_PUBLISHED_TXT
+veröffentlicht
+; published
+;
+MSG_SHOWNETSTATUS_ARP_CACHE_EMPTY_TXT
+Der Pufferspeicher des Adressauflösungsprotokolles ist derzeit leer.\n
+; The address resolution protocol cache is currently empty.\n
+;
+MSG_SHOWNETSTATUS_ARP_HEADER_TXT
+%s%-16s %-16s %-20s %s%s
+; %s%-16s %-16s %-20s %s%s
+;
+MSG_SHOWNETSTATUS_NO_ARP_INFORMATION_TXT
+%s: Die Daten des Adressauflösungsprotokolles sind nicht abrufbar.\n
+; %s: Unable to obtain address resolution protocol information.\n
+;
+MSG_SHOWNETSTATUS_INTERFACE_INFO_TRANSFER_STATISTICS_TXT
+Übertragungsstatistik (Empfang/Versand) = DMA:%lU/%lU Byte:%lU/%lU Wort:-/%lU\n
+; Transfer statistics (in/out) = DMA:%ld/%ld Byte:%ld/%ld Word:-/%ld\n
+;
+MSG_SHOWNETSTATUS_STATUS_SUMMARY_TXT
+%sZusammenfassung des Netzwerkzustandes%s\n
+; %sNetwork status summary%s\n
+;
+MSG_SHOWNETSTATUS_LOCAL_HOST_ADDRESS_TXT
+Lokale Rechneradresse          = \0
+; Local host address         = \0
+;
+MSG_SHOWNETSTATUS_LOCAL_HOST_ADDRESS_ON_INTERFACE_TXT
+%s (Schnittstelle '%s')
+; %s (on interface '%s')
+;
+MSG_SHOWNETSTATUS_DEFAULT_GATEWAY_ADDRESS_TXT
+Standardroute führt zu Adresse = \0
+; Default gateway address    = \0
+;
+MSG_SHOWNETSTATUS_DOMAIN_NAME_SYSTEM_SERVERS_TXT
+Domain Name System Server      = \0
+; Domain name system servers = \0
+;
+MSG_SHOWNETSTATUS_DEFAULT_DOMAIN_NAME_TXT
+\nDer Vorgabewert für den Domain-Namen ist auf \"%s\" gesetzt.\n
+; \nThe default domain name is set to \"%s\".\n
+;
+MSG_SHOWNETSTATUS_DEFAULT_DOMAIN_NAME_UNSET_TXT
+\nDer Vorgabewert für den Domain-Namen ist nicht gesetzt.\n
+; \nThe default domain name is not set.\n
+;
+MSG_LOGVIEWER_PROJECT_MENU
+ \0Projekt
+;  \0Project
+;
+MSG_LOGVIEWER_PROJECT_CLEAR_MENU
+C\0Löschen
+; C\0Clear
+;
+MSG_LOGVIEWER_PROJECT_SAVE_AS_MENU
+A\0Nachrichtenliste speichern unter...
+; A\0Save As...
+;
+MSG_LOGVIEWER_PROJECT_HIDE_MENU
+H\0Verbergen
+; H\0Hide
+;
+MSG_LOGVIEWER_PROJECT_QUIT_MENU
+Q\0Verlassen
+; Q\0Quit
+;
+MSG_LOGVIEWER_LOG_LEVEL_0_TXT
+Notfall
+; Emergency
+;
+MSG_LOGVIEWER_LOG_LEVEL_1_TXT
+Alarm
+; Alert
+;
+MSG_LOGVIEWER_LOG_LEVEL_2_TXT
+Kritisch
+; Critical
+;
+MSG_LOGVIEWER_LOG_LEVEL_3_TXT
+Fehler
+; Error
+;
+MSG_LOGVIEWER_LOG_LEVEL_4_TXT
+Warnung
+; Warning
+;
+MSG_LOGVIEWER_LOG_LEVEL_5_TXT
+Hinweis
+; Note
+;
+MSG_LOGVIEWER_LOG_LEVEL_6_TXT
+Information
+; Information
+;
+MSG_LOGVIEWER_LOG_LEVEL_7_TXT
+Debug
+; Debug
+;
+MSG_LOGVIEWER_LABEL_0_TXT
+Zeit
+; Time
+;
+MSG_LOGVIEWER_LABEL_1_TXT
+Herkunft
+; Origin
+;
+MSG_LOGVIEWER_LABEL_2_TXT
+Priorität
+; Severity
+;
+MSG_LOGVIEWER_LABEL_3_TXT
+Nachricht
+; Message
+;
+MSG_LOGVIEWER_OK_TXT
+OK
+; OK
+;
+MSG_LOGVIEWER_REALLY_CLEAR_MESSAGE_LIST_TXT
+Soll die Nachrichtenliste wirklich\ngelöscht werden?
+; Do you really want to clear\nthe message list?
+;
+MSG_LOGVIEWER_YES_NO_TXT
+Ja|Nein
+; Yes|No
+;
+MSG_LOGVIEWER_OVERWRITE_APPEND_NEWNAME_CANCEL_TXT
+Überschreiben|Anfügen|Neuen Namen wählen...|Abbrechen
+; Overwrite|Append|Choose new name|Cancel
+;
+MSG_LOGVIEWER_FILE_REQUESTER_TITLE_TXT
+Nachrichtenliste speichern
+; Save log messages
+;
+MSG_LOGVIEWER_FILE_REQUESTER_SAVE_TXT
+Speichern
+; Save
+;
+MSG_LOGVIEWER_COMMODITIES_TITLE_TXT
+Netzwerkereignisanzeige
+; Log viewer
+;
+MSG_LOGVIEWER_COMMODITIES_DESCRIPTION_TXT
+Zeigt Nachrichten und Ereignisse an
+; Shows log messages
+;
+MSG_LOGVIEWER_ORIGIN_UNKNOWN_TXT
+Unbekannt
+; Unknown
+;
+MSG_LOGVIEWER_FILE_ALREADY_EXISTS_TXT
+Die Datei\n%s\nexistiert bereits.
+; The file\n%s\nalready exists.
+;
+MSG_LOGVIEWER_FILE_COULD_NOT_BE_OPENED_TXT
+Die Datei\n%s\nkonnte nicht geöffnet werden\n(%s).
+; The file\n%s\ncould not be opened\n(%s).
+;
+MSG_LOGVIEWER_ERROR_WRITING_TO_FILE_TXT
+Beim Schreiben in die Datei\n%s\nist ein Fehler aufgetreten\n(%s).
+; Error writing to file\n%s\n(%s).
+;
+MSG_LOGVIEWER_NO_DEFAULT_PUB_SCREEN_TXT
+Fehler beim Zugriff auf den öffentlichen Standardbildschirm.
+; Could not lock default public screen.
+;
+MSG_LOGVIEWER_NO_PUBLIC_SCREEN_FONT_TXT
+Fehler beim Öffnen der Schriftart des öffentlichen Standardbildschirms.
+; Could not open public screen font.
+;
+MSG_LOGVIEWER_NO_VISUAL_INFO_TXT
+Fehler beim Zugriff auf die Konfigurationsdaten des öffentlichen Standardbildschirms.
+; Could not obtain visual information of public screen.
+;
+MSG_LOGVIEWER_NO_MENU_TXT
+Fehler beim Erzeugen des Menüs.
+; Could not create menu.
+;
+MSG_LOGVIEWER_NO_MENU_LAYOUT_TXT
+Fehler beim Einrichten des Menüs.
+; Could not perform menu layout.
+;
+MSG_LOGVIEWER_NO_SCREEN_DRAW_INFO_TXT
+Fehler beim Zugriff auf die Zeicheninformationen des öffentlichen Standardbildschirms.
+; Could not obtain screen draw info.
+;
+MSG_LOGVIEWER_NO_SIZING_IMAGE_TXT
+Fehler beim Zugriff auf die Daten des Fenstergrößensymbols.
+; Could not obtain sizing image.
+;
+MSG_LOGVIEWER_NO_VERTICAL_SCROLLER_TXT
+Fehler beim Erzeugen des vertikalen Rollbalkens.
+; Could not create vertical scroller.
+;
+MSG_LOGVIEWER_NO_HORIZONTAL_SCROLLER_TXT
+Fehler beim Erzeugen des horizontalen Rollbalkens.
+; Could not create horizontal scroller.
+;
+MSG_LOGVIEWER_NO_WINDOW_TXT
+Fehler beim Öffnen des Fensters.
+; Could not open window.
+;
+MSG_LOGVIEWER_NO_USER_CLIP_REGION_TXT
+Fehler beim Erzeugen der Zeichenbegrenzung.
+; Not enough memory for user clip region.
+;
+MSG_LOGVIEWER_NO_LIBRARY_VERSION_TXT
+\"%s\" V%ld konnte nicht geöffnet werden.
+; Could not open \"%s\" V%ld.
+;
+MSG_LOGVIEWER_NO_LIBRARY_TXT
+\"%s\" konnte nicht geöffnet werden.
+; Could not open \"%s\".
+;
+MSG_LOGVIEWER_NO_MEMORY_POOL_TXT
+Fehler beim Anlegen der Speicherverwaltung.
+; Could not create memory pool.
+;
+MSG_LOGVIEWER_NO_SCROLLER_CLASS_TXT
+Fehler beim Anlegen der Rollbalken-Verwaltung.
+; Could not set up scroller class.
+;
+MSG_LOGVIEWER_NO_FILE_REQUESTER_TXT
+Fehler beim Erzeugen des Dateidialogfensters.
+; Could not allocate file requester.
+;
+MSG_LOGVIEWER_NO_COMMODITIES_PORT_TXT
+Fehler beim Erzeugen des Commodities-Ports.
+; Could not create commodities message port.
+;
+MSG_LOGVIEWER_NO_COMMODITIES_BROKER_TXT
+Fehler beim Erzeugen des Commodities-Brokers.
+; Could not create commodities broker.
+;
+MSG_LOGVIEWER_NO_COMMODITIES_HOTKEY_TXT
+Fehler beim Erzeugen des Commodities-Filters.
+; Could not create commodities hotkey filter.
+;
+MSG_LOGVIEWER_NO_COMMODITIES_SYSTEM_TXT
+Fehler beim Einrichten des Commodities-Systems.
+; Could not configure commodities system.
+;
+MSG_LOGVIEWER_NO_HOOK_PORT_TXT
+Fehler beim Erzeugen des internen Nachrichten-Ports.
+; Could not create internal message port.
+;
+MSG_LOGVIEWER_NO_LOG_HOOK_TXT
+Fehler beim Einrichten der Nachrichtenübermittlung (Roadshow wird benötigt).
+; Could not register log message hook interface.
+;
+MSG_NETSHUTDOWN_NO_UTILITY_TXT
+%s: \"utility.library\" V37 konnte nicht geöffnet werden.\n
+; %s: Failed to open \"utility.library\" V37.\n
+;
+MSG_NETSHUTDOWN_NO_MEMORY_TXT
+%s: Konnte nicht genug freien Speicher anfordern.\n
+; %s: Not enough memory.\n
+;
+MSG_NETSHUTDOWN_NO_MSGPORT_TXT
+%s: Es konnte kein MsgPort erzeugt werden.\n
+; %s: Could not create a message port.\n
+;
+MSG_NETSHUTDOWN_NO_TIMER_REQUEST_TXT
+%s: Es konnte keine Nachricht für den Zeitgeber erzeugt werden.\n
+; %s: Could not create timer request.\n
+;
+MSG_NETSHUTDOWN_NO_TIMER_DEVICE_TXT
+%s: Der Zeitgeber \"%s\" konnte nicht geöffnet werden.\n
+; %s: Could not open \"%s\".\n
+;
+MSG_NETSHUTDOWN_TRYING_TO_SHUT_DOWN_TXT
+Warte, bis das Netzwerk heruntergefahren ist... \0
+; Waiting for network to shut down... 
+;
+MSG_NETSHUTDOWN_SHUTDOWN_FAILED_TXT
+Fehlschlag.\a\n
+; shutdown failed.\a\n
+;
+MSG_NETSHUTDOWN_SHUTDOWN_DONE_TXT
+fertig.\n
+; shutdown finished.\n
+;
+MSG_NETSHUTDOWN_SHUTDOWN_ABORTED_TXT
+Warten abgebrochen; das Netzwerk wird sich zu einem späteren Zeitpunkt herunterfahren.\n
+; stopped waiting; network may shut down later.\n
+;
+MSG_NETSHUTDOWN_SHUTDOWN_TIMEOUT_TXT
+Zeitüberschreitung; das Netzwerk wird sich zu einem späteren Zeitpunkt herunterfahren.\n
+; timeout; network may shut down later.\n
+;
+MSG_NETSHUTDOWN_NETWORK_NOT_IN_USE_TXT
+%s: Das Netzwerk ist derzeit nicht in Betrieb.\n
+; %s: The network is not currently in use.\n
+;
+MSG_ROADSHOWCONTROL_NO_UTILITY_TXT
+%s: \"utility.library\" V37 konnte nicht geöffnet werden.\n
+; %s: Failed to open \"utility.library\" V37.\n
+;
+MSG_ROADSHOWCONTROL_CANNOT_OPEN_BSDSOCKET_TXT
+%s: \"bsdsocket.library\" V4 konnte nicht geöffnet werden.\n
+; %s: Failed to open \"bsdsocket.library\" V4.\n
+;
+MSG_ROADSHOWCONTROL_BSDSOCKET_HAS_NO_ROADSHOWDATA_API_TXT
+%s: \"%s\" V%ld.%ld unterstützt die Datenabrufmethode nicht, die dieses Programm verwendet.
+; %s: \"%s\" V%ld.%ld does not support the data set/get method used by this program.\n
+;
+MSG_ROADSHOWCONTROL_NO_ROADSHOW_DATA_TXT
+%s: Die Liste der internen Einstellungen ist nicht verfügbar (%ld, %s).\n
+; %s: List of internal options is not available (%ld, %s).\n
+;
+MSG_ROADSHOWCONTROL_COULD_NOT_SET_OPTION_TXT
+%s: Die Einstellung \"%s\" konnte nicht auf %ld gesetzt werden (%ld, %s).\n
+; %s: Could not set option \"%s\" to %ld (%ld, %s).\n
+;
+MSG_ROADSHOWCONTROL_COULD_NOT_SET_ENV_VARIABLE_TXT
+%s: Umgebungsvariable \"%s\" konnte nicht gesetzt werden (%ld, %s).\n
+; %s: Could not set environment variable \"%s\" (%ld, %s).\n
+;
+MSG_REMOVENETINTERFACE_CANNOT_OPEN_BSDSOCKET_TXT
+%s: \"bsdsocket.library\" V4 konnte nicht geöffnet werden.\n
+; %s: Failed to open \"bsdsocket.library\" V4.\n
+;
+MSG_REMOVENETINTERFACE_INTERFACE_REMOVED_TXT
+%s: Die Schnittstelle \"%s\" wurde entfernt.\n
+; %s: Interface \"%s\" removed.\n
+;
+MSG_REMOVENETINTERFACE_COULD_NOT_REMOVE_INTERFACE_TXT
+%s: Die Schnittstelle \"%s\" konnte nicht entfernt werden (%ld, %s).\n
+; %s: Could not remove interface \"%s\" (%ld, %s).\n
+;

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE library SYSTEM "library.dtd">
+<library name="usergroup" basename="UserGroupBase" openname="usergroup.library">
+	<include>libraries/usergroup.h</include>
+	<include>pwd.h</include>
+	<include>grp.h</include>
+	<interface name="main" version="1.0" struct="UserGroupIFace" prefix="_UserGroup_" asmprefix="IUserGroup" global="IUserGroup">
+		<method name="Obtain" result="ULONG"/>
+		<method name="Release" result="ULONG"/>
+		<method name="Expunge" result="void" status="unimplemented"/>
+		<method name="Clone" result="struct Interface *" status="unimplemented"/>
+		<method name="ug_SetupContextTagList" result="LONG">
+			<arg name="name" type="STRPTR"/>
+			<arg name="tags" type="struct TagItem *"/>
+		</method>
+		<method name="ug_SetupContextTags" result="LONG">
+			<arg name="name" type="STRPTR"/>
+			<vararg name="tag1" type="Tag"/>
+		</method>
+		<method name="ug_GetErr" result="LONG">
+		</method>
+		<method name="ug_StrError" result="STRPTR">
+			<arg name="err" type="LONG"/>
+		</method>
+		<method name="getuid" result="LONG">
+		</method>
+		<method name="geteuid" result="LONG">
+		</method>
+		<method name="setreuid" result="LONG">
+			<arg name="real" type="LONG"/>
+			<arg name="effective" type="LONG"/>
+		</method>
+		<method name="setuid" result="LONG">
+			<arg name="uid" type="LONG"/>
+		</method>
+		<method name="getgid" result="LONG">
+		</method>
+		<method name="getegid" result="LONG">
+		</method>
+		<method name="setregid" result="LONG">
+			<arg name="real" type="LONG"/>
+			<arg name="effective" type="LONG"/>
+		</method>
+		<method name="setgid" result="LONG">
+			<arg name="gid" type="LONG"/>
+		</method>
+		<method name="getgroups" result="LONG">
+			<arg name="gidsetlen" type="LONG"/>
+			<arg name="gidset" type="LONG *"/>
+		</method>
+		<method name="setgroups" result="LONG">
+			<arg name="gidsetlen" type="LONG"/>
+			<arg name="gidset" type="LONG *"/>
+		</method>
+		<method name="initgroups" result="LONG">
+			<arg name="name" type="STRPTR"/>
+			<arg name="basegid" type="LONG"/>
+		</method>
+		<method name="getpwnam" result="struct passwd *">
+			<arg name="login" type="STRPTR"/>
+		</method>
+		<method name="getpwuid" result="struct passwd *">
+			<arg name="uid" type="LONG"/>
+		</method>
+		<method name="setpwent" result="VOID">
+		</method>
+		<method name="getpwent" result="struct passwd *">
+		</method>
+		<method name="endpwent" result="VOID">
+		</method>
+		<method name="getgrnam" result="struct group *">
+			<arg name="name" type="STRPTR"/>
+		</method>
+		<method name="getgrgid" result="struct group *">
+			<arg name="gid" type="LONG"/>
+		</method>
+		<method name="setgrent" result="VOID">
+		</method>
+		<method name="getgrent" result="struct group *">
+		</method>
+		<method name="endgrent" result="VOID">
+		</method>
+		<method name="crypt" result="UBYTE *">
+			<arg name="key" type="UBYTE *"/>
+			<arg name="set" type="UBYTE *"/>
+		</method>
+		<method name="ug_GetSalt" result="UBYTE *">
+			<arg name="user" type="struct passwd *"/>
+			<arg name="buf" type="UBYTE *"/>
+			<arg name="size" type="ULONG"/>
+		</method>
+		<method name="getpass" result="STRPTR">
+			<arg name="prompt" type="STRPTR"/>
+		</method>
+		<method name="umask" result="ULONG">
+			<arg name="mask" type="UWORD"/>
+		</method>
+		<method name="getumask" result="ULONG">
+		</method>
+		<method name="setsid" result="LONG">
+		</method>
+		<method name="getpgrp" result="LONG">
+		</method>
+		<method name="getlogin" result="STRPTR">
+		</method>
+		<method name="setlogin" result="LONG">
+			<arg name="name" type="STRPTR"/>
+		</method>
+		<method name="setutent" result="VOID">
+		</method>
+		<method name="getutent" result="struct utmp *">
+		</method>
+		<method name="endutent" result="VOID">
+		</method>
+		<method name="getlastlog" result="struct lastlog *">
+			<arg name="uid" type="LONG"/>
+		</method>
+		<method name="setlastlog" result="LONG">
+			<arg name="uid" type="LONG"/>
+			<arg name="name" type="STRPTR"/>
+			<arg name="host" type="STRPTR"/>
+		</method>
+		<method name="getcredentials" result="struct UserGroupCredentials *">
+			<arg name="task" type="struct Task *"/>
+		</method>
+	</interface>
+</library>

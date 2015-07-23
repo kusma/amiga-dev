@@ -1,0 +1,11 @@
+This directory contains the source code of the sample programs that
+go along with the Roadshow PPP drivers. Note that in this form they
+represent prototypes and not 'the real thing'. This means in particular
+that the experimental SANA-II extensions used both in the PPP drivers
+and these programs may change in the future. After all, these changes
+were only *suggested* and have not yet been adopted. Take care!
+
+This software is copyrighted, which means that you may create your own
+programs using the techniques demonstrated in the source code, and
+you may reuse parts of it, but you must not take this code as a whole
+and claim it as your own.

@@ -1,0 +1,896 @@
+## version $VER: bsdsocket.catalog 1.13 (26.2.2011)
+## codeset 0
+## language deutsch
+;
+MSG_BSDSOCKET_GLUE_LOG_NO_TIMER_REQUEST_TXT
+Zeitgeber ist nicht nutzbar!
+; No timer request available!
+;
+MSG_BSDSOCKET_GLUE_LOG_NO_LOOPBACK_TXT
+Die Echo-Schnittstelle konnte nicht eingebunden werden.
+; Could not attach the loopback interface.
+;
+MSG_BSDSOCKET_GLUE_LOG_NO_MBUF_TXT
+Das Speicherverwaltungssystem konnte nicht eingerichtet werden.
+; Could not initialize the mbuf system.
+;
+MSG_BSDSOCKET_GLUE_LOG_NO_MSGPORT_TXT
+Die Nachrichtenübermittlung konnte nicht eingerichtet werden.
+; Could not create I/O message ports.
+;
+MSG_BSDSOCKET_GLUE_LOG_NO_TIMER_TXT
+Der Zeitgeber konnte nicht eingerichtet werden.
+; Could not allocate timer.
+;
+MSG_BSDSOCKET_SUPERSERVER_LOG_NO_SERVICE_TXT
+Der Dienst %s/%s konnte nicht gefunden werden.
+; Could not find service %s/%s.
+;
+MSG_BSDSOCKET_SUPERSERVER_LOG_NO_MEMORY_FOR_NAME_TXT
+Nicht genug Speicher zum Ablegen des Programmnamens.
+; Not enough memory for program name.
+;
+MSG_BSDSOCKET_SUPERSERVER_LOG_NO_MEMORY_FOR_SERVICE_ENTRY_TXT
+Nicht genug Speicher für Diensteintrag.
+; Not enough memory for service entry.
+;
+MSG_BSDSOCKET_SUPERSERVER_LOG_NO_MATCHING_SERVICE_TXT
+Kein passender Diensteintrag für %s/%s.
+; No matching service entry for %s/%s.
+;
+MSG_BSDSOCKET_SUPERSERVER_LOG_NO_SOCKET_TXT
+Konnte Verbindung nicht einrichten (%s).
+; Could not create socket (%s).
+;
+MSG_BSDSOCKET_SUPERSERVER_LOG_NO_SOCKET_OPTIONS_TXT
+Verbindungseinstellungen konnten nicht vorgenommen werden (%s).
+; Could not set socket options (%s).
+;
+MSG_BSDSOCKET_SUPERSERVER_LOG_COULD_NOT_BIND_TXT
+Konnte Verbindung nicht mit Anschluß %s(%ld) verknüpfen (%s).
+; Could not bind socket to port %s(%ld) (%s).
+;
+MSG_BSDSOCKET_SUPERSERVER_LOG_COULD_NOT_LISTEN_TXT
+Konnte Empfang an Anschluß %s(%ld) nicht aktivieren (%s).
+; Could not listen to socket on port %s(%ld) (%s).
+;
+MSG_BSDSOCKET_SUPERSERVER_LOG_NO_FILE_TXT
+Die Datei \"%s\" konnte nicht geöffnet werden (%s).
+; Could not open file \"%s\" (%s).
+;
+MSG_BSDSOCKET_SUPERSERVER_LOG_NO_PARSER_TXT
+Auswertungsdaten konnten nicht erzeugt werden (%s).
+; Could not allocate parser data (%s).
+;
+MSG_BSDSOCKET_SUPERSERVER_LOG_NO_MEMORY_FOR_CONFIG_FILE_TXT
+Nicht genug Speicher zum Lesen der Einstellungsdatei.
+; Not enough memory to read configuration file.
+;
+MSG_BSDSOCKET_SUPERSERVER_LOG_PARSE_ERROR_TXT
+Fehler beim Auswerten von Zeile %lD der Datei \"%s\" (%s).
+; Error parsing line %ld of file \"%s\" (%s).
+;
+MSG_BSDSOCKET_SUPERSERVER_LOG_PARSE_ERROR_CHOICE_TXT
+Fehler beim Auswerten von Zeile %lD der Datei \"%s\" (es ist nur STREAM, DGRAM, SEQPACKET oder RAW wählbar)
+; Error parsing line %ld of file \"%s\" (you can choose only one of the STREAM, DGRAM, SEQPACKET or RAW socket types).
+;
+MSG_BSDSOCKET_SUPERSERVER_LOG_SERVER_LOOPING_TXT
+Dienst auf Anschluß %s(%ld) läuft in einer Schleife (%lD Anfrage pro Minute) und ist vorerst deaktiviert worden.
+; Server on port %s(%ld) is looping (%ld requests this minute alone) and has been disabled for a while.
+;
+MSG_BSDSOCKET_SUPERSERVER_LOG_NO_ACCEPT_TXT
+Verbindungsaufforderung an Anschluß %s(%ld) konnte nicht angenommen werden (%s).
+; Could not accept() connection on port %s(%ld) (%s).
+;
+MSG_BSDSOCKET_SUPERSERVER_LOG_NO_SERVER_TXT
+Dienst konnte nicht gestartet werden.
+; Could not start server process.
+;
+MSG_BSDSOCKET_SUPERSERVER_LOG_NO_SERVER_PROGRAM_TXT
+Dienstprogramm \"%s\" konnte nicht gestartet werden (%s).
+; Could not start server program \"%s\" (%s).
+;
+MSG_BSDSOCKET_SUPERSERVER_LOG_NO_NIL_STREAMS_TXT
+Konnte \"NIL:\" nicht öffnen.
+; Could not open \"NIL:\" streams.
+;
+MSG_BSDSOCKET_SUPERSERVER_LOG_NO_MEMORY_TXT
+Nicht genug Speicher zum Erzeugen von Startnachricht für Dienst.
+; Not enough memory to send server startup message.
+;
+MSG_BSDSOCKET_SUPERSERVER_LOG_NO_RELEASE_SOCKET_TXT
+Verbindung konnte nicht aufgelöst werden (%s).
+; Could not release socket (%s).
+;
+MSG_BSDSOCKET_SUPERSERVER_LOG_SERVER_REENABLED_TXT
+Dienst auf Anschluß %s(%ld) wurde wieder aktiviert.
+; Server on port %s(%ld) has been enabled again.
+;
+MSG_BSDSOCKET_SUPERSERVER_LOG_NO_NOTIFICATION_TXT
+Benachrichtigung bei Änderungen an Datei \"%s\" konnte nicht aktiviert werden (%s).
+; Could not start file notification for file \"%s\" (%s).
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_NO_MEMORY_FOR_ROUTE_TXT
+Nicht genug Speicher zum Einlesen der Routendaten.
+; Not enough memory to read route configuration.
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_NO_FILE_TXT
+Die Datei \"%s\" konnte nicht geöffnet werden (%s).
+; Could not open file \"%s\" (%s).
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_NO_PARSER_DATA_TXT
+Auswertungsdaten konnten nicht erzeugt werden (%s).
+; Could not allocate parser data (%s).
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_ERROR_PARSING_LINE_TXT
+Fehler beim Auswerten von Zeile %lD der Datei \"%s\" (%s).
+; Error parsing line %ld of file \"%s\" (%s).
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_BAD_DEFAULT_TXT
+Datei \"%s\", Zeile %lD: Argument \"DEFAULT=%s\" ist unzulässig.
+; File \"%s\", line %ld: \"DEFAULT=%s\" parameter is not acceptable.
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_IGNORED_DESTINATION_TXT
+Datei \"%s\", Zeile %lD: Argument \"DESTINATION=%s\" wurde ignoriert.
+; File \"%s\", line %ld: \"DESTINATION=%s\" parameter ignored.
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_IGNORED_HOSTDESTINATION_TXT
+Datei \"%s\", Zeile %lD: Argument \"HOSTDESTINATION=%s\" wurde ignoriert.
+; File \"%s\", line %ld: \"HOSTDESTINATION=%s\" parameter ignored.
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_IGNORED_NETDESTINATION_TXT
+Datei \"%s\", Zeile %lD: Argument \"NETDESTINATION=%s\" wurde ignoriert.
+; File \"%s\", line %ld: \"NETDESTINATION=%s\" parameter ignored.
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_IGNORED_GATEWAY_TXT
+Datei \"%s\", Zeile %lD: Argument \"GATEWAY=%s\" wurde ignoriert.
+; File \"%s\", line %ld: \"GATEWAY=%s\" parameter ignored.
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_BAD_GATEWAY_TXT
+Datei \"%s\", Zeile %lD: Argument \"GATEWAY=%s\" ist unzulässig.
+; File \"%s\", line %ld: \"GATEWAY=%s\" parameter is not acceptable.
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_MISSING_DESTINATION_TXT
+Datei \"%s\", Zeile %lD: Zum Argument \"GATEWAY=%s\" fehlt eine Zieladresse.
+; File \"%s\", line %ld: The \"GATEWAY=%s\" parameter needs a destination address.
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_BAD_DESTINATION_TXT
+Datei \"%s\", Zeile %lD: Argument \"DESTINATION=%s\" ist unzulässig.
+; File \"%s\", line %ld: \"DESTINATION=%s\" parameter is not acceptable.
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_BAD_HOSTDESTINATION_TXT
+Datei \"%s\", Zeile %lD: Argument \"HOSTDESTINATION=%s\" ist unzulässig.
+; File \"%s\", line %ld: \"HOSTDESTINATION=%s\" parameter is not acceptable.
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_BAD_NETDESTINATION_TXT
+Datei \"%s\", Zeile %lD: Argument \"NETDESTINATION=%s\" ist unzulässig.
+; File \"%s\", line %ld: \"NETDESTINATION=%s\" parameter is not acceptable.
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_NO_MEMORY_FOR_NEW_ROUTE_TXT
+Nicht genug Speicher für einen neuen Routeneintrag.
+; Not enough memory for new route entry.
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_COULD_NOT_DELETE_ROUTE_TXT
+Route zu %s konnte nicht entfernt werden (%s).
+; Could not delete route %s (%s).
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_COULD_NOT_ADD_ROUTE_TXT
+Route in \"%s\", Zeile %lD, konnte nicht hinzugefügt werden (%s).
+; Could not add route from \"%s\", line %ld (%s).
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_NO_MEMORY_TO_QUERY_ROUTES_TXT
+Nicht genug Speicher zum Abruf der Routeninformation.
+; Not enough memory to obtain routing information.
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_COULD_NOT_DELETE_DEFAULT_GATEWAY_TXT
+Konnte die Standardroute nicht entfernen (%s).
+; Could not delete default gateway (%s).
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_DHCP_REQUEST_TIMEOUT_TXT
+Zeitüberschreitung beim Warten auf Antwort zu DHCP-Konfigurationsanfrage; Einrichtungsvorgang wird neu gestartet.
+; DHCP request has timed out; restarting configuration process.
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_DHCP_LEASE_HAS_EXPIRED_TXT
+Die Reservierung für Schnittstelle \"%s\" ist verfallen. Eine neue Reservierung wird angefordert.
+; Die Reservierung für Schnittstelle \"%s\" ist verfallen. Die aktuellen Schnittstellendaten bleiben bestehen, was risikoreich ist. Es wird empfohlen, daß Sie diese Schnittstelle sobald wie möglich neu einrichten!
+; Die Reservierung für Schnittstelle \"%s\" ist verfallen. Die Schnittstelle wird deaktiviert und der DHCP-Einrichtungsvorgang abgebrochen.
+; Lease for interface \"%s\" has expired. Shutting down the interface and aborting the DHCP process.
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_DHCP_ADDRESS_REQUEST_REJECT_MESSAGE_TXT
+Die Adresszuweisung für Schnittstelle \"%s\" wurde abgelehnt. Der Einrichtungsvorgang wird in Kürze neu gestartet. %s
+; The address assignment request for interface \"%s\" was rejected. The configuration process will restart shortly. %s
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_DHCP_ADDRESS_REQUEST_REJECT_TXT
+Die Adresszuweisung für Schnittstelle \"%s\" wurde abgelehnt. Der Einrichtungsvorgang wird in Kürze neu gestartet.
+; The address assignment request for interface \"%s\" was rejected by the server. The configuration process will restart shortly.
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_DHCP_ADDRESS_RENEWAL_REJECT_MESSAGE_TXT
+Die Anfrage zur Erneuerung der Adressreservierung für Schnittstelle \"%s\" wurde abgelehnt. Der Einrichtungsvorgang wird in Kürze neu gestartet. %s
+; The address renewal request for interface \"%s\" was rejected. The configuration process will restart shortly. %s
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_DHCP_ADDRESS_RENEWAL_REJECT_TXT
+Die Anfrage zur Erneuerung der Adressreservierung für Schnittstelle \"%s\" wurde abgelehnt. Der Einrichtungsvorgang wird in Kürze neu gestartet.
+; The address renewal request for interface \"%s\" was rejected by the server. The configuration process will restart shortly.
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_DHCP_ADDRESS_CHANGED_TXT
+Die primäre Netzadresse für Schnittstelle \"%s\" wurde geändert. Die alte Adresse wird freigegeben und der Einrichtungsvorgang abgebrochen.
+; The primary IP address for interface \"%s\" was changed. The old address will be released and the configuration process will be aborted.
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_DHCP_INTERFACE_DOWN_TXT
+Die Schnittstelle \"%s\" wurde außer Betrieb genommen. Ihre primäre Netzadresse wird freigegeben und der Einrichtungsvorgang abgebrochen.
+; The interface \"%s\" was taken out of service. Its primary IP address will be released and the configuration process will be aborted.
+;
+MSG_BSDSOCKET_CONFIGURE_LOG_NO_NOTIFICATION_TXT
+Benachrichtigung bei Veränderung der Datei \"%s\" konnte nicht aktiviert werden (%s).
+; Could not start file notification for file \"%s\" (%s).
+;
+MSG_BSDSOCKET_CONFIGURE_INTERFACE_CONFIG_FAILED_TXT
+Einrichtung der Schnittstelle \"%s\" schlug fehl; die zugewiesene Netzadresse %s konnte nicht genutzt werden.
+; Interface \"%s\" configuration failed; unable to use assigned IP address %ld.%ld.%ld.%ld.
+;
+MSG_BSDSOCKET_CONFIGURE_INVALID_REBIND_TXT
+Ungültige Zeitangabe für Neuzuweisung (= %lD Sekunden), Erneuerung (= %lD Sekunden) oder Reservierung (= %lD Sekunden).
+; Invalid rebind (= %ld seconds), renewal (= %ld seconds) or lease (= %ld seconds) time.
+;
+MSG_BSDSOCKET_CONFIGURE_IP_ADDRESS_ALREADY_IN_USE_TXT
+Netzadresse %s ist bereits anderweitig belegt.
+; IP address %ld.%ld.%ld.%ld is already in use.
+;
+MSG_BSDSOCKET_IFSANA2_LOG_INTERFACE_NOW_OFFLINE_TXT
+Schnittstelle \"%s\" ist jetzt vom Netz getrennt.
+; Interface \"%s\" is now offline.
+;
+MSG_BSDSOCKET_IFSANA2_LOG_STATION_ADDRESS_QUERY_FAILED_TXT
+Abfrage der Geräteadresse von Schnittstelle \"%s\" schlug fehl (%s).
+; Station address query failed for interface \"%s\" (%s).
+;
+MSG_BSDSOCKET_IFSANA2_LOG_INTERFACE_CONFIG_FAILED_TXT
+Einrichtung von Schnittstelle \"%s\" mit Geräteadresse %s schlug fehl (%s).
+; Interface \"%s\" configuration failed with station address = %s (%s).
+;
+MSG_BSDSOCKET_IFSANA2_LOG_NO_VACANT_NET_REQUEST_TXT
+Kein freier Eingabe-/Ausgabebefehl für Schnittstelle \"%s\" mehr verfügbar.
+; Could not obtain a vacant network request for interface \"%s\".
+;
+MSG_BSDSOCKET_IFSANA2_LOG_NO_NET_REQUEST_WITH_ROOM_TXT
+Nicht genug Speicher zur Ansteuerung von Schnittstelle \"%s\" mehr frei (%lD Bytes wurden benötigt).
+; Could not allocate a network request for interface \"%s\" of %ld bytes.
+;
+MSG_BSDSOCKET_IFSANA2_LOG_NO_IP_REQUEST_FOR_INTERFACE_TXT
+Schnittstelle \"%s\" läßt sich nicht in Betrieb nehmen (kein Speicher für IP-Pakete verfügbar).
+; Could not start a single IP I/O request for interface \"%s\".
+;
+MSG_BSDSOCKET_IFSANA2_LOG_NO_ARP_REQUEST_FOR_INTERFACE_TXT
+Schnittstelle \"%s\" läßt sich nicht in Betrieb nehmen (kein Speicher für ARP-Pakete verfügbar).
+; Could not start a single ARP I/O request for interface \"%s\".
+;
+MSG_BSDSOCKET_IFSANA2_LOG_NO_ETHERNET_HEADER_TXT
+Ethernet-Kopfdaten fehlen im Datenpaket für Schnittstelle \"%s\"!
+; No Ethernet header in packet to send to interface \"%s\"!
+;
+MSG_BSDSOCKET_IFSANA2_LOG_NO_MBUF_FOR_INTERFACE_TXT
+Nicht genug Speicher für Schnittstelle \"%s\"!
+; Out of memory on interface \"%s\"!
+;
+MSG_BSDSOCKET_IFSANA2_LOG_NO_MEMORY_FOR_INTERFACE_TXT
+Nicht genug Speicher, um Schnittstelle \"%s\" einzutragen.
+; Not enough memory to add interface \"%s\".
+;
+MSG_BSDSOCKET_IFSANA2_LOG_NO_MEMORY_FOR_NET_REQUEST_TXT
+Nicht genug Speicher, um Schnittstelle \"%s\" anzusteuern.
+; Not enough memory for control request for interface \"%s\".
+;
+MSG_BSDSOCKET_IFSANA2_LOG_CANNOT_OPEN_DEVICE_EXCLUSIVE_TXT
+Der Treiber \"%s\", Einheit %ld, kann nicht ausschließend genutzt werden (%s).
+; Could not open \"%s\" unit %ld for exclusive use (%s).
+;
+MSG_BSDSOCKET_IFSANA2_LOG_CANNOT_OPEN_DEVICE_TXT
+Der Treiber \"%s\", Einheit %ld, konnte nicht geöffnet werden (%s).
+; Could not open \"%s\" unit %ld (%s).
+;
+MSG_BSDSOCKET_IFSANA2_LOG_DEVICE_QUERY_FAILED_TXT
+Die Daten des Treibers \"%s\", Einheit %ld, konnten nicht abgefragt werden (%s).
+; Device query failed for \"%s\" unit %ld (%s).
+;
+MSG_BSDSOCKET_IFSANA2_LOG_MTU_TOO_LARGE_TXT
+Die Maximalgröße einer Übertragungseinheit der Schnittstelle \"%s\" ist mit %lD Bytes zu groß (maximal zulässig sind %lD Bytes).
+; Interface \"%s\" MTU %ld is too large (maximum is %ld bytes).
+;
+MSG_BSDSOCKET_IFSANA2_LOG_NO_DUPLICATE_NOTIFY_REQUEST_TXT
+Konnte Benachrichtigung bei Änderung der Schnittstelle \"%s\" nicht aktivieren.
+; Could not duplicate notification request for interface \"%s\".
+;
+MSG_BSDSOCKET_IFSANA2_LOG_NO_DUPLICATE_READ_REQUEST_TXT
+Konnte Lesebefehl für Schnittstelle \"%s\" nicht kopieren.
+; Could not duplicate read request for interface \"%s\".
+;
+MSG_BSDSOCKET_IFSANA2_LOG_NO_READ_REQUEST_BUFFER_TXT
+Nicht genug Speicher für Lesebefehl für Schnittstelle \"%s\" (gesamt = %lD, bisher angefordert = %lD).
+; Not enough memory for read request buffer for interface \"%s\" (total = %ld, allocated so far = %ld).
+;
+MSG_BSDSOCKET_IFSANA2_LOG_ADDRESS_TOO_SMALL_TXT
+Adressfeldgröße %lD ist zu klein für Schnittstelle \"%s\" (Größe = %lD).
+; Address field size %ld is too small for interface \"%s\" (size = %ld).
+;
+MSG_BSDSOCKET_IFSANA2_NOT_ENOUGH_MEMORY_TO_ATTACH_INTERFACE_TXT
+Konnte Schnittstelle \"%s\" nicht eintragen; nicht genug Speicher frei.
+; Could not attach interface \"%s\"; not enough memory.
+;
+MSG_BSDSOCKET_IFSANA2_NOT_ENOUGH_MEMORY_TO_ATTACH_INTERFACE_TO_FILTER_TXT
+Konnte Schnittstelle \"%s\" wegen Speichermangels nicht mit Paketfilter verknüpfen.
+; Could not attach interface \"%s\" to packet filter; not enough memory.
+;
+MSG_BSDSOCKET_SBT_ERRNO_EPERM_TXT
+Zugriff nicht erlaubt
+; Operation not permitted
+;
+MSG_BSDSOCKET_SBT_ERRNO_ENOENT_TXT
+Objekt nicht gefunden
+; Object not found
+;
+MSG_BSDSOCKET_SBT_ERRNO_ESRCH_TXT
+Prozess nicht vorhanden
+; No such process
+;
+MSG_BSDSOCKET_SBT_ERRNO_EINTR_TXT
+Befehlsausführung unterbrochen
+; Interrupted system call
+;
+MSG_BSDSOCKET_SBT_ERRNO_EIO_TXT
+Eingabe-/Ausgabefehler
+; Input/output error
+;
+MSG_BSDSOCKET_SBT_ERRNO_ENXIO_TXT
+Gerät ist nicht eingerichtet
+; Device not configured
+;
+MSG_BSDSOCKET_SBT_ERRNO_E2BIG_TXT
+Liste der Argumente ist zu lang
+; Argument list too long
+;
+MSG_BSDSOCKET_SBT_ERRNO_ENOEXEC_TXT
+Nicht ausführbar
+; Exec format error
+;
+MSG_BSDSOCKET_SBT_ERRNO_EBADF_TXT
+Unzulässiger Datenstrom
+; Bad file descriptor
+;
+MSG_BSDSOCKET_SBT_ERRNO_ECHILD_TXT
+Tochterprozess ist nicht vorhanden
+; No child processes
+;
+MSG_BSDSOCKET_SBT_ERRNO_EDEADLK_TXT
+Verklemmung wurde vermieden
+; Resource deadlock avoided
+;
+MSG_BSDSOCKET_SBT_ERRNO_ENOMEM_TXT
+Speichermangel
+; Cannot allocate memory
+;
+MSG_BSDSOCKET_SBT_ERRNO_EACCES_TXT
+Erlaubnis verweigert
+; Permission denied
+;
+MSG_BSDSOCKET_SBT_ERRNO_EFAULT_TXT
+Ungültige Adresse
+; Bad address
+;
+MSG_BSDSOCKET_SBT_ERRNO_ENOTBLK_TXT
+Blockzugriff nötig
+; Block device required
+;
+MSG_BSDSOCKET_SBT_ERRNO_EBUSY_TXT
+Gerät ist belegt
+; Device busy
+;
+MSG_BSDSOCKET_SBT_ERRNO_EEXIST_TXT
+Objekt existiert bereits
+; Object exists
+;
+MSG_BSDSOCKET_SBT_ERRNO_EXDEV_TXT
+Verknüpfung würde Gerätegrenzen überspannen
+; Cross-device link
+;
+MSG_BSDSOCKET_SBT_ERRNO_ENODEV_TXT
+Funktion wird nicht unterstützt
+; Operation not supported by device
+;
+MSG_BSDSOCKET_SBT_ERRNO_ENOTDIR_TXT
+Nicht zulässig bei einer Schublade
+; Not a directory
+;
+MSG_BSDSOCKET_SBT_ERRNO_EISDIR_TXT
+Nur bei einer Schublade zulässig
+; Is a directory
+;
+MSG_BSDSOCKET_SBT_ERRNO_EINVAL_TXT
+Ungültiges Argument
+; Invalid argument
+;
+MSG_BSDSOCKET_SBT_ERRNO_ENFILE_TXT
+Zu viele Datenströme sind im System aktiv
+; Too many open files in system
+;
+MSG_BSDSOCKET_SBT_ERRNO_EMFILE_TXT
+Zu viele Datenströme sind aktiv
+; Too many open files
+;
+MSG_BSDSOCKET_SBT_ERRNO_ENOTTY_TXT
+Steuerbefehl ist unzulässig
+; Inappropriate ioctl for device
+;
+MSG_BSDSOCKET_SBT_ERRNO_ETXTBSY_TXT
+Daten werden noch benutzt
+; Text file busy
+;
+MSG_BSDSOCKET_SBT_ERRNO_EFBIG_TXT
+Datei ist zu groß
+; File too large
+;
+MSG_BSDSOCKET_SBT_ERRNO_ENOSPC_TXT
+Nicht mehr genug Platz frei
+; No space left on device
+;
+MSG_BSDSOCKET_SBT_ERRNO_ESPIPE_TXT
+Unzulässige Positionsänderung
+; Illegal seek
+;
+MSG_BSDSOCKET_SBT_ERRNO_EROFS_TXT
+Daten können nicht geändert werden
+; Read-only file system
+;
+MSG_BSDSOCKET_SBT_ERRNO_EMLINK_TXT
+Zu viele Verknüpfungen
+; Too many links
+;
+MSG_BSDSOCKET_SBT_ERRNO_EPIPE_TXT
+Verbindung unterbrochen
+; Broken pipe
+;
+MSG_BSDSOCKET_SBT_ERRNO_EDOM_TXT
+Datenbereich unzulässig
+; Numerical argument out of domain
+;
+MSG_BSDSOCKET_SBT_ERRNO_ERANGE_TXT
+Ergebnisbereich unzulässig
+; Result too large
+;
+MSG_BSDSOCKET_SBT_ERRNO_EAGAIN_TXT
+Ressourcen sind zeitweilig nicht verfügbar
+; Resource temporarily unavailable
+;
+MSG_BSDSOCKET_SBT_ERRNO_EINPROGRESS_TXT
+Ausführung läuft jetzt
+; Operation now in progress
+;
+MSG_BSDSOCKET_SBT_ERRNO_EALREADY_TXT
+Ausführung läuft bereits
+; Operation already in progress
+;
+MSG_BSDSOCKET_SBT_ERRNO_ENOTSOCK_TXT
+Befehl ist nicht ausführbar
+; Socket operation on non-socket
+;
+MSG_BSDSOCKET_SBT_ERRNO_EDESTADDRREQ_TXT
+Zieladresse wird benötigt
+; Destination address required
+;
+MSG_BSDSOCKET_SBT_ERRNO_EMSGSIZE_TXT
+Nachricht ist zu lang
+; Message too long
+;
+MSG_BSDSOCKET_SBT_ERRNO_EPROTOTYPE_TXT
+Protokolltyp paßt nicht zur Verbindung
+; Protocol wrong type for socket
+;
+MSG_BSDSOCKET_SBT_ERRNO_ENOPROTOOPT_TXT
+Protokoll nicht verfügbar
+; Protocol not available
+;
+MSG_BSDSOCKET_SBT_ERRNO_EPROTONOSUPPORT_TXT
+Protokoll wird nicht unterstützt
+; Protocol not supported
+;
+MSG_BSDSOCKET_SBT_ERRNO_ESOCKTNOSUPPORT_TXT
+Verbindungstyp wird nicht unterstützt
+; Socket type not supported
+;
+MSG_BSDSOCKET_SBT_ERRNO_EOPNOTSUPP_TXT
+Befehl ist nicht ausführbar
+; Operation not supported
+;
+MSG_BSDSOCKET_SBT_ERRNO_EPFNOSUPPORT_TXT
+Protokollfamilie wird nicht unterstützt
+; Protocol family not supported
+;
+MSG_BSDSOCKET_SBT_ERRNO_EAFNOSUPPORT_TXT
+Adressfamilie wird von Protokollfamilie nicht unterstützt
+; Address family not supported by protocol family
+;
+MSG_BSDSOCKET_SBT_ERRNO_EADDRINUSE_TXT
+Adresse wird bereits verwendet
+; Address already in use
+;
+MSG_BSDSOCKET_SBT_ERRNO_EADDRNOTAVAIL_TXT
+Gewünschte Adresse kann nicht zugewiesen werden
+; Cannot assign requested address
+;
+MSG_BSDSOCKET_SBT_ERRNO_ENETDOWN_TXT
+Netzwerk ist nicht betriebsbereit
+; Network is down
+;
+MSG_BSDSOCKET_SBT_ERRNO_ENETUNREACH_TXT
+Netzwerk ist nicht erreichbar
+; Network is unreachable
+;
+MSG_BSDSOCKET_SBT_ERRNO_ENETRESET_TXT
+Netzwerkverbindung wurde getrennt
+; Network dropped connection on reset
+;
+MSG_BSDSOCKET_SBT_ERRNO_ECONNABORTED_TXT
+Verbindung wurde getrennt
+; Software caused connection abort
+;
+MSG_BSDSOCKET_SBT_ERRNO_ECONNRESET_TXT
+Verbindung wurde durch Gegenstelle getrennt
+; Connection reset by peer
+;
+MSG_BSDSOCKET_SBT_ERRNO_ENOBUFS_TXT
+Nicht genug Pufferspeicher verfügbar
+; No buffer space available
+;
+MSG_BSDSOCKET_SBT_ERRNO_EISCONN_TXT
+Verbindung ist bereits aufgebaut
+; Socket is already connected
+;
+MSG_BSDSOCKET_SBT_ERRNO_ENOTCONN_TXT
+Verbindung wurde noch nicht aufgebaut
+; Socket is not connected
+;
+MSG_BSDSOCKET_SBT_ERRNO_ESHUTDOWN_TXT
+Nach dem Verbindungsabbau kann nicht mehr gesendet werden
+; Cannot send after socket shutdown
+;
+MSG_BSDSOCKET_SBT_ERRNO_ETOOMANYREFS_TXT
+Zu viele Verweise sind in Gebrauch
+; Too many references: cannot splice
+;
+MSG_BSDSOCKET_SBT_ERRNO_ETIMEDOUT_TXT
+Zeitüberschreitung bei Befehlsausführung
+; Operation timed out
+;
+MSG_BSDSOCKET_SBT_ERRNO_ECONNREFUSED_TXT
+Verbindungsaufbau wurde abgelehnt
+; Connection refused
+;
+MSG_BSDSOCKET_SBT_ERRNO_ELOOP_TXT
+Zu viele Verknüpfungen
+; Too many levels of symbolic links
+;
+MSG_BSDSOCKET_SBT_ERRNO_ENAMETOOLONG_TXT
+Name ist zu lang
+; File name too long
+;
+MSG_BSDSOCKET_SBT_ERRNO_EHOSTDOWN_TXT
+Rechner ist nicht aktiv
+; Host is down
+;
+MSG_BSDSOCKET_SBT_ERRNO_EHOSTUNREACH_TXT
+Es führt keine Route zum Rechner
+; No route to host
+;
+MSG_BSDSOCKET_SBT_ERRNO_ENOTEMPTY_TXT
+Schublade ist nicht leer
+; Directory not empty
+;
+MSG_BSDSOCKET_SBT_ERRNO_EPROCLIM_TXT
+Zu viele Prozesse
+; Too many processes
+;
+MSG_BSDSOCKET_SBT_ERRNO_EUSERS_TXT
+Zu viele Nutzer
+; Too many users
+;
+MSG_BSDSOCKET_SBT_ERRNO_EDQUOT_TXT
+Zugewiesener Speicher erschöpft
+; Disc quota exceeded
+;
+MSG_BSDSOCKET_SBT_ERRNO_ESTALE_TXT
+NFS-Verbindung zu Datei ist nicht mehr gültig
+; Stale NFS file handle
+;
+MSG_BSDSOCKET_SBT_ERRNO_EREMOTE_TXT
+Dateipfad ist zu lang
+; Too many levels of remote in path
+;
+MSG_BSDSOCKET_SBT_ERRNO_EBADRPC_TXT
+Ungültige RPC-Struktur
+; RPC struct is bad
+;
+MSG_BSDSOCKET_SBT_ERRNO_ERPCMISMATCH_TXT
+Falsche RPC-Version
+; RPC version wrong
+;
+MSG_BSDSOCKET_SBT_ERRNO_EPROGUNAVAIL_TXT
+RPC-Programm ist nicht verfügbar
+; RPC program not avail
+;
+MSG_BSDSOCKET_SBT_ERRNO_EPROGMISMATCH_TXT
+Programmversion ist unzulässig
+; Program version wrong
+;
+MSG_BSDSOCKET_SBT_ERRNO_EPROCUNAVAIL_TXT
+Falsche Prozedur für Programm
+; Bad procedure for program
+;
+MSG_BSDSOCKET_SBT_ERRNO_ENOLCK_TXT
+Keine Sperren verfügbar
+; No locks available
+;
+MSG_BSDSOCKET_SBT_ERRNO_ENOSYS_TXT
+Funktion ist nicht verfügbar
+; Function not implemented
+;
+MSG_BSDSOCKET_SBT_ERRNO_EFTYPE_TXT
+Unpassender Dateityp oder -format
+; Inappropriate file type or format
+;
+MSG_BSDSOCKET_SBT_UNKNOWN_ERROR_TXT
+Unbekannter Fehler: %ld
+; Unknown error: %ld
+;
+MSG_BSDSOCKET_SBT_HERRNO_HOST_NOT_FOUND_TXT
+Unbekannter Rechner
+; Unknown host
+;
+MSG_BSDSOCKET_SBT_HERRNO_TRY_AGAIN_FOUND_TXT
+Suche nach Rechnernamen schlug fehl
+; Host name lookup failure
+;
+MSG_BSDSOCKET_SBT_HERRNO_NO_RECOVERY_TXT
+Unbekannter Fehler des Domain Name System Server
+; Unknown server error
+;
+MSG_BSDSOCKET_SBT_HERRNO_NO_DATA_TXT
+Name ist nicht mit Adresse verknüpft
+; No address associated with name
+;
+MSG_BSDSOCKET_SBT_UNKNOWN_RESOLVER_ERROR_TXT
+Namensauflösung lieferte unbekannten Fehler
+; Unknown resolver error
+;
+MSG_BSDSOCKET_SBT_IOERR_OPENFAIL_TXT
+Gerät/Einheit konnte nicht geöffnet werden
+; Device/unit failed to open
+;
+MSG_BSDSOCKET_SBT_IOERR_ABORTED_TXT
+Anfrage wurde verfrüht beendet
+; Request terminated early
+;
+MSG_BSDSOCKET_SBT_IOERR_NOCMD_TXT
+Befehl wird vom Gerät nicht unterstützt
+; Command not supported by device
+;
+MSG_BSDSOCKET_SBT_IOERR_BADLENGTH_TXT
+Ungültige Länge
+; Not a valid length
+;
+MSG_BSDSOCKET_SBT_IOERR_BADADDRESS_TXT
+Ungültige Adresse
+; Invalid address
+;
+MSG_BSDSOCKET_SBT_IOERR_UNITBUSY_TXT
+Gerät ließ sich öffnen, aber die gewünschte Einheit ist belegt
+; Device opens OK, but requested unit is busy
+;
+MSG_BSDSOCKET_SBT_IOERR_SELFTEST_TXT
+Selbsttest des Gerätes schlug fehl
+; Hardware failed self-test
+;
+MSG_BSDSOCKET_SBT_UNKNOWN_IO_ERROR_TXT
+Unbekannter Eingabe-/Ausgabefehler %ld
+; Unknown I/O error %ld
+;
+MSG_BSDSOCKET_SBT_S2ERR_NO_RESOURCES_TXT
+Fehler beim Anfordern von Ressourcen
+; Resource allocation failure
+;
+MSG_BSDSOCKET_SBT_S2ERR_BAD_ARGUMENT_TXT
+Unzulässiges Argument
+; Bad argument
+;
+MSG_BSDSOCKET_SBT_S2ERR_BAD_STATE_TXT
+Unzulässiger Zustand
+; Inappropriate state
+;
+MSG_BSDSOCKET_SBT_S2ERR_BAD_ADDRESS_TXT
+Unzulässige Adresse
+; Bad address
+;
+MSG_BSDSOCKET_SBT_S2ERR_MTU_EXCEEDED_TXT
+Maximalgröße der Übertragungsheit überschritten
+; Maximum transmission unit exceeded
+;
+MSG_BSDSOCKET_SBT_S2ERR_NOT_SUPPORTED_TXT
+Gerät unterstützt Befehl nicht
+; Command not supported by hardware
+;
+MSG_BSDSOCKET_SBT_S2ERR_SOFTWARE_TXT
+Softwarefehler aufgetreten
+; Software error detected
+;
+MSG_BSDSOCKET_SBT_S2ERR_OUTOFSERVICE_TXT
+Treiber ist vom Netz getrennt
+; Driver is offline
+;
+MSG_BSDSOCKET_SBT_S2ERR_TX_FAILURE_TXT
+Übertragungsversuch schlug fehl
+; Transmission attempt failed
+;
+MSG_BSDSOCKET_SBT_UNKNOWN_SANA2_ERROR_TXT
+Unbekannter SANA-II-Gerätefehler %ld
+; Unknown SANA-II error %ld
+;
+MSG_BSDSOCKET_SBT_S2WERR_GENERIC_ERROR_TXT
+Keine genaueren Informationen verfügbar
+; No specific information available
+;
+MSG_BSDSOCKET_SBT_S2WERR_NOT_CONFIGURED_TXT
+Einheit ist nicht eingerichtet
+; Unit not configured
+;
+MSG_BSDSOCKET_SBT_S2WERR_UNIT_ONLINE_TXT
+Einheit ist derzeit mit dem Netz verbunden
+; Unit is currently online
+;
+MSG_BSDSOCKET_SBT_S2WERR_UNIT_OFFLINE_TXT
+Einheit ist derzeit vom Netz getrennt
+; Unit is currently offline
+;
+MSG_BSDSOCKET_SBT_S2WERR_ALREADY_TRACKED_TXT
+Protokoll wird bereits verfolgt
+; Protocol already tracked
+;
+MSG_BSDSOCKET_SBT_S2WERR_NOT_TRACKED_TXT
+Protokoll wird nicht verfolgt
+; Protocol not tracked
+;
+MSG_BSDSOCKET_SBT_S2WERR_BUFF_ERROR_TXT
+Pufferverwaltung lieferte einen Fehler
+; Buffer management function returned error
+;
+MSG_BSDSOCKET_SBT_S2WERR_SRC_ADDRESS_TXT
+Quelladresse ist unzulässig
+; Source address problem
+;
+MSG_BSDSOCKET_SBT_S2WERR_DST_ADDRESS_TXT
+Zieladresse ist unzulässig
+; Destination address problem
+;
+MSG_BSDSOCKET_SBT_S2WERR_BAD_BROADCAST_TXT
+Broadcastadresse ist unzulässig
+; Broadcast address problem
+;
+MSG_BSDSOCKET_SBT_S2WERR_BAD_MULTICAST_TXT
+Multicastadresse ist unzulässig
+; Multicast address problem
+;
+MSG_BSDSOCKET_SBT_S2WERR_MULTICAST_FULL_TXT
+Multicastadressliste ist voll
+; Multicast address list is full
+;
+MSG_BSDSOCKET_SBT_S2WERR_BAD_EVENT_TXT
+Art des Ereignisses ist unzulässig
+; Unsupported event class	
+;
+MSG_BSDSOCKET_SBT_S2WERR_BAD_STATDATA_TXT
+Zustandsdaten sind nicht korrekt
+; StatData failed sanity check
+;
+MSG_BSDSOCKET_SBT_S2WERR_IS_CONFIGURED_TXT
+Einrichtung wurde mehrfach durchgeführt
+; Attempt to configure twice
+;
+MSG_BSDSOCKET_SBT_S2WERR_NULL_POINTER_TXT
+NULL-Zeiger ist unzulässig
+; NULL pointer detected
+;
+MSG_BSDSOCKET_SBT_S2WERR_TOO_MANY_RETIRES_TXT
+Übertragung schlug fehl - maximale Anzahl von Wiederholungen wurde überschritten
+; Transmission failed - too many retries
+;
+MSG_BSDSOCKET_SBT_S2WERR_RCVREL_HDW_ERR_TXT
+Vom Treiber korrigierbarer Gerätefehler
+; Driver fixable hardware error
+;
+MSG_BSDSOCKET_SBT_UNKNOWN_SANA2_WIRE_ERROR_TXT
+Unbekannter SANA-II-Übertragungsfehler %ld
+; Unknown SANA-II wire error %ld
+;
+MSG_BSDSOCKET_SBT_S2WERR_UNIT_DISCONNECTED_TXT
+Einheit ist derzeit nicht mit dem Netz verbunden
+; Unit currently not connected
+;
+MSG_BSDSOCKET_SBT_S2WERR_UNIT_CONNECTED_TXT
+Einheit ist mit dem Netz verbunden
+; Unit currently connected
+;
+MSG_BSDSOCKET_SBT_S2WERR_INVALID_OPTION_TXT
+Unzulässige Option wurde abgelehnt
+; Invalid option rejected
+;
+MSG_BSDSOCKET_SBT_S2WERR_MISSING_OPTION_TXT
+Vorgeschriebene Option fehlt
+; Mandatory option missing
+;
+MSG_BSDSOCKET_SBT_S2WERR_AUTHENTICATION_FAILED_TXT
+Anmeldung schlug fehl
+; Could not log in
+;
+MSG_BSDSOCKET_VSYSLOG_DEBUG_LEVELS_TXT
+Notfall|Alarm  |Kritis.|Fehler |Warnung|Hinweis|Inform.|Debug  |
+; emerg|alert|crit |error|warn |note |info |debug|
+;
+MSG_BSDSOCKET_VSYSLOG_MONTH_NAMES_TXT
+Jan|Feb|Mär|Apr|Mai|Jun|Jul|Aug|Sep|Okt|Nov|Dez|
+; Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|
+;
+MSG_BSDSOCKET_VSYSLOG_DAY_NAMES_TXT
+Son|Mon|Die|Mit|Don|Fre|Sam|
+; Sun|Mon|Tue|Wed|Thu|Fri|Sat|
+;
+MSG_BSDSOCKET_KERNEL_ARP_INFO_OVERWRITTEN_TXT
+ARP-Information für Netzadresse %s wurden überschrieben von Gerät mit Adresse %s.
+; ARP information for %ld.%ld.%ld.%ld overwritten by %s.
+;
+MSG_BSDSOCKET_KERNEL_DUPLICATE_IP_ADDRESS_TXT
+Duplikat für Netzadresse %s wurde von Gerät mit Adresse %s versandt.
+; Duplicate IP address %ld.%ld.%ld.%ld sent from ethernet address %s.
+;
+MSG_BSDSOCKET_KERNEL_ETHER_ADDRESS_IS_BROADCAST_TXT
+Geräteadresse ist eine Broadcastadresse für Rechner mit Netzadresse %s.
+; Ethernet address is broadcast address for IP address %ld.%ld.%ld.%ld.
+;
+MSG_BSDSOCKET_LOG_CONSOLE_TXT
+CON:///200/Netzwerkprotokoll/INACTIVE/AUTO/WAIT
+; CON:///200/Network log output/INACTIVE/AUTO/WAIT
+;
+MSG_BSDSOCKET_SBT_S2ERR_NO_ERROR_TXT
+Kein Fehler
+; No error
+;
+MSG_BSDSOCKET_SBT_IOERR_NO_ERROR_TXT
+Kein Fehler
+; No error
+;
+MSG_BSDSOCKET_SBT_HERRNO_NO_ERROR_TXT
+Kein Fehler
+; No error
+;
+MSG_BSDSOCKET_SBT_ERRNO_NO_ERROR_TXT
+Kein Fehler
+; No error
+;
+MSG_BSDSOCKET_CONFIGURE_ADDRESS_COLLISION_INFO_TXT
+Es wurden wiederholt Kollisionen bei der Nutzung der IP-Adresse %s auf der Schnittstelle '%s' erkannt. Die Schnittstellenadresse wird zurückgesetzt und später neu eingerichtet.
+; Repeated address collision for %ld.%ld.%ld detected on interface '%s'. Resetting interface address, to be reconfigured later.
+;
+MSG_BSDSOCKET_SUPERSERVER_LOG_DUPLICATE_SERVER_ENTRY_TXT
+Duppelt vorhandener Eintrag für Dienst \"%s\" in Zeile %lD der Datei \"%s\" wurde ignoriert.
+; Duplicate entry for server \"%s\" in line %ld of file \"%s\" ignored.
+;
+MSG_COMMERCIAL_TXT
+Vielen Dank, daß Sie die \"Roadshow\"-Demonstrationsversion\n\
+benutzt haben!\n\
+Falls Ihnen gefällt, was Sie gesehen haben, können Sie die\n\
+Vollversion von \"www.apc-tcp.de\" erwerben.\n\
+Vielen Dank!
+;
+MSG_COMMERCIAL_GADGET_TXT
+OK
+;
+MSG_BSDSOCKET_SUPERSERVER_LOG_NO_TCP_STREAM_TXT
+Konnte \"%s\" nicht öffnen.
+; Could not open \"%s\" stream.
+;

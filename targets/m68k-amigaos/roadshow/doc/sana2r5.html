@@ -1,0 +1,543 @@
+<html>
+<head>
+<title>
+Hook-based callback function extensions for SANA-II (SANA-IIR5)
+</title>
+</head>
+
+<body>
+<h1><p align=center>
+Hook-based callback function extensions for SANA-II (SANA-IIR5)
+<br>by <a href="mailto:&#115;&#97;&#110;&#97;&#50;&#102;&#101;&#101;&#100;&#98;&#97;&#99;&#107;@&#97;&#109;&#105;&#103;&#97;.com?subject=Re: SANA-IIR5 proposal">Olaf Barthel</a> and Heinz Wrobel</p></h1></center>
+
+<h2>1. Introduction</h2>
+
+<p>The last changes proposed for the SANA-II networking driver standard were
+intended to address the demands of dial-up networking. A new issue has come
+up which concerns the application and deployment of PowerPC native
+networking drivers. So far the SANA-II standard only caters well for the
+Motorola 68000 platform, and the only way to support it on the PowerPC
+involves a considerable overhead. This is what the following proposal
+intends to address.</p>
+
+<p>Please feel free to comment; you can contact me through the e-mail address
+given in the headline of this document. Note that the issues discussed in
+this document are just a list of proposed changes.</p>
+
+<h2>2. The problem: parameter passing to the copying functions</h2>
+
+<p>The SANA-II driver interface is intended to transform data between the
+hardware layer and the link layer, to be used by networking software such
+as TCP/IP stacks. This transformation is performed by call-back functions
+which are supplied by the networking software at the time the device driver
+is opened. The device driver then invokes these functions later in order to
+transfer data received and data to be sent.</p>
+
+<p>These copying functions are designed for low overhead. They use up to three
+parameters and are documented in the <kbd>copybuff.doc</kbd> file which comes with
+the SANA-II specification. Here is an excerpt which describes the
+<code>CopyFromBuff</code> function, which is associated with the <code>S2_CopyFromBuff</code>
+tag:</p>
+
+<pre>
+
+any_sana2_protocol/CopyFromBuff               any_sana2_protocol/CopyFromBuff
+
+   NAME
+        CopyFromBuff -- Copy n bytes from an abstract data structure.
+
+   SYNOPSIS
+        success = CopyFromBuff(to, from, n)
+        d0                     a0  a1    d0
+
+        BOOL CopyToBuff(VOID *, VOID *, ULONG);
+
+   FUNCTION
+        This function copies 'n' bytes of data in the abstract data structure
+        pointed to by 'from' into the contigous memory pointed to by 'to'.
+        'to' must contain at least 'n' bytes of usable memory or innocent
+        memory will be overwritten.
+
+   INPUTS
+        to              - pointer to contiguous memory to copy to.
+        from            - pointer to abstract structure to copy from.
+        n               - number of bytes to copy.
+
+   RESULT
+        success         - TRUE if operation was successful, else FALSE.
+
+   NOTES
+        This function must be callable from interupts.  In particular, this
+        means that this function may not directly or indirectly call any
+        system memory functions (since those functions rely on Forbid() to
+        protect themselves) and that  you must not compile this function
+        with stack checking enabled.  See the RKM:Libraries Exec:Interupts
+        chapter for more details on what is legal in a routine called from
+        an interupt handler.
+
+        'C' programmers should not compile with stack checking (option '-v'
+        in SAS) and should geta4() or __saveds.
+</pre>
+
+<p>As one can see, the function parameters are passed in 68000 registers.
+Compare this to the packet filter function, which is associated with the
+<code>S2_PacketFilter</code> tag: it is intended to be invoked as a hook function, as
+part of the <code>Hook</code> interface in <code>utility.library/CallHookPkt</code>.</p>
+
+<p>The problem with 68000 register parameters is that on the PowerPC platform,
+this form of parameter passing may require the use of emulation code. This
+is costly and may incur a severe performance penalty. It is an even greater
+problem if PowerPC native networking software is calling PowerPC native
+networking driver software and the other way round. In both cases the
+runtime environment will have to enter emulation mode, return to to PowerPC
+native execution, dip into emulation mode and return to native PowerPC
+execution. It would be much better if the chain of execution would stay in
+PowerPC mode all the time.</p>
+
+<p>However, if a hook function is used (such as for the packet filter), the
+operating system may be able to decide whether the function to be invoked
+needs emulating or could be called straight away. The <code>Hook</code> effectively
+works as an abstraction which makes the function invocation platform
+independent.</p>
+
+<p>The following proposal therefore intends to wrap the copying functions into
+the standardized <code>Hook</code> interface.</p>
+
+
+<h2>3. New data structures and commands</h2>
+
+<h3>3.1 Data structures</h3>
+
+<p>The SANA-IIR4 proposal lists ten copying functions, which can be grouped
+into two categories: data copying and direct memory access. These functions
+are:</p>
+
+<ul>
+<li> Data copying:
+<ul>
+<li> <code>S2_CopyToBuff</code>
+<li> <code>S2_CopyFromBuff</code>
+<li> <code>S2_CopyToBuff16</code>
+<li> <code>S2_CopyFromBuff16</code>
+<li> <code>S2_CopyToBuff32</code>
+<li> <code>S2_CopyFromBuff32</code>
+</ul>
+<li> Direct memory access:
+<ul>
+<li> <code>S2_DMACopyToBuff32</code>
+<li> <code>S2_DMACopyFromBuff32</code>
+<li> <code>S2_DMACopyToBuff64</code>
+<li> <code>S2_DMACopyFromBuff64</code>
+</ul>
+</ul>
+
+<p>There are three 'flavours' of the data copying functions. These cater for
+certain buffer memory alignment requirements which the underlying hardware
+requires or which can be used to boost transfer efficiency. For the direct
+memory access functions there are two variants which cater for certain
+memory alignment requirements in the same manner as the copying functions.</p>
+
+<p>All these functions are using basically the same set of parameters and
+68000 registers. The parameters and result codes are used for different
+purposes, though. In order to translate the parameters for use with the
+<code>Hook</code> interface one needs to define a 'hook message' and a set of parameters
+the hook function is invoked with.</p>
+
+<p>I propose the following hook messages to be used :</p>
+
+<pre>
+   struct SANA2HookMsg
+   {
+       ULONG shm_Method;
+       ULONG shm_MsgSize;
+   };
+</pre>
+
+<p>In this data structure the <code>shm_Method</code> field would indicate the task to
+be performed. This can a be request to copy data or to store a log message.
+The <code>shm_MsgSize</code> field tells you how large the data structure is (for future
+enhancements which may cause the data structure to grow).</p>
+
+<p>For copying operations the message would look like this:</p>
+
+<pre>
+   struct SANA2CopyHookMsg
+   {
+       ULONG schm_Method;
+       ULONG schm_MsgSize;
+
+       APTR  schm_To;
+       APTR  schm_From;
+       ULONG schm_Size;
+   };
+</pre>
+
+<p>The structure members would be used as follows:</p>
+
+<ul>
+<li> <p><code>schm_Method</code></p>
+
+<p> This must be one <code>S2_CopyToBuff</code>, <code>S2_CopyFromBuff</code>, <code>S2_CopyToBuff16</code>,
+<code>S2_CopyFromBuff16</code>, <code>S2_CopyToBuff32</code>, <code>S2_CopyFromBuff32</code>,
+<code>S2_DMACopyToBuff32</code>, <code>S2_DMACopyFromBuff32</code>, <code>S2_DMACopyToBuff64</code>
+or <code>S2_DMACopyFromBuff64</code> to identify the function to be performed.</p>
+
+<li> <p><code>schm_MsgSize</code></p>
+
+<p> Size of this message data structure in bytes. This must be &gt;= 20
+for this message type. </p>
+
+<p> The driver shall set <code>schm_MsgSize</code> always correctly to be compliant.
+The protocol stack shall use this field to validate the message and
+to reject/ignore bad messages via a <code>FALSE</code> hook function return value.
+For DMA related hooks, a <code>FALSE</code> return value is equivalent to a <code>NUL</code>L
+pointer. </p>
+
+<li> <p><code>schm_To</code></p>
+
+<p> Equivalent to the <code>to</code> parameter of the <code>CopyFromBuff</code>, <code>CopyToBuff</code>
+and <code>DMACopyToBuff</code> functions. </p>
+
+<li> <p><code>schm_From</code></p>
+
+<p> Equivalent to the <code>from</code> parameter of the <code>CopyFromBuff</code> and <code>CopyToBuff</code>
+functions. </p>
+
+<li> <p><code>schm_Size</code></p>
+
+<p> Equivalent to the <code>n</code> parameter of the <code>CopyFromBuff</code>, <code>CopyToBuff</code>,
+functions. </p>
+
+</ul>
+
+<p> For logging operations the message would look like this: </p>
+
+<pre>
+   struct SANA2LogHookMsg
+   {
+       ULONG  slhm_Method;
+       ULONG  slhm_MsgSize;
+
+       ULONG  slhm_Priority;
+       STRPTR slhm_Name;
+       STRPTR slhm_Message;
+   };
+</pre>
+
+<p> The structure members would be used as follows: </p>
+
+<ul>
+
+<li> <p><code>slhm_Method</code></p>
+
+<p> This must be <code>S2_Log</code>, as defined in the SANA-IIR4 specification. </p>
+
+<li> <p><code>slhm_MsgSize</code></p>
+
+<p> Size of this message data structure in bytes. This must be >= 20
+for this message type. </p>
+
+<p> The driver shall set <code>slhm_MsgSize</code> always correctly to be compliant.
+The protocol stack shall use this field to validate the message and
+to reject/ignore bad messages via a <code>FALSE</code> hook function return value.
+For DMA related hooks, a <code>FALSE</code> return value is equivalent to a <code>NULL</code>
+pointer. </p>
+
+<li> <p><code>slhm_Priority</code></p>
+
+<p> The smaller this value, the more important the message to be logged or
+displayed. The following priority levels are defined (similar to the
+Unix syslog() mechanism): </p>
+
+<ul>
+
+<li> <p><code> #define S2LOG_Emergency 0 </code></p>
+
+<p> A panic condition. </p>
+
+<li> <p><code> #define S2LOG_Alert 1 </code></p>
+
+<p> A condition that should be corrected immediately. </p>
+
+<li> <p><code> #define S2LOG_Critical 2 </code></p>
+
+<p> Critical conditions. </p>
+
+<li> <p><code> #define S2LOG_Error 3 </code></p>
+
+<p> A plain error. </p>
+
+<li> <p><code> #define S2LOG_Warning 4 </code></p>
+
+<p> A warning message. </p>
+
+<li> <p><code> #define S2LOG_Notice 5 </code></p>
+
+<p> Conditions that are not error conditions, but should possibly be
+handled specially. </p>
+
+<li> <p><code> #define S2LOG_Information 6 </code></p>
+
+<p> An informational message. </p>
+
+<li> <p><code> #define S2LOG_Debug 7 </code></p>
+
+<p> Messages that contain information normally of use only when
+debugging. </p>
+
+</ul>
+
+<p> Only these priority values may be used by a driver. It is suggested
+that a driver is configurable to generate different types of messages
+or not, e.g., a driver may be configured to only emit <code>S2LOG_Emergency</code>
+and <code>S2LOG_Debug</code> messages. </p>
+
+<li> <p><code> slhm_Name </code></p>
+
+<p> Pointer to a <code>NUL</code>-terminated string which identifies the source of this
+message. This can be <code>NULL</code> in which case the OS device name of the driver
+shall be used by the protocol stack. </p>
+
+<li> <p><code> slhm_Message </code></p>
+
+<p> Pointer to a <code>NUL</code>-terminated string which contains the log message. The
+text should not contain any formatting characters such as line feeds
+or carriage returns. The <code>slhm_Message</code> member must never be <code>NULL</code>. </p>
+
+<p> All message texts shall preferrably be formatted in the current user's
+locale. If that is not possible, the english language shall be used.
+<code>slhm_Name</code> and <code>slhm_Message</code> shall only contain printable characters. </p>
+
+</ul>
+
+<p> The hook function itself would be invoked with the following parameters: </p>
+
+<pre>
+   result = hook_function(hook,sana2req,sana2hookmsg)
+     D0                    A0     A2        A1
+
+   ULONG hook_function(struct Hook *hook,
+                       struct IOSana2Req *sana2req,
+                       struct SANA2HookMsg *sana2hookmsg);
+</pre>
+
+<p> Note that the result would not necessarily be of type <code>ULONG</code>. It would be
+a 32 bit value, which would either be a boolean result code (for
+<code>CopyFromBuff</code>, <code>CopyToBuff</code> and their like) or the pointer to a memory address
+(for <code>DMACopyToBuff</code>, <code>DMACopyFromBuff</code> and their like). </p>
+
+<h3>3.2 Commands</h3>
+
+<p> The 'traditional' copy call-back functions are installed at <code>OpenDevice()</code> time,
+and they are found in a <code>TagItem</code> list which is passed along with the
+<code>IOSana2Req</code>. For the new <code>Hook</code>-based call-back functionality, I propose to
+introduce a new command. This command would take care of installing one single
+<code>Hook</code> which will be invoked with the parameters described in section 3.1. The
+hook function can key off the <code>SANA2HookMsg->schm_Method</code> field to figure out
+which function should be performed. Once the <code>Hook</code> is installed via the command
+as follows, the driver shall ignore any and all tags passed to it during
+<code>OpenDevice()</code> time. </p>
+
+<p> The command is tentatively defined as follows: </p>
+
+<pre>
+sana2.device/S2_SANA2HOOK                             sana2.device/S2_SANA2HOOK
+
+   NAME
+        S2_SANA2HOOK -- Install a Hook to perform operations such as copying,
+                        overriding the call-back functions installed at
+                        OpenDevice() time.
+
+   FUNCTION
+        The S2_SANA2HOOK command is to replace the 'traditional' call-back
+        functions installed through the TagItem list found in the
+        IOSana2Req->ios2_BufferManagement field. Instead of assigning a
+        function pointer for each copying function, all operations are
+        to be performed through a Hook. This is intended to make the
+        interface more portable and less dependant on a certain hardware
+        architecture.
+
+        The hook message and the hook data structures allow for more than
+        copying to be done.
+
+   IO REQUEST
+        ios2_Command    - S2_SANA2HOOK
+        ios2_Data       - Points to a struct Sana2Hook, which looks
+                          like this:
+
+                             struct Sana2Hook
+                             {
+                                struct Hook s2h_Hook;
+                                Tag *       s2h_Methods;
+                             };
+
+                          The structure fields have the following purposes:
+
+                             s2h_Hook
+                                A standard Hook structure, ready to be
+                                called. Once installed, the complete Hook
+                                structure including its Node structure is
+                                off limits! The s2h_Hook remains installed
+                                until CloseDevice().
+
+                             s2h_Methods
+                                Points to a table of Tag values, each
+                                identifying a copy method supported
+                                (S2_CopyToBuff, S2_CopyFromBuff,
+                                S2_CopyToBuff16, S2_CopyFromBuff16,
+                                S2_CopyToBuff32, S2_CopyFromBuff32,
+                                S2_DMACopyToBuff32, S2_DMACopyFromBuff32,
+                                S2_DMACopyToBuff64 or S2_DMACopyFromBuff64)
+                                or the logging facility (S2_Log).
+                                The table must be terminated by TAG_END.
+
+                                The driver will check the table and
+                                verify that the mandatory S2_CopyToBuff
+                                and S2_CopyFromBuff commands are present.
+                                Additional functionality is used as
+                                available if the driver supports it.
+
+        ios2_DataLength - Must be >= 20, which is the default length of
+                          the Sana2Hook structure. This may grow in
+                          the future, and larger values for ios2_DataLength
+                          may indicate additional functionality associated
+                          with the Sana2Hook.
+
+   RESULTS
+        ios2_Error      - IOERR_NOCMD if this command is not supported
+                          by the driver.
+
+                          IOERR_BADLENGTH if IOSana2Req->ios2_DataLength
+                          is < 20.
+
+                          IOERR_UNITBUSY if the Hook was already
+                          installed or if any of the CMD_READ, CMD_WRITE,
+                          S2_MULTICAST or S2_BROADCAST have already been
+                          invoked.
+
+                          S2WERR_FUNCTIONS_MISSING if the table pointed
+                          to by Sana2Hook->s2h_Methods does not
+                          include the S2_CopyToBuff and S2_CopyFromBuff
+                          tags.
+
+   NOTES
+        The S2_SANA2HOOK command shall be invoked right after OpenDevice()
+        as very first command.
+
+        When the command has been executed, the driver must use the
+        newly installed Hook for all its copying or logging and cease to
+        use the call-back functions provided at OpenDevice() time.
+
+        The contents of the Sana2Hook structure, as passed to the
+        driver, must not be modified. This includes the MinNode
+        at the beginning of the Hook structure which the driver may
+        need to use for its own purposes.
+
+        The table pointed to by Sana2Hook->s2h_Methods must
+        include at least the S2_CopyToBuff and S2_CopyFromBuff tags.
+        It must be valid until CloseDevice() is called.
+
+        This field is to be treated as private by a protocol stack.
+        IOSana2Req structures may be duplicated by copying
+        ios2_BufferManagement, io_Device, and io_Unit.
+</pre>
+
+<p> The new command value is defined as follows: </p>
+
+<pre>
+   #define S2_SANA2HOOK 0xC008
+</pre>
+
+<p> The new error code is defined as follows: </p>
+
+<pre>
+   #define S2WERR_FUNCTIONS_MISSING 24 /* mandatory copy functions are missing */
+</pre>
+
+<h2>4. Application and driver software use of the new functions</h2>
+
+<p> Since plenty of software exists which uses the 'traditional' <code>TagItem</code> list
+provided at <code>OpenDevice()</code> time it is recommend that drivers always examine
+these parameters and do not expect a <code>S2_SANA2HOOK</code> command to be sent later. </p>
+
+<p> If the new <code>Hook</code>-based callback functions are to be used, then the driver must
+invoke the Hooks via <code>utility.library/CallHookPkt</code>. It must not invoke the hook
+functions through local assembly language stubs or the <code>amiga.lib/CallHook</code> and
+<code>amiga.lib/CallHookA</code> functions. </p>
+
+<h2>5. Caveats</h2>
+
+<p> The functionality proposed above suggests that one could do entirely without
+the <code>TagItem</code> list passed in at <code>OpenDevice()</code> time. However, at this time it is
+hard to tell how existing driver software will react to empty <code>TagItem</code> lists
+or even a NULL pointer in the <code>IOSana2Req->ios2_BufferManagement</code> field. It
+is therefore recommend to always provide for a <code>TagItem</code> list which includes
+proper (i.e. they must point to working functions and may not be <code>NULL</code>) function
+pointers for the <code>S2_CopyToBuff</code> and <code>S2_CopyFromBuff</code> tags. Once the device
+has been opened successfully, the next step is to try and install the copy
+<code>Hook</code> through the proposed <code>S2_SANA2HOOK</code> command. If the command fails, the
+application can still expect that the <code>S2_CopyToBuff</code> and <code>S2_CopyFromBuff</code> tags
+supplied at <code>OpenDevice()</code> time will work. </p>
+
+<p> Note that the <code>ios2_BufferManagement</code> field provided by the driver on
+<code>OpenDevice()</code> time in conjunction with <code>io_Device</code> and <code>io_Unit</code> is the unique
+identifier for all requests coming from this protocol stack until
+<code>CloseDevice()</code>. The driver must not ever change the <code>ios2_BufferManagement</code> field
+for a protocol stack at run time, even if <code>S2_SANAHOOK</code> is called to request
+extended features. </p>
+
+<h2>6. Changes</h2>
+
+<p>22-Mar-2004: </p>
+
+<ul>
+
+<li> Conversion to HTML
+
+</ul>
+
+<p>21-Jan-2004: </p>
+
+<ul>
+
+<li> Added clarifications for <code>schm_MsgSize</code>, <code>slhm_MsgSize</code>, <code>slhm_Priority</code>,
+<code>slhm_Name</code>, <code>slhm_Message</code> and <code>s2h_Hook</code>.
+
+<li> Updated the <code>S2_SANA2HOOK</code> documentation.
+
+<li> Shortened section 4.
+
+<li> Updated section 5.
+
+</ul>
+
+<p>30-Nov-2003:</p>
+
+<ul>
+
+<li> Extended the applicability of the <code>Hook</code> to logging.
+
+<li> Renamed <code>S2_COPYHOOK</code> to <code>S2_SANA2HOOK</code>, which matches the extended
+scope it should cover.
+
+<li> The message passed to the <code>Hook</code> now includes a size field which
+holds the size of the message, expressed in bytes.
+
+</ul>
+
+<p>06-Oct-2003:</p>
+
+<ul>
+
+<li> Replaced the list of new tag items with a single <code>Hook</code>, which
+is installed through a new command.
+
+<li> Added "Caveats" and "Changes" sections
+
+<li> Removed the documentation for the originally proposed <code>TagItem</code>
+(sections 3.2.1 through 3.2.10)
+
+</ul>
+
+</body>
+<html>
