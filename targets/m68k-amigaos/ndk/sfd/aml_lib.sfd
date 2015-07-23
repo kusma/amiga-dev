@@ -1,0 +1,119 @@
+==id $Id: aml_lib.sfd 1.2 1999/10/06 10:36:59 olsen Exp olsen $
+==base _AmlBase
+==basetype struct Library *
+==libname aml.library
+==bias 30
+==public
+==include <utility/tagitem.h>
+==include <utility/hooks.h>
+==include <rexx/storage.h>
+==include <libraries/aml.h>
+LONG RexxDispatcher(struct RexxMsg * rxm) (a0)
+APTR CreateServerA(struct TagItem * tags) (a0)
+==varargs
+APTR CreateServer(Tag tags, ...) (a0)
+VOID DisposeServer(APTR server) (a0)
+ULONG SetServerAttrsA(APTR server, struct TagItem * tags) (a0,a1)
+==varargs
+ULONG SetServerAttrs(APTR server, ...) (a0,a1)
+ULONG GetServerAttrsA(APTR server, struct TagItem * tags) (a0,a1)
+==varargs
+ULONG GetServerAttrs(APTR server, ...) (a0,a1)
+ULONG GetServerHeaders(APTR server, ULONG flags) (a0,d0)
+LONG GetServerArticles(APTR server, APTR folder, struct Hook * hook, ULONG flags) (a0,a1,a2,d0)
+APTR CreateFolderA(APTR server, struct TagItem * tags) (a0,a1)
+==varargs
+APTR CreateFolder(APTR server, ...) (a0,a1)
+BOOL DisposeFolder(APTR folder) (a0)
+APTR OpenFolderA(APTR server, struct TagItem * tags) (a0,a1)
+==varargs
+APTR OpenFolder(APTR server, ...) (a0,a1)
+BOOL SaveFolder(APTR folder) (a0)
+BOOL RemFolder(APTR folder) (a0)
+ULONG SetFolderAttrsA(APTR folder, struct TagItem * tags) (a0,a1)
+==varargs
+ULONG SetFolderAttrs(APTR folder, ...) (a0,a1)
+ULONG GetFolderAttrsA(APTR folder, struct TagItem * tags) (a0,a1)
+==varargs
+ULONG GetFolderAttrs(APTR folder, ...) (a0,a1)
+BOOL AddFolderArticle(APTR folder, ULONG type, APTR data) (a0,d0,a1)
+BOOL RemFolderArticle(APTR folder, APTR article) (a0,a1)
+ULONG ReadFolderSpool(APTR folder, STRPTR importfile, ULONG flags) (a0,a1,d0)
+ULONG WriteFolderSpool(APTR folder, STRPTR exportfile, ULONG flags) (a0,a1,d0)
+ULONG ScanFolderIndex(APTR folder, struct Hook * hook, ULONG flags) (a0,a1,d0)
+BOOL ExpungeFolder(APTR folder, APTR trash, struct Hook * hook) (a0,a1,a2)
+ULONG CreateFolderIndex(APTR folder) (a0)
+ULONG SortFolderIndex(APTR folder, ULONG field) (a0,d0)
+APTR CreateArticleA(APTR folder, struct TagItem * tags) (a0,a1)
+==varargs
+APTR CreateArticle(APTR folder, ...) (a0,a1)
+BOOL DisposeArticle(APTR article) (a0)
+APTR OpenArticle(APTR server, APTR folder, ULONG MsgID, ULONG Flags) (a0,a1,d0,d1)
+BOOL CopyArticle(APTR folder, APTR article) (a0,a1)
+ULONG SetArticleAttrsA(APTR article, struct TagItem * tags) (a0,a1)
+==varargs
+ULONG SetArticleAttrs(APTR article, ...) (a0,a1)
+ULONG GetArticleAttrsA(APTR article, struct TagItem * tags) (a0,a1)
+==varargs
+ULONG GetArticleAttrs(APTR article, ...) (a0,a1)
+BOOL SendArticle(APTR server, APTR article, UBYTE * from_file) (a0,a1,a2)
+BOOL AddArticlePartA(APTR article, APTR part, struct TagItem * tags) (a0,a1,a2)
+==varargs
+BOOL AddArticlePart(APTR article, APTR part, ...) (a0,a1,a2)
+VOID RemArticlePart(APTR article, APTR part) (a0,d0)
+APTR GetArticlePart(APTR article, ULONG partnum) (a0,d0)
+ULONG GetArticlePartAttrsA(APTR part, struct TagItem * tags) (a0,a1)
+==varargs
+ULONG GetArticlePartAttrs(APTR part, ...) (a0,a1)
+ULONG SetArticlePartAttrsA(APTR part, struct TagItem * tags) (a0,a1)
+==varargs
+ULONG SetArticlePartAttrs(APTR part, ...) (a0,a1)
+APTR CreateArticlePartA(APTR article, struct TagItem * tags) (a0,a1)
+==varargs
+APTR CreateArticlePart(APTR article, ...) (a0,a1)
+VOID DisposeArticlePart(APTR part) (a0)
+BOOL GetArticlePartDataA(APTR article, APTR part, struct TagItem * tags) (a0,a1,a2)
+==varargs
+BOOL GetArticlePartData(APTR article, APTR part, ...) (a0,a1,a2)
+BOOL SetArticlePartDataA(APTR part, struct TagItem * tags) (a0,a1)
+==varargs
+BOOL SetArticlePartData(APTR part, ...) (a0,a1)
+APTR CreateAddressEntryA(struct TagItem * tags) (a0)
+==varargs
+APTR CreateAddressEntry(Tag tags, ...) (a0)
+BOOL DisposeAddressEntry(APTR addr) (a0)
+APTR OpenAddressEntry(APTR server, ULONG fileid) (a0,d0)
+LONG SaveAddressEntry(APTR server, APTR addr) (a0,a1)
+BOOL RemAddressEntry(APTR server, APTR addr) (a0,a1)
+ULONG GetAddressEntryAttrsA(APTR addr, struct TagItem * tags) (a0,a1)
+==varargs
+ULONG GetAddressEntryAttrs(APTR addr, ...) (a0,a1)
+ULONG SetAddressEntryAttrsA(APTR addr, struct TagItem * tags) (a0,a1)
+==varargs
+ULONG SetAddressEntryAttrs(APTR addr, ...) (a0,a1)
+BOOL MatchAddressA(APTR addr, struct TagItem * tags) (a0,a1)
+==varargs
+BOOL MatchAddress(APTR addr, ...) (a0,a1)
+APTR FindAddressEntryA(APTR server, struct TagItem * tags) (a0,a1)
+==varargs
+APTR FindAddressEntry(APTR server, ...) (a0,a1)
+APTR HuntAddressEntryA(APTR server, struct TagItem * tags) (a0,a1)
+==varargs
+APTR HuntAddressEntry(APTR server, ...) (a0,a1)
+ULONG ScanAddressIndex(APTR server, struct Hook * hook, ULONG type, ULONG flags) (a0,a1,d0,d1)
+BOOL AddCustomField(APTR addr, STRPTR field, STRPTR data) (a0,a1,a2)
+BOOL RemCustomField(APTR addr, STRPTR field) (a0,a1)
+STRPTR GetCustomFieldData(APTR addr, STRPTR field) (a0,a1)
+APTR CreateDecoderA(struct TagItem * tags) (a0)
+==varargs
+APTR CreateDecoder(Tag tags, ...) (a0)
+VOID DisposeDecoder(APTR dec) (a0)
+ULONG GetDecoderAttrsA(APTR dec, struct TagItem * tags) (a0,a1)
+==varargs
+ULONG GetDecoderAttrs(APTR dec, ...) (a0,a1)
+ULONG SetDecoderAttrsA(APTR dec, struct TagItem * tags) (a0,a1)
+==varargs
+ULONG SetDecoderAttrs(APTR dec, ...) (a0,a1)
+LONG Decode(APTR dec, ULONG type) (a0,d0)
+LONG Encode(APTR dec, ULONG type) (a0,d0)
+==end

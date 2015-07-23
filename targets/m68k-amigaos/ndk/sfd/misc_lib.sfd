@@ -1,0 +1,10 @@
+==id $Id: misc_lib.sfd 40.1 1996/05/17 19:13:47 olsen Exp olsen $
+==base _MiscBase
+==basetype struct Library *
+==libname misc.resource
+==bias 6
+==public
+==include <exec/types.h>
+UBYTE * AllocMiscResource(ULONG unitNum, CONST_STRPTR name) (d0,a1)
+VOID FreeMiscResource(ULONG unitNum) (d0)
+==end

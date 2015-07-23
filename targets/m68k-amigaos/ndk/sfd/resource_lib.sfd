@@ -1,0 +1,24 @@
+==id $Id: resource_lib.sfd 44.1 1996/05/17 19:13:47 olsen Exp olsen $
+==base _ResourceBase
+==basetype struct Library *
+==libname resource.library
+==bias 30
+==public
+==include <libraries/resource.h>
+==include <intuition/classusr.h>
+==include <intuition/intuition.h>
+==include <libraries/locale.h>
+==include <utility/tagitem.h>
+RESOURCEFILE RL_OpenResource(APTR resource, struct Screen * screen, struct Catalog * catalog) (a0,a1,a2)
+VOID RL_CloseResource(RESOURCEFILE resfile) (a0)
+Object * RL_NewObjectA(RESOURCEFILE resfile, RESOURCEID resid, struct TagItem * tags) (a0,d0,a1)
+==varargs
+Object * RL_NewObject(RESOURCEFILE resfile, RESOURCEID resid, ...) (a0,d0,a1)
+VOID RL_DisposeObject(RESOURCEFILE resfile, Object * obj) (a0,a1)
+Object ** RL_NewGroupA(RESOURCEFILE resfile, RESOURCEID id, struct TagItem * taglist) (a0,d0,a1)
+==varargs
+Object ** RL_NewGroup(RESOURCEFILE resfile, RESOURCEID id, ...) (a0,d0,a1)
+VOID RL_DisposeGroup(RESOURCEFILE resfile, Object ** obj) (a0,a1)
+Object ** RL_GetObjectArray(RESOURCEFILE resfile, Object * obj, RESOURCEID id) (a0,a1,d0)
+BOOL RL_SetResourceScreen(RESOURCEFILE resfile, struct Screen * screen) (a0,a1)
+==end

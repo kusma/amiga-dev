@@ -1,0 +1,12 @@
+==id $Id: colorwheel_lib.sfd,v 39.1 1992/07/21 15:42:37 vertex Exp $
+==base _ColorWheelBase
+==basetype struct Library *
+==libname colorwheel.library
+==bias 30
+==public
+==include <exec/types.h>
+==include <gadgets/colorwheel.h>
+==version 39
+VOID ConvertHSBToRGB(struct ColorWheelHSB * hsb, struct ColorWheelRGB * rgb) (a0,a1)
+VOID ConvertRGBToHSB(struct ColorWheelRGB * rgb, struct ColorWheelHSB * hsb) (a0,a1)
+==end

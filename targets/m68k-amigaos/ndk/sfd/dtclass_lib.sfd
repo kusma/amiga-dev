@@ -1,0 +1,12 @@
+==id $Id: dtclass_lib.sfd 44.1 1993/01/25 15:16:30 olsen Exp olsen $
+==base _DTClassBase
+==basetype struct Library *
+==libname dtclass.library
+==bias 30
+==public
+==include <exec/types.h>
+==include <intuition/classes.h>
+==include <intuition/classusr.h>
+==version 39
+Class * ObtainEngine() ()
+==end

@@ -1,0 +1,22 @@
+==id $Id: diskfont_lib.sfd,v 36.1 1990/05/01 02:08:16 kodiak Exp $
+==base _DiskfontBase
+==basetype struct Library *
+==libname diskfont.library
+==bias 30
+==public
+==include <dos/dos.h>
+==include <libraries/diskfont.h>
+==include <utility/tagitem.h>
+struct TextFont * OpenDiskFont(struct TextAttr * textAttr) (a0)
+LONG AvailFonts(STRPTR buffer, LONG bufBytes, LONG flags) (a0,d0,d1)
+==version 34
+struct FontContentsHeader * NewFontContents(BPTR fontsLock, STRPTR fontName) (a0,a1)
+VOID DisposeFontContents(struct FontContentsHeader * fontContentsHeader) (a1)
+==version 36
+struct DiskFont * NewScaledDiskFont(struct TextFont * sourceFont,
+	struct TextAttr * destTextAttr) (a0,a1)
+LONG GetDiskFontCtrl(LONG tagid) (d0)
+VOID SetDiskFontCtrlA(struct TagItem * taglist) (a0)
+==varargs
+VOID SetDiskFontCtrl(...) (a0)
+==end

@@ -1,0 +1,10 @@
+==id $Id: space_lib.sfd 1.1 1999/10/06 10:13:25 olsen Exp olsen $
+==base _SpaceBase
+==basetype struct Library *
+==libname space.library
+==bias 30
+==public
+==include <intuition/intuition.h>
+==include <intuition/classes.h>
+Class * SPACE_GetClass() ()
+==end

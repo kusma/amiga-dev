@@ -1,0 +1,11 @@
+==id $Id: battclock_lib.sfd 40.1 1996/05/17 19:13:47 olsen Exp olsen $
+==base _BattClockBase
+==basetype struct Library *
+==libname battclock.resource
+==bias 6
+==public
+==include <exec/types.h>
+VOID ResetBattClock() ()
+ULONG ReadBattClock() ()
+VOID WriteBattClock(ULONG time) (d0)
+==end

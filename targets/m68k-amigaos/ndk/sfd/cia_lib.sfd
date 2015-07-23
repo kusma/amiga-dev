@@ -1,0 +1,12 @@
+==id $Id: cia_lib.sfd 40.1 1996/05/17 19:13:47 olsen Exp olsen $
+==bias 6
+==public
+==include <exec/types.h>
+==include <exec/interrupts.h>
+==include <exec/libraries.h>
+struct Interrupt * AddICRVector(struct Library * resource, WORD iCRBit,
+	struct Interrupt * interrupt) (a6,d0,a1)
+VOID RemICRVector(struct Library * resource, WORD iCRBit, struct Interrupt * interrupt) (a6,d0,a1)
+WORD AbleICR(struct Library * resource, WORD mask) (a6,d0)
+WORD SetICR(struct Library * resource, WORD mask) (a6,d0)
+==end

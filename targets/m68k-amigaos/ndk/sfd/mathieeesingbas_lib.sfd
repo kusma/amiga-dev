@@ -1,0 +1,20 @@
+==id $Id: mathieeesingbas_lib.sfd 40.1 1996/05/17 19:13:47 olsen Exp olsen $
+==base _MathIeeeSingBasBase
+==basetype struct MathIEEEBase *
+==libname mathieeesingbas.library
+==bias 30
+==public
+==include <exec/types.h>
+LONG IEEESPFix(FLOAT parm) (d0)
+FLOAT IEEESPFlt(LONG integer) (d0)
+LONG IEEESPCmp(FLOAT leftParm, FLOAT rightParm) (d0,d1)
+LONG IEEESPTst(FLOAT parm) (d0)
+FLOAT IEEESPAbs(FLOAT parm) (d0)
+FLOAT IEEESPNeg(FLOAT parm) (d0)
+FLOAT IEEESPAdd(FLOAT leftParm, FLOAT rightParm) (d0,d1)
+FLOAT IEEESPSub(FLOAT leftParm, FLOAT rightParm) (d0,d1)
+FLOAT IEEESPMul(FLOAT leftParm, FLOAT rightParm) (d0,d1)
+FLOAT IEEESPDiv(FLOAT dividend, FLOAT divisor) (d0,d1)
+FLOAT IEEESPFloor(FLOAT parm) (d0)
+FLOAT IEEESPCeil(FLOAT parm) (d0)
+==end

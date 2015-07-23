@@ -1,0 +1,17 @@
+==copyright Copyright © 2001 Stephan Rupprecht
+==id $Id: virtual_lib.sfd 1.1 1999/10/06 10:13:25 olsen Exp olsen $
+==base _VirtualBase
+==basetype struct Library *
+==libname virtual.library
+==bias 30
+==public
+==include <intuition/intuition.h>
+==include <intuition/classes.h>
+==include <intuition/classusr.h>
+==include <gadgets/layout.h>
+Class * VIRTUAL_GetClass() ()
+VOID RefreshVirtualGadget(struct Gadget * gadget, Object * obj, struct Window * window,
+	struct Requester * requester) (a0,a1,a2,a3)
+BOOL RethinkVirtualSize(Object * virt_obj, Object * rootlayout, struct TextFont * font,
+	struct Screen * screen, struct LayoutLimits * layoutlimits) (a0,a1,a2,a3,d0)
+==end

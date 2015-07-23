@@ -1,0 +1,58 @@
+==id $Id: iffparse_lib.sfd 40.2 1998/06/06 12:43:53 olsen Exp olsen $
+==base _IFFParseBase
+==basetype struct Library *
+==libname iffparse.library
+==bias 30
+==public
+==include <exec/types.h>
+==include <libraries/iffparse.h>
+==include <utility/hooks.h>
+==version 36
+struct IFFHandle * AllocIFF() ()
+LONG OpenIFF(struct IFFHandle * iff, LONG rwMode) (a0,d0)
+LONG ParseIFF(struct IFFHandle * iff, LONG control) (a0,d0)
+VOID CloseIFF(struct IFFHandle * iff) (a0)
+VOID FreeIFF(struct IFFHandle * iff) (a0)
+LONG ReadChunkBytes(struct IFFHandle * iff, APTR buf, LONG numBytes) (a0,a1,d0)
+LONG WriteChunkBytes(struct IFFHandle * iff, const APTR buf, LONG numBytes) (a0,a1,d0)
+LONG ReadChunkRecords(struct IFFHandle * iff, APTR buf, LONG bytesPerRecord, LONG numRecords) (a0,a1,d0,d1)
+LONG WriteChunkRecords(struct IFFHandle * iff, const APTR buf, LONG bytesPerRecord,
+	LONG numRecords) (a0,a1,d0,d1)
+LONG PushChunk(struct IFFHandle * iff, LONG type, LONG id, LONG size) (a0,d0,d1,d2)
+LONG PopChunk(struct IFFHandle * iff) (a0)
+==reserve 1
+LONG EntryHandler(struct IFFHandle * iff, LONG type, LONG id, LONG position,
+	struct Hook * handler, APTR object) (a0,d0,d1,d2,a1,a2)
+LONG ExitHandler(struct IFFHandle * iff, LONG type, LONG id, LONG position,
+	struct Hook * handler, APTR object) (a0,d0,d1,d2,a1,a2)
+LONG PropChunk(struct IFFHandle * iff, LONG type, LONG id) (a0,d0,d1)
+LONG PropChunks(struct IFFHandle * iff, const LONG * propArray, LONG numPairs) (a0,a1,d0)
+LONG StopChunk(struct IFFHandle * iff, LONG type, LONG id) (a0,d0,d1)
+LONG StopChunks(struct IFFHandle * iff, const LONG * propArray, LONG numPairs) (a0,a1,d0)
+LONG CollectionChunk(struct IFFHandle * iff, LONG type, LONG id) (a0,d0,d1)
+LONG CollectionChunks(struct IFFHandle * iff, const LONG * propArray, LONG numPairs) (a0,a1,d0)
+LONG StopOnExit(struct IFFHandle * iff, LONG type, LONG id) (a0,d0,d1)
+struct StoredProperty * FindProp(const struct IFFHandle * iff, LONG type, LONG id) (a0,d0,d1)
+struct CollectionItem * FindCollection(const struct IFFHandle * iff, LONG type, LONG id) (a0,d0,d1)
+struct ContextNode * FindPropContext(const struct IFFHandle * iff) (a0)
+struct ContextNode * CurrentChunk(const struct IFFHandle * iff) (a0)
+struct ContextNode * ParentChunk(const struct ContextNode * contextNode) (a0)
+struct LocalContextItem * AllocLocalItem(LONG type, LONG id, LONG ident, LONG dataSize) (d0,d1,d2,d3)
+APTR LocalItemData(const struct LocalContextItem * localItem) (a0)
+VOID SetLocalItemPurge(struct LocalContextItem * localItem, const struct Hook * purgeHook) (a0,a1)
+VOID FreeLocalItem(struct LocalContextItem * localItem) (a0)
+struct LocalContextItem * FindLocalItem(const struct IFFHandle * iff, LONG type, LONG id,
+	LONG ident) (a0,d0,d1,d2)
+LONG StoreLocalItem(struct IFFHandle * iff, struct LocalContextItem * localItem,
+	LONG position) (a0,a1,d0)
+VOID StoreItemInContext(struct IFFHandle * iff, struct LocalContextItem * localItem,
+	struct ContextNode * contextNode) (a0,a1,a2)
+VOID InitIFF(struct IFFHandle * iff, LONG flags, const struct Hook * streamHook) (a0,d0,a1)
+VOID InitIFFasDOS(struct IFFHandle * iff) (a0)
+VOID InitIFFasClip(struct IFFHandle * iff) (a0)
+struct ClipboardHandle * OpenClipboard(LONG unitNumber) (d0)
+VOID CloseClipboard(struct ClipboardHandle * clipHandle) (a0)
+LONG GoodID(LONG id) (d0)
+LONG GoodType(LONG type) (d0)
+STRPTR IDtoStr(LONG id, STRPTR buf) (d0,a0)
+==end

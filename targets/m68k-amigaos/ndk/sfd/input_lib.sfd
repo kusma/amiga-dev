@@ -1,0 +1,10 @@
+==id $Id: input_lib.sfd 40.1 1996/05/17 19:13:47 olsen Exp olsen $
+==base _InputBase
+==basetype struct Device *
+==libname input.device
+==bias 42
+==public
+==include <exec/types.h>
+==version 36
+UWORD PeekQualifier() ()
+==end

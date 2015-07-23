@@ -1,0 +1,65 @@
+==id $Id: datatypes_lib.sfd 44.2 1999/04/21 19:32:30 olsen Exp olsen $
+==base _DataTypesBase
+==basetype struct Library *
+==libname datatypes.library
+==bias 30
+==public
+==include <exec/types.h>
+==include <exec/lists.h>
+==include <intuition/intuition.h>
+==include <intuition/classes.h>
+==include <intuition/classusr.h>
+==include <intuition/gadgetclass.h>
+==include <utility/tagitem.h>
+==include <datatypes/datatypesclass.h>
+==include <datatypes/datatypes.h>
+==include <rexx/storage.h>
+==version 40
+==reserve 1
+struct DataType * ObtainDataTypeA(ULONG type, APTR handle, struct TagItem * attrs) (d0,a0,a1)
+==varargs
+struct DataType * ObtainDataType(ULONG type, APTR handle, Tag attrs, ...) (d0,a0,a1)
+VOID ReleaseDataType(struct DataType * dt) (a0)
+Object * NewDTObjectA(APTR name, struct TagItem * attrs) (d0,a0)
+==varargs
+Object * NewDTObject(APTR name, Tag attrs, ...) (d0,a0)
+VOID DisposeDTObject(Object * o) (a0)
+ULONG SetDTAttrsA(Object * o, struct Window * win, struct Requester * req,
+	struct TagItem * attrs) (a0,a1,a2,a3)
+==varargs
+ULONG SetDTAttrs(Object * o, struct Window * win, struct Requester * req, Tag attrs,
+	...) (a0,a1,a2,a3)
+ULONG GetDTAttrsA(Object * o, struct TagItem * attrs) (a0,a2)
+==varargs
+ULONG GetDTAttrs(Object * o, Tag attrs, ...) (a0,a2)
+LONG AddDTObject(struct Window * win, struct Requester * req, Object * o, LONG pos) (a0,a1,a2,d0)
+VOID RefreshDTObjectA(Object * o, struct Window * win, struct Requester * req,
+	struct TagItem * attrs) (a0,a1,a2,a3)
+==varargs
+VOID RefreshDTObjects(Object * o, struct Window * win, struct Requester * req, Tag attrs, ...) (a0,a1,a2,a3)
+==varargs
+VOID RefreshDTObject(Object * o, struct Window * win, struct Requester * req, Tag attrs, ...) (a0,a1,a2,a3)
+ULONG DoAsyncLayout(Object * o, struct gpLayout * gpl) (a0,a1)
+ULONG DoDTMethodA(Object * o, struct Window * win, struct Requester * req, Msg msg) (a0,a1,a2,a3)
+==varargs
+ULONG DoDTMethod(Object * o, struct Window * win, struct Requester * req, ULONG msg,
+	...) (a0,a1,a2,a3)
+LONG RemoveDTObject(struct Window * win, Object * o) (a0,a1)
+ULONG * GetDTMethods(Object * object) (a0)
+struct DTMethods * GetDTTriggerMethods(Object * object) (a0)
+ULONG PrintDTObjectA(Object * o, struct Window * w, struct Requester * r,
+	struct dtPrint * msg) (a0,a1,a2,a3)
+==varargs
+ULONG PrintDTObject(Object * o, struct Window * w, struct Requester * r, ULONG msg, ...) (a0,a1,a2,a3)
+APTR ObtainDTDrawInfoA(Object * o, struct TagItem * attrs) (a0,a1)
+==varargs
+APTR ObtainDTDrawInfo(Object * o, Tag attrs, ...) (a0,a1)
+LONG DrawDTObjectA(struct RastPort * rp, Object * o, LONG x, LONG y, LONG w, LONG h,
+	LONG th, LONG tv, struct TagItem * attrs) (a0,a1,d0,d1,d2,d3,d4,d5,a2)
+==varargs
+LONG DrawDTObject(struct RastPort * rp, Object * o, LONG x, LONG y, LONG w, LONG h,
+	LONG th, LONG tv, Tag attrs, ...) (a0,a1,d0,d1,d2,d3,d4,d5,a2)
+VOID ReleaseDTDrawInfo(Object * o, APTR handle) (a0,a1)
+STRPTR GetDTString(ULONG id) (d0)
+==reserve 30
+==end

@@ -1,0 +1,10 @@
+==id $Id: glyph_lib.sfd 1.1 1999/10/06 10:13:25 olsen Exp olsen $
+==base _GlyphBase
+==basetype struct Library *
+==libname glyph.library
+==bias 30
+==public
+==include <intuition/intuition.h>
+==include <intuition/classes.h>
+Class * GLYPH_GetClass() ()
+==end

@@ -1,0 +1,21 @@
+==id $Id: mathffp_lib.sfd 40.1 1996/05/17 19:13:47 olsen Exp olsen $
+==base _MathBase
+==basetype struct Library *
+==libname mathffp.library
+==bias 30
+==public
+==include <exec/types.h>
+LONG SPFix(FLOAT parm) (d0)
+FLOAT SPFlt(LONG integer) (d0)
+LONG SPCmp(FLOAT leftParm, FLOAT rightParm) (d1,d0)
+LONG SPTst(FLOAT parm) (d1)
+FLOAT SPAbs(FLOAT parm) (d0)
+FLOAT SPNeg(FLOAT parm) (d0)
+FLOAT SPAdd(FLOAT leftParm, FLOAT rightParm) (d1,d0)
+FLOAT SPSub(FLOAT leftParm, FLOAT rightParm) (d1,d0)
+FLOAT SPMul(FLOAT leftParm, FLOAT rightParm) (d1,d0)
+FLOAT SPDiv(FLOAT leftParm, FLOAT rightParm) (d1,d0)
+==version 33
+FLOAT SPFloor(FLOAT parm) (d0)
+FLOAT SPCeil(FLOAT parm) (d0)
+==end

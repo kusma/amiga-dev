@@ -1,0 +1,59 @@
+==id $Id: wb_lib.sfd 44.5 1999/06/21 10:59:00 olsen Exp $
+==base _WorkbenchBase
+==basetype struct Library *
+==libname workbench.library
+==bias 30
+==public
+==include <exec/types.h>
+==include <dos/dos.h>
+==include <workbench/workbench.h>
+==include <intuition/intuition.h>
+==include <utility/tagitem.h>
+==version 36
+==reserve 3
+struct AppWindow * AddAppWindowA(ULONG id, ULONG userdata, struct Window * window,
+	struct MsgPort * msgport, struct TagItem * taglist) (d0,d1,a0,a1,a2)
+==varargs
+struct AppWindow * AddAppWindow(ULONG id, ULONG userdata, struct Window * window,
+	struct MsgPort * msgport, Tag taglist, ...) (d0,d1,a0,a1,a2)
+BOOL RemoveAppWindow(struct AppWindow * appWindow) (a0)
+struct AppIcon * AddAppIconA(ULONG id, ULONG userdata, UBYTE * text,
+	struct MsgPort * msgport, BPTR lock,
+	struct DiskObject * diskobj, struct TagItem * taglist) (d0,d1,a0,a1,a2,a3,a4)
+==varargs
+struct AppIcon * AddAppIcon(ULONG id, ULONG userdata, UBYTE * text,
+	struct MsgPort * msgport, BPTR lock,
+	struct DiskObject * diskobj, Tag taglist, ...) (d0,d1,a0,a1,a2,a3,a4)
+BOOL RemoveAppIcon(struct AppIcon * appIcon) (a0)
+struct AppMenuItem * AddAppMenuItemA(ULONG id, ULONG userdata, UBYTE * text,
+	struct MsgPort * msgport, struct TagItem * taglist) (d0,d1,a0,a1,a2)
+==varargs
+struct AppMenuItem * AddAppMenuItem(ULONG id, ULONG userdata, UBYTE * text,
+	struct MsgPort * msgport, Tag taglist, ...) (d0,d1,a0,a1,a2)
+BOOL RemoveAppMenuItem(struct AppMenuItem * appMenuItem) (a0)
+==version 39
+==reserve 1
+VOID WBInfo(BPTR lock, STRPTR name, struct Screen * screen) (a0,a1,a2)
+==version 44
+BOOL OpenWorkbenchObjectA(STRPTR name, struct TagItem * tags) (a0,a1)
+==varargs
+BOOL OpenWorkbenchObject(STRPTR name, ...) (a0,a1)
+BOOL CloseWorkbenchObjectA(STRPTR name, struct TagItem * tags) (a0,a1)
+==varargs
+BOOL CloseWorkbenchObject(STRPTR name, ...) (a0,a1)
+BOOL WorkbenchControlA(STRPTR name, struct TagItem * tags) (a0,a1)
+==varargs
+BOOL WorkbenchControl(STRPTR name, ...) (a0,a1)
+struct AppWindowDropZone * AddAppWindowDropZoneA(struct AppWindow * aw, ULONG id, ULONG userdata,
+	struct TagItem * tags) (a0,d0,d1,a1)
+==varargs
+struct AppWindowDropZone * AddAppWindowDropZone(struct AppWindow * aw, ULONG id, ULONG userdata,
+	...) (a0,d0,d1,a1)
+BOOL RemoveAppWindowDropZone(struct AppWindow * aw, struct AppWindowDropZone * dropZone) (a0,a1)
+BOOL ChangeWorkbenchSelectionA(STRPTR name, struct Hook * hook, struct TagItem * tags) (a0,a1,a2)
+==varargs
+BOOL ChangeWorkbenchSelection(STRPTR name, struct Hook * hook, ...) (a0,a1,a2)
+BOOL MakeWorkbenchObjectVisibleA(STRPTR name, struct TagItem * tags) (a0,a1)
+==varargs
+BOOL MakeWorkbenchObjectVisible(STRPTR name, ...) (a0,a1)
+==end

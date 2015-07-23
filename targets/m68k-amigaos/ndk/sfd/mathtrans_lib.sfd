@@ -1,0 +1,26 @@
+==id $Id: mathtrans_lib.sfd 40.1 1996/05/17 19:13:47 olsen Exp olsen $
+==base _MathTransBase
+==basetype struct Library *
+==libname mathtrans.library
+==bias 30
+==public
+==include <exec/types.h>
+FLOAT SPAtan(FLOAT parm) (d0)
+FLOAT SPSin(FLOAT parm) (d0)
+FLOAT SPCos(FLOAT parm) (d0)
+FLOAT SPTan(FLOAT parm) (d0)
+FLOAT SPSincos(FLOAT * cosResult, FLOAT parm) (d1,d0)
+FLOAT SPSinh(FLOAT parm) (d0)
+FLOAT SPCosh(FLOAT parm) (d0)
+FLOAT SPTanh(FLOAT parm) (d0)
+FLOAT SPExp(FLOAT parm) (d0)
+FLOAT SPLog(FLOAT parm) (d0)
+FLOAT SPPow(FLOAT power, FLOAT arg) (d1,d0)
+FLOAT SPSqrt(FLOAT parm) (d0)
+FLOAT SPTieee(FLOAT parm) (d0)
+FLOAT SPFieee(FLOAT parm) (d0)
+==version 31
+FLOAT SPAsin(FLOAT parm) (d0)
+FLOAT SPAcos(FLOAT parm) (d0)
+FLOAT SPLog10(FLOAT parm) (d0)
+==end

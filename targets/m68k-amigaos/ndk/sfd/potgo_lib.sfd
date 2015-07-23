@@ -1,0 +1,11 @@
+==id $Id: potgo_lib.sfd 40.1 1996/05/17 19:13:47 olsen Exp olsen $
+==base _PotgoBase
+==basetype struct Library *
+==libname potgo.resource
+==bias 6
+==public
+==include <exec/types.h>
+UWORD AllocPotBits(UWORD bits) (d0)
+VOID FreePotBits(UWORD bits) (d0)
+VOID WritePotgo(UWORD word, UWORD mask) (d0,d1)
+==end

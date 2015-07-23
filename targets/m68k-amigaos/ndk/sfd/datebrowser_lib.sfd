@@ -1,0 +1,13 @@
+==id $Id: datebrowser_lib.sfd 1.1 1999/10/06 10:13:25 olsen Exp olsen $
+==base _DateBrowserBase
+==basetype struct Library *
+==libname datebrowser.library
+==bias 30
+==public
+==include <intuition/intuition.h>
+==include <intuition/classes.h>
+Class * DATEBROWSER_GetClass() ()
+UWORD JulianWeekDay(UWORD day, UWORD month, LONG year) (d0,d1,d2)
+UWORD JulianMonthDays(UWORD month, LONG year) (d0,d1)
+BOOL JulianLeapYear(LONG year) (d0)
+==end

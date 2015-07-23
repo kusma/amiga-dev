@@ -1,0 +1,12 @@
+==id $Id: battmem_lib.sfd 40.1 1996/05/17 19:13:47 olsen Exp olsen $
+==base _BattMemBase
+==basetype struct Library *
+==libname battmem.resource
+==bias 6
+==public
+==include <exec/types.h>
+VOID ObtainBattSemaphore() ()
+VOID ReleaseBattSemaphore() ()
+ULONG ReadBattMem(APTR buffer, ULONG offset, ULONG length) (a0,d0,d1)
+ULONG WriteBattMem(const APTR buffer, ULONG offset, ULONG length) (a0,d0,d1)
+==end

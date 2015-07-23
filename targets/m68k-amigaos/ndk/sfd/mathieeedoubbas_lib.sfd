@@ -1,0 +1,21 @@
+==id $Id: mathieeedoubbas_lib.sfd 40.1 1996/05/17 19:13:47 olsen Exp olsen $
+==base _MathIeeeDoubBasBase
+==basetype struct MathIEEEBase *
+==libname mathieeedoubbas.library
+==bias 30
+==public
+==include <exec/types.h>
+LONG IEEEDPFix(DOUBLE parm) (d0-d1)
+DOUBLE IEEEDPFlt(LONG integer) (d0)
+LONG IEEEDPCmp(DOUBLE leftParm, DOUBLE rightParm) (d0-d1,d2-d3)
+LONG IEEEDPTst(DOUBLE parm) (d0-d1)
+DOUBLE IEEEDPAbs(DOUBLE parm) (d0-d1)
+DOUBLE IEEEDPNeg(DOUBLE parm) (d0-d1)
+DOUBLE IEEEDPAdd(DOUBLE leftParm, DOUBLE rightParm) (d0-d1,d2-d3)
+DOUBLE IEEEDPSub(DOUBLE leftParm, DOUBLE rightParm) (d0-d1,d2-d3)
+DOUBLE IEEEDPMul(DOUBLE factor1, DOUBLE factor2) (d0-d1,d2-d3)
+DOUBLE IEEEDPDiv(DOUBLE dividend, DOUBLE divisor) (d0-d1,d2-d3)
+==version 33
+DOUBLE IEEEDPFloor(DOUBLE parm) (d0-d1)
+DOUBLE IEEEDPCeil(DOUBLE parm) (d0-d1)
+==end

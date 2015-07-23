@@ -1,0 +1,34 @@
+==id $Id: lowlevel_lib.sfd 40.1 1996/05/17 19:13:47 olsen Exp olsen $
+==base _LowLevelBase
+==basetype struct Library *
+==libname lowlevel.library
+==bias 30
+==public
+==include <exec/types.h>
+==include <exec/interrupts.h>
+==include <utility/tagitem.h>
+==include <devices/timer.h>
+==include <libraries/lowlevel.h>
+==version 40
+ULONG ReadJoyPort(ULONG port) (d0)
+UBYTE GetLanguageSelection() ()
+==reserve 1
+ULONG GetKey() ()
+VOID QueryKeys(struct KeyQuery * queryArray, UBYTE arraySize) (a0,d1)
+APTR AddKBInt(const APTR intRoutine, const APTR intData) (a0,a1)
+VOID RemKBInt(APTR intHandle) (a1)
+ULONG SystemControlA(const struct TagItem * tagList) (a1)
+==varargs
+ULONG SystemControl(Tag tagList, ...) (a1)
+APTR AddTimerInt(const APTR intRoutine, const APTR intData) (a0,a1)
+VOID RemTimerInt(APTR intHandle) (a1)
+VOID StopTimerInt(APTR intHandle) (a1)
+VOID StartTimerInt(APTR intHandle, ULONG timeInterval, BOOL continuous) (a1,d0,d1)
+ULONG ElapsedTime(struct EClockVal * context) (a0)
+APTR AddVBlankInt(const APTR intRoutine, const APTR intData) (a0,a1)
+VOID RemVBlankInt(APTR intHandle) (a1)
+==reserve 2
+BOOL SetJoyPortAttrsA(ULONG portNumber, const struct TagItem * tagList) (d0,a1)
+==varargs
+BOOL SetJoyPortAttrs(ULONG portNumber, Tag tagList, ...) (d0,a1)
+==end

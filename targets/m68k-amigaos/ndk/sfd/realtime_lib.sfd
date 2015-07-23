@@ -1,0 +1,27 @@
+==id $Id: realtime_lib.sfd 40.1 1996/05/17 19:13:47 olsen Exp olsen $
+==base _RealTimeBase
+==basetype struct RealTimeBase *
+==libname realtime.library
+==bias 30
+==public
+==include <exec/types.h>
+==include <libraries/realtime.h>
+==include <utility/tagitem.h>
+==version 37
+APTR LockRealTime(ULONG lockType) (d0)
+VOID UnlockRealTime(APTR lock) (a0)
+struct Player * CreatePlayerA(const struct TagItem * tagList) (a0)
+==varargs
+struct Player * CreatePlayer(Tag tagList, ...) (a0)
+VOID DeletePlayer(struct Player * player) (a0)
+BOOL SetPlayerAttrsA(struct Player * player, const struct TagItem * tagList) (a0,a1)
+==varargs
+BOOL SetPlayerAttrs(struct Player * player, Tag tagList, ...) (a0,a1)
+LONG SetConductorState(struct Player * player, ULONG state, LONG time) (a0,d0,d1)
+BOOL ExternalSync(struct Player * player, LONG minTime, LONG maxTime) (a0,d0,d1)
+struct Conductor * NextConductor(const struct Conductor * previousConductor) (a0)
+struct Conductor * FindConductor(CONST_STRPTR name) (a0)
+ULONG GetPlayerAttrsA(const struct Player * player, const struct TagItem * tagList) (a0,a1)
+==varargs
+ULONG GetPlayerAttrs(const struct Player * player, Tag tagList, ...) (a0,a1)
+==end

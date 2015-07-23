@@ -1,0 +1,12 @@
+==id $Id: ramdrive_lib.sfd 40.1 1996/05/17 19:13:47 olsen Exp olsen $
+==base _RamdriveDevice
+==basetype struct Device *
+==libname ramdrive.device
+==bias 42
+==public
+==include <exec/types.h>
+==version 34
+STRPTR KillRAD0() ()
+==version 36
+STRPTR KillRAD(ULONG unit) (d0)
+==end

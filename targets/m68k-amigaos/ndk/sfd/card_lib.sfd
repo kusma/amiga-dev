@@ -1,0 +1,28 @@
+==id $Id: cardres_lib.sfd 40.1 1996/05/17 19:13:47 olsen Exp olsen $
+==base _CardResource
+==basetype struct Library *
+==libname card.resource
+==bias 6
+==public
+==include <exec/types.h>
+==include <exec/resident.h>
+==include <resources/card.h>
+struct CardHandle * OwnCard(struct CardHandle * handle) (a1)
+VOID ReleaseCard(struct CardHandle * handle, ULONG flags) (a1,d0)
+struct CardMemoryMap * GetCardMap() ()
+BOOL BeginCardAccess(struct CardHandle * handle) (a1)
+BOOL EndCardAccess(struct CardHandle * handle) (a1)
+UBYTE ReadCardStatus() ()
+BOOL CardResetRemove(struct CardHandle * handle, ULONG flag) (a1,d0)
+UBYTE CardMiscControl(struct CardHandle * handle, UBYTE control_bits) (a1,d1)
+ULONG CardAccessSpeed(struct CardHandle * handle, ULONG nanoseconds) (a1,d0)
+LONG CardProgramVoltage(struct CardHandle * handle, ULONG voltage) (a1,d0)
+BOOL CardResetCard(struct CardHandle * handle) (a1)
+BOOL CopyTuple(const struct CardHandle * handle, UBYTE * buffer, ULONG tuplecode,
+	ULONG size) (a1,a0,d1,d0)
+ULONG DeviceTuple(const UBYTE * tuple_data, struct DeviceTData * storage) (a0,a1)
+struct Resident * IfAmigaXIP(const struct CardHandle * handle) (a2)
+BOOL CardForceChange() ()
+ULONG CardChangeCount() ()
+ULONG CardInterface() ()
+==end

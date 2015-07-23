@@ -1,0 +1,20 @@
+==id $Id: popcycle_lib.sfd 1.1 1999/10/06 10:13:25 olsen Exp olsen $
+==base _PopCycleBase
+==basetype struct Library *
+==libname popcycle.library
+==bias 30
+==public
+==include <intuition/intuition.h>
+==include <intuition/classes.h>
+Class * POPCYCLE_GetClass() ()
+struct Node * AllocPopCycleNodeA(struct TagItem * tags) (a0)
+==varargs
+struct Node * AllocPopCycleNode(Tag tags, ...) (a0)
+VOID FreePopCycleNode(struct Node * node) (a0)
+VOID SetPopCycleNodeAttrsA(struct Node * node, struct TagItem * tags) (a0,a1)
+==varargs
+VOID SetPopCycleNodeAttrs(struct Node * node, ...) (a0,a1)
+VOID GetPopCycleNodeAttrsA(struct Node * node, struct TagItem * tags) (a0,a1)
+==varargs
+VOID GetPopCycleNodeAttrs(struct Node * node, ...) (a0,a1)
+==end
