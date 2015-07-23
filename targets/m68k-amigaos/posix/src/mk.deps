@@ -1,0 +1,413 @@
+$D/fdesc.o: fdesc.c fdesc.h bsdsocket.h
+	$(DO_CC)
+
+$D/convfile.o: convfile.c
+	$(DO_CC)
+
+$D/convpatt.o: convpatt.c
+	$(DO_CC)
+
+$D/prot.o: prot.c
+	$(DO_CC)
+
+$D/fib2stat.o: fib2stat.c prot.h
+	$(DO_CC)
+
+$D/open.o: open.c fdesc.h conv.h prot.h
+	$(DO_CC)
+
+$D/creat.o: creat.c
+	$(DO_CC)
+
+$D/fcntl.o: fcntl.c fdesc.h
+	$(DO_CC)
+
+$D/close.o: close.c fdesc.h
+	$(DO_CC)
+
+$D/getdtablesize.o: getdtablesize.c fdesc.h
+	$(DO_CC)
+
+$D/dup.o: dup.c fdesc.h
+	$(DO_CC)
+
+$D/dup2.o: dup2.c fdesc.h
+	$(DO_CC)
+
+$D/getcwd.o: getcwd.c
+	$(DO_CC)
+
+$D/chdir.o: chdir.c conv.h currentdir.h
+	$(DO_CC)
+
+$D/fchdir.o: fchdir.c fdesc.h currentdir.h
+	$(DO_CC)
+
+$D/access.o: access.c conv.h
+	$(DO_CC)
+
+$D/read.o: read.c fdesc.h bsdsocket.h
+	$(DO_CC)
+
+$D/write.o: write.c fdesc.h bsdsocket.h
+	$(DO_CC)
+
+$D/unlink.o: unlink.c conv.h
+	$(DO_CC)
+
+$D/rmdir.o: rmdir.c conv.h
+	$(DO_CC)
+
+$D/chmod.o: chmod.c conv.h prot.h
+	$(DO_CC)
+
+$D/mkdir.o: mkdir.c conv.h prot.h
+	$(DO_CC)
+
+$D/lseek.o: lseek.c fdesc.h
+	$(DO_CC)
+
+$D/stat.o: stat.c conv.h fib2stat.h
+	$(DO_CC)
+
+$D/fstat.o: fstat.c fdesc.h fib2stat.h sockstat.h
+	$(DO_CC)
+
+$D/glob.o: glob.c conv.h
+	$(DO_CC)
+
+$D/fnmatch.o: fnmatch.c conv.h
+	$(DO_CC)
+
+$D/getopt.o: getopt.c
+	$(DO_CC)
+
+$D/dir.o: dir.c conv.h
+	$(DO_CC)
+
+$D/isatty.o: isatty.c fdesc.h
+	$(DO_CC)
+
+$D/utime.o: utime.c conv.h fdesc.h
+	$(DO_CC)
+
+$D/chown.o: chown.c conv.h
+	$(DO_CC)
+
+$D/fchown.o: fchown.c fdesc.h
+	$(DO_CC)
+
+$D/getid.o: getid.c
+	$(DO_CC)
+
+$D/setid.o: setid.c
+	$(DO_CC)
+
+$D/sleep.o: sleep.c
+	$(DO_CC)
+
+$D/strcasecmp.o: strcasecmp.c
+	$(DO_CC)
+
+$D/strncasecmp.o: strncasecmp.c
+	$(DO_CC)
+
+$D/bzero.o: bzero.c
+	$(DO_CC)
+
+$D/bcmp.o: bcmp.c
+	$(DO_CC)
+
+$D/bcopy.o: bcopy.c
+	$(DO_CC)
+
+$D/ffs.o: ffs.c
+	$(DO_CC)
+
+$D/index.o: index.c
+	$(DO_CC)
+
+$D/rindex.o: rindex.c
+	$(DO_CC)
+
+$D/timeofday.o: timeofday.c
+	$(DO_CC)
+
+$D/strdup.o: strdup.c
+	$(DO_CC)
+
+$D/info2statfs.o: info2statfs.c
+	$(DO_CC)
+
+$D/statfs.o: statfs.c
+	$(DO_CC)
+
+$D/fstatfs.o: fstatfs.c fdesc.h
+	$(DO_CC)
+
+$D/getpid.o: getpid.c
+	$(DO_CC)
+
+$D/getppid.o: getppid.c
+	$(DO_CC)
+
+$D/kill.o: kill.c
+	$(DO_CC)
+
+$D/killpg.o: killpg.c
+	$(DO_CC)
+
+$D/fopen.o: fopen.c fdesc.h
+	$(DO_CC)
+
+$D/freopen.o: freopen.c fdesc.h
+	$(DO_CC)
+
+$D/fdopen.o: fdopen.c fdesc.h
+	$(DO_CC)
+
+$D/fclose.o: fclose.c fdesc.h
+	$(DO_CC)
+
+$D/fileno.o: fileno.c fdesc.h
+	$(DO_CC)
+
+$D/pclose.o: pclose.c
+	$(DO_CC)
+
+$D/popen.o: popen.c conv.h
+	$(DO_CC)
+
+$D/link.o: link.c conv.h
+	$(DO_CC)
+
+$D/symlink.o: symlink.c conv.h
+	$(DO_CC)
+
+$D/mktemp.o: mktemp.c conv.h
+	$(DO_CC)
+
+$D/tzset.o: tzset.c
+	$(DO_CC)
+
+$D/fchmod.o: fchmod.c fdesc.h prot.h
+	$(DO_CC)
+
+$D/bsdsocket.o: bsdsocket.c fdesc.h bsdsocket.h
+	$(DO_CC)
+
+$D/socket.o: socket.c fdesc.h bsdsocket.h
+	$(DO_CC)
+
+$D/accept.o: accept.c bsdsocket.h
+	$(DO_CC)
+
+$D/bind.o: bind.c bsdsocket.h
+	$(DO_CC)
+
+$D/connect.o: connect.c bsdsocket.h
+	$(DO_CC)
+
+$D/getpeername.o: getpeername.c bsdsocket.h
+	$(DO_CC)
+
+$D/getsockname.o: getsockname.c bsdsocket.h
+	$(DO_CC)
+
+$D/getsockopt.o: getsockopt.c bsdsocket.h
+	$(DO_CC)
+
+$D/listen.o: listen.c bsdsocket.h
+	$(DO_CC)
+
+$D/recv.o: recv.c bsdsocket.h
+	$(DO_CC)
+
+$D/recvfrom.o: recvfrom.c bsdsocket.h
+	$(DO_CC)
+
+$D/recvmsg.o: recvmsg.c bsdsocket.h
+	$(DO_CC)
+
+$D/send.o: send.c bsdsocket.h
+	$(DO_CC)
+
+$D/sendto.o: sendto.c bsdsocket.h
+	$(DO_CC)
+
+$D/sendmsg.o: sendmsg.c bsdsocket.h
+	$(DO_CC)
+
+$D/setsockopt.o: setsockopt.c bsdsocket.h
+	$(DO_CC)
+
+$D/shutdown.o: shutdown.c bsdsocket.h
+	$(DO_CC)
+
+$D/gethostbyaddr.o: gethostbyaddr.c bsdsocket.h
+	$(DO_CC)
+
+$D/gethostbyname.o: gethostbyname.c bsdsocket.h
+	$(DO_CC)
+
+$D/getnetbyaddr.o: getnetbyaddr.c bsdsocket.h
+	$(DO_CC)
+
+$D/getnetbyname.o: getnetbyname.c bsdsocket.h
+	$(DO_CC)
+
+$D/getprotobyname.o: getprotobyname.c bsdsocket.h
+	$(DO_CC)
+
+$D/getprotobynumber.o: getprotobynumber.c bsdsocket.h
+	$(DO_CC)
+
+$D/getservbyname.o: getservbyname.c bsdsocket.h
+	$(DO_CC)
+
+$D/getservbyport.o: getservbyport.c bsdsocket.h
+	$(DO_CC)
+
+$D/select.o: select.c bsdsocket.h fdesc.h
+	$(DO_CC)
+
+$D/gethostname.o: gethostname.c bsdsocket.h
+	$(DO_CC)
+
+$D/gethostid.o: gethostid.c bsdsocket.h
+	$(DO_CC)
+
+$D/inet_addr.o: inet_addr.c bsdsocket.h
+	$(DO_CC)
+
+$D/inet_network.o: inet_network.c bsdsocket.h
+	$(DO_CC)
+
+$D/inet_lnaof.o: inet_lnaof.c bsdsocket.h
+	$(DO_CC)
+
+$D/inet_makeaddr.o: inet_makeaddr.c bsdsocket.h
+	$(DO_CC)
+
+$D/inet_netof.o: inet_netof.c bsdsocket.h
+	$(DO_CC)
+
+$D/inet_ntoa.o: inet_ntoa.c bsdsocket.h
+	$(DO_CC)
+
+$D/getpass.o: getpass.c
+	$(DO_CC)
+
+$D/progname.o: progname.c
+	$(DO_CC)
+
+$D/err.o: err.c
+	$(DO_CC)
+
+$D/rename.o: rename.c conv.h
+	$(DO_CC)
+
+$D/getenv.o: getenv.c
+	$(DO_CC)
+
+$D/currentdir.o: currentdir.c
+	$(DO_CC)
+
+$D/getlogin.o: getlogin.c
+	$(DO_CC)
+
+$D/getpwnam.o: getpwnam.c
+	$(DO_CC)
+
+$D/getpwent.o: getpwent.c
+	$(DO_CC)
+
+$D/getgrnam.o: getgrnam.c
+	$(DO_CC)
+
+$D/getgrent.o: getgrent.c
+	$(DO_CC)
+
+$D/random.o: random.c
+	$(DO_CC)
+
+$D/hypot.o: hypot.c math_private.h
+	$(DO_CC)
+
+$D/basename.o: basename.c
+	$(DO_CC)
+
+$D/dirname.o: dirname.c
+	$(DO_CC)
+
+$D/fsync.o: fsync.c fdesc.h
+	$(DO_CC)
+
+$D/usleep.o: usleep.c
+	$(DO_CC)
+
+$D/ioctl.o: ioctl.c fdesc.h bsdsocket.h
+	$(DO_CC)
+
+$D/closesocket.o: closesocket.c bsdsocket.h
+	$(DO_CC)
+
+$D/socket2fd.o: socket2fd.c fdesc.h bsdsocket.h
+	$(DO_CC)
+
+$D/socketselect.o: socketselect.c bsdsocket.h
+	$(DO_CC)
+
+$D/strlcat.o: strlcat.c
+	$(DO_CC)
+
+$D/strlcpy.o: strlcpy.c
+	$(DO_CC)
+
+$D/strsep.o: strsep.c
+	$(DO_CC)
+
+$D/flock.o: flock.c fdesc.h
+	$(DO_CC)
+
+$D/scandir.o: scandir.c
+	$(DO_CC)
+
+$D/rand.o: rand.c
+	$(DO_CC)
+
+$D/_stdio.o: _stdio.c fdesc.h
+	$(DO_CC)
+
+$D/strcoll.o: strcoll.c
+	$(DO_CC)
+
+$D/setenv.o: setenv.c
+	$(DO_CC)
+
+$D/unsetenv.o: unsetenv.c
+	$(DO_CC)
+
+$D/fgetln.o: fgetln.c fdesc.h
+	$(DO_CC)
+
+$D/getcap.o: getcap.c
+	$(DO_CC)
+
+$D/termcap.o: termcap.c termcap_private.h
+	$(DO_CC)
+
+$D/tgoto.o: tgoto.c termcap_private.h
+	$(DO_CC)
+
+$D/tputs.o: tputs.c
+	$(DO_CC)
+
+$D/asprintf.o: asprintf.c
+	$(DO_CC)
+
+$D/vasprintf.o: vasprintf.c
+	$(DO_CC)
+
+$D/sockstat.o: sockstat.c
+	$(DO_CC)

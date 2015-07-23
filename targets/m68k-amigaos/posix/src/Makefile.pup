@@ -1,0 +1,21 @@
+D = PowerUp
+CC = vc +powerup
+COPTS = -c99 -O1 -Iinclude -DNO_INLINE_STDARG
+DO_CC = $(CC) $(COPTS) -o $@ -c $<
+
+include mk.files
+
+
+all: $D/libposix.a
+
+$D/libposix.a: $(OBJS1) $(OBJS2) $(OBJS3) $(OBJS4) $(OBJS5) $(OBJS6) $(OBJS7)
+	delete force quiet $@
+	ar q $@ $(OBJS1)
+	ar q $@ $(OBJS2)
+	ar q $@ $(OBJS3)
+	ar q $@ $(OBJS4)
+	ar q $@ $(OBJS5)
+	ar q $@ $(OBJS6)
+	ar q $@ $(OBJS7)
+
+include mk.deps
