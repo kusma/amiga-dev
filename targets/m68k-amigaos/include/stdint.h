@@ -1,5 +1,5 @@
-#ifndef __SDTINT_H
-#define __SDTINT_H 1
+#ifndef __STDINT_H
+#define __STDINT_H 1
 
 typedef signed char int8_t;
 typedef signed short int16_t;
