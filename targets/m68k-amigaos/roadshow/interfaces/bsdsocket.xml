@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE library SYSTEM "library.dtd">
+<library name="bsdsocket" basename="SocketBase" openname="bsdsocket.library">
+	<include>exec/lists.h</include>
+	<include>devices/timer.h</include>
+	<include>utility/tagitem.h</include>
+	<include>utility/hooks.h</include>
+	<include>netinet/in.h</include>
+	<include>sys/socket.h</include>
+	<include>sys/mbuf.h</include>
+	<include>net/route.h</include>
+	<include>netdb.h</include>
+	<include>libraries/bsdsocket.h</include>
+	<include>dos/dosextens.h</include>
+	<interface name="main" version="1.0" struct="SocketIFace" prefix="_Socket_" asmprefix="ISocket" global="ISocket">
+		<method name="Obtain" result="ULONG"/>
+		<method name="Release" result="ULONG"/>
+		<method name="Expunge" result="void" status="unimplemented"/>
+		<method name="Clone" result="struct Interface *" status="unimplemented"/>
+		<method name="socket" result="LONG">
+			<arg name="domain" type="LONG"/>
+			<arg name="type" type="LONG"/>
+			<arg name="protocol" type="LONG"/>
+		</method>
+		<method name="bind" result="LONG">
+			<arg name="sock" type="LONG"/>
+			<arg name="name" type="struct sockaddr *"/>
+			<arg name="namelen" type="socklen_t"/>
+		</method>
+		<method name="listen" result="LONG">
+			<arg name="sock" type="LONG"/>
+			<arg name="backlog" type="LONG"/>
+		</method>
+		<method name="accept" result="LONG">
+			<arg name="sock" type="LONG"/>
+			<arg name="addr" type="struct sockaddr *"/>
+			<arg name="addrlen" type="socklen_t *"/>
+		</method>
+		<method name="connect" result="LONG">
+			<arg name="sock" type="LONG"/>
+			<arg name="name" type="struct sockaddr *"/>
+			<arg name="namelen" type="socklen_t"/>
+		</method>
+		<method name="sendto" result="LONG">
+			<arg name="sock" type="LONG"/>
+			<arg name="buf" type="APTR"/>
+			<arg name="len" type="LONG"/>
+			<arg name="flags" type="LONG"/>
+			<arg name="to" type="struct sockaddr *"/>
+			<arg name="tolen" type="socklen_t"/>
+		</method>
+		<method name="send" result="LONG">
+			<arg name="sock" type="LONG"/>
+			<arg name="buf" type="APTR"/>
+			<arg name="len" type="LONG"/>
+			<arg name="flags" type="LONG"/>
+		</method>
+		<method name="recvfrom" result="LONG">
+			<arg name="sock" type="LONG"/>
+			<arg name="buf" type="APTR"/>
+			<arg name="len" type="LONG"/>
+			<arg name="flags" type="LONG"/>
+			<arg name="addr" type="struct sockaddr *"/>
+			<arg name="addrlen" type="socklen_t *"/>
+		</method>
+		<method name="recv" result="LONG">
+			<arg name="sock" type="LONG"/>
+			<arg name="buf" type="APTR"/>
+			<arg name="len" type="LONG"/>
+			<arg name="flags" type="LONG"/>
+		</method>
+		<method name="shutdown" result="LONG">
+			<arg name="sock" type="LONG"/>
+			<arg name="how" type="LONG"/>
+		</method>
+		<method name="setsockopt" result="LONG">
+			<arg name="sock" type="LONG"/>
+			<arg name="level" type="LONG"/>
+			<arg name="optname" type="LONG"/>
+			<arg name="optval" type="APTR"/>
+			<arg name="optlen" type="socklen_t"/>
+		</method>
+		<method name="getsockopt" result="LONG">
+			<arg name="sock" type="LONG"/>
+			<arg name="level" type="LONG"/>
+			<arg name="optname" type="LONG"/>
+			<arg name="optval" type="APTR"/>
+			<arg name="optlen" type="socklen_t *"/>
+		</method>
+		<method name="getsockname" result="LONG">
+			<arg name="sock" type="LONG"/>
+			<arg name="name" type="struct sockaddr *"/>
+			<arg name="namelen" type="socklen_t *"/>
+		</method>
+		<method name="getpeername" result="LONG">
+			<arg name="sock" type="LONG"/>
+			<arg name="name" type="struct sockaddr *"/>
+			<arg name="namelen" type="socklen_t *"/>
+		</method>
+		<method name="IoctlSocket" result="LONG">
+			<arg name="sock" type="LONG"/>
+			<arg name="req" type="ULONG"/>
+			<arg name="argp" type="APTR"/>
+		</method>
+		<method name="CloseSocket" result="LONG">
+			<arg name="sock" type="LONG"/>
+		</method>
+		<method name="WaitSelect" result="LONG">
+			<arg name="nfds" type="LONG"/>
+			<arg name="read_fds" type="APTR"/>
+			<arg name="write_fds" type="APTR"/>
+			<arg name="except_fds" type="APTR"/>
+			<arg name="_timeout" type="struct timeval *"/>
+			<arg name="signals" type="ULONG *"/>
+		</method>
+		<method name="SetSocketSignals" result="VOID">
+			<arg name="int_mask" type="ULONG"/>
+			<arg name="io_mask" type="ULONG"/>
+			<arg name="urgent_mask" type="ULONG"/>
+		</method>
+		<method name="getdtablesize" result="LONG">
+		</method>
+		<method name="ObtainSocket" result="LONG">
+			<arg name="id" type="LONG"/>
+			<arg name="domain" type="LONG"/>
+			<arg name="type" type="LONG"/>
+			<arg name="protocol" type="LONG"/>
+		</method>
+		<method name="ReleaseSocket" result="LONG">
+			<arg name="sock" type="LONG"/>
+			<arg name="id" type="LONG"/>
+		</method>
+		<method name="ReleaseCopyOfSocket" result="LONG">
+			<arg name="sock" type="LONG"/>
+			<arg name="id" type="LONG"/>
+		</method>
+		<method name="Errno" result="LONG">
+		</method>
+		<method name="SetErrnoPtr" result="VOID">
+			<arg name="errno_ptr" type="APTR"/>
+			<arg name="size" type="LONG"/>
+		</method>
+		<method name="Inet_NtoA" result="STRPTR">
+			<arg name="ip" type="in_addr_t"/>
+		</method>
+		<method name="inet_addr" result="in_addr_t">
+			<arg name="cp" type="STRPTR"/>
+		</method>
+		<method name="Inet_LnaOf" result="in_addr_t">
+			<arg name="in" type="in_addr_t"/>
+		</method>
+		<method name="Inet_NetOf" result="in_addr_t">
+			<arg name="in" type="in_addr_t"/>
+		</method>
+		<method name="Inet_MakeAddr" result="in_addr_t">
+			<arg name="net" type="in_addr_t"/>
+			<arg name="host" type="in_addr_t"/>
+		</method>
+		<method name="inet_network" result="in_addr_t">
+			<arg name="cp" type="STRPTR"/>
+		</method>
+		<method name="gethostbyname" result="struct hostent *">
+			<arg name="name" type="STRPTR"/>
+		</method>
+		<method name="gethostbyaddr" result="struct hostent *">
+			<arg name="addr" type="STRPTR"/>
+			<arg name="len" type="LONG"/>
+			<arg name="type" type="LONG"/>
+		</method>
+		<method name="getnetbyname" result="struct netent *">
+			<arg name="name" type="STRPTR"/>
+		</method>
+		<method name="getnetbyaddr" result="struct netent *">
+			<arg name="net" type="in_addr_t"/>
+			<arg name="type" type="LONG"/>
+		</method>
+		<method name="getservbyname" result="struct servent *">
+			<arg name="name" type="STRPTR"/>
+			<arg name="proto" type="STRPTR"/>
+		</method>
+		<method name="getservbyport" result="struct servent *">
+			<arg name="port" type="LONG"/>
+			<arg name="proto" type="STRPTR"/>
+		</method>
+		<method name="getprotobyname" result="struct protoent *">
+			<arg name="name" type="STRPTR"/>
+		</method>
+		<method name="getprotobynumber" result="struct protoent *">
+			<arg name="proto" type="LONG"/>
+		</method>
+		<method name="vsyslog" result="VOID">
+			<arg name="pri" type="LONG"/>
+			<arg name="msg" type="STRPTR"/>
+			<arg name="args" type="APTR"/>
+		</method>
+		<method name="syslog" result="VOID">
+			<arg name="pri" type="LONG"/>
+			<arg name="msg" type="STRPTR"/>
+			<vararg name="tag" type="Tag1"/>
+		</method>
+		<method name="Dup2Socket" result="LONG">
+			<arg name="old_socket" type="LONG"/>
+			<arg name="new_socket" type="LONG"/>
+		</method>
+		<method name="sendmsg" result="LONG">
+			<arg name="sock" type="LONG"/>
+			<arg name="msg" type="struct msghdr *"/>
+			<arg name="flags" type="LONG"/>
+		</method>
+		<method name="recvmsg" result="LONG">
+			<arg name="sock" type="LONG"/>
+			<arg name="msg" type="struct msghdr *"/>
+			<arg name="flags" type="LONG"/>
+		</method>
+		<method name="gethostname" result="LONG">
+			<arg name="name" type="STRPTR"/>
+			<arg name="namelen" type="LONG"/>
+		</method>
+		<method name="gethostid" result="in_addr_t">
+		</method>
+		<method name="SocketBaseTagList" result="LONG">
+			<arg name="tags" type="struct TagItem *"/>
+		</method>
+		<method name="SocketBaseTags" result="LONG">
+			<vararg name="tag1" type="Tag"/>
+		</method>
+		<method name="GetSocketEvents" result="LONG">
+			<arg name="event_ptr" type="ULONG *"/>
+		</method>
+		<method name="Reserved1" result="void" status="unimplemented"/>
+		<method name="Reserved2" result="void" status="unimplemented"/>
+		<method name="Reserved3" result="void" status="unimplemented"/>
+		<method name="Reserved4" result="void" status="unimplemented"/>
+		<method name="Reserved5" result="void" status="unimplemented"/>
+		<method name="Reserved6" result="void" status="unimplemented"/>
+		<method name="Reserved7" result="void" status="unimplemented"/>
+		<method name="Reserved8" result="void" status="unimplemented"/>
+		<method name="Reserved9" result="void" status="unimplemented"/>
+		<method name="Reserved10" result="void" status="unimplemented"/>
+		<method name="bpf_open" result="LONG">
+			<arg name="channel" type="LONG"/>
+		</method>
+		<method name="bpf_close" result="LONG">
+			<arg name="channel" type="LONG"/>
+		</method>
+		<method name="bpf_read" result="LONG">
+			<arg name="channel" type="LONG"/>
+			<arg name="buffer" type="APTR"/>
+			<arg name="len" type="LONG"/>
+		</method>
+		<method name="bpf_write" result="LONG">
+			<arg name="channel" type="LONG"/>
+			<arg name="buffer" type="APTR"/>
+			<arg name="len" type="LONG"/>
+		</method>
+		<method name="bpf_set_notify_mask" result="LONG">
+			<arg name="channel" type="LONG"/>
+			<arg name="signal_mask" type="ULONG"/>
+		</method>
+		<method name="bpf_set_interrupt_mask" result="LONG">
+			<arg name="channel" type="LONG"/>
+			<arg name="signal_mask" type="ULONG"/>
+		</method>
+		<method name="bpf_ioctl" result="LONG">
+			<arg name="channel" type="LONG"/>
+			<arg name="command" type="ULONG"/>
+			<arg name="buffer" type="APTR"/>
+		</method>
+		<method name="bpf_data_waiting" result="LONG">
+			<arg name="channel" type="LONG"/>
+		</method>
+		<method name="AddRouteTagList" result="LONG">
+			<arg name="tags" type="struct TagItem *"/>
+		</method>
+		<method name="AddRouteTags" result="LONG">
+			<vararg name="tag1" type="Tag"/>
+		</method>
+		<method name="DeleteRouteTagList" result="LONG">
+			<arg name="tags" type="struct TagItem *"/>
+		</method>
+		<method name="DeleteRouteTags" result="LONG">
+			<vararg name="tag1" type="Tag"/>
+		</method>
+		<method name="ChangeRouteTagList" result="LONG">
+			<arg name="tags" type="struct TagItem *"/>
+		</method>
+		<method name="ChangeRouteTags" result="LONG">
+			<vararg name="tag1" type="Tag"/>
+		</method>
+		<method name="FreeRouteInfo" result="VOID">
+			<arg name="buf" type="struct rt_msghdr *"/>
+		</method>
+		<method name="GetRouteInfo" result="struct rt_msghdr *">
+			<arg name="address_family" type="LONG"/>
+			<arg name="flags" type="LONG"/>
+		</method>
+		<method name="AddInterfaceTagList" result="LONG">
+			<arg name="interface_name" type="STRPTR"/>
+			<arg name="device_name" type="STRPTR"/>
+			<arg name="unit" type="LONG"/>
+			<arg name="tags" type="struct TagItem *"/>
+		</method>
+		<method name="AddInterfaceTags" result="LONG">
+			<arg name="interface_name" type="STRPTR"/>
+			<arg name="device_name" type="STRPTR"/>
+			<arg name="unit" type="LONG"/>
+			<vararg name="tag1" type="Tag"/>
+		</method>
+		<method name="ConfigureInterfaceTagList" result="LONG">
+			<arg name="interface_name" type="STRPTR"/>
+			<arg name="tags" type="struct TagItem *"/>
+		</method>
+		<method name="ConfigureInterfaceTags" result="LONG">
+			<arg name="interface_name" type="STRPTR"/>
+			<vararg name="tag1" type="Tag"/>
+		</method>
+		<method name="ReleaseInterfaceList" result="VOID">
+			<arg name="list" type="struct List *"/>
+		</method>
+		<method name="ObtainInterfaceList" result="struct List *">
+		</method>
+		<method name="QueryInterfaceTagList" result="LONG">
+			<arg name="interface_name" type="STRPTR"/>
+			<arg name="tags" type="struct TagItem *"/>
+		</method>
+		<method name="QueryInterfaceTags" result="LONG">
+			<arg name="interface_name" type="STRPTR"/>
+			<vararg name="tag1" type="Tag"/>
+		</method>
+		<method name="CreateAddrAllocMessageA" result="LONG">
+			<arg name="version" type="LONG"/>
+			<arg name="protocol" type="LONG"/>
+			<arg name="interface_name" type="STRPTR"/>
+			<arg name="result_ptr" type="struct AddressAllocationMessage **"/>
+			<arg name="tags" type="struct TagItem *"/>
+		</method>
+		<method name="CreateAddrAllocMessage" result="LONG">
+			<arg name="version" type="LONG"/>
+			<arg name="protocol" type="LONG"/>
+			<arg name="interface_name" type="STRPTR"/>
+			<arg name="result_ptr" type="struct AddressAllocationMessage **"/>
+			<vararg name="tag1" type="Tag"/>
+		</method>
+		<method name="DeleteAddrAllocMessage" result="VOID">
+			<arg name="aam" type="struct AddressAllocationMessage *"/>
+		</method>
+		<method name="BeginInterfaceConfig" result="VOID">
+			<arg name="message" type="struct AddressAllocationMessage *"/>
+		</method>
+		<method name="AbortInterfaceConfig" result="VOID">
+			<arg name="message" type="struct AddressAllocationMessage *"/>
+		</method>
+		<method name="AddNetMonitorHookTagList" result="LONG">
+			<arg name="type" type="LONG"/>
+			<arg name="hook" type="struct Hook *"/>
+			<arg name="tags" type="struct TagItem *"/>
+		</method>
+		<method name="AddNetMonitorHookTags" result="LONG">
+			<arg name="type" type="LONG"/>
+			<arg name="hook" type="struct Hook *"/>
+			<vararg name="tag1" type="Tag"/>
+		</method>
+		<method name="RemoveNetMonitorHook" result="VOID">
+			<arg name="hook" type="struct Hook *"/>
+		</method>
+		<method name="GetNetworkStatistics" result="LONG">
+			<arg name="type" type="LONG"/>
+			<arg name="version" type="LONG"/>
+			<arg name="destination" type="APTR"/>
+			<arg name="size" type="LONG"/>
+		</method>
+		<method name="AddDomainNameServer" result="LONG">
+			<arg name="address" type="STRPTR"/>
+		</method>
+		<method name="RemoveDomainNameServer" result="LONG">
+			<arg name="address" type="STRPTR"/>
+		</method>
+		<method name="ReleaseDomainNameServerList" result="VOID">
+			<arg name="list" type="struct List *"/>
+		</method>
+		<method name="ObtainDomainNameServerList" result="struct List *">
+		</method>
+		<method name="setnetent" result="VOID">
+			<arg name="stay_open" type="LONG"/>
+		</method>
+		<method name="endnetent" result="VOID">
+		</method>
+		<method name="getnetent" result="struct netent *">
+		</method>
+		<method name="setprotoent" result="VOID">
+			<arg name="stay_open" type="LONG"/>
+		</method>
+		<method name="endprotoent" result="VOID">
+		</method>
+		<method name="getprotoent" result="struct protoent *">
+		</method>
+		<method name="setservent" result="VOID">
+			<arg name="stay_open" type="LONG"/>
+		</method>
+		<method name="endservent" result="VOID">
+		</method>
+		<method name="getservent" result="struct servent *">
+		</method>
+		<method name="inet_aton" result="LONG">
+			<arg name="cp" type="STRPTR"/>
+			<arg name="addr" type="struct in_addr *"/>
+		</method>
+		<method name="inet_ntop" result="STRPTR">
+			<arg name="af" type="LONG"/>
+			<arg name="src" type="APTR"/>
+			<arg name="dst" type="STRPTR"/>
+			<arg name="size" type="LONG"/>
+		</method>
+		<method name="inet_pton" result="LONG">
+			<arg name="af" type="LONG"/>
+			<arg name="src" type="STRPTR"/>
+			<arg name="dst" type="APTR"/>
+		</method>
+		<method name="In_LocalAddr" result="LONG">
+			<arg name="address" type="in_addr_t"/>
+		</method>
+		<method name="In_CanForward" result="LONG">
+			<arg name="address" type="in_addr_t"/>
+		</method>
+		<method name="mbuf_copym" result="struct mbuf *">
+			<arg name="m" type="struct mbuf *"/>
+			<arg name="off" type="LONG"/>
+			<arg name="len" type="LONG"/>
+		</method>
+		<method name="mbuf_copyback" result="LONG">
+			<arg name="m" type="struct mbuf *"/>
+			<arg name="off" type="LONG"/>
+			<arg name="len" type="LONG"/>
+			<arg name="cp" type="APTR"/>
+		</method>
+		<method name="mbuf_copydata" result="LONG">
+			<arg name="m" type="struct mbuf *"/>
+			<arg name="off" type="LONG"/>
+			<arg name="len" type="LONG"/>
+			<arg name="cp" type="APTR"/>
+		</method>
+		<method name="mbuf_free" result="struct mbuf *">
+			<arg name="m" type="struct mbuf *"/>
+		</method>
+		<method name="mbuf_freem" result="VOID">
+			<arg name="m" type="struct mbuf *"/>
+		</method>
+		<method name="mbuf_get" result="struct mbuf *">
+		</method>
+		<method name="mbuf_gethdr" result="struct mbuf *">
+		</method>
+		<method name="mbuf_prepend" result="struct mbuf *">
+			<arg name="m" type="struct mbuf *"/>
+			<arg name="len" type="LONG"/>
+		</method>
+		<method name="mbuf_cat" result="LONG">
+			<arg name="m" type="struct mbuf *"/>
+			<arg name="n" type="struct mbuf *"/>
+		</method>
+		<method name="mbuf_adj" result="LONG">
+			<arg name="mp" type="struct mbuf *"/>
+			<arg name="req_len" type="LONG"/>
+		</method>
+		<method name="mbuf_pullup" result="struct mbuf *">
+			<arg name="m" type="struct mbuf *"/>
+			<arg name="len" type="LONG"/>
+		</method>
+		<method name="ProcessIsServer" result="BOOL">
+			<arg name="pr" type="struct Process *"/>
+		</method>
+		<method name="ObtainServerSocket" result="LONG">
+		</method>
+		<method name="GetDefaultDomainName" result="BOOL">
+			<arg name="buffer" type="STRPTR"/>
+			<arg name="buffer_size" type="LONG"/>
+		</method>
+		<method name="SetDefaultDomainName" result="VOID">
+			<arg name="buffer" type="STRPTR"/>
+		</method>
+		<method name="ObtainRoadshowData" result="struct List *">
+			<arg name="access" type="LONG"/>
+		</method>
+		<method name="ReleaseRoadshowData" result="VOID">
+			<arg name="list" type="struct List *"/>
+		</method>
+		<method name="ChangeRoadshowData" result="BOOL">
+			<arg name="list" type="struct List *"/>
+			<arg name="name" type="STRPTR"/>
+			<arg name="length" type="ULONG"/>
+			<arg name="data" type="APTR"/>
+		</method>
+		<method name="Reserved16" result="void" status="unimplemented"/>
+		<method name="Reserved17" result="void" status="unimplemented"/>
+		<method name="Reserved18" result="void" status="unimplemented"/>
+		<method name="Reserved19" result="void" status="unimplemented"/>
+		<method name="Reserved20" result="void" status="unimplemented"/>
+		<method name="ipf_open" result="LONG">
+			<arg name="channel" type="LONG"/>
+		</method>
+		<method name="ipf_close" result="LONG">
+			<arg name="channel" type="LONG"/>
+		</method>
+		<method name="ipf_ioctl" result="LONG">
+			<arg name="channel" type="LONG"/>
+			<arg name="command" type="ULONG"/>
+			<arg name="buffer" type="APTR"/>
+		</method>
+		<method name="ipf_log_read" result="LONG">
+			<arg name="channel" type="LONG"/>
+			<arg name="buffer" type="APTR"/>
+			<arg name="len" type="LONG"/>
+		</method>
+		<method name="ipf_log_data_waiting" result="LONG">
+			<arg name="channel" type="LONG"/>
+		</method>
+		<method name="ipf_set_notify_mask" result="LONG">
+			<arg name="channel" type="LONG"/>
+			<arg name="mask" type="ULONG"/>
+		</method>
+		<method name="ipf_set_interrupt_mask" result="LONG">
+			<arg name="channel" type="LONG"/>
+			<arg name="mask" type="ULONG"/>
+		</method>
+	</interface>
+</library>

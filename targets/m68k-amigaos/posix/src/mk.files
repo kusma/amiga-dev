@@ -1,0 +1,37 @@
+OBJS1 = $D/fdesc.o $D/convfile.o $D/convpatt.o $D/prot.o $D/fib2stat.o \
+        $D/open.o $D/creat.o $D/fcntl.o $D/close.o $D/getdtablesize.o \
+        $D/dup.o $D/dup2.o $D/getcwd.o $D/chdir.o $D/access.o \
+        $D/read.o $D/write.o $D/unlink.o $D/rmdir.o $D/fchdir.o
+
+OBJS2 = $D/chmod.o $D/mkdir.o $D/lseek.o $D/stat.o $D/fstat.o $D/glob.o \
+        $D/fnmatch.o $D/getopt.o $D/dir.o $D/isatty.o $D/utime.o \
+        $D/chown.o $D/fchown.o $D/setid.o $D/getid.o $D/sleep.o \
+        $D/strcasecmp.o $D/strncasecmp.o $D/bzero.o $D/bcmp.o $D/bcopy.o
+
+OBJS3 = $D/ffs.o $D/index.o $D/rindex.o $D/timeofday.o $D/strdup.o \
+        $D/info2statfs.o $D/statfs.o $D/fstatfs.o $D/getpid.o $D/getppid.o \
+        $D/kill.o $D/killpg.o $D/fopen.o $D/freopen.o $D/fdopen.o \
+        $D/fclose.o $D/fileno.o $D/popen.o $D/pclose.o
+
+OBJS4 = $D/link.o $D/symlink.o $D/mktemp.o $D/tzset.o $D/fchmod.o \
+        $D/bsdsocket.o $D/socket.o $D/accept.o $D/bind.o $D/connect.o \
+        $D/getpeername.o $D/getsockname.o $D/getsockopt.o $D/listen.o \
+        $D/recv.o $D/recvfrom.o $D/recvmsg.o $D/send.o $D/sendto.o \
+        $D/sendmsg.o $D/setsockopt.o $D/shutdown.o
+
+OBJS5 = $D/gethostbyaddr.o $D/gethostbyname.o $D/getnetbyaddr.o \
+        $D/getnetbyname.o $D/getprotobyname.o $D/getprotobynumber.o \
+        $D/getservbyname.o $D/getservbyport.o $D/select.o $D/gethostname.o \
+        $D/gethostid.o $D/inet_addr.o $D/inet_network.o $D/inet_lnaof.o \
+        $D/inet_makeaddr.o $D/inet_netof.o $D/inet_ntoa.o
+
+OBJS6 = $D/getpass.o $D/progname.o $D/err.o $D/rename.o $D/getenv.o \
+        $D/currentdir.o $D/getlogin.o $D/getpwnam.o $D/getpwent.o \
+        $D/getgrnam.o $D/getgrent.o $D/random.o $D/hypot.o \
+        $D/basename.o $D/dirname.o $D/fsync.o $D/usleep.o $D/ioctl.o \
+        $D/closesocket.o $D/socket2fd.o $D/socketselect.o
+
+OBJS7 = $D/strlcat.o $D/strlcpy.o $D/strsep.o $D/flock.o $D/scandir.o \
+        $D/rand.o $D/_stdio.o $D/strcoll.o $D/setenv.o $D/unsetenv.o \
+        $D/fgetln.o $D/getcap.o $D/termcap.o $D/tgoto.o $D/tputs.o \
+        $D/asprintf.o $D/vasprintf.o $D/sockstat.o

@@ -1,0 +1,48 @@
+CC = ppc-amigaos-gcc
+RM = rm -f
+
+DEFINES = -D__USE_CLIB2_ALLOCA -DHAVE_CONFIG_H=1
+OPTIMIZE = -O2
+LIBS = -lm -lunix -lnet -lc
+CFLAGS = -mcrt=clib2 -g -I. -fno-builtin $(DEFINES) $(CPU) $(OPTIMIZE)
+LFLAGS = -L.
+
+all : wget
+
+OBJS = \
+	cmpt.o \
+	connect.o \
+	convert.o \
+	cookies.o \
+	ftp.o \
+	ftp-basic.o \
+	ftp-ls.o \
+	ftp-opie.o \
+	hash.o \
+	host.o \
+	html-parse.o \
+	html-url.o \
+	http.o \
+	init.o \
+	log.o \
+	main.o \
+	gen-md5.o \
+	gnu-md5.o \
+	netrc.o \
+	progress.o \
+	ptimer.o \
+	recur.o \
+	res.o \
+	retr.o \
+	safe-ctype.o \
+	url.o \
+	utils.o \
+	version.o \
+	xmalloc.o
+
+wget : $(OBJS)
+	$(CC) $(CFLAGS) $(LFLAGS) -o $@.debug $(OBJS) $(LIBS) -Wl,--cref,-M,-Map=$@.map
+	@ppc-amigaos-strip -R.comment -o $@ $@.debug
+
+clean:
+	-$(RM) $(OBJS) wget wget.debug wget.map

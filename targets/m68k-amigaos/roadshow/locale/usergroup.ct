@@ -1,0 +1,328 @@
+## version $VER: XX.catalog XX.XX (XX.XX.XX)
+## codeset X
+## language X
+;
+MSG_USERGROUP_ERRNO_NO_ERROR_TXT
+
+; No error
+;
+MSG_USERGROUP_ERRNO_EPERM_TXT
+
+; Operation not permitted
+;
+MSG_USERGROUP_ERRNO_ENOENT_TXT
+
+; Object not found
+;
+MSG_USERGROUP_ERRNO_ESRCH_TXT
+
+; No such process
+;
+MSG_USERGROUP_ERRNO_EINTR_TXT
+
+; Interrupted system call
+;
+MSG_USERGROUP_ERRNO_EIO_TXT
+
+; Input/output error
+;
+MSG_USERGROUP_ERRNO_ENXIO_TXT
+
+; Device not configured
+;
+MSG_USERGROUP_ERRNO_E2BIG_TXT
+
+; Argument list too long
+;
+MSG_USERGROUP_ERRNO_ENOEXEC_TXT
+
+; Exec format error
+;
+MSG_USERGROUP_ERRNO_EBADF_TXT
+
+; Bad file descriptor
+;
+MSG_USERGROUP_ERRNO_ECHILD_TXT
+
+; No child processes
+;
+MSG_USERGROUP_ERRNO_EDEADLK_TXT
+
+; Resource deadlock avoided
+;
+MSG_USERGROUP_ERRNO_ENOMEM_TXT
+
+; Cannot allocate memory
+;
+MSG_USERGROUP_ERRNO_EACCES_TXT
+
+; Permission denied
+;
+MSG_USERGROUP_ERRNO_EFAULT_TXT
+
+; Bad address
+;
+MSG_USERGROUP_ERRNO_ENOTBLK_TXT
+
+; Block device required
+;
+MSG_USERGROUP_ERRNO_EBUSY_TXT
+
+; Device busy
+;
+MSG_USERGROUP_ERRNO_EEXIST_TXT
+
+; Object exists
+;
+MSG_USERGROUP_ERRNO_EXDEV_TXT
+
+; Cross-device link
+;
+MSG_USERGROUP_ERRNO_ENODEV_TXT
+
+; Operation not supported by device
+;
+MSG_USERGROUP_ERRNO_ENOTDIR_TXT
+
+; Not a directory
+;
+MSG_USERGROUP_ERRNO_EISDIR_TXT
+
+; Is a directory
+;
+MSG_USERGROUP_ERRNO_EINVAL_TXT
+
+; Invalid argument
+;
+MSG_USERGROUP_ERRNO_ENFILE_TXT
+
+; Too many open files in system
+;
+MSG_USERGROUP_ERRNO_EMFILE_TXT
+
+; Too many open files
+;
+MSG_USERGROUP_ERRNO_ENOTTY_TXT
+
+; Inappropriate ioctl for device
+;
+MSG_USERGROUP_ERRNO_ETXTBSY_TXT
+
+; Text file busy
+;
+MSG_USERGROUP_ERRNO_EFBIG_TXT
+
+; File too large
+;
+MSG_USERGROUP_ERRNO_ENOSPC_TXT
+
+; No space left on device
+;
+MSG_USERGROUP_ERRNO_ESPIPE_TXT
+
+; Illegal seek
+;
+MSG_USERGROUP_ERRNO_EROFS_TXT
+
+; Read-only file system
+;
+MSG_USERGROUP_ERRNO_EMLINK_TXT
+
+; Too many links
+;
+MSG_USERGROUP_ERRNO_EPIPE_TXT
+
+; Broken pipe
+;
+MSG_USERGROUP_ERRNO_EDOM_TXT
+
+; Numerical argument out of domain
+;
+MSG_USERGROUP_ERRNO_ERANGE_TXT
+
+; Result too large
+;
+MSG_USERGROUP_ERRNO_EAGAIN_TXT
+
+; Resource temporarily unavailable
+;
+MSG_USERGROUP_ERRNO_EINPROGRESS_TXT
+
+; Operation now in progress
+;
+MSG_USERGROUP_ERRNO_EALREADY_TXT
+
+; Operation already in progress
+;
+MSG_USERGROUP_ERRNO_ENOTSOCK_TXT
+
+; Socket operation on non-socket
+;
+MSG_USERGROUP_ERRNO_EDESTADDRREQ_TXT
+
+; Destination address required
+;
+MSG_USERGROUP_ERRNO_EMSGSIZE_TXT
+
+; Message too long
+;
+MSG_USERGROUP_ERRNO_EPROTOTYPE_TXT
+
+; Protocol wrong type for socket
+;
+MSG_USERGROUP_ERRNO_ENOPROTOOPT_TXT
+
+; Protocol not available
+;
+MSG_USERGROUP_ERRNO_EPROTONOSUPPORT_TXT
+
+; Protocol not supported
+;
+MSG_USERGROUP_ERRNO_ESOCKTNOSUPPORT_TXT
+
+; Socket type not supported
+;
+MSG_USERGROUP_ERRNO_EOPNOTSUPP_TXT
+
+; Operation not supported
+;
+MSG_USERGROUP_ERRNO_EPFNOSUPPORT_TXT
+
+; Protocol family not supported
+;
+MSG_USERGROUP_ERRNO_EAFNOSUPPORT_TXT
+
+; Address family not supported by protocol family
+;
+MSG_USERGROUP_ERRNO_EADDRINUSE_TXT
+
+; Address already in use
+;
+MSG_USERGROUP_ERRNO_EADDRNOTAVAIL_TXT
+
+; Cannot assign requested address
+;
+MSG_USERGROUP_ERRNO_ENETDOWN_TXT
+
+; Network is down
+;
+MSG_USERGROUP_ERRNO_ENETUNREACH_TXT
+
+; Network is unreachable
+;
+MSG_USERGROUP_ERRNO_ENETRESET_TXT
+
+; Network dropped connection on reset
+;
+MSG_USERGROUP_ERRNO_ECONNABORTED_TXT
+
+; Software caused connection abort
+;
+MSG_USERGROUP_ERRNO_ECONNRESET_TXT
+
+; Connection reset by peer
+;
+MSG_USERGROUP_ERRNO_ENOBUFS_TXT
+
+; No buffer space available
+;
+MSG_USERGROUP_ERRNO_EISCONN_TXT
+
+; Socket is already connected
+;
+MSG_USERGROUP_ERRNO_ENOTCONN_TXT
+
+; Socket is not connected
+;
+MSG_USERGROUP_ERRNO_ESHUTDOWN_TXT
+
+; Cannot send after socket shutdown
+;
+MSG_USERGROUP_ERRNO_ETOOMANYREFS_TXT
+
+; Too many references: cannot splice
+;
+MSG_USERGROUP_ERRNO_ETIMEDOUT_TXT
+
+; Operation timed out
+;
+MSG_USERGROUP_ERRNO_ECONNREFUSED_TXT
+
+; Connection refused
+;
+MSG_USERGROUP_ERRNO_ELOOP_TXT
+
+; Too many levels of symbolic links
+;
+MSG_USERGROUP_ERRNO_ENAMETOOLONG_TXT
+
+; File name too long
+;
+MSG_USERGROUP_ERRNO_EHOSTDOWN_TXT
+
+; Host is down
+;
+MSG_USERGROUP_ERRNO_EHOSTUNREACH_TXT
+
+; No route to host
+;
+MSG_USERGROUP_ERRNO_ENOTEMPTY_TXT
+
+; Directory not empty
+;
+MSG_USERGROUP_ERRNO_EPROCLIM_TXT
+
+; Too many processes
+;
+MSG_USERGROUP_ERRNO_EUSERS_TXT
+
+; Too many users
+;
+MSG_USERGROUP_ERRNO_EDQUOT_TXT
+
+; Disc quota exceeded
+;
+MSG_USERGROUP_ERRNO_ESTALE_TXT
+
+; Stale NFS file handle
+;
+MSG_USERGROUP_ERRNO_EREMOTE_TXT
+
+; Too many levels of remote in path
+;
+MSG_USERGROUP_ERRNO_EBADRPC_TXT
+
+; RPC struct is bad
+;
+MSG_USERGROUP_ERRNO_ERPCMISMATCH_TXT
+
+; RPC version wrong
+;
+MSG_USERGROUP_ERRNO_EPROGUNAVAIL_TXT
+
+; RPC program not avail
+;
+MSG_USERGROUP_ERRNO_EPROGMISMATCH_TXT
+
+; Program version wrong
+;
+MSG_USERGROUP_ERRNO_EPROCUNAVAIL_TXT
+
+; Bad procedure for program
+;
+MSG_USERGROUP_ERRNO_ENOLCK_TXT
+
+; No locks available
+;
+MSG_USERGROUP_ERRNO_ENOSYS_TXT
+
+; Function not implemented
+;
+MSG_USERGROUP_ERRNO_EFTYPE_TXT
+
+; Inappropriate file type or format
+;
+MSG_USERGROUP_UNKNOWN_ERROR_TXT
+
+; Unknown error: %ld
+;

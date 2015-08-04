@@ -1,0 +1,12 @@
+This directory contains the source code of the programs that call into
+the Roadshow bsdsocket.library to configure the TCP/IP stack and to query
+status information. These programs should compile out of the box, provided
+you have the necessary SDK header files installed. I tried to keep all
+the necessary files together, but it might not be the complete set.
+Don't worry, though, the code is merely intended to be a demonstration
+as to how to do what the configuration/query programs are doing.
+
+This software is copyrighted, which means that you may create your own
+programs using the techniques demonstrated in the source code, and
+you may reuse parts of it, but you must not take this code as a whole
+and claim it as your own.

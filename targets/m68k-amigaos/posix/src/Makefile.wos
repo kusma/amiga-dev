@@ -1,0 +1,21 @@
+D = WarpOS
+CC = vc +warpos
+COPTS = -c99 -O1 -Iinclude -DNO_INLINE_STDARG
+DO_CC = $(CC) $(COPTS) -o $@ -c $<
+
+include mk.files
+
+
+all: $D/posix.lib
+
+$D/posix.lib: $(OBJS1) $(OBJS2) $(OBJS3) $(OBJS4) $(OBJS5) $(OBJS6) $(OBJS7)
+	join as T:posix1.lib $(OBJS1)
+	join as T:posix2.lib $(OBJS2)
+	join as T:posix3.lib $(OBJS3)
+	join as T:posix4.lib $(OBJS4)
+	join as T:posix5.lib $(OBJS5)
+	join as T:posix6.lib $(OBJS6)
+	join as T:posix7.lib $(OBJS7)
+	join as $@ T:posix1.lib T:posix2.lib T:posix3.lib T:posix4.lib T:posix5.lib T:posix6.lib T:posix7.lib
+
+include mk.deps

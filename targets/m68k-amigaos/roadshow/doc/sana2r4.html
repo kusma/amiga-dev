@@ -1,0 +1,2105 @@
+<html>
+<head>
+<title>Extending the SANA-II network driver specification</title>
+</head>
+<body>
+
+<h1>
+<p align=center>
+Extending the SANA-II network driver specification<br>
+by <a href="mailto:olsen@amiga.com?subject=SANA-IIR4%20proposal">Olaf Barthel</a>
+</p></h1>
+
+<h3><p align=center>(Last updated 02-Mar-2003)</p></h3>
+
+<h2>1. Introduction</h2><p>
+
+The years have gone by without any substantial changes to the SANA-II standard
+being made. With good reason, since there was no apparent need to push the
+envelope and extend the driver specification. The last proposed change came
+1997 from Holger Kruse, who suggested that commands should be added to control
+multicast packet reception for ranges of addresses rather than individual
+addresses.<p>
+
+I've been working on a TCP/IP stack and PPP drivers to go with them for a
+while and found that there were some things that SANA-II did specifically not
+address, and which ought to be covered by it. In other areas clarification was
+needed. Also, discussions I had with Harald Frank suggested that the
+extensions made by Heinz Wrobel and Stefan Sticht in the SANA-IIR3
+specification could need extending.<p>
+
+The following text tries to tie all issues together and will conclude by
+listing problems which I think still need attention (or in other words, I
+didn't find a solution myself). Wherever possible, I have tried to provide a
+rationale for the changes I propose.<p>
+
+Please feel free to comment; you can contact me through the <a href="mailto:olsen@amiga.com?subject=SANA-IIR4%20proposal">e-mail address</a>
+given in the headline of this document. Note that the issues discussed in this
+document are just a list of proposed changes. No such features are part of any
+SANA-II specifications, although I'd like to claim that I have tried to
+implement the majority of the changes listed below in my own software.<p>
+
+This is a revised version of the original document I put together around
+October 14, 2001. For a list of changes that have been made since, please see
+<a href="#10_changes">section 10</a> ('Changes'). This document has
+been updated and enhanced several times, in response to discussions with
+Heinz Wrobel.<p>
+
+<h2>2. New commands</h2><p>
+
+<h3>2.1 <code>S2_GETPEERADDRESS</code></h3>
+
+As part of the negotiation process, the PPP protocol can return the addresses
+used by the peer (the other side of the point-to-point connection PPP
+establishes; typically a dial-in server) and assigned to the client
+establishing the connection. The SANA-II standard does not provide for a
+mechanism to return such information. Existing drivers therefore had to resort
+to other means, such as by setting global environment variables containing
+this information.<p>
+
+I propose a command with the following semantics:<p>
+
+<pre>
+   NAME
+        S2_GETPEERADDRESS -- Obtain the addresses used by the peer
+           (server) and the client of a point-to-point connection.
+
+   FUNCTION
+        Obtain the address used by the peer of a point-to-point connection and
+        the address assigned to the local driver.
+
+   IO REQUEST
+        ios2_Command          - S2_GETPEERADDRESS
+        ios2_Flags            - Supported flags are:
+                                SANA2IOB_QUICK
+        ios2_BufferManagement - Magic cookie as returned when opening the
+                                driver with a struct IOSana2Req
+
+   RESULTS
+        ios2_Req.io_Error - Zero if successful; non-zero otherwise
+        ios2_WireError    - More specific error number
+        ios2_SrcAddr      - Address assigned to the local driver
+        ios2_DstAddr      - Address used by the peer
+
+   NOTES
+        The size of the address returned by S2_GETPEERADDRESS must not be
+        different from the size returned by the S2_DEVICEQUERY command. For
+        example, if a 32 bit IPv4 address was advertized, the driver must not
+        return a 128 bit IPv6 address instead.
+
+        If the driver is unable to return the local driver address
+        (ios2_SrcAddr) or the peer's address (ios2_DstAddr) it must fill the
+        respective address fields with zeroes. It is legal for a driver to
+        respond to the S2_GETPEERADDRESS command with two zero addresses (both
+        ios2_SrcAddr and ios2_DstAddr filled with zeroes).
+</pre><p>
+
+I propose that the following command number should be assigned:<p>
+
+<code>#define S2_GETPEERADDRESS 0xC002</code><p>
+
+This command may be useful beyond the typical application (PPP) described above.<p>
+
+<h3>2.2 <code>S2_GETDNSADDRESS</code></h3>
+
+The PPP negotiation process may produce information on which domain name and
+NetBIOS name servers are available to the client. I think that it is doubtful
+that the availability of NetBIOS name servers will be useful for Amiga
+software (let alone whether NetBIOS name resolution has a future), which is
+why I suggest that a SANA-II command for returning only the domain name
+servers is introduced.<p>
+
+I propose a command with the following semantics:<p>
+
+<pre>
+   NAME
+        S2_GETDNSADDRESS -- Obtain the addresses of the primary
+           and secondary domain name servers.
+
+   FUNCTION
+        Obtain the addresses of the domain name servers available to the
+        client using this driver's address.
+
+   IO REQUEST
+        ios2_Command          - S2_GETDNSADDRESS
+        ios2_Flags            - Supported flags are:
+                                SANA2IOB_QUICK
+        ios2_BufferManagement - Magic cookie as returned when opening the
+                                driver with a struct IOSana2Req
+
+   RESULTS
+        ios2_Req.io_Error - Zero if successful; non-zero otherwise
+        ios2_WireError    - More specific error number
+        ios2_SrcAddr      - Address of primary domain name server
+        ios2_DstAddr      - Address of secondary domain name server
+
+   NOTES
+        The size of the address returned by S2_GETPEERADDRESS must not be
+        different from the size as returned by the S2_DEVICEQUERY command. For
+        example, if a 32 bit IPv4 address was advertized, the driver must not
+        return a 128 bit IPv6 address instead.
+
+        If the driver is unable to return the primary domain name server
+        address (ios2_SrcAddr) or the secondary domain name server address
+        (ios2_DstAddr) it must fill the respective address fields with zeroes.
+        It is legal for a driver to respond to the S2_GETDNSADDRESS command
+        with two zero addresses (both ios2_SrcAddr and ios2_DstAddr filled
+        with zeroes).
+</pre><p>
+
+I propose that the following command number should be assigned:<p>
+
+<code>#define S2_GETDNSADDRESS 0xC003</code><p>
+
+This command may be useful beyond the typical application (PPP) described above.<p>
+
+<h3><a name="2.3">2.3 <code>S2_GETEXTENDEDGLOBALSTATS</code></a></h3>
+
+There already exists a SANA-II command for querying global device statistics
+(<code>S2_GETGLOBALSTATS</code>) which should be common to all kinds of networking devices.
+Statistics that are particular to a certain device type are intended to be
+returned through the <code>S2_GETSPECIALSTATS</code> command. I feel that these mechanisms
+both fail to cater well enough for dial-up or session-oriented networking
+applications such as PPP or PPPoE. Since the data structure used by
+<code>S2_GETGLOBALSTATS</code> is of a fixed size and not intended to accomodate for new
+fields, I propose to introduce a new command which uses a different data
+structure, as follows:<p>
+
+<pre>
+struct Sana2ExtDeviceStats
+{
+   ULONG          s2xds_Length;
+   ULONG          s2xds_Actual;
+
+   S2QUAD         s2xds_PacketsReceived;
+   S2QUAD         s2xds_PacketsSent;
+   S2QUAD         s2xds_BadData;
+   S2QUAD         s2xds_Overruns;
+   S2QUAD         s2xds_UnknownTypesReceived;
+   S2QUAD         s2xds_Reconfigurations;
+   struct timeval s2xds_LastStart;
+
+   struct timeval s2xds_LastConnected;
+   struct timeval s2xds_LastDisconnected;
+   struct timeval s2xds_TimeConnected;
+};
+</pre><p>
+
+Before I proceed to explain what purposes the individual members serve, a few
+words on the <code>S2QUAD</code> type, which is defined as follows:<p>
+
+<code>typedef struct { ULONG s2q_High; ULONG s2q_Low; } S2QUAD;</code><p>
+
+In other words, the <code>S2QUAD</code> type stands for an unsigned 64 bit big endian
+integer, as expressed in ISO 'C' terms.<p>
+
+The structure members have the following purposes:<p>
+
+<dl>
+<dt><code>s2xds_Length</code>
+<dd>
+This is the size of the data structure to be filled in and should be
+initialized by the caller to <code>sizeof(struct Sana2ExtDeviceStats)</code>.
+Smaller values are permitted, but these <strong>must not</strong> be smaller than 8
+(which covers the <code>s2xds_Length</code> and <code>s2xds_Actual</code> members). A driver which
+finds an <code>s2xds_Length</code> &lt; 8 <strong>must</strong> treat this as an error and reject the
+command with <code>ios2_Req.io_Error</code>=<code>IOERR_BADLENGTH</code>.<p>
+
+<dt><code>s2xds_Actual</code>
+<dd> The size of the data structure filled with information. This member is
+initialized by the driver and <strong>must</strong> be &lt;= <code>s2xds_Length</code>.<p>
+
+<dt><code>s2xds_PacketsReceived</code>
+<dd>Number of packets that this unit has received. This is a 64 bit integer.<p>
+
+<dt><code>s2xds_PacketsSent</code>
+<dd>Number of packets that this unit has sent. This is a 64 bit integer.<p>
+
+<dt><code>s2xds_BadData</code>
+<dd>Number of bad packets received (i.e., hardware CRC failed). This is a
+64 bit integer.<p>
+
+<dt><code>s2xds_Overruns</code>
+<dd>Number of packets dropped due to insufficient resources available in the
+network interface. This is a 64 bit integer.<p>
+
+<dt><code>s2xds_UnknownTypesReceived</code>
+<dd>Number of packets received that had no pending read command with the
+appropriate packet type. This is a 64 bit integer.<p>
+
+<dt><code>s2xds_Reconfigurations</code>
+<dd>Number of network reconfigurations since this unit was last configured.
+This is a 64 bit integer.<p>
+
+<dt><code>s2xds_LastStart</code>
+<dd>The time when this unit last went on-line.<p>
+
+<dt><code>s2xds_LastConnected</code>
+<dd>The time when this unit last established a connection. For dial-up
+connections, this should be the time when the underlying serial line
+started to accumulate costs. <code>s2xds_LastConnected</code> <strong>must</strong> be set to zero
+if the unit never managed to make a connection.<p>
+
+<dt><code>s2xds_LastDisconnected</code>
+<dd>The time when this unit last shut down a connection. For dial-up
+connections, this should be the time when the underlying serial line
+stopped accumulating costs, e.g. when the modem's carrier signal was
+lost. <code>s2xds_LastDisconnected</code> <strong>must</strong> be set to zero if the unit never
+disconnected.<p>
+
+<dt><code>s2xds_TimeConnected</code>
+<dd>The time this unit has been connected. For dial-up connections this
+should be the time between now and when the underlying serial line
+started accumulating costs.<p>
+
+If this unit is not currently connected, then <code>s2xds_TimeConnected</code>
+<strong>must</strong> be set to zero. This means in particular that when the connection
+is lost, <code>s2xds_TimeConnected</code> <strong>must</strong> be immediately set to zero and
+<code>s2xds_LastDisconnected</code> <strong>must</strong> be filled in so that client software
+can query how long the unit was connected by subtracting
+<code>s2xds_LastConnected</code> from <code>s2xds_LastDisconnected</code>.<p>
+
+If this unit is currently connected, <code>s2xds_TimeConnected</code> <strong>must
+never</strong> be zero; if necessary, set <code>s2xds_TimeConnected.tv_secs=0</code> and
+<code>s2xds_TimeConnected.tv_micros=1</code>.<p>
+
+If <code>s2xds_TimeConnected</code> is zero, check <code>s2xds_LastConnected</code> and
+<code>s2xds_LastDisconnected</code>; if the latter two are not zero, you can
+calculate the previous connection time by subtracting
+<code>s2xds_LastConnected</code> from <code>s2xds_LastDisconnected</code>.
+
+</dl>
+
+The layout and semantics used by the <code>Sana2ExtDeviceStats</code> data structure
+suggest that there is a difference between the underlying networking media
+(the link layer) and the state of the protocol that is running on top of it.
+With drivers for networking hardware such as Ethernet there was no difference
+between these two, but for protocols like SLIP, PPP or PPPoE there is a
+difference. The difference is in that a session or connection may exist for a
+certain time whereas the protocol running inside that session may be switched
+'online' later. The primary purpose of the <code>s2xds_LastConnected</code>,
+<code>s2xds_LastDisconnected</code> and <code>s2xds_TimeConnected</code> fields is to allow for cost
+accounting and traffic monitoring (so that, for example, a driver may be
+disconnected after it has been idle for a while) to be written.<p>
+
+I propose a command with the following semantics:<p>
+
+<pre>
+   NAME
+        S2_GETEXTENDEDGLOBALSTATS -- Get interface accumulated statistics;
+           updated version.
+
+   FUNCTION
+        This command causes the device driver to retrieve various global
+        runtime statistics for this network interface. The format of the data
+        returned is as follows:
+
+           struct Sana2ExtDeviceStats
+           {
+              ULONG s2xds_Length;
+              ULONG s2xds_Actual;
+
+              S2QUAD s2xds_PacketsReceived;
+              S2QUAD s2xds_PacketsSent;
+              S2QUAD s2xds_BadData;
+              S2QUAD s2xds_Overruns;
+              S2QUAD s2xds_UnknownTypesReceived;
+              S2QUAD s2xds_Reconfigurations;
+              struct timeval s2xds_LastStart;
+
+              struct timeval s2xds_LastConnected;
+              struct timeval s2xds_LastDisconnected;
+              struct timeval s2xds_TimeConnected;
+           };
+
+   IO REQUEST
+        ios2_Command          - S2_GETEXTENDEDGLOBALSTATS
+        ios2_StatData         - Pointer to Sana2ExtDeviceStats structure
+                                to fill in
+        ios2_BufferManagement - Magic cookie as returned when opening the
+                                driver with a struct IOSana2Req
+
+   RESULTS
+        ios2_Req.io_Error - Zero if successful; non-zero otherwise
+        ios2_WireError    - More specific error number
+</pre><p>
+
+I propose that the following command number should be assigned:<p>
+
+<code>#define S2_GETEXTENDEDGLOBALSTATS 0xC004</code><p>
+
+<h3><a name="2.4">2.4 <code>S2_CONNECT</code></a></h3>
+
+The driver model specified by the SANA-II standard really only covers
+networking hardware well. Software-only drivers, such as for dial-up
+networking, are, well, somehow mentioned in the standard, but they don't
+receive much attention. In particular, this means that a networking driver is
+assumed to be practically always attached to its link layer and no provisions
+exist to specify what kind of link layer that might be and how it might be
+accessed. This small oversight can probably be explained by the fact that at
+the time the SANA-II standard was adopted, dial-up networking had not yet
+gained the prominence it has today.<p>
+
+To bridge this gap, I propose a new command which will make a driver connect
+to its link layer and go online, which uses the following data structure:<p>
+
+<pre>
+struct Sana2Connection
+{
+   ULONG          s2c_Size;
+   struct MinList s2c_Options;
+   struct Hook    s2c_ErrorHook;
+   struct Hook    s2c_ConnectHook;
+   struct Hook    s2c_DisconnectHook;
+   STRPTR         s2c_Login;
+   STRPTR         s2c_Password;
+};
+</pre><p>
+
+The individual structure members have the following purposes:<p>
+
+<dl>
+<dt><code>s2c_Size</code>
+<dd>The size of the entire data structure is stored here. This value <strong>must</strong> be
+&gt;= 84. Smaller values <strong>must</strong> be rejected with <code>ios2_Req.io_Error</code>=<code>IOERR_BADLENGTH</code>.
+The purpose of <code>s2c_Size</code> is to allow for future expansion during which
+the structure may grow in size.<p>
+
+<dt><code>s2c_Options</code>
+<dd>This list contains options, to be used during the connection process.
+Each node has the following format:<p>
+
+<pre>
+struct Sana2ConnectionOption
+{
+   struct MinNode s2co_MinNode;
+   STRPTR         s2co_Name;
+   STRPTR         s2co_Value;
+};
+</pre><p>
+
+The <code>s2co_Name</code> and <code>s2co_Value</code> entries point to <code>NUL</code>-terminated
+strings, which contain the name and the value of a parameter. <em>Note that
+for numeric values, the respective number will be encoded in a text
+string.</em> A number of parameters are reserved, which are <a href="#s2c_options">listed later</a> in
+this text.<p>
+
+<dt><code>s2c_ErrorHook</code>
+<dd>This hook is called whenever an error message is to be reported during
+the connection/disconnection process. The hook function is invoked using
+the following parameters:<p>
+
+<pre>
+error_hook_func(hook,reserved,message);
+                 A0     A2      A1
+
+VOID error_hook_func(struct Hook *hook,APTR reserved,
+                     STRPTR message);
+</pre><p>
+
+The <code>reserved</code> parameter <strong>must</strong> be <code>NULL</code>. The <code>message</code> parameter points to
+a <code>NUL</code>-terminated string. It <strong>must not</strong> be <code>NULL</code>.<p>
+
+Because the hook function may have to allocate memory, it <strong>must not</strong> be
+called from interrupt code.<p>
+
+<dt><code>s2c_ConnectHook</code>
+<dd>This hook is called when the link level device has been set up, but
+further initializations are necessary, such as telling a modem to dial
+out. The hook function is invoked with the following parameters:<p>
+
+<pre>
+success = connect_hook_func(hook,reserved,s2cm);
+  D0                          A0     A2    A1
+
+BOOL connect_hook_func(struct Hook *hook,APTR reserved,
+                       struct Sana2ConnectionMessage *s2cm);
+</pre><p>
+
+The <code>reserved</code> parameter <strong>must</strong> be <code>NULL</code>. The <code>s2cm</code> parameter points to
+a data structure, as follows:<p>
+
+<pre>
+struct Sana2ConnectionMessage
+{
+   ULONG                    s2cm_Size;
+   struct Sana2Connection * s2cm_Connection;
+   struct IORequest *       s2cm_Request[2];
+   LONG                     s2cm_RequestType;
+};
+</pre><p>
+
+In this structure, the members have the following purposes:<p>
+
+<dl>
+<dt><code>s2cm_Size</code>
+<dd>The size of this data structure; it <strong>must</strong> be at least 20
+bytes in size. The purpose of <code>s2cm_Size</code> is to allow for
+future expansion, which may cause the size of this
+structure to grow.<p>
+
+<dt><code>s2cm_Connection</code>
+<dd>This points back to the <code>Sana2Connection</code> structure
+which the hook that was invoked with the
+<code>Sana2ConnectionMessage</code> is embedded in.<p>
+
+<dt><code>s2cm_Request</code>
+<dd>Here you will find two I/O requests which can be used
+for reading and writing data to the link layer. These
+pointers <strong>must not</strong> be <code>NULL</code> and they <strong>must</strong> refer to
+different I/O requests, it is not permitted to pass
+the same request twice.<p>
+
+The dialer can use these requests for communicating
+with the modem, but it is also permitted to clone
+these requests by creating new I/O requests of the
+same size, copying the original contents and filling
+in different reply ports.<p>
+
+There is a danger in that the hook code may not
+receive the right kind of I/O request, which is
+why the <code>s2cm_RequestType</code> field identifies the
+kind of device the requests were created for.<p>
+
+When the hook function returns, it <strong>must</strong> make sure
+that none of the I/O requests are still pending,
+i.e. asynchronous I/O <strong>must</strong> have been stopped.<p>
+
+<dt><code>s2cm_RequestType</code>
+<dd>This identifies the type of device the I/O requests
+passed in <code>s2cm_Request</code> were created for. Possible
+values for this entry come from the New Style
+Device specification, e.g. <code>NSDEVTYPE_SERIAL</code> for
+a <code>serial.device</code>-like device or <code>NSDEVTYPE_SANA2</code>
+for a networking driver.
+
+</dl><p>
+
+The hook function <strong>must</strong> return <code>TRUE</code> if the connection could
+be established, and <code>FALSE</code> otherwise. Note that it is <em>not</em>
+sufficient to just return <code>FALSE</code> in case of failure. Your code
+<strong>must</strong> have called the <code>s2c_ErrorHook</code> with an explanation why
+things went wrong first.<p>
+
+<dt><code>s2c_DisconnectHook</code>
+<dd>This hook is called by <code>S2_CONNECT</code> when the connection could
+not be established (the <code>s2c_ConnectHook</code> returned <code>FALSE</code>),
+or by <code>S2_DISCONNECT</code>, shortly before the link level device
+is to be closed. The hook function is invoked with the
+following parameters:<p>
+
+<pre>
+disconnect_hook_func(hook,reserved,s2cm);
+                      A0     A2    A1
+
+VOID disconnect_hook_func(struct Hook *hook,APTR reserved,
+                          struct Sana2ConnectionMessage *s2cm);
+</pre><p>
+
+The <code>reserved</code> parameter <strong>must</strong> be <code>NULL</code>. The <code>s2cm</code> parameter points to
+a data structure, as was described for the <code>s2c_ConnectHook</code>.<p>
+
+<dt><code>s2c_Login</code>
+<dt><code>s2c_Password</code>
+<dd>The purpose of these entries is to transport the authentication
+information the protocol may require. These entries are either <code>NULL</code>
+or contain pointers to <code>NUL</code>-terminated strings. If <code>s2c_Login</code> is <code>NULL</code>,
+then both login and password <strong>must</strong> be assumed to be empty. If <code>s2c_Login</code>
+is not <code>NULL</code> and <code>s2c_Password</code> is <code>NULL</code>, then the password <strong>must</strong> be assumed
+to be empty.
+
+</dl><p>
+
+<a name="s2c_options"> The list of options in <code>s2c_Options</code> supplies the necessary information on how
+the driver is to connect to the link layer. Each node contains an option,
+which bears a name and contains a value. This pair is what I call a
+<em>parameter</em>. A number of parameter names are reserved, as will be listed below:
+
+<dl>
+<dt><code>ppp</code>.async.device
+<dd>Name of device driver to use for asynchronous PPP.<p>
+Example: <code>serial.device</code><p>
+
+<dt><code>ppp</code>.async.unit 
+<dd>Device unit number to use for asynchronous PPP.<p>
+Example: <code>0</code><p>
+
+<dt><code>ppp</code>.async.speed
+<dd>Transmission speed to use for asynchronous PPP in bits per second.<p>
+Example: <code>115200</code><p>
+
+<dt><code>ppp.async.buffersize</code>
+<dd>Receive buffer size for asynchronous PPP.<p>
+Example: <code>50000</code><p>
+
+<dt><code>ppp.async.checkcarrier</code>
+<dd>Whether the carrier signal of the link layer should be tested or not. This can be either 0 (do not test) or 1 (test the carrier signal).<p>
+Example: <code>1</code><p>
+
+<dt><code>ppp.async.rtscts</code>
+<dd>Whether or not hardware handshaking should be used by the link layer. This can be either <code>0</code> (off) or <code>1</code> (on).<p>
+Example: <code>1</code><p>
+
+<dt><code>ppp.async.shared</code>
+<dd>Whether or not the link layer device should be opened in shared mode. This can be either <code>0</code> (off) or <code>1</code> (on).<p>
+Example: <code>0</code><p>
+
+<dt><code>ppp.async.nullmodem</code>
+<dd>Whether or not the link layer is a direct connection, such as a nullmodem. This can be either <code>0</code> (off) or <code>1</code> (on).<p>
+Example: <code>0</code><p>
+
+<dt><code>ppp.async.eof</code>
+<dd>Whether or not the underlying serial device driver's 'EOF mode' should
+be enabled. This can be either <code>0</code> (off) or <code>1</code> (on).<p>
+Example: <code>0</code><p>
+
+<dt><code>ppp.async.readrequests</code>
+<dd>Number of read requests to be used for asynchronous PPP.<p>
+Example: <code>16</code><p>
+
+<dt><code>ppp.async.writerequests</code>
+<dd>Number of write requests to be used for asynchronous PPP.<p>
+Example: <code>16</code><p>
+
+<dt><code>ppp.async.accm</code>
+<dd>Asynchronous control character map, expressed as a hexadecimal value.<p>
+Example: <code>$000A0000</code><p>
+
+<dt><code>ppp.async.pfc</code>
+<dd>Whether or not protocol field compression should be used. This can be either <code>0</code> (off) or <code>1</code> (on).<p>
+Example: <code>1</code><p>
+
+<dt><code>ppp.async.aacfc</code>
+<dd>Whether or not address and control field compression should be used. This can be either <code>0</code> (off) or <code>1</code> (on).<p>
+Example: <code>1</code><p>
+
+<dt><code>ppp.async.vjhc</code>
+<dd>Whether or not Van Jacobson header compression should be used. This can be either <code>0</code> (off) or <code>1</code> (on).<p>
+Example: <code>1</code><p>
+
+<dt><code>ppp.async.ignorefcs</code>
+<dd>Whether or not frame check sequences should be ignored upon reception. This can be either <code>0</code> (off) or <code>1</code> (on).<p>
+Example: <code>0</code><p>
+
+<dt><code>ppp.async.initialize</code>
+<dd>The modem initialization command, with embedded control sequences, if possible.<p>
+Example: <code>AT\r</code><p>
+
+<dt><code>ppp.async.dial</code>
+<dd>The modem dial command, with embedded control sequences, if possible.<p>
+Example: <code>ATD12345\r</code><p>
+
+<dt><code>ppp.async.dialtimeout</code>
+<dd>The dial timeout, i.e. the number of seconds to wait after the dial command has been sent for the modem to establish a connection.<p>
+Example: <code>60</code><p>
+
+<dt><code>ppp.async.hangup</code>
+<dd>The modem hangup command, with embedded control sequences, if possible.<p>
+Example: <code>ATH0\r</code><p>
+
+<dt><code>ppp.idletimeout</code>
+<dd>Number of seconds the local host may remain idle, i.e. send no data to the peer, before a watchdog timeout elapses and proceeds to verify that the line is still operational.<p>
+Example: <code>30</code><p>
+
+<dt><code>ppp.localaddress</code>
+<dd>The IP address to assign to the local host, as part of the PPP negotiation process. This must be given in dotted decimal notation (RFC1700).<p>
+Example: <code>1.2.3.4</code><p>
+
+<dt><code>ppp.remoteaddress</code>
+<dd>The IP address to assume for the peer, as part of the PPP negotiation process. This must be given in dotted decimal notation (RFC1700).<p>
+Example: <code>1.2.3.4</code><p>
+
+<dt><code>ppp.dns1address</code>
+<dd>The IP address to be used by the primary domain name server, as part of the PPP negotiation process. This must be given in dotted decimal notation (RFC1700).<p>
+Example: <code>1.2.3.4</code><p>
+
+<dt><code>ppp.dns2address</code>
+<dd>The IP address to be used by the secondary domain name server, as part of the PPP negotiation process. This must be given in dotted decimal notation (RFC1700).<p>
+Example: <code>1.2.3.4</code><p>
+
+<dt><code>ppp.maxfail</code>
+<dd>The maximum number of negative configuration acknowledgements to be sent before the PPP negotiation process switches to reject those options.<p>
+Example: <code>5</code><p>
+
+<dt><code>ppp.maxterm</code>
+<dd>The maximum number of termination requests to be sent before the respective PPP network or link protocol gives up.<p>
+Example: <code>2</code><p>
+
+<dt><code>ppp.maxconfig</code>
+<dd>The maximum number of configuration requests to be sent before the respective PPP network or link protocol gives up.<p>
+Example: <code>10</code><p>
+
+<dt><code>ppp.timeout</code>
+<dd>The number of seconds that have to pass before the respective PPP network or link protocol will retry to do whatever didn't work during the last attempt.<p>
+Example: <code>3</code><p>
+
+<dt><code>ppp.mtu</code>
+<dd>The maximum transmission unit to use.<p>
+Example: <code>1500</code><p>
+
+<dt><code>ppp.peeridletimeout</code>
+<dd>Number of seconds the peer may remain idle, i.e. send no data to the local host, before a watchdog timeout elapses and proceeds to verify that the line is still operational.<p>
+Example: <code>30</code><p>
+
+<dt><code>ppp.rejectpap</code>
+<dd>Whether or not the Password Authentication Protocol should be accepted, if offered by the peer. This can be either <code>0</code> (accept) or <code>1</code> (reject).<p>
+Example: <code>0</code><p>
+
+<dt><code>ppp.sendid</code>
+<dd>A flag which controls whether the local host should send LCP identification packets or not. This can be either <code>0</code> (off) or <code>1</code> (on).<p>
+Example: <code>0</code><p>
+
+<dt><code>ppp.pap.timeout</code>
+<dd>The Password Authentication Protocol requires that the server answers to the client's request to log in. The server may be unable to respond immediately, which means that the client will have to repeat its request. A short delay should separate each request sent, such as three seconds.<p>
+Example: <code>3</code><p>
+
+<dt><code>ppp.pap.retry</code>
+<dd>If the client does not manage to authenticate with the server immediately, it may resend the authentication request several times. But the attempts have to stop eventually, such as after having resent the message ten times.<p>
+Example: <code>10</code><p>
+
+<dt><code>ppp.dummyremoteaddress</code>
+<dd>Whether or not the PPP driver should make up an IP address if the peer
+refuses to state its own IP address.<p>
+Example: <code>1</code><p>
+
+<dt><code>logfile</code>
+<dd>The name of a log file to create. If the file already exists, then new data should be appended to it.<p>
+Example: <code>t:logfile</code><p>
+
+<dt><code>logoptions</code>
+<dd>A list of options which control what exactly should be logged.<p>
+
+<dt><code>ppp.ethernet.device</code>
+<dd>Name of device driver to use for PPPoE (PPP over Ethernet).<p>
+Example: <code>a2065.device</code><p>
+
+<dt><code>ppp.ethernet.unit</code>
+<dd>Device unit number to use for PPPoE.<p>
+Example: <code>0</code><p>
+
+<dt><code>ppp.ethernet.raw</code>
+<dd>Whether or not raw link layer frames should be constructed for transmission or not. This can be either <code>0</code> (off) or <code>1</code> (on).<p>
+Example: <code>1</code><p>
+
+<dt><code>ppp.ethernet.bypass</code>
+<dd>Whether or not the IP packet transmission and reception should bypass several copying steps. This can be either <code>0</code> (off) or <code>1</code> (on).<p>
+Example: <code>1</code><p>
+
+<dt><code>ppp.ethernet.readpackets</code>
+<dd>The number of read requests to queue for the link layer.<p>
+Example: <code>16</code><p>
+
+<dt><code>ppp.ethernet.writepackets</code>
+<dd>The number of write requests to queue for the link layer.<p>
+Example: <code>16</code><p>
+
+<dt><code>ppp.ethernet.service</code>
+<dd>The name of the PPPoE service to request.<p>
+Example: <code>?</code><p>
+
+<dt><code>ppp.ethernet.ac</code>
+<dd>The name of the PPPoE access concentrator to request.<p>
+Example: <code>?</code><p>
+
+<dt><code>ppp.ethernet.connecttimeout</code>
+<dd>The number of seconds to wait for the PPPoE server to allow a session to be opened.<p>
+Example: <code>3</code><p>
+</dl></a><p>
+
+While this list of parameters may suggest that the command described above
+can be used solely with the PPP protocol, do not let that put you off. This
+list is merely the starting point, but it is not set in stone that it cannot
+be extended.<p>
+
+The names of the parameters are not case sensitive. As the names suggest, the
+name space itself is hierarchic in construction, i.e. everything related to
+the PPP protocol bears a name starting with the letters '<kbd>ppp</kbd>' with the dot '<kbd>.</kbd>'
+separating the individual items. By this rule, <kbd>ppp.async</kbd> refers to options
+that concern asynchronous PPP and <kbd>ppp.ethernet</kbd> to options that concern PPP
+over Ethernet wire.<p>
+
+To add your own parameter, register it with the maintainer of the SANA-II
+standard or prefix its name with the letters '<kbd>x-</kbd>'. For example, to use your
+own kind of '<kbd>ppp.ethernet.connecttimeout</kbd>' parameter, change the name of the
+last component like this: <kbd>ppp.ethernet.x-connecttimeout</kbd>. No
+officially-registered parameter will ever begin with the prefix '<kbd>x-</kbd>'.<p>
+
+The command should work as follows:<p>
+
+<ol>
+<li> The client must set up the <code>Sana2Connection</code> data structure,
+initialize the <code>s2c_Size</code>, <code>s2c_Options</code>, <code>s2c_ErrorHook</code>,
+<code>s2c_ConnectHook</code>, <code>s2c_DisconnectHook</code>, <code>s2c_Login</code> and
+<code>s2c_Password</code> fields.<p>
+
+<li> The connection options must be filled in, which means that
+nodes containing the respective information must be stored
+in the <code>s2c_Options</code> list. The client must make sure that
+the syntax of the parameters conforms to the specifications
+described above.<p>
+
+<li> A pointer to the <code>Sana2Connection</code> data structure is placed
+in the <code>ios2_Data</code> member of an <code>IOSana2Req</code>, the command
+is set to <code>S2_CONNECT</code> and the request is sent via <code>DoIO()</code>
+or <code>SendIO()</code>.<p>
+
+<li> The driver receives the request and begins to examine the
+contents of the <code>s2c_Options</code> list, as provided in the
+data structure pointed to by the <code>ios2_Data</code> member of the
+request. Unknown options are ignored, options whose values
+do not conform to the syntax specification are rejected;
+this is done by calling the <code>s2c_ErrorHook</code> with an error
+message referring to the option in question and by
+returning the <code>IOSana2Req</code> with an error code of
+<code>S2ERR_BAD_ARGUMENT</code> and wire error code of
+<code>S2WERR_INVALID_OPTION</code>.<p>
+
+<li> If the options are all in good order, the driver proceeds to
+verify that all mandatory options are provided. If this is
+not the case, the <code>s2c_ErrorHook</code> is called with an error
+message referring to the option in question and the
+<code>IOSana2Req</code> is returned with an error code of <code>S2ERR_BAD_ARGUMENT</code>
+and wire error code of <code>S2WERR_MISSING_OPTION</code>.<p>
+
+<li> The driver proceeds to do its local initialization, which involves
+opening the link layer device, etc. If this initialization fails,
+the <code>s2c_ErrorHook</code> is called with an error message referring to
+the problem and the <code>IOSana2Req</code> is returned with an appropriate
+error code.<p>
+
+<li> When the initialization has finished, the driver may invoke the
+<code>s2c_ConnectHook</code> callback. Some drivers may require this, such as asynchronous
+PPP, some may not, such as PPPoE. The purpose of the hook function
+is to give the client a chance to perform modem initializations
+and connect to the peer. If the <code>s2c_ConnectHook</code> cannot perform
+its duties, it has to invoke the <code>s2c_ErrorHook</code> with an error
+message and eventually return <code>FALSE</code>. If <code>FALSE</code> is returned, the
+driver must invoke the <code>s2c_DisconnectHook</code>, reverse any
+initializations it had made and eventually returned the
+<code>IOSana2Req</code> with an appropriate error code. If the <code>s2c_ConnectHook</code>
+returned <code>TRUE</code>, then the driver must proceed with the actions
+that require that the link layer is operational. A protocol
+negotiation may follow, which, if successful, will make the
+driver return the <code>IOSana2Req</code> with an error code of zero,
+indicating success. If successful, the SANA-II events
+<code>S2EVENT_CONNECT</code> and <code>S2EVENT_ONLINE</code> must be sent.<p>
+
+<li> The command will eventually return, but the client <strong>must not</strong>
+release the memory allocated for the <code>Sana2Connection</code> structure
+and the option nodes in the <code>s2c_Options</code> list. This is because
+the driver may have to invoke the <code>s2c_DisconnectHook</code> hook due
+to the connection shutting down on its own accord.
+
+</ol><p>
+
+The connect and disconnect hook functions <strong>must not</strong> be called from interrupt
+code. For each hook only a <code>Task</code> calling context of unknown priority must be
+assumed. Also, stack space is provided only to call <code>exec.library</code> and
+<code>utility.library</code> functions. The callback shall not place excessive data on the
+stack. Stack space should be considered limited.<p>
+
+I propose a command with the following semantics:<p>
+
+<pre>
+   NAME
+        S2_CONNECT -- Establish a link layer connection and go
+            online.
+
+   FUNCTION
+        This command is for use by networking devices which require
+        a special link layer device to transmit their data, such as
+        an asynchronous serial line and need to know about the
+        configuration parameters necessary to open the connection.
+
+   IO REQUEST
+        ios2_Command          - S2_CONNECT
+        ios2_Data             - Pointer to Sana2Connection structure
+        ios2_BufferManagement - Magic cookie as returned when opening the
+                                driver with a struct IOSana2Req
+
+   RESULTS
+        ios2_Req.io_Error - Zero if successful; non-zero otherwise
+        ios2_WireError    - More specific error number
+
+   NOTES
+        If successful, this command implies S2_ONLINE, i.e. the
+        link layer is allocated and used by the driver.
+
+        The contents of the Sana2Connection structure must be valid
+        until the connection is eventually shut down. The driver will
+        need to cache it, so it must not be deallocated or otherwise
+        modified.
+
+        Note that S2_ONLINE does not necessarily imply S2_CONNECT, if
+        the S2_CONNECT command is listed as supported by the driver via
+        NSCMD_DEVICEQUERY. If S2_CONNECT is not listed as supported,
+        S2_ONLINE obviously implies connect functionality.
+
+        S2_CONNECT/S2_DISCONNECT do not nest.
+
+   SEE ALSO
+        S2_DISCONNECT
+</pre><p>
+
+I propose that the following command number should be assigned:<p>
+
+<code>#define S2_CONNECT 0xC005</code>
+
+<h3>2.5 <code>S2_DISCONNECT</code></h3>
+
+This command complements <code>S2_CONNECT</code> in that it tears down a connection. It
+uses the same <code>Sana2Connection</code> structure and hooks, but most of these members
+are ignored.<p>
+
+The command should work as follows:<p>
+
+<ol>
+
+<li> The client must set up the <code>Sana2Connection</code> data structure,
+initialize the <code>s2c_Size</code>, <code>s2c_Options</code>, <code>s2c_ErrorHook</code>,
+<code>s2c_ConnectHook</code>, <code>s2c_DisconnectHook</code>, <code>s2c_Login</code> and
+<code>s2c_Password</code> fields. The <code>s2c_Options</code>, <code>s2c_ConnectHook</code>,
+<code>s2c_Login</code> and <code>s2c_Password</code> fields will be ignored, but
+the client should play things safe.<p>
+
+<li> A pointer to the <code>Sana2Connection</code> data structure is placed
+in the <code>ios2_Data</code> member of an <code>IOSana2Req</code>, the command
+is set to <code>S2_DISCONNECT</code> and the request is sent via <code>DoIO()</code>
+or <code>SendIO()</code>.<p>
+
+<li> The driver receives the request and proceeds to reverse the
+steps that previously allowed it to establish a connection.
+This includes telling the peer to shut down the link, but
+it does not include cleaning up the link layer device
+access, i.e. no I/O requests used for accessing a modem
+may be shut down yet.<p>
+
+<li> The <code>s2c_DisconnectHook</code> may be invoked with the proper parameters.
+Some drivers, such as for asynchronous PPP, will need the hook
+to tell the modem to hang up the line. Some drivers, such as for
+PPPoE, may not need this hook and thus ignore it.<p>
+
+<li> The initialization is reversed completely, all resources allocated
+when the connection was previously opened are released. The
+<code>IOSana2Req</code> is returned with an error code of zero, indicating
+success. The SANA-II event <code>S2EVENT_DISCONNECT</code> must be sent,
+and, if necessary, <code>S2EVENT_OFFLINE</code>.
+
+</ol><p>
+
+The connect and disconnect hook functions must not be called from interrupt
+code. For each hook only a <code>Task</code> calling context of unknown priority must be
+assumed. Also, stack space is provided only to call <code>exec.library</code> and
+<code>utility.library</code> functions. The callback shall not place excessive data on the
+stack. Stack space should be considered limited.<p>
+
+I propose a command with the following semantics:<p>
+
+<pre>
+   NAME
+        S2_DISCONNECT -- Go offline and close a link layer connection
+            previously established with S2_CONNECT.
+
+   FUNCTION
+        This command complements the S2_CONNECT command in that it
+        reverses the steps taken to establish a link layer connection.
+
+   IO REQUEST
+        ios2_Command          - S2_DISCONNECT
+        ios2_Data             - Pointer to Sana2Connection structure
+        ios2_BufferManagement - Magic cookie as returned when opening the
+                                driver with a struct IOSana2Req
+
+   RESULTS
+        ios2_Req.io_Error - Zero if successful; non-zero otherwise
+        ios2_WireError    - More specific error number
+
+   NOTES
+        If successful, this command implies S2_OFFLINE, i.e. the
+        link layer is deallocated.
+
+        The driver must ignore the S2_DISCONNECT command and
+        recover gracefully if the S2_CONNECT was never sent or
+        returned with an error.
+
+        The contents of the Sana2Connection structure are valid only
+        until the device driver has processed the command and returned
+        the IOSana2Req. Any data the driver may need to retain beyond
+        that point of time must be copied.
+
+        Once the S2_DISCONNECT command has returned, it is safe to dispose
+        of the Sana2Connection structure provided at S2_CONNECT time.
+
+        Note that S2_OFFLINE does not necessarily imply S2_DISCONNECT, if
+        the S2_DISCONNECT command is listed as supported by the driver via
+        NSCMD_DEVICEQUERY. If S2_DISCONNECT is not listed as supported,
+        S2_OFFLINE obviously implies disconnect functionality.
+
+        S2_CONNECT/S2_DISCONNECT do not nest.
+
+   SEE ALSO
+        S2_CONNECT
+</pre><p>
+
+I propose that the following command number should be assigned:<p>
+
+<code>#define S2_DISCONNECT 0xC006</code>
+
+<h3>2.6 <code>S2_SAMPLE_THROUGHPUT</code></h3>
+
+The SANA-II standard already allows for statistics to be returned on the
+amount of data that has passed through a driver. Unfortunately, that
+information is not very accurate in that no information is provided on the
+time span in which the data was accumulated. Such information would be helpful
+in trying to determine as accurately as possible how large the data throughput
+actually is. I therefore propose a new command which can be used to obtain
+that information, which uses the following data structure:<p>
+
+<pre>
+struct Sana2ThroughputStats
+{
+   ULONG          s2ts_Length;
+   ULONG          s2ts_Actual;
+
+   struct Task *  s2ts_NotifyTask;
+   ULONG          s2ts_NotifyMask;
+
+   struct timeval s2ts_StartTime;
+   struct timeval s2ts_EndTime;
+   S2QUAD         s2ts_BytesSent;
+   S2QUAD         s2ts_BytesReceived;
+   S2QUAD         s2ts_Updates;
+};
+</pre><p>
+
+Before I proceed to explain what purposes the individual members serve, a few
+words on the <code>S2QUAD</code> type, which is defined as follows:<p>
+
+<code>typedef struct { ULONG s2q_High; ULONG s2q_Low; } S2QUAD;</code><p>
+
+In other words, the <code>S2QUAD</code> type stands for an unsigned 64 bit big endian
+integer, as expressed in ISO 'C' terms.<p>
+
+The structure members have the following purposes:<p>
+
+<dl>
+<dt><code>s2ts_Length</code>
+<dd>This is the size of the data structure to be
+filled in and should be initialized by the
+caller to <code>sizeof(struct Sana2ThroughputStats)</code>.
+Smaller values are permitted, but these must
+not be smaller than 8 (which covers the
+<code>s2ts_Length</code> and <code>s2ts_Actual</code> members). A
+driver which finds an <code>s2ts_Length</code> &lt; 8 must
+treat this as an error and reject the command
+with <code>ios2_Req.io_Error</code>=<code>IOERR_BADLENGTH</code>.<p>
+
+<dt><code>s2ts_Actual</code>
+<dd>The size of the data structure filled with
+information. This member is initialized by
+the driver and must be &lt;= <code>s2ts_Length</code>.<p>
+
+<dt><code>s2ts_NotifyTask</code>
+<dd>The <code>Task</code> to notify whenever the contents of
+this data structure change. This must be <code>NULL</code>
+if no notification is desired.<p>
+
+<strong>Note:</strong> This feature should be used carefully, as
+so much data may arrive that the driver
+will almost be constantly signalling this
+<code>Task</code> that a change has taken place.<p>
+
+It is recommend that periodic polling be used,
+such as to update displays of a link monitoring
+program.<p>
+
+<dt><code>s2ts_NotifyMask</code>
+<dd>The signal mask to use for notifying the <code>Task</code>
+whose address is found in <code>s2ts_NotifyTask</code>
+(via <code>Signal(s2ts-&gt;s2ts_NotifyTask,s2ts-&gt;s2ts_NotifyMask);</code>).
+This must be zero if no notification is desired.<p>
+
+<dt><code>s2ts_StartTime</code>
+<dd>The time when the driver started to fill in
+this data structure.<p>
+
+<dt><code>s2ts_EndTime</code>
+<dd>The time when the driver last updated the
+contents of this data structure.<p>
+
+<dt><code>s2ts_BytesSent</code>
+<dd>Total number of bytes sent since the driver
+started to fill in this data structure. This
+is a 64 bit integer.<p>
+
+<dt><code>s2ts_BytesReceived</code>
+<dd>Total number of bytes received since the driver
+started to fill in this data structure. This
+is a 64 bit integer.<p>
+
+<dt><code>s2ts_Updates</code>
+<dd>Number of times the driver has updated this
+data structure. This value will increase with
+every change. This is a 64 bit integer.
+</dl><p>
+
+A driver implementing this command should take care to update the members
+<code>s2ts_EndTime</code>, <code>s2ts_BytesSent</code>, <code>s2ts_BytesReceived</code> and <code>s2ts_Updates</code>
+atomically each time changes are made.<p>
+
+I propose a command with the following semantics:<p>
+
+<pre>
+   NAME
+        S2_SAMPLE_THROUGHPUT -- Obtain accurate information on
+           driver data throughput.
+
+   FUNCTION
+        This command installs a data structure which is updated every time
+        data is sent or received by the driver.
+
+        This command must be sent via SendIO() or BeginIO(); until
+        the associated I/O request is recalled using AbortIO(), the
+        device unit will continue to update the Sana2ThroughputStats
+        structure in real time.
+
+   IO REQUEST
+        ios2_Command          - S2_SAMPLE_THROUGHPUT
+        ios2_StatData         - Pointer to Sana2ThroughputStats structure
+                                to fill in
+        ios2_BufferManagement - Magic cookie as returned when opening the
+                                driver with a struct IOSana2Req
+
+   RESULTS
+        ios2_Req.io_Error - Zero if successful; non-zero otherwise
+
+   NOTES
+        If this device driver does not understand this command,
+        it will immediately return the IOSana2Req with
+        ios2_Req.io_Error set to IOERR_NOCMD. Otherwise, the request will
+        remain queued until it is removed with AbortIO() later.
+</pre><p>
+
+I propose that the following command number should be assigned:<p>
+
+<code>#define S2_SAMPLE_THROUGHPUT 0xC007</code>
+
+<h2>3. Annotations for existing commands</h2><p>
+
+<h3>3.1 <code>S2_ONLINE</code> and <code>S2_OFFLINE</code></h3><p>
+
+This proposal introduces two new commands (<code>S2_CONNECT</code> and <code>S2_DISCONNECT</code>)
+which are somewhat related to the <code>S2_ONLINE</code> and <code>S2_OFFLINE</code> commands. How
+this relation works out shall be explained below. Note that the following text
+assumes that both the <code>S2_CONNECT</code>/<code>S2_DISCONNECT</code> and <code>S2_ONLINE</code>/<code>S2_OFFLINE</code>
+command pairs are implemented.<p>
+
+<code>S2_CONNECT</code> implies <code>S2_ONLINE</code> and, if successful, may report
+<code>S2EVENT_ONLINE</code> and <code>S2EVENT_CONNECT</code> events. If the unit is currently
+disconnected, but still online, only the <code>S2EVENT_CONNECT</code> event shall be sent.
+Invoking the <code>S2_CONNECT</code> command on a driver which is already connected must
+be rejected with <code>ios2_Req.io_Error=S2ERR_BAD_STATE</code> and
+<code>ios2_WireError=S2WERR_UNIT_CONNECTED</code>.<p>
+
+<code>S2_DISCONNECT</code> implies <code>S2_OFFLINE</code> and, if successful, may report
+<code>S2EVENT_OFFLINE</code> and <code>S2EVENT_DISCONNECT</code> events. If the unit is curently
+connected and offline, then only the <code>S2EVENT_DISCONNECT</code> event shall be sent.
+Invoking the <code>S2_DISCONNECT</code> command on a driver which is already disconnected
+must be rejected with <code>ios2_Req.io_Error=S2ERR_BAD_STATE</code> and
+<code>ios2_WireError=S2WERR_UNIT_DISCONNECTED</code>.<p>
+
+<code>S2_OFFLINE</code> may be used after the <code>S2_CONNECT</code> has successfully connected the
+unit. In this case the driver will release control over the link layer and
+report the <code>S2EVENT_OFFLINE</code> event. The connection established using the
+<code>S2_CONNECT</code> will, however, persist.<p>
+
+<code>S2_ONLINE</code> may be used after <code>S2_CONNECT</code> has successfully connected the unit
+and the <code>S2_OFFLINE</code> was used. In this case the driver will again try to
+obtain control over the link layer and report the <code>S2EVENT_ONLINE</code> event if
+successful.<p>
+
+If the <code>S2_CONNECT</code> command was never successfully executed, then the commands
+<code>S2_ONLINE</code> and <code>S2_OFFLINE</code> must be rejected with
+<code>ios2_Req.io_Error=S2ERR_BAD_STATE</code> and <code>ios2_WireError=S2WERR_UNIT_DISCONNECTED</code>.<p>
+
+<h2>4. Extensions for existing commands</h2><p>
+
+<h3>4.1 <code>S2_DEVICEQUERY</code></h3><p>
+
+The <code>Sana2DeviceQuery</code> structure filled in by the <code>S2_DEVICEQUERY</code> command
+provides for information on the device's properties, including the maximum
+transmission unit (MTU) that may be used. What is not specifically covered is
+the 'raw' MTU a device may offer. In this context 'raw' means the number of
+bytes that are available for reading and writing when using the <code>SANA2IOB_RAW</code>
+flag with a <code>CMD_READ</code>/<code>CMD_WRITE</code> request on a device that supports these access
+methods. Currently, software developers can only make assumptions on how many bytes might
+comprise the 'raw' MTU by checking the <code>Sana2DeviceQuery.HardwareType</code> member
+and hoping that the driver supports raw <code>CMD_READ</code>/<code>CMD_WRITE</code> access.<p>
+
+I propose that the <code>S2_DEVICEQUERY</code> command and the associated <code>Sana2DeviceQuery</code>
+structure are extended to allow for the raw MTU to be queried. The new
+<code>Sana2DeviceQuery</code> structure would look like this:<p>
+
+<pre>
+struct Sana2DeviceQuery
+{
+    /*
+    ** Standard information
+    */
+    ULONG SizeAvailable;    /* bytes available */
+    ULONG SizeSupplied;     /* bytes supplied */
+    LONG  DevQueryFormat;   /* this is type 0 */
+    LONG  DeviceLevel;      /* this document is level 0 */
+
+    /*
+    ** Common information
+    */
+    UWORD AddrFieldSize;    /* address size in bits */
+    ULONG MTU;              /* maximum packet data size */
+    LONG  bps;              /* line rate (bits/sec) */
+    LONG  HardwareType;     /* what the wire is */
+    ULONG RawMTU;           /* maximum raw packet data size */
+
+    /*
+    ** Format specific information
+    */
+};
+</pre><p>
+
+The <code>RawMTU</code> member is new. Devices which do not know and support this structure
+member may fill in the <code>Sana2DeviceQuery</code> structure only up to and including the
+<code>HardwareType</code> member.<p>
+
+Devices which know and support the <code>RawMTU</code> member must fill it with a
+well-defined value. For Amiga Ethernet drivers, that value would be 1514,
+which is the standard MTU value of 1500 bytes plus the size of the Ethernet
+frame header, as per RFC894 (six bytes for the destination address, six bytes for the source
+address and two bytes for the frame type; the eight byte preamble and the
+terminating four byte CRC value are typically not under the control of the
+driver). Drivers which do not support raw read or write access must set the
+<code>RawMTU</code> member to zero.<p>
+
+If the <code>RawMTU</code> member is not provided, all bets are off and the application
+software must fall back to making estimates based upon the hardware type and
+the raw frame types it wishes to read and write. Ultimatively, the driver
+itself must decide whether it can accept raw read and write commands (or has
+to reject them with <code>S2ERR_NOT_SUPPORTED</code>) and whether the raw packet size is
+still covered by the underlying hardware MTU (or must be rejected with
+<code>S2ERR_MTU_EXCEEDED</code>).<p>
+
+A word of warning: a little testing with various Ethernet hardware drivers has
+revealed that the A2065 driver <code>a2065.device</code> does not handle the
+<code>S2_DEVICEQUERY</code> command properly if the <code>Sana2DeviceQuery</code>
+structure provided is larger than 30 bytes. In other words, the command will
+fail if the proposed <code>RawMTU</code> member is present in the query data
+structure to be filled in.<p>
+
+<h2>5. New events</h2><p>
+
+<h3>5.1 <code>S2EVENT_CONFIGCHANGED</code></h3><p>
+
+The SANA-II standard does not cover protocols or devices which can change
+their properties during operation, such as the hardware address of the
+underlying driver. For drivers such as those which implement the proposed
+<code>S2_GETPEERADDRESS</code> and <code>S2_GETDNSADDRESS</code> commands it is vital that such changes
+can take place and be noticed by the client software. For this purpose I
+propose that a new event type is introduced, to be used with the SANA-II
+<code>S2_ONEVENT</code> command, using the following definition:<p>
+
+<code>#define S2EVENT_CONFIGCHANGED (1L&lt;&lt;8)</code><p>
+
+This event should be triggered whenever client-visible configuration
+information changes, as can be queried via the <code>S2_DEVICEQUERY</code>,
+<code>S2_GETSTATIONADDRESS</code>, <code>S2_GETSPECIALSTATS</code>, <code>S2_GETGLOBALSTATS</code>, <code>S2_GETPEERADDRESS</code>
+and <code>S2_GETDNSADDRESS</code> commands. Here is a short list of what could change:<p>
+
+<dl>
+<dt><code>S2_DEVICEQUERY</code>
+<dd><code>AddrFieldSize</code>, <code>MTU</code>, <code>BPS</code><p>
+
+<dt><code>S2_GETSTATIONADDRESS</code>
+<dd><code>ios2_SrcAddr</code><p>
+
+<dt><code>S2_GETGLOBALSTATS</code>
+<dd><code>Reconfigurations</code>, <code>LastStart</code><p>
+
+<dt><code>S2_GETPEERADDRESS</code>
+<dd><code>ios2_SrcAddr</code>, <code>ios2_DstAddr</code><p>
+
+<dt><code>S2_GETDNSADDRESS</code>
+<dd><code>ios2_SrcAddr</code>, <code>ios2_DstAddr</code>
+</dl><p>
+
+The purpose of this event <strong>is not</strong> to post a notification whenever another
+byte or event counter has changed so that a monitoring program may update its
+display. The purpose <strong>is</strong> to convey to the client software that an important
+device configuration option has changed and that it is supposed to react and
+adapt to it. For example, a TCP/IP stack may, upon learning that a device's IP
+address has changed, rebuild its routing table.<p>
+
+Since the <code>S2EVENT_CONFIGCHANGED</code> event may arrive at any time and does not
+indicate what exactly has changed, application software should query the
+information it expects to change during its life time, and keep a copy of it
+around for later reference. When the <code>S2EVENT_CONFIGCHANGED</code> event arrives, it
+can compare the contents of the copy against the current state of affairs and
+act according to the differences it finds.<p>
+
+<h3>5.2 <code>S2EVENT_CONNECT</code></h3><p>
+
+This event is a counterpart to <code>S2EVENT_ONLINE</code>, and is associated with the
+<code>S2_CONNECT</code> command. I propose the following semantics:<p>
+
+<code>#define S2EVENT_CONNECT (1L&lt;&lt;9) /* Driver has opened session */</code><p>
+
+The event is to be sent when the driver has successfully established a link
+layer connection.<p>
+
+<h3>5.3 <code>S2EVENT_DISCONNECT</code></h3><p>
+
+This event is a counterpart to <code>S2EVENT_OFFLINE</code>, and is associated with the
+<code>S2_DISCONNECT</code> command. I propose the following semantics:<p>
+
+<code>#define S2EVENT_DISCONNECT (1L&lt;&lt;10) /* Driver has closed session */</code><p>
+
+The event is to be sent when the driver has closed the link layer connection
+previously established by the <code>S2_CONNECT</code> command.<p>
+
+<h2>6. New wire error codes</h2><p>
+
+<h3>6.1 <code>S2WERR_UNIT_DISCONNECTED</code></h3><p>
+
+This error code is a counterpart to <code>S2WERR_UNIT_OFFLINE</code>. It indicates that the
+associated command could not be executed because the link layer is not
+connected.<p>
+
+I propose the following semantics:<p>
+
+<code>#define S2WERR_UNIT_DISCONNECTED 19 /* unit is currently not connected */</code><p>
+
+<h3>6.2 <code>S2WERR_UNIT_CONNECTED</code></h3><p>
+
+This error code is a counterpart to <code>S2WERR_UNIT_ONLINE</code>. It indicates that the
+associated command could not be executed because the link layer is already
+connected.<p>
+
+I propose the following semantics:<p>
+
+<code>#define S2WERR_UNIT_CONNECTED 20 /* unit is currently connected */</code><p>
+
+<h3>6.3 <code>S2WERR_INVALID_OPTION</code></h3><p>
+
+This error code indicates that an option, such as passed by the <code>S2_CONNECT</code>
+command, is not acceptable. The option's value may be out of range or may not
+match the syntax specifications. To indicate which option that may be, a
+different mechanism <strong>must</strong> be used; a simple indication that something was wrong
+is <strong>not sufficient</strong>.<p>
+
+I propose the following semantics:<p>
+
+<code>#define S2WERR_INVALID_OPTION 21 /* invalid option rejected */</code><p>
+
+<h3>6.4 <code>S2WERR_MISSING_OPTION</code></h3><p>
+
+This error code indicates that a mandatory option, such as passed by the
+<code>S2_CONNECT</code> command, is not present. To indicate which option that may be, a
+different mechanism <strong>must</strong> be used; a simple indication that something was wrong
+is <strong>not sufficient</strong>.<p>
+
+I propose the following semantics:<p>
+
+<code>#define S2WERR_MISSING_OPTION 22 /* a mandatory option is missing */</code><p>
+
+<h3>6.5 <code>S2WERR_AUTHENTICATION_FAILED</code></h3><p>
+
+Some drivers run protocols that require them to authenticate to a server. That
+process may fail. This wire error code is to indicate this fact.<p>
+
+I propose the following semantics:<p>
+
+<code>#define S2WERR_AUTHENTICATION_FAILED 23 /* could not log in */</code><p>
+
+<h2>7. Callbacks</h2><p>
+
+<h3>7.1 <code>S2_DMACopyToBuff64</code> and <code>S2_DMACopyFromBuff64</code></h3><p>
+
+These two callbacks are identical in operation to the <code>S2_DMACopyToBuff32</code> and
+<code>S2_DMACopyFromBuff32</code> callbacks, as specified in the SANA-IIR3 standard. The
+difference is in that the memory region DMA is to take place in must be
+aligned to a 64 bit boundary and must be large enough to hold data that is a
+multiple of 64 bits in size. The purpose of these hooks is to allow for 64
+bit aligned PCI DMA accesses to take place.<p>
+
+I propose that the following numbers should be assigned:<p>
+
+<code>#define S2_DMACopyToBuff64   (S2_Dummy + 10)<p>
+#define S2_DMACopyFromBuff64 (S2_Dummy + 11)<p></code>
+
+<h3>7.2 <code>S2_Log</code></h3><p>
+
+A driver may want to report an important event for the user to see. Adding a
+log message to a file or opening a window to display a message in may not be
+the optimum approach as the user may be unaware of the context into which the
+message belongs. It may be advisable for the driver to use the message
+reporting and logging facilities used by the client software that uses its
+services, such as a TCP/IP stack. The <code>S2_Log</code> callback hook is intended to
+provide for such a link. If present, the driver must use this callback hook
+rather than whatever logging methods it implements itself. Note that unlike
+the other SANA-II callbacks, this is a regular hook, as to be invoked using
+<code>utility.library</code>/<code>CallHookPkt()</code>. The hook function is invoked using the
+following parameters:<p>
+
+<pre>
+log_hook_function(hook,reserved,message)
+                   A0     A2      A1
+
+void log_hook_function(struct hook * hook,APTR reserved,
+                       struct S2LogMessage * message);
+</pre><p>
+
+The <code>reserved</code> parameter <strong>must</strong> be set to <code>NULL</code>. The <code>S2LogMessage</code> structure passed
+as the third parameter looks like this:<p>
+
+<pre>
+struct S2LogMessage
+{
+   LONG   s2lm_Size;
+   ULONG  s2lm_Priority;
+   STRPTR s2lm_Name;
+   STRPTR s2lm_Message;
+};
+</pre><p>
+
+The individual structure members serve the following functions:<p>
+
+<dl>
+<dt><code>s2lm_Size</code>
+<dd>Size of the <code>S2LogMessage</code> structure, in bytes. The idea is to
+extend this data structure in the future, and the size stored
+in here tells you how long the structure is. The size <strong>must</strong>
+always be &gt;= 16.<p>
+
+<dt><code>s2lm_Priority</code>
+<dd>The smaller this value, the more important the message to
+be logged or displayed. The following priority levels
+are defined (similar to the Unix <code>syslog()</code> mechanism):<p>
+
+<dl>
+<dt><code>#define S2LOG_Emergency 0</code>
+<dd>A panic condition.<p>
+
+<dt><code>#define S2LOG_Alert 1</code>
+<dd>A condition that should be corrected immediately.<p>
+
+<dt><code>#define S2LOG_Critical 2</code>
+<dd>Critical conditions.<p>
+
+<dt><code>#define S2LOG_Error 3</code>
+<dd>A plain error.<p>
+
+<dt><code>#define S2LOG_Warning 4</code>
+<dd>A warning message.<p>
+
+<dt><code>#define S2LOG_Notice 5</code>
+<dd>Conditions that are not error conditions, but should possibly be handled specially.<p>
+
+<dt><code>#define S2LOG_Information 6</code>
+<dd>An informational message.<p>
+
+<dt><code>#define S2LOG_Debug 7</code>
+<dd>Messages that contain information normally of use only when debugging.
+</dl><p>
+
+<dt><code>s2lm_Name</code>
+<dd>Pointer to a <code>NUL</code>-terminated string which identifies
+the source of this message. This can be <code>NULL</code> in which
+case the name is treated as being unknown.<p>
+
+<dt><code>s2lm_Message</code>
+<dd>Pointer to a <code>NUL</code>-terminated string which contains the
+log message. The text should not contain any formatting
+characters such as line feeds or carriage returns.
+The <code>s2lm_Message</code> member <strong>must never</strong> be <code>NULL</code>.<p>
+
+All error messages issued by the device driver should use the
+current system locale wherever this is possible. The purpose of
+an error message is, after all, to assist the user in recovering
+from the error. Which may be difficult if the user does not even
+know the language in which the message is written.<p>
+
+The log message string is valid until the log hook function
+returns. If the driver needs to retain the message any longer,
+it must make a copy of it.
+</dl><p>
+
+Since the client software into which the log hook calls may have to allocate
+memory to hold and display the log message, the log hook <strong>must not</strong> be called
+from interrupt code. The log hook shall not <code>Wait()</code> and it shall assume only
+a <code>Task</code> calling context of unknown priority. <code>dos.library</code> functions may not
+be called. Also, stack space is provided only to call <code>exec.library</code> and
+<code>utility.library</code> functions. The callback shall not place excessive data on
+the stack. Stack space should be considered limited and the callback
+should be designed to be fast and short.<p>
+
+This hook is installed at <code>OpenDevice()</code> time, which means that the hook is used
+for the unit that was opened, and not just for the I/O request it was opened
+with. The hook must remain installed until the I/O request that installed it
+is eventually used to close the device. When this happens, the device should
+fall back to use no log hook at all. No nesting is permitted or required.<p>
+
+I propose that the following number should be assigned:<p>
+
+<code>#define S2_Log (S2_Dummy + 12)</code><p>
+
+<h2>8. Proposed driver requirements</h2><p>
+
+This is an attempt to clarify part of the specification and to lay down a few
+rules that every SANA-II driver should follow in addition to the requirements
+described in the existing specifications. Here is what I propose:<p>
+
+<ul>
+<li> A driver that does not use a broadcast medium, such as
+Ethernet, must not implement the <code>S2_BROADCAST</code> command.
+Likewise, if no multicast mechanism is supported, the
+<code>S2_MULTICAST</code> must not be implemented either.<p>
+
+<li> SANA-II standard commands which the driver does not
+implement must be rejected with the <code>IOERR_NOCMD</code>
+error code. Commands that are implemented, but which cannot
+perform the requested services, must be rejected with the
+<code>S2ERR_NOT_SUPPORTED</code> error code. The difference between the
+two cases is in when the decision is made whether a command
+can be handled or not. Which commands should return <code>IOERR_NOCMD</code>
+is decided upon at the time the driver is designed and implemented.
+At this stage the implementor knows for sure which capabilities the
+driver will have and which it will not have. Commands which the
+driver will never be able to execute will be made to return the
+<code>IOERR_NOCMD</code> error code. If the decision whether a command can be
+executed is made only at run time, by evaluating the conditions
+under which a command can be executed, then the error code
+<code>S2ERR_NOT_SUPPORTED</code> should be returned in case of failure.<p>
+
+<li> It must be possible to open the driver with a plain
+<code>struct IOStdReq</code>. This is necessary for the NewStyleDevices
+query command to work. In the command dispatcher, the driver
+must verify that all SANA-II commands are invoked with a
+proper size <code>struct IOSana2Req</code> I/O request. If the
+I/O request is shorter (as can be verified by looking at
+the embedded Message's <code>mn_Length</code> member), the command must
+be rejected with <code>ios2_Req.io_Error=IOERR_BADLENGTH</code>.<p>
+
+<li> A driver must implement the NewStyleDevices <code>NSCMD_DEVICEQUERY</code>
+command, in conformance with the NSD specification 1.6 or
+newer. The motivation for this is to have a mechanism
+available for probing the capabilities of the driver, and
+the supported command set can provide for vital clues. In
+this context, the absence of the <code>S2_BROADCAST</code> command would
+suggest that the driver cannot send or receive broadcast
+messages.<p>
+
+<li> A driver that does not allow its station address to be set
+with the <code>S2_CONFIGINTERFACE</code> command may silently ignore
+the command (returning it without setting an error condition)
+and even pretend that it can be configured more than once.<p>
+
+<li> In response to the <code>S2_DEVICEQUERY</code>, <code>S2_GETSPECIALSTATS</code> and
+<code>S2_GETGLOBALSTATS</code> commands a driver may return information
+that is not entirely correct if it has to go online before
+it can provide for the correct data. For example, the
+maximum transmission unit for PPP is a number in the
+range of [1..1500] which is negotiated during the
+protocol configuration process. It is unlikely that numbers
+greater than 1500 will be used, yet it is still not
+impossible. Since the actual number will be known only after
+the driver has configured the protocol, the MTU value returned
+before the session was opened can differ from the MTU value
+valid after it has been opened. A driver should therefore
+attempt to return 'safe' defaults in place of information
+that is unavailable at the time it is queried. The 'safe' values
+shall be set up to allow the driver to work even if the protocol
+stack is not aware of later changes to those values. Beware of
+zero-length buffer sizes or time intervals that may cause client
+software to perform zero-length memory allocations or divisions
+by zero.<p>
+
+<li> SANA-II assigns packet type numbers according to the
+underlying transport media. For example, Ethernet uses
+packet type 2048 for IP frames. No such packet type
+definition exists for PPP yet, which is why I propose
+to assign packet type 31 for IP packets transmitted
+via PPP.<p>
+
+To simplify client software configuration, drivers may
+treat packet type 2048 as equivalent to the packet number
+associated with IP frames. This association is permitted
+only if it does not introduce ambiguity. For example, this
+association would not be permitted if the driver would
+receive and transmit IP packets in two different frame types
+or if the driver already associates packet type 2048 with
+non-IP packets.
+</ul><p>
+
+<h2>9. Unsolved problems</h2><p>
+
+<ul>
+<li> Protocols like PPP can provide both for IPv4 and IPv6 addresses
+that should be used by the local client, the peer or any of the
+domain name servers. While the two addressing families are
+interoperable, there is a problem in how the driver should
+report them. Can you assume 128 bit addresses and encapsulate
+32 bit addresses in them? If so, how do you make sure that the
+address format is unambiguous?<p>
+
+<li> Currently, only the device's hardware type provides a clue as
+to what packet type responds to which protocol transported
+via the link. For Ethernet, IP packets are encapsulated in
+type 2048 frames, PPP encapsulates IP packets in type 31
+frames, Arcnet can use type 240 or 212. Matching a protocol
+with a frame type is not an easy process which could be
+handled more elegantly.<p>
+
+<li> How to extend the <code>Sana2DeviceQuery</code> structure in the future?
+The current layout separates standard, common and
+format specific information, but there is no hint as to where
+which each section starts and where the next begins. Now that
+there is a proposal to add a new field to the common section,
+how would you add fields to the format specific section?
+</ul><p>
+
+<h2><a name="10_changes">10. Changes</h2></a><p>
+
+Changes since 24-Dec-2002:<p>
+
+<ul>
+<li> The <code>Sana2Connection</code> data structure used by the <code>S2_CONNECT</code>
+command now must remain valid until the <code>S2_DISCONNECT</code> command
+is sent (see <a href="#2.4">section 2.4</a>).<p>
+
+</ul><p>
+
+Changes since 01-May-2002:<p>
+
+<ul>
+<li> Added the <code>ppp.async.readrequests</code> and <code>ppp.async.eof</code> configuration keywords.<p>
+
+</ul><p>
+
+Changes since 04-Jan-2002:<p>
+
+<ul>
+<li> Added the <code>ppp.dummyremoteaddress</code> and <code>ppp.ethernet.ac</code> configuration keywords.<p>
+
+</ul><p>
+
+Changes since 10-Dec-2001:<p>
+
+<ul>
+<li> Converted to HTML format.<p>
+
+<li> Added the <code>&lt;devices/sana2.h&gt;</code> header file to the appendix.<p>
+
+<li> The memory alignment for the <code>S2_DMACopyToBuff64</code> and <code>S2_DMACopyFromBuff64</code> hooks
+refers to bits and not to bytes.
+</ul><p>
+
+Changes since 19-Nov-2001:<p>
+
+<ul>
+<li> Added to the list of reserved configuration keywords (<code>ppp.idletimeout</code>,
+<code>ppp.peeridletimeout</code>, <code>ppp.sendid</code>).<p>
+
+<li> Renamed the fields of the <code>Sana2ExtDeviceStats</code> structure.<p>
+
+<li> Clarified that the <code>S2QUAD</code> type is a big endian integer.<p>
+
+<li> More clarifications for the <code>S2_CONNECT</code>/<code>S2_DISCONNECT</code> and
+<code>S2_ONLINE</code>/<code>S2_OFFLINE</code> commands.<p>
+
+<li> Updated the discussion of the <code>Sana2DeviceQuery.RawMTU</code> field,
+clarifying what is included in the the Ethernet <code>RawMTU</code>.<p>
+
+<li> Updated the <code>&lt;devices/sana2.h&gt;</code> header file. Note that there is
+no equivalent <code>"devices/sana2.i"</code> header file yet.
+</ul><p>
+
+Changes since 12-Nov-2001:<p>
+
+<ul>
+<li> Changed the command numbers of <code>S2_GETPEERADDRESS</code>, <code>S2_GETDNSADDRESS</code>,
+<code>S2_GETEXTENDEDGLOBALSTATS</code>, <code>S2_CONNECT</code>, <code>S2_DISCONNECT</code> and
+<code>S2_SAMPLE_THROUGHPUT</code> to be NSD-compliant. Also assigned a new
+number to the <code>S2_SAMPLE_THROUGHPUT </code> command.<p>
+
+<li> Added section 4 ("Extensions for existing commands").<p>
+
+<li> Added the last paragraph to section 9, relating to the future
+extension of the <code>Sana2DeviceQuery</code> structure.
+</ul><p>
+
+Changes since 03-Nov-2001:<p>
+
+<ul>
+<li> Renamed <code>S2_GETNEWGLOBALSTATS</code> to <code>S2_GETEXTENDEDGLOBALSTATS</code> (see
+<a href="#2.3">section 2.3</a>).<p>
+
+<li> The <code>S2_GETEXTENDEDGLOBALSTATS</code> now uses 64 bit quantities for
+the <code>s2xds_PacketsReceived</code>, <code>s2xds_PacketsSent</code>, <code>s2xds_BadData</code>,
+<code>s2xds_Overruns</code>, <code>s2xds_UnknownTypesReceived</code> and
+<code>s2xds_Reconfigurations</code> counters.<p>
+
+<li> In section 2.6 the <code>S2_SAMPLE_THROUGHPUT</code> command was modified to use
+64 bit integers for all members of the <code>Sana2ThroughputStats</code> structure.<p>
+
+<li> All proposed commands are now listed with their numeric IDs.<p>
+
+<li> The command autodocs specifically mention the <code>ios2_BufferManagement</code>
+field.<p>
+
+<li> All references to <code>ios2_Error</code> have been replaced with
+<code>ios2_Req.io_Error</code>.<p>
+
+<li> In section 7 the use of the <code>IOERR_NOCMD</code>/<code>S2ERR_NOT_SUPPORTED</code> error
+codes is clarified.<p>
+
+<li> Section 7 takes a more detailed look at safe default values returned
+ by the query commands.<p>
+
+<li> Inserted section 3 ("Annotations for existing commands").<p>
+
+<li> The <code>S2_CONNECT</code> and <code>S2_DISCONNECT</code> commands now specifically mention
+the life time of the data they have to deal with.
+</ul><p>
+
+Changes since 14-Oct-2001:<p>
+
+<ul>
+<li> Added <code>S2_CONNECT</code> and <code>S2_DISCONNECT</code> commands.<p>
+
+<li> Added <code>S2EVENT_CONNECT</code> and <code>S2EVENT_DISCONNECT</code> events.<p>
+
+<li> Added section 4 ("New wire error codes").<p>
+
+<li> In section 5.2 the originally proposed log callback function
+has been wrapped into a standard Hook structure.<p>
+
+<li> Removed item on <code>S2_CONNECT</code>/<code>S2_DISCONNECT</code> from section 7
+("Unsolved problems").<p>
+
+<li> Added section 8 ("Changes").
+</ul>
+
+<h2>11. Updated <code>&lt;devices/sana2.h&gt;</code> header file </h2><p>
+
+Attached below you will find the updated <code>&lt;devices/sana2.h&gt;</code> header file,
+which includes corrections and definitions for all the proposed changes:<p>
+
+<pre>
+#ifndef SANA2_SANA2DEVICE_H
+#define SANA2_SANA2DEVICE_H 1
+
+/*
+**      $Filename$
+**      $Revision: 1.1 $
+**      $Date: 2005-06-09 08:46:16 $
+**
+**      Structure definitions for SANA-II devices.
+**
+**      (C) Copyright 1991-2002 Amiga, Inc.
+**              All Rights Reserved
+*/
+
+#ifndef EXEC_TYPES_H
+#include &lt;exec/types.h&gt;
+#endif
+
+#ifndef EXEC_PORTS_H
+#include &lt;exec/ports.h&gt;
+#endif
+
+#ifndef EXEC_IO_H
+#include &lt;exec/io.h&gt;
+#endif
+
+#ifndef EXEC_TASKS_H
+#include &lt;exec/tasks.h&gt;
+#endif
+
+#ifndef EXEC_ERRORS_H
+#include &lt;exec/errors.h&gt;
+#endif
+
+#ifndef DEVICES_TIMER_H
+#include &lt;devices/timer.h&gt;
+#endif
+
+#ifndef UTILITY_TAGITEM_H
+#include &lt;utility/tagitem.h&gt;
+#endif
+
+#ifndef UTILITY_HOOKS_H
+#include &lt;utility/hooks.h&gt;
+#endif
+
+#define SANA2_MAX_ADDR_BITS  (128)
+#define SANA2_MAX_ADDR_BYTES ((SANA2_MAX_ADDR_BITS+7)/8)
+
+struct IOSana2Req
+{
+    struct IORequest ios2_Req;
+
+    ULONG ios2_WireError;                     /* wire type specific error */
+    ULONG ios2_PacketType;                    /* packet type */
+    UBYTE ios2_SrcAddr[SANA2_MAX_ADDR_BYTES]; /* source address */
+    UBYTE ios2_DstAddr[SANA2_MAX_ADDR_BYTES]; /* dest address */
+    ULONG ios2_DataLength;                    /* length of packet data */
+    APTR  ios2_Data;                          /* packet data */
+    APTR  ios2_StatData;                      /* statistics data pointer */
+    APTR  ios2_BufferManagement;              /* see SANA-II OpenDevice adoc */
+};
+
+/*
+** Defines for the io_Flags field
+*/
+#define SANA2IOB_RAW   (7)         /* raw packet IO requested */
+#define SANA2IOB_BCAST (6)         /* broadcast packet (received) */
+#define SANA2IOB_MCAST (5)         /* multicast packet (received) */
+#define SANA2IOB_QUICK (IOB_QUICK) /* quick IO requested (0) */
+
+#define SANA2IOF_RAW   (1&lt;&lt;SANA2IOB_RAW)
+#define SANA2IOF_BCAST (1&lt;&lt;SANA2IOB_BCAST)
+#define SANA2IOF_MCAST (1&lt;&lt;SANA2IOB_MCAST)
+#define SANA2IOF_QUICK (IOF_QUICK)
+
+/*
+** Defines for OpenDevice() flags
+*/
+#define SANA2OPB_MINE (0) /* exclusive access requested */
+#define SANA2OPB_PROM (1) /* promiscuous mode requested */
+
+#define SANA2OPF_MINE (1&lt;&lt;SANA2OPB_MINE)
+#define SANA2OPF_PROM (1&lt;&lt;SANA2OPB_PROM)
+
+/*
+** Defines for OpenDevice() tags
+*/
+#define S2_Dummy             (TAG_USER + 0xB0000)
+
+#define S2_CopyToBuff        (S2_Dummy +  1)
+#define S2_CopyFromBuff      (S2_Dummy +  2)
+#define S2_PacketFilter      (S2_Dummy +  3)
+#define S2_CopyToBuff16      (S2_Dummy +  4)
+#define S2_CopyFromBuff16    (S2_Dummy +  5)
+#define S2_CopyToBuff32      (S2_Dummy +  6)
+#define S2_CopyFromBuff32    (S2_Dummy +  7)
+#define S2_DMACopyToBuff32   (S2_Dummy +  8)
+#define S2_DMACopyFromBuff32 (S2_Dummy +  9)
+#define S2_DMACopyToBuff64   (S2_Dummy + 10)
+#define S2_DMACopyFromBuff64 (S2_Dummy + 11)
+#define S2_Log               (S2_Dummy + 12)
+
+/*
+** Filled in by 'S2_DEVICEQUERY'
+*/
+struct Sana2DeviceQuery
+{
+    /*
+    ** Standard information
+    */
+    ULONG   SizeAvailable;  /* bytes available */
+    ULONG   SizeSupplied;   /* bytes supplied */
+    ULONG   DevQueryFormat; /* this is type 0 */
+    ULONG   DeviceLevel;    /* this document is level 0 */
+    /*
+    ** Common information
+    */
+    UWORD   AddrFieldSize;  /* address size in bits */
+    ULONG   MTU;            /* maximum packet data size */
+    ULONG   BPS;            /* line rate (bits/sec) */
+    ULONG   HardwareType;   /* what the wire is (see below) */
+    ULONG   RawMTU;         /* maximum raw packet data size */
+    /*
+    ** Format specific information
+    */
+};
+
+/*
+** Defined Hardware types
+**
+**  If your hardware type is not listed below contact Amiga to get
+**  a new type number added for your hardware.
+*/
+#define S2WireType_Ethernet    1
+#define S2WireType_IEEE802     6
+#define S2WireType_Arcnet      7
+#define S2WireType_LocalTalk  11
+#define S2WireType_DyLAN      12
+
+#define S2WireType_AmokNet   200 /* Amiga Floppy Port hardware */
+
+#define S2WireType_Liana     202 /* Village Tronic parallel port hw */
+
+#define S2WireType_PPP       253
+#define S2WireType_SLIP      254
+#define S2WireType_CSLIP     255 /* Compressed SLIP */
+
+#define S2WireType_PLIP      420 /* SLIP over a parallel port */
+
+/*
+** Filled in by 'S2_GETTYPESTATS'
+*/
+struct Sana2PacketTypeStats
+{
+    ULONG PacketsSent;     /* transmitted count */
+    ULONG PacketsReceived; /* received count */
+    ULONG BytesSent;       /* bytes transmitted count */
+    ULONG BytesReceived;   /* bytes received count */
+    ULONG PacketsDropped;  /* packets dropped count */
+};
+
+/*
+** Filled in by 'S2_GETSPECIALSTATS'
+*/
+struct Sana2SpecialStatRecord
+{
+    ULONG  Type;   /* statistic identifier */
+    ULONG  Count;  /* the statistic */
+    STRPTR String; /* statistic name */
+};
+
+struct Sana2SpecialStatHeader
+{
+    ULONG RecordCountMax;      /* room available */
+    ULONG RecordCountSupplied; /* number supplied */
+    /* struct Sana2SpecialStatRecord[RecordCountMax]; */
+};
+
+/*
+** Filled in by 'S2_GETGLOBALSTATS'
+*/
+struct Sana2DeviceStats
+{
+    ULONG          PacketsReceived;      /* received count */
+    ULONG          PacketsSent;          /* transmitted count */
+    ULONG          BadData;              /* bad packets received */
+    ULONG          Overruns;             /* hardware miss count */
+    ULONG          Unused;               /* Unused field */
+    ULONG          UnknownTypesReceived; /* orphan count */
+    ULONG          Reconfigurations;     /* network reconfigurations */
+    struct timeval LastStart;            /* time of last online */
+};
+
+/*
+** A 64 bit big endian integer in ISO 'C' terms.
+*/
+typedef struct
+{
+    ULONG s2q_High;
+    ULONG s2q_Low;
+} S2QUAD;
+
+/*
+** Revised version, filled in by 'S2_GETEXTENDEDGLOBALSTATS'
+*/
+struct Sana2ExtDeviceStats
+{
+    ULONG          s2xds_Length;
+    ULONG          s2xds_Actual;
+
+    S2QUAD         s2xds_PacketsReceived;
+    S2QUAD         s2xds_PacketsSent;
+    S2QUAD         s2xds_BadData;
+    S2QUAD         s2xds_Overruns;
+    S2QUAD         s2xds_UnknownTypesReceived;
+    S2QUAD         s2xds_Reconfigurations;
+    struct timeval s2xds_LastStart;
+
+    struct timeval s2xds_LastConnected;
+    struct timeval s2xds_LastDisconnected;
+    struct timeval s2xds_TimeConnected;
+};
+
+/*
+** Used by 'S2_CONNECT' and 'S2_DISCONNECT'
+*/
+struct Sana2Connection
+{
+   ULONG          s2c_Size;
+   struct MinList s2c_Options;
+   struct Hook    s2c_ErrorHook;
+   struct Hook    s2c_ConnectHook;
+   struct Hook    s2c_DisconnectHook;
+   STRPTR         s2c_Login;
+   STRPTR         s2c_Password;
+};
+
+struct Sana2ConnectionOption
+{
+   struct MinNode s2co_MinNode;
+   STRPTR         s2co_Name;
+   STRPTR         s2co_Value;
+};
+
+struct Sana2ConnectionMessage
+{
+   ULONG                    s2cm_Size;
+   struct Sana2Connection * s2cm_Connection;
+   struct IORequest *       s2cm_Request[2];
+   LONG                     s2cm_RequestType;
+};
+
+/*
+** Used by 'S2_SAMPLE_THROUGHPUT'
+*/
+struct Sana2ThroughputStats
+{
+   ULONG          s2ts_Length;
+   ULONG          s2ts_Actual;
+
+   struct Task *  s2ts_NotifyTask;
+   ULONG          s2ts_NotifyMask;
+
+   struct timeval s2ts_StartTime;
+   struct timeval s2ts_EndTime;
+   S2QUAD         s2ts_BytesSent;
+   S2QUAD         s2ts_BytesReceived;
+   S2QUAD         s2ts_Updates;
+};
+
+/*
+** Used by the 'S2_Log' callback hook
+*/
+struct S2LogMessage
+{
+   LONG   s2lm_Size;
+   ULONG  s2lm_Priority;
+   STRPTR s2lm_Name;
+   STRPTR s2lm_Message;
+};
+
+/*
+** Log priority levels used by the 'S2_Log' callback hook
+*/
+#define S2LOG_Emergency   0 /* A panic condition */
+#define S2LOG_Alert       1 /* A condition that should be corrected
+                               immediately */
+#define S2LOG_Critical    2 /* Critical conditions */
+#define S2LOG_Error       3 /* A plain error */
+#define S2LOG_Warning     4 /* A warning message */
+#define S2LOG_Notice      5 /* Conditions that are not error conditions,
+                               but should possibly be handled specially */
+#define S2LOG_Information 6 /* An informational message */
+#define S2LOG_Debug       7 /* Generated only in debugging mode */
+
+/*
+** Device Commands
+*/
+#define S2_START               (CMD_NONSTD)  /* First old style command */
+
+#define S2_DEVICEQUERY         (S2_START+ 0)
+#define S2_GETSTATIONADDRESS   (S2_START+ 1)
+#define S2_CONFIGINTERFACE     (S2_START+ 2)
+#define S2_ADDMULTICASTADDRESS (S2_START+ 5)
+#define S2_DELMULTICASTADDRESS (S2_START+ 6)
+#define S2_MULTICAST           (S2_START+ 7)
+#define S2_BROADCAST           (S2_START+ 8)
+#define S2_TRACKTYPE           (S2_START+ 9)
+#define S2_UNTRACKTYPE         (S2_START+10)
+#define S2_GETTYPESTATS        (S2_START+11)
+#define S2_GETSPECIALSTATS     (S2_START+12)
+#define S2_GETGLOBALSTATS      (S2_START+13)
+#define S2_ONEVENT             (S2_START+14)
+#define S2_READORPHAN          (S2_START+15)
+#define S2_ONLINE              (S2_START+16)
+#define S2_OFFLINE             (S2_START+17)
+
+#define S2_END                 (S2_START+18) /* Last old style command */
+
+/*
+** New style commands introduced in 1997 and beyond
+*/
+#define S2_ADDMULTICASTADDRESSES  0xC000
+#define S2_DELMULTICASTADDRESSES  0xC001
+#define S2_GETPEERADDRESS         0xC002
+#define S2_GETDNSADDRESS          0xC003
+#define S2_GETEXTENDEDGLOBALSTATS 0xC004
+#define S2_CONNECT                0xC005
+#define S2_DISCONNECT             0xC006
+#define S2_SAMPLE_THROUGHPUT      0xC007
+
+/*
+** Defined errors for io_Error (see also &lt;exec/errors.h&gt;)
+*/
+#define S2ERR_NO_ERROR       0 /* peachy-keen */
+#define S2ERR_NO_RESOURCES   1 /* resource allocation failure  */
+#define S2ERR_BAD_ARGUMENT   3 /* garbage somewhere */
+#define S2ERR_BAD_STATE      4 /* inappropriate state */
+#define S2ERR_BAD_ADDRESS    5 /* who? */
+#define S2ERR_MTU_EXCEEDED   6 /* too much to chew */
+#define S2ERR_NOT_SUPPORTED  8 /* hardware can't support cmd */
+#define S2ERR_SOFTWARE       9 /* software error detected */
+#define S2ERR_OUTOFSERVICE  10 /* driver is OFFLINE */
+#define S2ERR_TX_FAILURE    11 /* Transmission attempt failed */
+
+/*
+** From &lt;exec/errors.h&gt;
+**
+**  IOERR_OPENFAIL   (-1) * device/unit failed to open *
+**  IOERR_ABORTED    (-2) * request terminated early [after AbortIO()] *
+**  IOERR_NOCMD      (-3) * command not supported by device *
+**  IOERR_BADLENGTH  (-4) * not a valid length (usually IO_LENGTH) *
+**  IOERR_BADADDRESS (-5) * invalid address (misaligned or bad range) *
+**  IOERR_UNITBUSY   (-6) * device opens ok, but requested unit is busy *
+**  IOERR_SELFTEST   (-7) * hardware failed self-test *
+*/
+
+/*
+** Defined errors for ios2_WireError
+*/
+#define S2WERR_GENERIC_ERROR      0 /* no specific info available */
+#define S2WERR_NOT_CONFIGURED     1 /* unit not configured */
+#define S2WERR_UNIT_ONLINE        2 /* unit is currently online */
+#define S2WERR_UNIT_OFFLINE       3 /* unit is currently offline */
+#define S2WERR_ALREADY_TRACKED    4 /* protocol already tracked */
+#define S2WERR_NOT_TRACKED        5 /* protocol not tracked */
+#define S2WERR_BUFF_ERROR         6 /* buff mgt func returned error */
+#define S2WERR_SRC_ADDRESS        7 /* source address problem */
+#define S2WERR_DST_ADDRESS        8 /* destination address problem */
+#define S2WERR_BAD_BROADCAST      9 /* broadcast address problem */
+#define S2WERR_BAD_MULTICAST     10 /* multicast address problem */
+#define S2WERR_MULTICAST_FULL    11 /* multicast address list full */
+#define S2WERR_BAD_EVENT         12 /* unsupported event class */
+#define S2WERR_BAD_STATDATA      13 /* statdata failed sanity check */
+/*** THERE IS NO WIRE ERROR CODE 14 ***/
+#define S2WERR_IS_CONFIGURED     15 /* attempt to config twice */
+#define S2WERR_NULL_POINTER      16 /* null pointer detected */
+#define S2WERR_TOO_MANY_RETRIES  17 /* tx failed - too many retries */
+#define S2WERR_RCVREL_HDW_ERR    18 /* Driver fixable HW error */
+#define S2WERR_UNIT_DISCONNECTED 19 /* unit is currently not connected */
+#define S2WERR_UNIT_CONNECTED    20 /* unit is currently connected */
+#define S2WERR_INVALID_OPTION    21 /* invalid option rejected */
+#define S2WERR_MISSING_OPTION    22 /* a mandatory option is missing */
+#define S2WERR_AUTHENTICATION_FAILED 23 /* could not log in */
+/*
+** For our dsylexic friends
+*/
+#define S2WERR_TOO_MANY_RETIRES S2WERR_TOO_MANY_RETRIES
+
+/*
+** Defined events
+*/
+#define S2EVENT_ERROR         (1L&lt;&lt; 0) /* error catch all */
+#define S2EVENT_TX            (1L&lt;&lt; 1) /* transmitter error catch all  */
+#define S2EVENT_RX            (1L&lt;&lt; 2) /* receiver error catch all */
+#define S2EVENT_ONLINE        (1L&lt;&lt; 3) /* unit is in service */
+#define S2EVENT_OFFLINE       (1L&lt;&lt; 4) /* unit is not in service */
+#define S2EVENT_BUFF          (1L&lt;&lt; 5) /* buff mgt function error */
+#define S2EVENT_HARDWARE      (1L&lt;&lt; 6) /* hardware error catch all */
+#define S2EVENT_SOFTWARE      (1L&lt;&lt; 7) /* software error catch all */
+#define S2EVENT_CONFIGCHANGED (1L&lt;&lt; 8) /* driver configuration changed */
+#define S2EVENT_CONNECT       (1L&lt;&lt; 9) /* driver has opened session */
+#define S2EVENT_DISCONNECT    (1L&lt;&lt;10) /* driver has closed session */
+
+#endif  /* SANA2_SANA2DEVICE_H */
+</pre>
+
+</body>
+</html>
