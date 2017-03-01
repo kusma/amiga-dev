@@ -13,7 +13,11 @@ extern struct RealTimeBase *RealTimeBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/realtime.h>
+#else
 #include <inline/realtime.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/realtime_protos.h>
 #else

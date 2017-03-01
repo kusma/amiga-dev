@@ -13,7 +13,11 @@ extern struct Library *AHIsubBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/ahi_sub.h>
+#else
 #include <inline/ahi_sub.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/ahi_sub_protos.h>
 #else

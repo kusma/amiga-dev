@@ -1,4 +1,4 @@
-/* $VER: math_060.h 0.7 (24.08.2014)
+/* $VER: math_060.h 0.8 (07.01.2015)
 ** math.h 68060 specific support, link with -lm060
 */
 
@@ -122,10 +122,6 @@ long   __asm_lround(__reg("fp0")double)="\tfmove.s\tfp0,d0\n"
                                         "\tfadd.s\td0,fp0\n"
                                         "\tfintrz.x\tfp0\n"
                                         "\tfmove.l\tfp0,d0";
-double __asm_modf(__reg("fp0")double,
-                  __reg("a0")double *)="\tfintrz.x\tfp0,fp1\n"
-                                       "\tfmove.d\tfp1,(a0)\n"
-                                       "\tfsub.x\tfp1,fp0";
 double __asm_nan(__reg("fp0")double)="\tfmove.s\t#$7fc00000,fp0";
 double __asm_nearbyint(__reg("fp0")double)="\tfint.x\tfp0";
 double __asm_round(__reg("fp0")double)="\tfmove.s\tfp0,d0\n"
@@ -147,7 +143,6 @@ double __asm_trunc(__reg("fp0")double)="\tfintrz.x\tfp0";
 #define fmin(x,y) __asm_fmin(x,y)
 #define hypot(x,y) __asm_hypot(x,y)
 #define lround(x) __asm_lround(x)
-#define modf(x,y) __asm_modf(x,y)
 #define nan(x) __asm_nan(x)
 #define nearbyint(x) __asm_nearbyint(x)
 #define remainder(x,y) __asm_remainder(x,y)
@@ -166,7 +161,6 @@ double __asm_trunc(__reg("fp0")double)="\tfintrz.x\tfp0";
 #define fminf(x,y) __asm_fmin(x,y)
 #define hypotf(x,y) __asm_hypot(x,y)
 #define lroundf(x) __asm_lround(x)
-#define modff(x,y) __asm_modf(x,y)
 #define nanf(x) __asm_nan(x)
 #define nearbyintf(x) __asm_nearbyint(x)
 #define remainderf(x,y) __asm_remainder(x,y)

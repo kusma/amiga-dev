@@ -13,7 +13,11 @@ extern struct Library *ClickTabBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/clicktab.h>
+#else
 #include <inline/clicktab.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/clicktab_protos.h>
 #else

@@ -13,7 +13,11 @@ extern struct MathIEEEBase *MathIeeeSingTransBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/mathieeesingtrans.h>
+#else
 #include <inline/mathieeesingtrans.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/mathieeesingtrans_protos.h>
 #else

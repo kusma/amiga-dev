@@ -13,7 +13,11 @@ extern struct LocaleBase *LocaleBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/locale.h>
+#else
 #include <inline/locale.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/locale_protos.h>
 #else

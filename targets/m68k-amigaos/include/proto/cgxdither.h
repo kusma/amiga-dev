@@ -13,7 +13,11 @@ extern struct Library *CGXDitherBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/cgxdither.h>
+#else
 #include <inline/cgxdither.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/cgxdither_protos.h>
 #else

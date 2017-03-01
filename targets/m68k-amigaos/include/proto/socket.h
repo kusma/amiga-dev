@@ -13,7 +13,11 @@ extern struct Library *SocketBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/socket.h>
+#else
 #include <inline/socket.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/socket_protos.h>
 #else

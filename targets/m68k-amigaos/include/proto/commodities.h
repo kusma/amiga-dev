@@ -13,7 +13,11 @@ extern struct Library *CxBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/commodities.h>
+#else
 #include <inline/commodities.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/commodities_protos.h>
 #else

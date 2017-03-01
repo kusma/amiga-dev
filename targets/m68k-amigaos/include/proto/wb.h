@@ -13,7 +13,11 @@ extern struct Library *WorkbenchBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/wb.h>
+#else
 #include <inline/wb.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/wb_protos.h>
 #else

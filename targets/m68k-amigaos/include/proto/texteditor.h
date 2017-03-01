@@ -13,7 +13,11 @@ extern struct Library *TextFieldBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/texteditor.h>
+#else
 #include <inline/texteditor.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/texteditor_protos.h>
 #else

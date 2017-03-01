@@ -13,7 +13,11 @@ extern struct Library *InputBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/input.h>
+#else
 #include <inline/input.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/input_protos.h>
 #else

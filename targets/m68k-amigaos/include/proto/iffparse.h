@@ -13,7 +13,11 @@ extern struct Library *IFFParseBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/iffparse.h>
+#else
 #include <inline/iffparse.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/iffparse_protos.h>
 #else

@@ -22,7 +22,6 @@ typedef char wchar_t;
 #undef RAND_MAX
 #define RAND_MAX 32767
 
-
 void exit(int);
 #if __STDC_VERSION__ >= 199901L
 void _Exit(int);
@@ -92,6 +91,8 @@ long __asm_labs(__reg("d0") long) =
                 "\tbpl.b\t*+2\n"
                 "\tneg.l\td0\n"
                 ";=barrier";
+#define abs(x) __asm_abs(x)
+#define labs(x) __asm_labs(x)
 #if __STDC_VERSION__ >= 199901L
 long long __asm_llabs(__reg("d0/d1") long long) =
                 "\ttst.l\td0\n"
@@ -102,19 +103,25 @@ long long __asm_llabs(__reg("d0/d1") long long) =
 #define llabs(x) __asm_llabs(x)
 #endif
 
-#define abs(x) __asm_abs(x)
-#define labs(x) __asm_labs(x)
+#if !defined(__M68000) && !defined(__M68010)
+div_t __asm_div(__reg("d0") int,__reg("d1") int) =
+                "\tdivsl.l\td1,d1:d0";
+ldiv_t __asm_ldiv(__reg("d0") long,__reg("d1") long) =
+                "\tdivsl.l\td1,d1:d0";
+#define div(n,d) __asm_div(n,d)
+#define ldiv(n,d) __asm_ldiv(n,d)
 #endif
-
-extern size_t _nalloc;
+#endif /* __NOINLINE__ */
 
 #define atof(s) strtod((s),(char **)NULL)
 #define atoi(s) (int)strtol((s),(char **)NULL,10)
 #define atol(s) strtol((s),(char **)NULL,10)
+
+extern size_t _nalloc;
 
 struct __exitfuncs{
     struct __exitfuncs *next;
     void (*func)(void);
 };
 
-#endif
+#endif /* __STDLIB_H */

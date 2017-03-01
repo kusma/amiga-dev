@@ -13,7 +13,11 @@ extern struct Library *PPCLibBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/ppc.h>
+#else
 #include <inline/ppc.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/ppc_protos.h>
 #else

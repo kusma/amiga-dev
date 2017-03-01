@@ -13,7 +13,11 @@ extern struct Library *RequesterBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/requester.h>
+#else
 #include <inline/requester.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/requester_protos.h>
 #else

@@ -13,7 +13,11 @@ extern struct ExecBase *SysBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/exec.h>
+#else
 #include <inline/exec.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/exec_protos.h>
 #else

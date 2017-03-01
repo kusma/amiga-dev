@@ -5,6 +5,7 @@ extern const unsigned char __ctype[];
 
 int isalnum(int);
 int isalpha(int);
+int isblank(int);
 int iscntrl(int);
 int isdigit(int);
 int isgraph(int);
@@ -16,6 +17,7 @@ int isupper(int);
 int isxdigit(int);
 
 #define isalpha(x)  (__ctype[(x)+1] & 3)
+#define isblank(x)  ((x)==9 || (x)==32)
 #define isupper(x)  (__ctype[(x)+1] & 1)
 #define islower(x)  (__ctype[(x)+1] & 2)
 #define isdigit(x)  (__ctype[(x)+1] & 4)

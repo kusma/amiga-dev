@@ -13,7 +13,11 @@ extern struct Library *CardResource;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/cardres.h>
+#else
 #include <inline/cardres.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/cardres_protos.h>
 #else

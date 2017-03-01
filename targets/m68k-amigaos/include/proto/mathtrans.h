@@ -13,7 +13,11 @@ extern struct Library *MathTransBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/mathtrans.h>
+#else
 #include <inline/mathtrans.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/mathtrans_protos.h>
 #else

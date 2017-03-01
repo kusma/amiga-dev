@@ -13,7 +13,11 @@ extern struct Library *LayersBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/layers.h>
+#else
 #include <inline/layers.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/layers_protos.h>
 #else

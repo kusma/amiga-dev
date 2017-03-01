@@ -13,7 +13,11 @@ extern struct Library *DataTypesBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/datatypes.h>
+#else
 #include <inline/datatypes.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/datatypes_protos.h>
 #else

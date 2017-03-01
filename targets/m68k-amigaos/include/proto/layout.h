@@ -13,7 +13,11 @@ extern struct Library *LayoutBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/layout.h>
+#else
 #include <inline/layout.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/layout_protos.h>
 #else

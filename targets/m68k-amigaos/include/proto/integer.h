@@ -13,7 +13,11 @@ extern struct Library *IntegerBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/integer.h>
+#else
 #include <inline/integer.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/integer_protos.h>
 #else

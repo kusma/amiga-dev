@@ -52,7 +52,9 @@ extern const char __qNaN_s[];
 
 /* begin function declarations */
 double      acos(double);
+double      acosh(double);
 double      asin(double);
+double      asinh(double);
 double      atan(double);
 double      atanh(double);
 double      atan2(double, double);
@@ -95,7 +97,9 @@ double      tan(double);
 double      tanh(double);
 double      trunc(double);
 float       acosf(float);
+float       acoshf(float);
 float       asinf(float);
+float       asinhf(float);
 float       atanf(float);
 float       atanhf(float);
 float       atan2f(float, float);
@@ -138,7 +142,9 @@ float       tanf(float);
 float       tanhf(float);
 float       truncf(float);
 long double acosl(long double);
+long double acoshl(long double);
 long double asinl(long double);
+long double asinhl(long double);
 long double atanl(long double);
 long double atanhl(long double);
 long double atan2l(long double, long double);
@@ -276,17 +282,19 @@ int isunordered(double, double);
 
 /* if (SIZEOF(double long)==8)) */
 #define acosl      acos
+#define acoshl     acosh
 #define asinl      asin
-#define atanhl     atanh
+#define asinhl     asinh
 #define atanl      atan
+#define atanhl     atanh
+#define atan2l     atan2
 #define ceill      ceil
 #define copysignl  copysign
-#define coshl      cosh
 #define cosl       cos
-#define cotl       cot
-#define exp10l     exp10
-#define exp2l      exp2
+#define coshl      cosh
 #define expl       exp
+#define exp2l      exp2
+#define exp10l     exp10
 #define expm1l     expm1
 #define fabsl      fabs
 #define fdiml      fdim
@@ -297,25 +305,26 @@ int isunordered(double, double);
 #define fmodl      fmod
 #define frexpl     frexp
 #define hypotl     hypot
-#define ilogbl     ilogb
 #define ldexpl     ldexp
-#define llroundl   llround
+#define logl       log
 #define log10l     log10
 #define log1pl     log1p
 #define log2l      log2
 #define logbl      logb
-#define logl       log
-#define lroundl    lround
 #define modfl      modf
+#define nanl       nan
 #define nearbyintl nearbyint
 #define powl       pow
 #define remainderl remainder
 #define roundl     round
-#define sinhl      sinh
 #define sinl       sin
+#define sinhl      sinh
 #define sqrtl      sqrt
-#define tanhl      tanh
 #define tanl       tan
+#define tanhl      tanh
 #define truncl     trunc
+#define ilogbl     ilogb
+#define llroundl   llround
+#define lroundl    lround
 
 #endif /* __MATH_H */

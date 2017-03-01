@@ -13,7 +13,11 @@ extern struct RxsLib *RexxSysBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/rexxsyslib.h>
+#else
 #include <inline/rexxsyslib.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/rexxsyslib_protos.h>
 #else

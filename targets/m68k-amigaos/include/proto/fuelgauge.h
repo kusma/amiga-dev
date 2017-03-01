@@ -13,7 +13,11 @@ extern struct Library *FuelGaugeBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/fuelgauge.h>
+#else
 #include <inline/fuelgauge.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/fuelgauge_protos.h>
 #else

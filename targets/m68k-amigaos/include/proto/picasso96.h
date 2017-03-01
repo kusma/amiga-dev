@@ -13,7 +13,11 @@ extern struct Library *P96Base;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/picasso96.h>
+#else
 #include <inline/picasso96.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/picasso96_protos.h>
 #else

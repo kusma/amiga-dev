@@ -13,7 +13,11 @@ extern struct Library *BulletBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/bullet.h>
+#else
 #include <inline/bullet.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/bullet_protos.h>
 #else

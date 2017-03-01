@@ -13,7 +13,11 @@ extern struct Library *LabelBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/label.h>
+#else
 #include <inline/label.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/label_protos.h>
 #else

@@ -13,7 +13,11 @@ extern struct Library *CGXVideoBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/cgxvideo.h>
+#else
 #include <inline/cgxvideo.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/cgxvideo_protos.h>
 #else

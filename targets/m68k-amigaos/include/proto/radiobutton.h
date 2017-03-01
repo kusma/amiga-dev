@@ -13,7 +13,11 @@ extern struct Library *RadioButtonBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/radiobutton.h>
+#else
 #include <inline/radiobutton.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/radiobutton_protos.h>
 #else

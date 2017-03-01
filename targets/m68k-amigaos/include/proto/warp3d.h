@@ -13,7 +13,11 @@ extern struct Library *Warp3DBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/warp3d.h>
+#else
 #include <inline/warp3d.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/warp3d_protos.h>
 #else

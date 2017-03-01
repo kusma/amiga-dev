@@ -13,7 +13,11 @@ extern struct Library *BitMapBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/bitmap.h>
+#else
 #include <inline/bitmap.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/bitmap_protos.h>
 #else

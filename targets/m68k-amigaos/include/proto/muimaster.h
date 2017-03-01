@@ -13,7 +13,11 @@ extern struct Library *MUIMasterBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/muimaster.h>
+#else
 #include <inline/muimaster.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/muimaster_protos.h>
 #else

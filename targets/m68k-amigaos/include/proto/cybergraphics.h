@@ -13,7 +13,11 @@ extern struct Library *CyberGfxBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/cybergraphics.h>
+#else
 #include <inline/cybergraphics.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/cybergraphics_protos.h>
 #else

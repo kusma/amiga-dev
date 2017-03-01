@@ -13,7 +13,11 @@ extern struct Library *TimerBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/timer.h>
+#else
 #include <inline/timer.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/timer_protos.h>
 #else

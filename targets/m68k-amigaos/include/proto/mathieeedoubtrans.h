@@ -13,7 +13,11 @@ extern struct MathIEEEBase *MathIeeeDoubTransBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/mathieeedoubtrans.h>
+#else
 #include <inline/mathieeedoubtrans.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/mathieeedoubtrans_protos.h>
 #else

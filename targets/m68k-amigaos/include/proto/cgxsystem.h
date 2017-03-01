@@ -13,7 +13,11 @@ extern struct Library *CGXSystemBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/cgxsystem.h>
+#else
 #include <inline/cgxsystem.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/cgxsystem_protos.h>
 #else

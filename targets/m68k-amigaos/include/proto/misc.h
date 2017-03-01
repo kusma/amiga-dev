@@ -13,7 +13,11 @@ extern struct Library *MiscBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/misc.h>
+#else
 #include <inline/misc.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/misc_protos.h>
 #else

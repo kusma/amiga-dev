@@ -13,7 +13,11 @@ extern struct Library *PaletteBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/palette.h>
+#else
 #include <inline/palette.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/palette_protos.h>
 #else

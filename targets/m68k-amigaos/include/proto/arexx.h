@@ -13,7 +13,11 @@ extern struct Library *ARexxBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/arexx.h>
+#else
 #include <inline/arexx.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/arexx_protos.h>
 #else

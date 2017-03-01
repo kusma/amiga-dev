@@ -13,7 +13,11 @@ extern struct Library *WindowBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/window.h>
+#else
 #include <inline/window.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/window_protos.h>
 #else

@@ -13,7 +13,11 @@ extern struct Library *LowLevelBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/lowlevel.h>
+#else
 #include <inline/lowlevel.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/lowlevel_protos.h>
 #else

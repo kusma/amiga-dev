@@ -13,7 +13,11 @@ extern struct Library *UserGroupBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/usergroup.h>
+#else
 #include <inline/usergroup.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/usergroup_protos.h>
 #else

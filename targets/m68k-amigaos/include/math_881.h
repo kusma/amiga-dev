@@ -1,4 +1,4 @@
-/* $VER: math_881.h 0.7 (11.08.2014)
+/* $VER: math_881.h 0.8 (07.01.2015)
 ** math.h 6888x specific support, link with -lm881
 */
 
@@ -140,10 +140,6 @@ long   __asm_lround(__reg("fp0")double)="\tfmove.s\tfp0,d0\n"
                                         "\tfadd.s\td0,fp0\n"
                                         "\tfintrz.x\tfp0\n"
                                         "\tfmove.l\tfp0,d0";
-double __asm_modf(__reg("fp0")double,
-                  __reg("a0")double *)="\tfintrz.x\tfp0,fp1\n"
-                                       "\tfmove.d\tfp1,(a0)\n"
-                                       "\tfsub.x\tfp1,fp0";
 double __asm_nan(__reg("fp0")double)="\tfmove.s\t#$7fc00000,fp0";
 double __asm_nearbyint(__reg("fp0")double)="\tfint.x\tfp0";
 double __asm_remainder(__reg("fp0")double,__reg("fp1")double)="\tfrem.x\tfp1,fp0";
@@ -187,7 +183,6 @@ double __asm_trunc(__reg("fp0")double)="\tfintrz.x\tfp0";
 #define logb(x) __asm_logb(x)
 #define lognp1(x) __asm_lognp1(x)
 #define lround(x) __asm_lround(x)
-#define modf(x,y) __asm_modf(x,y)
 #define nan(x) __asm_nan(x)
 #define nearbyint(x) __asm_nearbyint(x)
 #define remainder(x,y) __asm_remainder(x,y)
@@ -227,7 +222,6 @@ double __asm_trunc(__reg("fp0")double)="\tfintrz.x\tfp0";
 #define logbf(x) __asm_logb(x)
 #define lognp1f(x) __asm_lognp1(x)
 #define lroundf(x) __asm_lround(x)
-#define modff(x,y) __asm_modf(x,y)
 #define nanf(x) __asm_nan(x)
 #define nearbyintf(x) __asm_nearbyint(x)
 #define remainderf(x,y) __asm_remainder(x,y)

@@ -13,7 +13,11 @@ extern struct DosLibrary *DOSBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/dos.h>
+#else
 #include <inline/dos.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/dos_protos.h>
 #else
