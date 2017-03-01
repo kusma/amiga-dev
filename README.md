@@ -4,9 +4,9 @@ This is a simple cross-development environment for Amiga-68k (AmigaOS 3.x)
 under Windows. It consists of VBCC, VASM, VLINK and PosixLib.
 
 Current build consists of:
-  - VBCC 0.9e
-	- VLink 0.15d
-	- VAsm 1.7h
+- VBCC 0.9e
+- VLink 0.15d
+- VAsm 1.7h
 
 ## Installation
 
@@ -31,7 +31,8 @@ All was done following excellent guide by Blitter Studio:
 http://blitterstudio.com/setting-up-an-amiga-cross-compiler-windows/
 http://blitterstudio.com/setting-up-an-amiga-cross-compiler-windows-part-2/
 
-except of minor changes:
-  1) When compiling vbcc, in makefile remove params from CC.
-  2) When running 'make TARGET=m68k bin/vbccm68k', be sure to answer that
+Except of minor changes:
+
+1. When compiling vbcc, in makefile remove params from CC.
+2. When running 'make TARGET=m68k bin/vbccm68k', be sure to answer that
      floats/doubles are LITTLE ENDIAN, OTHERWISE THEY WILL BE UTTERLY MESSED UP.
