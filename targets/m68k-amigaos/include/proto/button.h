@@ -13,7 +13,11 @@ extern struct Library *ButtonBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/button.h>
+#else
 #include <inline/button.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/button_protos.h>
 #else

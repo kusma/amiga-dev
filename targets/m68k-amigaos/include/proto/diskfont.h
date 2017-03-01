@@ -13,7 +13,11 @@ extern struct Library *DiskfontBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/diskfont.h>
+#else
 #include <inline/diskfont.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/diskfont_protos.h>
 #else

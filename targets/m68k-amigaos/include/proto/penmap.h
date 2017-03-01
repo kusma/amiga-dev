@@ -13,7 +13,11 @@ extern struct Library *PenMapBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/penmap.h>
+#else
 #include <inline/penmap.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/penmap_protos.h>
 #else

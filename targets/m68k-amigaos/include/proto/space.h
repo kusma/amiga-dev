@@ -13,7 +13,11 @@ extern struct Library *SpaceBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/space.h>
+#else
 #include <inline/space.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/space_protos.h>
 #else

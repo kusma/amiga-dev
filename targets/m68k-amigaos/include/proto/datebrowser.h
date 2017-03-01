@@ -13,7 +13,11 @@ extern struct Library *DateBrowserBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/datebrowser.h>
+#else
 #include <inline/datebrowser.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/datebrowser_protos.h>
 #else

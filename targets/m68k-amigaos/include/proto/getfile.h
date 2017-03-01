@@ -13,7 +13,11 @@ extern struct Library *GetFileBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/getfile.h>
+#else
 #include <inline/getfile.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/getfile_protos.h>
 #else

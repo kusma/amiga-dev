@@ -13,7 +13,11 @@ extern struct Library *AmigaGuideBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/amigaguide.h>
+#else
 #include <inline/amigaguide.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/amigaguide_protos.h>
 #else

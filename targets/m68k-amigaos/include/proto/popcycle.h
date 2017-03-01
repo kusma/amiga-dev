@@ -13,7 +13,11 @@ extern struct Library *PopCycleBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/popcycle.h>
+#else
 #include <inline/popcycle.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/popcycle_protos.h>
 #else

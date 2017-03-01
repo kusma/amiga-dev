@@ -13,7 +13,11 @@ extern struct ExpansionBase *ExpansionBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/expansion.h>
+#else
 #include <inline/expansion.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/expansion_protos.h>
 #else

@@ -13,7 +13,11 @@ extern struct Library *ScrollerBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/scroller.h>
+#else
 #include <inline/scroller.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/scroller_protos.h>
 #else

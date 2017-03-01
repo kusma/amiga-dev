@@ -13,7 +13,11 @@ extern struct Library *DrawListBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/drawlist.h>
+#else
 #include <inline/drawlist.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/drawlist_protos.h>
 #else

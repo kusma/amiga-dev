@@ -13,7 +13,11 @@ extern struct Library *ChooserBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/chooser.h>
+#else
 #include <inline/chooser.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/chooser_protos.h>
 #else

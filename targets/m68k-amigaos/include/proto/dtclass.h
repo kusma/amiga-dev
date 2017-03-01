@@ -13,7 +13,11 @@ extern struct Library *DTClassBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/dtclass.h>
+#else
 #include <inline/dtclass.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/dtclass_protos.h>
 #else

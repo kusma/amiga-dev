@@ -13,7 +13,11 @@ extern struct Library *ListBrowserBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/listbrowser.h>
+#else
 #include <inline/listbrowser.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/listbrowser_protos.h>
 #else

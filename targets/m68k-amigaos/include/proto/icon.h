@@ -13,7 +13,11 @@ extern struct Library *IconBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/icon.h>
+#else
 #include <inline/icon.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/icon_protos.h>
 #else

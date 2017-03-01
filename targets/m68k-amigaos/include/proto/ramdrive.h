@@ -13,7 +13,11 @@ extern struct Library *RamdriveDevice;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/ramdrive.h>
+#else
 #include <inline/ramdrive.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/ramdrive_protos.h>
 #else

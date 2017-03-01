@@ -13,7 +13,11 @@ extern struct PPCBase *PowerPCBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/powerpc.h>
+#else
 #include <inline/powerpc.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/powerpc_protos.h>
 #else

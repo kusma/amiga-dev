@@ -13,7 +13,11 @@ extern struct Library *BevelBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/bevel.h>
+#else
 #include <inline/bevel.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/bevel_protos.h>
 #else

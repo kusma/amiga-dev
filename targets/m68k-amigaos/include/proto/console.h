@@ -13,7 +13,11 @@ extern struct Library *ConsoleDevice;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/console.h>
+#else
 #include <inline/console.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/console_protos.h>
 #else

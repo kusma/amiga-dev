@@ -13,7 +13,11 @@ extern struct Library *TranslatorBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/translator.h>
+#else
 #include <inline/translator.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/translator_protos.h>
 #else

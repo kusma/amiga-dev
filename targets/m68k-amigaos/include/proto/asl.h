@@ -13,7 +13,11 @@ extern struct Library *AslBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/asl.h>
+#else
 #include <inline/asl.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/asl_protos.h>
 #else

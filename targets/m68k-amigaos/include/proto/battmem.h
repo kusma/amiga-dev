@@ -13,7 +13,11 @@ extern struct Library *BattMemBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/battmem.h>
+#else
 #include <inline/battmem.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/battmem_protos.h>
 #else

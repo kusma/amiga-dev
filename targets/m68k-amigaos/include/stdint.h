@@ -1,6 +1,8 @@
 #ifndef __STDINT_H
 #define __STDINT_H 1
 
+#include <limits.h>
+
 typedef signed char int8_t;
 typedef signed short int16_t;
 typedef signed int int32_t;
@@ -97,10 +99,12 @@ typedef unsigned long long uintmax_t;
 #define INT16_C(x) x
 #define INT32_C(x) x
 #define INT64_C(x) x##LL
+#define INTMAX_C(x) x##LL
 
 #define UINT8_C(x) x##U
 #define UINT16_C(x) x##U
 #define UINT32_C(x) x##U
 #define UINT64_C(x) x##ULL
+#define UINTMAX_C(x) x##ULL
 
-#endif
+#endif /* __STDINT_H */

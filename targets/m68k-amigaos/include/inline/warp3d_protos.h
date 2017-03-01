@@ -120,8 +120,8 @@ ULONG __W3D_ClearZBuffer(__reg("a6") void *, __reg("a0") W3D_Context * context, 
 ULONG __W3D_ReadZPixel(__reg("a6") void *, __reg("a0") W3D_Context * context, __reg("d0") ULONG x, __reg("d1") ULONG y, __reg("a1") W3D_Double * z)="\tjsr\t-234(a6)";
 #define W3D_ReadZPixel(context, x, y, z) __W3D_ReadZPixel(Warp3DBase, (context), (x), (y), (z))
 
-ULONG __W3D_ReadZSpan(__reg("a6") void *, __reg("a0") W3D_Context * context, __reg("d0") ULONG x, __reg("d1") ULONG y, __reg("d2") ULONG n, __reg("a1") void * z)="\tjsr\t-240(a6)";
-#define W3D_ReadZSpan(context, x, y, n, z) __W3D_ReadZSpan(Warp3DBase, (context), (x), (y), (n), (void *)(z))
+ULONG __W3D_ReadZSpan(__reg("a6") void *, __reg("a0") W3D_Context * context, __reg("d0") ULONG x, __reg("d1") ULONG y, __reg("d2") ULONG n, __reg("a1") W3D_Double * z)="\tjsr\t-240(a6)";
+#define W3D_ReadZSpan(context, x, y, n, z) __W3D_ReadZSpan(Warp3DBase, (context), (x), (y), (n), (z))
 
 ULONG __W3D_SetZCompareMode(__reg("a6") void *, __reg("a0") W3D_Context * context, __reg("d1") ULONG mode)="\tjsr\t-246(a6)";
 #define W3D_SetZCompareMode(context, mode) __W3D_SetZCompareMode(Warp3DBase, (context), (mode))
@@ -141,8 +141,8 @@ ULONG __W3D_FreeStencilBuffer(__reg("a6") void *, __reg("a0") W3D_Context * cont
 ULONG __W3D_ReadStencilPixel(__reg("a6") void *, __reg("a0") W3D_Context * context, __reg("d0") ULONG x, __reg("d1") ULONG y, __reg("a1") ULONG * st)="\tjsr\t-276(a6)";
 #define W3D_ReadStencilPixel(context, x, y, st) __W3D_ReadStencilPixel(Warp3DBase, (context), (x), (y), (st))
 
-ULONG __W3D_ReadStencilSpan(__reg("a6") void *, __reg("a0") W3D_Context * context, __reg("d0") ULONG x, __reg("d1") ULONG y, __reg("d2") ULONG n, __reg("a1") void * st)="\tjsr\t-282(a6)";
-#define W3D_ReadStencilSpan(context, x, y, n, st) __W3D_ReadStencilSpan(Warp3DBase, (context), (x), (y), (n), (void *)(st))
+ULONG __W3D_ReadStencilSpan(__reg("a6") void *, __reg("a0") W3D_Context * context, __reg("d0") ULONG x, __reg("d1") ULONG y, __reg("d2") ULONG n, __reg("a1") ULONG * st)="\tjsr\t-282(a6)";
+#define W3D_ReadStencilSpan(context, x, y, n, st) __W3D_ReadStencilSpan(Warp3DBase, (context), (x), (y), (n), (st))
 
 ULONG __W3D_SetLogicOp(__reg("a6") void *, __reg("a0") W3D_Context * context, __reg("d1") ULONG operation)="\tjsr\t-288(a6)";
 #define W3D_SetLogicOp(context, operation) __W3D_SetLogicOp(Warp3DBase, (context), (operation))
@@ -171,14 +171,14 @@ ULONG __W3D_SetWriteMask(__reg("a6") void *, __reg("a0") W3D_Context * context, 
 ULONG __W3D_WriteStencilPixel(__reg("a6") void *, __reg("a0") W3D_Context * context, __reg("d0") ULONG x, __reg("d1") ULONG y, __reg("d2") ULONG st)="\tjsr\t-336(a6)";
 #define W3D_WriteStencilPixel(context, x, y, st) __W3D_WriteStencilPixel(Warp3DBase, (context), (x), (y), (st))
 
-ULONG __W3D_WriteStencilSpan(__reg("a6") void *, __reg("a0") W3D_Context * context, __reg("d0") ULONG x, __reg("d1") ULONG y, __reg("d2") ULONG n, __reg("a1") void * st, __reg("a2") void * mask)="\tjsr\t-342(a6)";
-#define W3D_WriteStencilSpan(context, x, y, n, st, mask) __W3D_WriteStencilSpan(Warp3DBase, (context), (x), (y), (n), (void *)(st), (void *)(mask))
+ULONG __W3D_WriteStencilSpan(__reg("a6") void *, __reg("a0") W3D_Context * context, __reg("d0") ULONG x, __reg("d1") ULONG y, __reg("d2") ULONG n, __reg("a1") ULONG * st, __reg("a2") UBYTE * mask)="\tjsr\t-342(a6)";
+#define W3D_WriteStencilSpan(context, x, y, n, st, mask) __W3D_WriteStencilSpan(Warp3DBase, (context), (x), (y), (n), (st), (mask))
 
 void __W3D_WriteZPixel(__reg("a6") void *, __reg("a0") W3D_Context * context, __reg("d0") ULONG x, __reg("d1") ULONG y, __reg("a1") W3D_Double * z)="\tjsr\t-348(a6)";
 #define W3D_WriteZPixel(context, x, y, z) __W3D_WriteZPixel(Warp3DBase, (context), (x), (y), (z))
 
-void __W3D_WriteZSpan(__reg("a6") void *, __reg("a0") W3D_Context * context, __reg("d0") ULONG x, __reg("d1") ULONG y, __reg("d2") ULONG n, __reg("a1") void * z, __reg("a2") void * maks)="\tjsr\t-354(a6)";
-#define W3D_WriteZSpan(context, x, y, n, z, maks) __W3D_WriteZSpan(Warp3DBase, (context), (x), (y), (n), (void *)(z), (void *)(maks))
+void __W3D_WriteZSpan(__reg("a6") void *, __reg("a0") W3D_Context * context, __reg("d0") ULONG x, __reg("d1") ULONG y, __reg("d2") ULONG n, __reg("a1") W3D_Double * z, __reg("a2") UBYTE * maks)="\tjsr\t-354(a6)";
+#define W3D_WriteZSpan(context, x, y, n, z, maks) __W3D_WriteZSpan(Warp3DBase, (context), (x), (y), (n), (z), (maks))
 
 ULONG __W3D_SetCurrentColor(__reg("a6") void *, __reg("a0") W3D_Context * context, __reg("a1") W3D_Color * color)="\tjsr\t-360(a6)";
 #define W3D_SetCurrentColor(context, color) __W3D_SetCurrentColor(Warp3DBase, (context), (color))
@@ -255,5 +255,26 @@ ULONG __W3D_BestModeID(__reg("a6") void *, __reg("a0") struct TagItem * tags)="\
 ULONG __W3D_BestModeIDTags(__reg("a6") void *, Tag tags, ...)="\tmove.l\ta0,-(a7)\n\tlea\t4(a7),a0\n\tjsr\t-486(a6)\n\tmovea.l\t(a7)+,a0";
 #define W3D_BestModeIDTags(...) __W3D_BestModeIDTags(Warp3DBase, __VA_ARGS__)
 #endif
+
+ULONG __W3D_VertexPointer(__reg("a6") void *, __reg("a0") W3D_Context* context, __reg("a1") void * pointer, __reg("d0") int stride, __reg("d1") ULONG mode, __reg("d2") ULONG flags)="\tjsr\t-492(a6)";
+#define W3D_VertexPointer(context, pointer, stride, mode, flags) __W3D_VertexPointer(Warp3DBase, (context), (pointer), (stride), (mode), (flags))
+
+ULONG __W3D_TexCoordPointer(__reg("a6") void *, __reg("a0") W3D_Context* context, __reg("a1") void * pointer, __reg("d0") int stride, __reg("d1") int unit, __reg("d2") int off_v, __reg("d3") int off_w, __reg("d4") ULONG flags)="\tjsr\t-498(a6)";
+#define W3D_TexCoordPointer(context, pointer, stride, unit, off_v, off_w, flags) __W3D_TexCoordPointer(Warp3DBase, (context), (pointer), (stride), (unit), (off_v), (off_w), (flags))
+
+ULONG __W3D_ColorPointer(__reg("a6") void *, __reg("a0") W3D_Context* context, __reg("a1") void * pointer, __reg("d0") int stride, __reg("d1") ULONG format, __reg("d2") ULONG mode, __reg("d3") ULONG flags)="\tjsr\t-504(a6)";
+#define W3D_ColorPointer(context, pointer, stride, format, mode, flags) __W3D_ColorPointer(Warp3DBase, (context), (pointer), (stride), (format), (mode), (flags))
+
+ULONG __W3D_BindTexture(__reg("a6") void *, __reg("a0") W3D_Context* context, __reg("d0") ULONG tmu, __reg("a1") W3D_Texture * texture)="\tjsr\t-510(a6)";
+#define W3D_BindTexture(context, tmu, texture) __W3D_BindTexture(Warp3DBase, (context), (tmu), (texture))
+
+ULONG __W3D_DrawArray(__reg("a6") void *, __reg("a0") W3D_Context* context, __reg("d0") ULONG primitive, __reg("d1") ULONG base, __reg("d2") ULONG count)="\tjsr\t-516(a6)";
+#define W3D_DrawArray(context, primitive, base, count) __W3D_DrawArray(Warp3DBase, (context), (primitive), (base), (count))
+
+ULONG __W3D_DrawElements(__reg("a6") void *, __reg("a0") W3D_Context* context, __reg("d0") ULONG primitive, __reg("d1") ULONG type, __reg("d2") ULONG count, __reg("a1") void * indices)="\tjsr\t-522(a6)";
+#define W3D_DrawElements(context, primitive, type, count, indices) __W3D_DrawElements(Warp3DBase, (context), (primitive), (type), (count), (indices))
+
+void __W3D_SetFrontFace(__reg("a6") void *, __reg("a0") W3D_Context* context, __reg("d0") ULONG direction)="\tjsr\t-528(a6)";
+#define W3D_SetFrontFace(context, direction) __W3D_SetFrontFace(Warp3DBase, (context), (direction))
 
 #endif /*  _VBCCINLINE_WARP3D_H  */

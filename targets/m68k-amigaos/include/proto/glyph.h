@@ -13,7 +13,11 @@ extern struct Library *GlyphBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/glyph.h>
+#else
 #include <inline/glyph.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/glyph_protos.h>
 #else

@@ -15,6 +15,8 @@ typedef unsigned char *va_list;
  
 #define va_end(vl) ((vl)=0)
 
+#if __STDC_VERSION__ >= 199901L
 #define va_copy(new,old) ((new)=(old))
+#endif
 
 #endif

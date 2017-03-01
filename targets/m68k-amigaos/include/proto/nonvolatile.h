@@ -13,7 +13,11 @@ extern struct Library *NVBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/nonvolatile.h>
+#else
 #include <inline/nonvolatile.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/nonvolatile_protos.h>
 #else

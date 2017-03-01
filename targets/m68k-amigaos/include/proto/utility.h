@@ -13,7 +13,11 @@ extern struct UtilityBase *UtilityBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/utility.h>
+#else
 #include <inline/utility.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/utility_protos.h>
 #else

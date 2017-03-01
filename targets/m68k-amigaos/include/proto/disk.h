@@ -13,7 +13,11 @@ extern struct DiskResource *DiskBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/disk.h>
+#else
 #include <inline/disk.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/disk_protos.h>
 #else

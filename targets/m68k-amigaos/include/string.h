@@ -309,7 +309,7 @@ char *__asm_strcat(__reg("a0") char *, __reg("a1") const char *) =
         "\tmove.b\t(a1)+,(a0)+\n"
         "\tbne.b\t*-4";
 
-void *__asm_strrchr(__reg("a0") char *, __reg("d1") int) =
+char *__asm_strrchr(__reg("a0") const char *, __reg("d1") int) =
         "\tmoveq\t#0,d0\n"
         ";=barrier\n"
         "\tcmp.b\t(a0),d1\n"

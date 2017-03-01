@@ -13,7 +13,11 @@ extern struct Library *ColorWheelBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/colorwheel.h>
+#else
 #include <inline/colorwheel.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/colorwheel_protos.h>
 #else

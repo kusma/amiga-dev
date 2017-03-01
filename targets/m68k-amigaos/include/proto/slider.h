@@ -13,7 +13,11 @@ extern struct Library *SliderBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/slider.h>
+#else
 #include <inline/slider.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/slider_protos.h>
 #else

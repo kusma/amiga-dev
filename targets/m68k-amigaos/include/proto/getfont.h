@@ -13,7 +13,11 @@ extern struct Library *GetFontBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/getfont.h>
+#else
 #include <inline/getfont.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/getfont_protos.h>
 #else

@@ -13,7 +13,11 @@ extern struct Library *WizardBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/wizard.h>
+#else
 #include <inline/wizard.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/wizard_protos.h>
 #else

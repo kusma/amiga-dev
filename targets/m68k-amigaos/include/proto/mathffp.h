@@ -13,7 +13,11 @@ extern struct Library *MathBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/mathffp.h>
+#else
 #include <inline/mathffp.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/mathffp_protos.h>
 #else

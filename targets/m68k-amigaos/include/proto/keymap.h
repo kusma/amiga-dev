@@ -13,7 +13,11 @@ extern struct Library *KeymapBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/keymap.h>
+#else
 #include <inline/keymap.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/keymap_protos.h>
 #else

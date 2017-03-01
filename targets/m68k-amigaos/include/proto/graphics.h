@@ -13,7 +13,11 @@ extern struct GfxBase *GfxBase;
 #endif
 
 #ifdef __GNUC__
+#ifdef __AROS__
+#include <defines/graphics.h>
+#else
 #include <inline/graphics.h>
+#endif
 #elif defined(__VBCC__)
 #include <inline/graphics_protos.h>
 #else
