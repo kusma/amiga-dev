@@ -28,5 +28,4 @@ only for convenience.
 ## Building next version by yourself
 
 All was done following excellent guide found at Blitter Studio:
-http://blitterstudio.com/setting-up-an-amiga-cross-compiler-windows/
-http://blitterstudio.com/setting-up-an-amiga-cross-compiler-windows-part-2/
+http://blitterstudio.com/setting-up-an-amiga-cross-compiler-windows/ and http://blitterstudio.com/setting-up-an-amiga-cross-compiler-windows-part-2/
