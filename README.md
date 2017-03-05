@@ -27,12 +27,6 @@ only for convenience.
 
 ## Building next version by yourself
 
-All was done following excellent guide by Blitter Studio:
+All was done following excellent guide found at Blitter Studio:
 http://blitterstudio.com/setting-up-an-amiga-cross-compiler-windows/
 http://blitterstudio.com/setting-up-an-amiga-cross-compiler-windows-part-2/
-
-Except of minor changes:
-
-1. When compiling vbcc, in makefile remove params from CC.
-2. When running 'make TARGET=m68k bin/vbccm68k', be sure to answer that
-     floats/doubles are LITTLE ENDIAN, OTHERWISE THEY WILL BE UTTERLY MESSED UP.
