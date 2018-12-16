@@ -11,8 +11,8 @@ Current build consists of:
 ## Installation
 
 Install everything to "C:\amiga-dev\", add "C:\amiga-dev\bin\" to PATH, and
-set the VBCC environment variable to "C:\amiga-dev\targets\m68k-amigaos".
-Now you should be good to go.
+set the VBCC environment variable to "C:\amiga-dev\". Now you should be good
+to go.
 
 ## Credits
 
