@@ -4,9 +4,9 @@ This is a simple cross-development environment for Amiga-68k (AmigaOS 3.x)
 under Windows. It consists of VBCC, VASM, VLINK and PosixLib.
 
 Current build consists of:
-- VBCC 0.9e
-- VLink 0.15d
-- VAsm 1.7h
+- VBCC v0.9g
+- VLink v0.16f
+- VAsm v1.8i
 
 ## Installation
 
